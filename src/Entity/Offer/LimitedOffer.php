@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Offer;
 
 use App\Repository\LimitedOfferRepository;
 use Doctrine\DBAL\Types\Types;
