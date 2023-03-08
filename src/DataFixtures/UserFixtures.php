@@ -11,7 +11,6 @@ use Faker;
 
 class UserFixtures extends Fixture
 {
-
     private UserPasswordHasherInterface $encoder;
 
     public function __construct(UserPasswordHasherInterface $passwordHasher)
@@ -19,14 +18,14 @@ class UserFixtures extends Fixture
         $this->encoder = $passwordHasher;
     }
 
-
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
-        for($i = 0; $i < 20; $i++){
+        for ($i = 0; $i < 20; $i++) {
             $user = new User();
             $user->setEmail($faker->email());
-            $user->setPassword($this->encoder->hashPassword($user, ($faker->password())));
+            $user->setPassword($this->encoder->hashPassword($user, $faker->password()));
+            $user->setRoles(['ROLE_USER']);
             $manager->persist($user);
         }
 

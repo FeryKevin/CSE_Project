@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Survey;
 
 use App\Repository\SurveyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
