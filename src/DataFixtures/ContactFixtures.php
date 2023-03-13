@@ -15,10 +15,10 @@ class ContactFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 0; $i < 20; $i++) {
             $contact = new Contact();
-            $contact->setName($faker->lastName());
-            $contact->setFirstName($faker->firstName());
-            $contact->setEmail($faker->email());
-            $contact->setMessage($faker->text());
+            $contact->setName($faker->lastName())
+                ->setFirstName($faker->firstName())
+                ->setEmail($faker->email())
+                ->setMessage($faker->text());
             $manager->persist($contact);
         }
 
