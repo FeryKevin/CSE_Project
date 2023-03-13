@@ -26,7 +26,8 @@ class OfferFixtures extends Fixture implements DependentFixtureInterface
             $offer = new Offer();
             $offer->setPublishedAt($publish)
                 ->setDescription($faker->text())
-                ->setType($type);
+                ->setType($type)
+                ->setName($faker->sentence(3));
 
             if ($type === 'limited'){
                 $offer->setLimitedDisplayBeginning($faker->dateTime())
@@ -35,7 +36,6 @@ class OfferFixtures extends Fixture implements DependentFixtureInterface
             } else {
                 $validate = $faker->dateTime();
                 $offer->setPermanentMinimumPlaces($faker->randomNumber(2, false))
-                    ->setPermanentName($faker->word())
                     ->setPermanentValidityBeginning($validate)
                     ->setPermanentValidityEnding($validate->modify("+{$faker->randomDigitNotZero()} days"));
             }
