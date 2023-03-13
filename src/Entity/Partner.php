@@ -14,32 +14,21 @@ class Partner
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $website_link = null;
+    private ?string $websiteLink = null;
+
+    #[ORM\ManyToOne(inversedBy: 'partner')]
+    #[ORM\JoinColumn(name:'file_id', nullable: false)]
+    private ?File $image = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -68,12 +57,24 @@ class Partner
 
     public function getWebsiteLink(): ?string
     {
-        return $this->website_link;
+        return $this->websiteLink;
     }
 
-    public function setWebsiteLink(string $website_link): self
+    public function setWebsiteLink(string $websiteLink): self
     {
-        $this->website_link = $website_link;
+        $this->websiteLink = $websiteLink;
+
+        return $this;
+    }
+
+    public function getImage(): File
+    {
+        return $this->image;
+    }
+
+    public function setImage(File $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
