@@ -27,8 +27,8 @@ class Offer
     #[ORM\Column(length: 50)]
     private ?string $type = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $permanentName = null;
+    #[ORM\Column(length: 50)]
+    private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $permanentValidityBeginning = null;
@@ -104,14 +104,14 @@ class Offer
         return $this;
     }
 
-    public function getPermanentName(): ?string
+    public function getName(): ?string
     {
-        return $this->permanentName;
+        return $this->name;
     }
 
-    public function setPermanentName(?string $permanentName): self
+    public function setName(string $name): self
     {
-        $this->permanentName = $permanentName;
+        $this->name = $name;
 
         return $this;
     }
