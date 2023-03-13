@@ -6,7 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-use App\Entity\Survey\Answer;
+use App\Entity\Answer;
 use Faker;
 
 class AnswerFixtures extends Fixture implements DependentFixtureInterface
@@ -18,7 +18,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             $answer = new Answer();
             $answer->setText($faker->word());
             $answer->setAnswerNumber($faker->numberBetween(0, 100));
-            $answer->setSurveyId($this->getReference('survey-' . $faker->numberBetween(1, 5)));
+            $answer->setSurvey($this->getReference('survey-' . $faker->numberBetween(1, 5)));
             $manager->persist($answer);
         }
 
