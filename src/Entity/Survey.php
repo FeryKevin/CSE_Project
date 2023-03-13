@@ -21,7 +21,7 @@ class Survey
     #[ORM\Column(length: 255)]
     private ?string $question = null;
 
-    #[ORM\OneToMany(mappedBy: 'survey_id', targetEntity: Answer::class)]
+    #[ORM\OneToMany(mappedBy: 'survey', targetEntity: Answer::class)]
     private Collection $answers;
 
     public function __construct()
@@ -70,7 +70,7 @@ class Survey
     {
         if (!$this->answers->contains($answer)) {
             $this->answers->add($answer);
-            $answer->setSurveyId($this);
+            $answer->setSurvey($this);
         }
 
         return $this;
@@ -80,8 +80,8 @@ class Survey
     {
         if ($this->answers->removeElement($answer)) {
             // set the owning side to null (unless already changed)
-            if ($answer->getSurveyId() === $this) {
-                $answer->setSurveyId(null);
+            if ($answer->getSurvey() === $this) {
+                $answer->setSurvey(null);
             }
         }
 

@@ -17,11 +17,11 @@ class Answer
     private ?string $text = null;
 
     #[ORM\Column]
-    private ?int $answer_number = null;
+    private ?int $answerNumber = null;
 
     #[ORM\ManyToOne(inversedBy: 'answers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?survey $survey_id = null;
+    private ?survey $survey = null;
 
     public function getId(): ?int
     {
@@ -42,24 +42,24 @@ class Answer
 
     public function getAnswerNumber(): ?int
     {
-        return $this->answer_number;
+        return $this->answerNumber;
     }
 
-    public function setAnswerNumber(int $answer_number): self
+    public function setAnswerNumber(int $answerNumber): self
     {
-        $this->answer_number = $answer_number;
+        $this->answerNumber = $answerNumber;
 
         return $this;
     }
 
-    public function getSurveyId(): ?survey
+    public function getSurvey(): ?survey
     {
-        return $this->survey_id;
+        return $this->survey;
     }
 
-    public function setSurveyId(?survey $survey_id): self
+    public function setSurvey(?survey $survey): self
     {
-        $this->survey_id = $survey_id;
+        $this->survey = $survey;
 
         return $this;
     }

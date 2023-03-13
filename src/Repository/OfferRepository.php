@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\LimitedOffer;
+use App\Entity\Offer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<LimitedOffer>
+ * @extends ServiceEntityRepository<Offer>
  *
- * @method LimitedOffer|null find($id, $lockMode = null, $lockVersion = null)
- * @method LimitedOffer|null findOneBy(array $criteria, array $orderBy = null)
- * @method LimitedOffer[]    findAll()
- * @method LimitedOffer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Offer|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Offer|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Offer[]    findAll()
+ * @method Offer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LimitedOfferRepository extends ServiceEntityRepository
+class OfferRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, LimitedOffer::class);
+        parent::__construct($registry, Offer::class);
     }
 
-    public function save(LimitedOffer $entity, bool $flush = false): void
+    public function save(Offer $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class LimitedOfferRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(LimitedOffer $entity, bool $flush = false): void
+    public function remove(Offer $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class LimitedOfferRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return LimitedOffer[] Returns an array of LimitedOffer objects
+//     * @return Offer[] Returns an array of Offer objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class LimitedOfferRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?LimitedOffer
+//    public function findOneBySomeField($value): ?Offer
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

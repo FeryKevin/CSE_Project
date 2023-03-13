@@ -15,10 +15,10 @@ class CSE
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $presentation_home = null;
+    private ?string $presentationHome = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $presentation_about = null;
+    private ?string $presentationAbout = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $rules = null;
@@ -36,24 +36,24 @@ class CSE
 
     public function getPresentationHome(): ?string
     {
-        return $this->presentation_home;
+        return $this->presentationHome;
     }
 
-    public function setPresentationHome(string $presentation_home): self
+    public function setPresentationHome(string $presentationHome): self
     {
-        $this->presentation_home = $presentation_home;
+        $this->presentationHome = $presentationHome;
 
         return $this;
     }
 
     public function getPresentationAbout(): ?string
     {
-        return $this->presentation_about;
+        return $this->presentationAbout;
     }
 
-    public function setPresentationAbout(string $presentation_about): self
+    public function setPresentationAbout(string $presentationAbout): self
     {
-        $this->presentation_about = $presentation_about;
+        $this->presentationAbout = $presentationAbout;
 
         return $this;
     }

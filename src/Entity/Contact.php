@@ -18,7 +18,7 @@ class Contact
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $first_name = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
@@ -45,12 +45,12 @@ class Contact
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
-    public function setFirstName(string $first_name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
 
         return $this;
     }
