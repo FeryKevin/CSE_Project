@@ -22,7 +22,12 @@ class Mailer{
             ->from('noreply@lycceestvincent.fr')
             ->to($subscriber->getEmail())
             ->subject('Une offre à été mise à jour')
-            ->text('Sending emails is fun again!');
+            ->html("<h2>Une offre à été mise à jour</h2>
+                <h1>Nom offre : </h1>
+                <p>{$offer->getDescription()}</p>
+                
+                <a href='http://localhost:8000/'>En profiter</a>
+            ");
 
         $this->mailer->send($email);
     }
@@ -31,9 +36,13 @@ class Mailer{
         $email = (new Email())
             ->from('noreply@lycceestvincent.fr')
             ->to($subscriber->getEmail())
-            ->subject('Une nouvelle offre à été créer')
-            ->text('Sending emails is fun again!');
-
+            ->subject('Une nouvelle offre à été créée')
+            ->html("<h2>Une offre à été ajoutée</h2>
+                <h1>Nom offre : </h1>
+                <p>{$offer->getDescription()}</p>
+                
+                <a href='http://localhost:8000/'>En profiter</a>
+            ");
         $this->mailer->send($email);
     }
 }
