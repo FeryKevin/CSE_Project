@@ -5,7 +5,7 @@ namespace App\DataFixtures\Survey;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-use App\Entity\Survey\Survey;
+use App\Entity\Survey;
 use Faker;
 
 class SurveyFixtures extends Fixture

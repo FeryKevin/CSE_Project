@@ -15,7 +15,9 @@ class NewsletterFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 0; $i < 20; $i++) {
             $newsletter = new Newsletter();
-            $newsletter->setEmail($faker->email());
+            $newsletter->setEmail($faker->email())
+                ->setIsRegistered(1)
+                ->setRegisteredAt($faker->dateTime());
             $manager->persist($newsletter);
         }
 
