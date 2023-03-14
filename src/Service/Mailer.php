@@ -10,8 +10,6 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Part\File;
 use Symfony\Component\Mime\Part\DataPart;
 
-// use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-
 class Mailer
 {
     private MailerInterface $mailer;
@@ -31,12 +29,9 @@ class Mailer
             ->subject('Une offre à été mise à jour')
             ->html("<h2>Une offre à été mise à jour</h2>
                 <h1>{$offer->getName()}: </h1>
-                <p>{$offer->getDescription()}</p>
-
-                <img src='http://localhost:8000/{$offer->getImages()[0]->getPath()}'>
-                
-                <a href='http://localhost:8000/'> -> En profiter <- </a>
-            ");
+                <p>{$offer->getDescription()}</p>                
+                <a href='http://localhost:8000/'> -> En profiter <- </a>")
+            ->addPart((new DataPart(new File('../' . $offer->getImages()[0]->getPath(), 'offer-image', 'image/png')))->asInline());
 
         $this->mailer->send($email);
     }
@@ -49,10 +44,9 @@ class Mailer
             ->subject('Une nouvelle offre à été créée')
             ->html("<h2>Une nouvelle offre à été ajoutée</h2>
             <h1>{$offer->getName()}</h1>
-            <p>{$offer->getDescription()}</p>")
-            ->addPart((new DataPart(new File('../' . $offer->getImages()[0]->getPath())))->asInline())
-            // ->addPart((new DataPart(fopen('http://localhost:8000/' . $offer->getImages()[0]->getPath(), 'r')->asInline())))
-            ->html("<a href='http://localhost:8000/'> -> En profiter <- </a>");
+            <p>{$offer->getDescription()}</p>
+            <a href=http://localhost:8000/> -> En profiter <- </a>")
+            ->addPart((new DataPart(new File('../' . $offer->getImages()[0]->getPath(), 'offer-image', 'image/png')))->asInline());
 
         $this->mailer->send($email);
     }
