@@ -6,25 +6,190 @@
 
 /* NAVBAR */
 
-.navbar {
-    background-color: #1c3168;
+#navbar {
+    display: flex;
+    padding: 0px 10%;
+    align-items: center;
+    background: #1c3168;
 }
-.navbar-nav {
-    margin: 0 8%;
-    text-align: center;
+
+#navbar .logo {
+    width: 9.9%;
+    height: 9.9%;
 }
-.nav-link {
-    color: white !important;
-    margin: 0 20px;
+
+#navbar ul {
+    list-style: none;
 }
-.nav-link.active,
-.nav-link:hover {
+
+#navbar ul li {
+    display: inline-block;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0px 40px;
+}
+
+#navbar a:hover, #navbar a.active{
     background-color: #b6a786;
     color: #fff !important;
 }
 
-@media screen and (max-width: 991.5px) {
-    .logo{
+/*ICON*/
+
+#icon {
+    background-color: #b6a786;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#icon svg {
+    color: #FFF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #FFF;
+}
+
+#icon:hover svg {
+    color: #b6a786;
+}
+
+#checkbox,
+#icon {
+    display: none;
+}
+
+/* HOMEPAGE */
+
+.offer-container{
+    background-color: #EFEDED;
+    width: 75%;
+    padding: 20px 10px;
+    margin: 10px;
+    height: 140px;
+}
+
+.offer-icon{
+    font-size: 63%;
+    background-color: #1c3168;
+    color: white;
+    border-radius: 6px;
+    width: 126px;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.offer-top{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h6.offer-time {
+    margin-top: 4px;
+    margin-left: 5px;
+    font-size: 78%;
+}
+
+p.offer-description {
+    padding: 15px 0;
+    max-width: 90%;
+    min-height: 66%;
+}
+
+.offer-about{
+    display: flex;
+    text-decoration: none;
+    text-transform: uppercase;
+    justify-content: end;
+    color: black;
+}
+
+.offer-about:hover{
+    text-decoration: underline;
+    background-color: inherit;
+    padding: 0;
+    color: burlywood;
+}
+
+/* PAGINATION */
+
+#pagination{
+    display: inline-flex;
+    list-style-type: none;
+}
+
+#pagination li {
+    border: black 1px solid;
+    margin-inline: 19px;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+#pagination a {
+    text-decoration: none;
+    padding: 5px 11px;
+}
+
+#pagination a:visited {
+    color: black;
+}
+
+li.page-item.disable {
+    background: rgb(173, 173, 173);
+    color: white;
+}
+
+li.page-item.current {
+    border-color: #054bfc !important;
+    color: #054bfc;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1126px) {
+    #navbar {
+        border-bottom: 1px solid #455468;
+    }
+
+    #navbar .logo{
         display: none;
+    }
+
+    #navbar ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 71px);
+        background-color: #18283B;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        margin-top: 71px;
+    }
+
+    #navbar ul li {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #checkbox:checked~ul {
+        display: block;
     }
 }
