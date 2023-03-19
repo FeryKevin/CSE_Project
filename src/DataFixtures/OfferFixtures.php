@@ -12,7 +12,7 @@ use Faker;
 class OfferFixtures extends Fixture implements DependentFixtureInterface
 {
 
-    private const TYPES = ['permanent'];
+    private const TYPES = ['permanent', 'limited'];
 
     public function load(ObjectManager $manager): void
     {
