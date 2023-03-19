@@ -4,6 +4,7 @@ composer := $(shell which composer)
 database:
 	@printf "\033[32;49m *** Initiliaze database *** \033[39m\n"
 	@rm -rf public/img/offer
+	@$(console) doctrine:database:create
 	@$(console) doctrine:schema:update -f
 	@$(console) doctrine:fixtures:load -n
 .PHONY: database
