@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div id='newsletter-form'>
+    <h3>Inscrivez-vous aux offres</h3>
+    <p>Reçevez un email à chaque nouvelle offre sur le site internet<p>
+    {{ form_start(form) }}
+        <div class='newsletter-bottom'>
+        {{ form_widget(form.email) }}
+        {{ form_widget(form.save) }}
+        </div>
+    {{ form_end(form) }}
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
