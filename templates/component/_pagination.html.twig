@@ -15,7 +15,15 @@
 
                 {% if pagination.currentPage == 1 %}
                     <li class='page-item current'>
-                        <a>1</a>
+                        <a >1</a>
+                    </li>
+                    <li class='page-item'>
+                        <a href={{ path('paginedHome', {"page" : 2}) }}>2</a>
+                    <li class='page-item'>
+                        <a>...</a>
+                    </li>  
+                    <li class='page-item'>
+                        <a href={{ path('paginedHome', {"page" : pagination.pages-1}) }}>{{ pagination.pages-1 }}</a>
                     </li>
                 {% else %}
                     <li class='page-item'>
@@ -51,7 +59,7 @@
                 
                 {% if pagination.currentPage == pagination.pages-1 %}
                     <li class='page-item current'>
-                        <a>{{ pagination.currentPage }}</a>
+                        <a>{{ pagination.pages-1 }}</a>
                     </li>
                 {% elseif pagination.currentPage == 2 %}
                     <li class='page-item'>
