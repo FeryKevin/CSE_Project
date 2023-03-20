@@ -23,7 +23,81 @@
     color: #fff !important;
 }
 
-@media screen and (max-width: 991.5px) {
+/*ICON*/
+
+#icon {
+    background-color: #b6a786;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#icon svg {
+    color: #FFF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #FFF;
+}
+
+#icon:hover svg {
+    color: #b6a786;
+}
+
+#checkbox,
+#icon {
+    display: none;
+}
+
+/* NEWSLETTER INSCRIPTION */
+
+div#newsletter-form {
+    width: 23%;
+}
+
+.newsletter-bottom{
+    margin-top: 10px;
+}
+
+input#newsletter_email {
+    border-radius: 7px;
+    border: 1px grey solid;
+    padding: 4px 3px;
+    width: 53%;
+}
+
+input#newsletter_email::placeholder {
+    text-align: center;
+}
+
+button#newsletter_save {
+    background-color: white;
+    border: 1px grey solid;
+    border-radius: 7px;
+    padding: 4px 13px;
+    margin-left: 5px;
+}
+
+.alert-success {
+    color: rgb(0, 218, 0);
+    margin-top: 7px;
+}
+
+.alert-fail {
+    color: rgb(255, 0, 0);
+    margin-top: 7px;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1126px) {
+    nav {
+        border-bottom: 1px solid #455468;
+    }
+
     .logo{
         display: none;
     }
