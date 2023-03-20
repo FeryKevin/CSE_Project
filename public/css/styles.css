@@ -97,10 +97,6 @@ button#newsletter_save {
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1126px) {
-    nav {
-        border-bottom: 1px solid #455468;
-    }
-
     .logo {
         display: none;
     }
@@ -182,10 +178,11 @@ h6.offer-time {
     text-transform: uppercase;
     color: black;
     float: right;
-    bottom: 13px;
+    bottom: 18px;
     position: relative;
     margin-top: 10px;
     margin-bottom: 5%;
+    vertical-align: bottom;
 }
 
 .offer-about:hover {
@@ -206,10 +203,22 @@ h6.offer-time {
         justify-content: center;
     }
 
+    h6.offer-time{
+        font-size: 70%;
+    }
+
     .offer-container {
         width: 100%;
-        height: 209px;
+        height: 224px;
     }
+
+    #pagination{
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+
 }
 
 /* PAGINATION */
@@ -235,12 +244,12 @@ h6.offer-time {
     color: black;
 }
 
-li.page-number.disable {
+li.pagination-link.disable {
     background: rgb(173, 173, 173);
     color: white;
 }
 
-li.page-number.current {
+li.pagination-link.current {
     border-color: #054bfc !important;
     color: #054bfc;
 }
@@ -306,16 +315,3 @@ li.page-number.current {
 #msg-table {
     width: 80%;
 }
-
-/* h3 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.offer-container {
-    background-color: #EFEDED;
-    width: 100%;
-    padding: 20px 10px;
-    margin-bottom: 2%;
-    height: 28%;
-} */
