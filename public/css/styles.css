@@ -171,7 +171,7 @@ h6.offer-time {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     white-space: normal;
     padding-top: 20px;
@@ -185,6 +185,7 @@ h6.offer-time {
     bottom: 13px;
     position: relative;
     margin-top: 10px;
+    margin-bottom: 5%;
 }
 
 .offer-about:hover {
@@ -192,6 +193,23 @@ h6.offer-time {
     background-color: inherit;
     padding: 0;
     color: #b6a786;
+}
+
+@media screen and (max-width: 768.5px) {
+    h3 {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .offer {
+        justify-content: center;
+    }
+
+    .offer-container {
+        width: 100%;
+        height: 209px;
+    }
 }
 
 /* PAGINATION */
