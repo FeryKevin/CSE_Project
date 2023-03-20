@@ -1,0 +1,12 @@
+<div class='survey-container'>
+    <div class='survey-header'><h5>Votre avis compte</h5></div>
+    {{ form_start(form) }}
+    <div class='survey-body'>
+        <h6>{{ survey.question }}</h6>
+        <div class='survey-choices'>
+                {{ form_widget(form.answers) }}
+            </div>
+        </div>
+        <div class='survey-footer'><a>Voir les réponses</a> {{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
+    {{ form_end(form) }}
+</div>

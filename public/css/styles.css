@@ -63,6 +63,50 @@
     }
 }
 
+
+/* SURVEY */
+
+.survey-container{
+    width: 20%;
+    text-align: center;
+}
+
+.survey-header {
+    background-color: #1c3168 ;
+    padding: 10px 3px;
+    color: white;
+}
+
+.survey-body {
+    background-color: lightgrey;
+    height: 169px; 
+}
+
+.survey-container h6 {
+    color: black;
+    padding: 24px 0;
+}
+
+.survey-footer {
+    background-color: #1c3168;
+    height: 52px;
+    display: flex;
+}
+
+.survey-footer a, #survey_form_save {
+    background-color: white;
+    border: 1px solid;
+    display: flex;
+    width: 114px;
+    font-size: 12px;
+    text-align: center;
+    height: 36px;
+    justify-content: center;
+    padding-top: 8px;
+    margin-inline: 5px;
+    margin-top: 9px;
+}
+
 /*ICON*/
 
 #icon {
@@ -518,6 +562,7 @@ li.pagination-link.current {
     #imgLogo {
         margin-bottom: 3%;
     }
+}
 
     /* ADMIN */
 
