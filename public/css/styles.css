@@ -67,21 +67,20 @@
 }
 
 /* HOMEPAGE */
-
 .offer-container{
     background-color: #EFEDED;
     width: 75%;
     padding: 20px 10px;
     margin: 10px;
-    height: 140px;
+    height: 150px;
 }
 
-.offer-icon{
+.offer-icon {
     font-size: 63%;
     background-color: #1c3168;
     color: white;
     border-radius: 6px;
-    width: 126px;
+    width: 175px;
     padding: 5px 7px;
     text-transform: uppercase;
     text-align: center;
@@ -105,11 +104,10 @@ p.offer-description {
 }
 
 .offer-about{
-    display: flex;
     text-decoration: none;
     text-transform: uppercase;
-    justify-content: end;
     color: black;
+    float: right;
 }
 
 .offer-about:hover{
