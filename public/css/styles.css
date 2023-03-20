@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Inter&display=swap%27');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap%27');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Inter;
+    font-family: Montserrat;
 }
 
 /* NAVBAR */
 
 .navbar {
     background-color: #1c3168;
+    padding: 0;
 }
 .navbar-nav {
-    margin: 0 8%;
     text-align: center;
     align-items: center;
 }
 .nav-link {
     color: white !important;
+    font-size: 18px;
     margin: 0 20px;
 }
 .nav-link.active,
@@ -26,56 +28,97 @@
     background-color: #b6a786;
     color: #fff !important;
 }
+.navbar-brand{
+    padding: 0;
+}
+#imgLogo
+{
+    padding: 0;
+}
 
-@media screen and (max-width: 991.5px) {
-    .logo{
-        display: none;
+@media screen and (min-width: 991.5px) {
+    .logo, .logo2{
+        margin: 0%;
+        height: 12vh;
+        width: 14vw;
+    }
+
+    .navbar-nav{
+        margin: 0 15vh;
+    }
+    #navbar .container-fluid{
+        padding: 0;
     }
 }
 
 /* FOOTER */
 
 .footer{
-    background-color: #b6a786;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-#imgLogo{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #b6a786;
+    /* (1em = 16px) */
+    padding: 1vh 1em;
 }
 
-.logo2{
-    margin: 0%;
-    height: 75%;
-    width: 80%;
-}
-
-.footer h6{
-    color: #fff;
-    font-weight: bold;
-}
-
-.footer a, p{
+.footer a, p, h4, h6{
     color: #fff;
     text-decoration: none;
 }
 
+.hCSE{
+    font-family: Inter;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 24px;
+}
+
+.footer h6{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 20px;
+}
+
 .footer a{
+    line-height: 24px;
     font-size: 20px;
+    font-weight: 400;
+}
+
+.footer p{
+    line-height: 17px;
+    font-size: 14px;
 }
 
 .footer a:hover{
     text-decoration: underline;
 }
 
+.link{
+    display: flex;
+}
+
+.aLink
+{
+    width: 15vw;
+    margin: 4px;
+}
+
+.page-links a{
+    display: block;
+}
+
+.offreFooter
+{
+    float: right;
+    margin: 0 10vw;
+}
+
 .inputNewsletter{
     border: none;
     border-radius: 6px;
-    height: 35px;
-    width: 200px;
+    height: 31px;
+    width: 12vw;
 }
 
 .inputNewsletter::placeholder{
@@ -87,30 +130,37 @@
     border: none;
     border-radius: 6px;
     background-color: #fff;
-    height: 35px;
-    width: 120px;
+    height: 31px;
+    width: 9vw;
 }
 
 .btnNewsletter:hover{
     color: #b6a786;
 }
 
-.hCSE{
-    margin-bottom: 6%;
-}
 
-.link{
-    display: flex;
-}
-
-.aLink
-{
-    width: 50%;
+@media screen and (min-width: 991.5px) {
+    #imgLogo
+    {
+        width: fit-content;
+        margin: 0 5vh 0 15vh;
+    }
 }
 
 @media screen and (max-width: 1200px) {
     .btnNewsletter{
         margin-top: 6%;
+    }
+}
+
+@media screen and (max-width: 991.5px) {
+    #imgLogo
+    {
+        margin-bottom: 3%;
+    }
+    
+    .logo{
+        display: none;
     }
 }
 
