@@ -38,26 +38,29 @@
 
 @media screen and (min-width: 991.5px) {
     .logo, .logo2{
-        margin: 0%;
         height: 12vh;
-        width: 14vw;
+        width: 16vw;
     }
-
+    
     .navbar-nav{
-        margin: 0 15vh;
+        margin: 0 10vh;
     }
     #navbar .container-fluid{
         padding: 0;
     }
 }
 
+@media screen and (max-width: 991.5px) {    
+    .logo{
+        display: none;
+    }
+}
+
 /* FOOTER */
 
 .footer{
-    display: flex;
     background-color: #b6a786;
-    /* (1em = 16px) */
-    padding: 1vh 1em;
+    justify-content: space-between;
 }
 
 .footer a, p, h4, h6{
@@ -72,16 +75,7 @@
     line-height: 24px;
 }
 
-.footer h6{
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-    line-height: 20px;
-}
-
 .footer a{
-    line-height: 24px;
-    font-size: 20px;
     font-weight: 400;
 }
 
@@ -94,31 +88,26 @@
     text-decoration: underline;
 }
 
-.link{
+#footer-right
+{
     display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-.aLink
-{
-    width: 15vw;
-    margin: 4px;
-}
-
-.page-links a{
-    display: block;
-}
-
-.offreFooter
-{
-    float: right;
-    margin: 0 10vw;
+.footer h6{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 20px;
 }
 
 .inputNewsletter{
+    font-size: 14px;
     border: none;
     border-radius: 6px;
     height: 31px;
-    width: 12vw;
+    width: 60%;
 }
 
 .inputNewsletter::placeholder{
@@ -127,45 +116,132 @@
 }
 
 .btnNewsletter{
+    font-size: 14px;
     border: none;
     border-radius: 6px;
     background-color: #fff;
     height: 31px;
-    width: 9vw;
+    width: 30%;
 }
 
 .btnNewsletter:hover{
     color: #b6a786;
 }
 
-
 @media screen and (min-width: 991.5px) {
+    .footer{
+        display: flex;
+        padding: 1vh 16px;
+    }
+
+    #footer-left
+    {
+        display: flex;
+    }
+
+    .footer a{
+        line-height: 21px;
+        font-size: 18px;
+    }
+
     #imgLogo
     {
+        height: 100%;
         width: fit-content;
-        margin: 0 5vh 0 15vh;
+        margin: 0 5vh 0 10vh;
+    }
+
+    .page-links{
+        width: 40vw;
+    }
+
+    .aLink
+    {
+        width: 20vw;
+        margin: 4px 0;
+    }
+
+    .link{
+        display: flex;
+    }
+
+    #footer-form
+    {
+        margin-top: 2vh;
     }
 }
 
-@media screen and (max-width: 1200px) {
-    .btnNewsletter{
-        margin-top: 6%;
+@media screen and (min-width: 991.5px) and (max-width: 1200px) {
+    .offreFooter
+    {
+        padding-right: 12%;
     }
 }
 
 @media screen and (max-width: 991.5px) {
+    .footer
+    {
+        text-align: center;
+        padding: 2% 0 3%;
+    }
+
     #imgLogo
     {
-        margin-bottom: 3%;
+        display: none;
     }
     
-    .logo{
-        display: none;
+    .hCSE{
+        font-size: 20px;
+        margin-bottom: 15px;
+        line-height: 20px;
+    }
+
+    .footer h6{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .footer p{
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .link
+    {
+        justify-content: center;
+    }
+
+    .aLink
+    {
+        font-size: 14px;
+    }
+
+    .offreFooter{
+        margin-top: 2%;
+    }
+
+    #footer-form
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inputNewsletter{
+        font-size: 12px;
+        width: 25vw;
+        margin-bottom: 1vh;
+    }
+
+    .btnNewsletter{
+        font-size: 12px;
+        width: 12vw;
     }
 }
 
 @media screen and (max-width: 767.5px) {
-    .offreFooter{
-        margin-top: 10%;
+    #imgLogo
+    {
+        margin-bottom: 3%;
     }
 }
