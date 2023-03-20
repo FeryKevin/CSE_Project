@@ -1,0 +1,21 @@
+<div id='newsletter-form'>
+    <h3>Inscrivez-vous aux offres</h3>
+    <p>Reçevez un email à chaque nouvelle offre sur le site internet<p>
+    <form name="newsletter" method="post" action={{ path('newsletter_inscription') }}>
+        <div class='newsletter-bottom'>
+        <input type="email" id="newsletter_email" name="email" required="required" placeholder="Saisissez votre email" class="newsletter-input" />
+        <button type="submit" id="newsletter_save" name="newsletter[save]" class="newsletter-btn">S&#039;inscrire</button>
+        </div>
+        <input type="hidden" id="newsletter__token" name="token" value={{ csrf_token('newsletter') }} />
+    </form>
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('fail') %}
+        <div class="alert-fail">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
