@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message | Admin {% endblock %}
+
+{% block body %}
+    <div class='table-div'>
+        <table class="table" id='msg-table'>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Message</th>
+                <tr>
+            </thead>
+            {% for message in contacts %}
+                <tr>
+                    <th scope="row">{{ message.name }}</th>
+                    <td>{{ message.firstName }}</td>
+                    <td>{{ message.email }}</td>
+                    <td class='contact-msg'>{{ message.message }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

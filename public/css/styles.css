@@ -4,38 +4,23 @@
     box-sizing: border-box;
 }
 
-/*NAVBAR*/
+/* NAVBAR */
 
-nav {
-    display: flex;
-    padding: 0px 10%;
-    align-items: center;
-    background: #1c3168;
+.navbar {
+    background-color: #1c3168;
 }
-
-.logo {
-    width: 9.9%;
-    height: 9.9%;
+.navbar-nav {
+    margin: 0 8%;
+    text-align: center;
 }
-
-ul {
-    list-style: none;
+.nav-link {
+    color: white !important;
+    margin: 0 20px;
 }
-
-ul li {
-    display: inline-block;
-}
-
-ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0px 40px;
-}
-
-a:hover, a.active{
+.nav-link.active,
+.nav-link:hover {
     background-color: #b6a786;
-    padding-top: 17px;
-    padding-bottom: 17px;
+    color: #fff !important;
 }
 
 /*ICON*/
@@ -111,34 +96,25 @@ button#newsletter_save {
     .logo{
         display: none;
     }
+}
 
-    ul {
-        position: absolute;
-        width: 100%;
-        height: calc(100vh - 71px);
-        background-color: #18283B;
-        left: 0;
-        top: 0;
-        text-align: center;
-        display: none;
-        margin-top: 71px;
-    }
 
-    ul li {
-        display: block;
-        padding: 10px 15px;
-    }
+/* ADMIN */
 
-    ul li a {
-        display: block;
-        padding: 10px 0;
-    }
+.table-div{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+}
 
-    #icon {
-        display: block;
-    }
+.contact-msg{
+    text-overflow: ellipsis;
+}
 
-    #checkbox:checked~ul {
-        display: block;
-    }
+#msg-table tr{
+    width: 30px;
+}
+
+#msg-table{
+    width: 80%;
 }

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Newsletter;
 use App\Form\NewsletterType;
 use App\Repository\NewsletterRepository;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,34 +14,35 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route(path: '/', name: 'home')]
+    #[Route(path: '/a', name: 'home')]
     public function home(): Response
     {
 
         return $this->render('index.html.twig', []);
     }
 
-    #[Route(path: '/test', name: 'home')]
-    public function test(Request $request, EntityManagerInterface $em): Response
+    #[Route(path: '/newsletterInscription', name: 'newsletter_inscription', methods: ['POST'])]
+    public function newsletterInscription(Request $request, EntityManagerInterface $em)
     {
+        if (!$this->isCsrfTokenValid('newsletter', $request->request->get('token'))) return $this->redirect('/');
         $newsletter = new Newsletter();
-        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $newsletter->setEmail($request->request->get('email'))
+            ->setIsRegistered(true)
+            ->setRegisteredAt(new \Datetime());
+        $this->addFlash('success', 'Vous avez bien été inscrit(e) à la newsletter');
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $newsletter = $form->getData();
-            $newsletter->setIsRegistered(true);
-            $newsletter->setRegisteredAt(new \Datetime());
-            $this->addFlash('success', 'Vous avez bien été inscrit(e) à la newsletter');
+        $em->persist($newsletter);
+        $em->flush();
 
-            $em->persist($newsletter);
-            $em->flush();
+        return $this->redirect($request->headers->get('referer'));
+    }
 
-            return $this->redirect($request->getUri());
-        }
+    public function renderNewsletter(): Response
+    {
+        $form = $this->createForm(NewsletterType::class, null, ['action' => $this->generateUrl('newsletter_inscription')]);
 
         return $this->render('newsletterInscription.html.twig', [
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 }

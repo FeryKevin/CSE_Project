@@ -1,20 +1,16 @@
-{% extends 'base.html.twig' %}
-
-
-{% block body %}
 <div id='newsletter-form'>
     <h3>Inscrivez-vous aux offres</h3>
     <p>Reçevez un email à chaque nouvelle offre sur le site internet<p>
-    {{ form_start(form) }}
+    <form name="newsletter" method="post" action={{ path('newsletter_inscription') }}>
         <div class='newsletter-bottom'>
-        {{ form_widget(form.email) }}
-        {{ form_widget(form.save) }}
+        <input type="email" id="newsletter_email" name="email" required="required" placeholder="Saisissez votre email" class="newsletter-input" />
+        <button type="submit" id="newsletter_save" name="newsletter[save]" class="newsletter-btn">S&#039;inscrire</button>
         </div>
-    {{ form_end(form) }}
+        <input type="hidden" id="newsletter__token" name="token" value={{ csrf_token('newsletter') }} />
+    </form>
     {% for message in app.flashes('success') %}
         <div class="alert-success">
             {{ message }}
         </div>
     {% endfor %}
 </div>
-{% endblock %}

@@ -1,1 +1,5 @@
-{% extends "include/navbar.html.twig" %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {{ render(controller('App\\Controller\\HomeController::renderNewsletter')) }}
+{% endblock %}
