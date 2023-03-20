@@ -28,3 +28,24 @@
         display: none;
     }
 }
+
+
+/* ADMIN */
+
+.table-div{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.contact-msg{
+    text-overflow: ellipsis;
+}
+
+#msg-table tr{
+    width: 30px;
+}
+
+#msg-table{
+    width: 80%;
+}
