@@ -218,7 +218,17 @@ h6.offer-time {
         padding: 0;
     }
 
+    .pagination-link{
+        display: none;    
+    }
 
+    .pagination-link.current{
+        display: flex;
+    }
+
+    .page-number{
+        display: flex;       
+    }
 }
 
 /* PAGINATION */
