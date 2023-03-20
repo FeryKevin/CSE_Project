@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class HomeController extends AbstractController
 {
-    #[Route(path: '/a', name: 'home')]
+    #[Route(path: '/', name: 'home')]
     public function home(): Response
     {
 

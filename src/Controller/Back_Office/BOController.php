@@ -15,7 +15,7 @@ class BOController extends AbstractController
         return $this->render('back_office/back_office.html.twig', []);
     }
 
-    #[Route(path: '/admin/contacts', name: 'admin')]
+    #[Route(path: '/admin/contacts', name: 'admin_contacts')]
     public function contacts(ContactRepository $contactRepository): Response
     {
         return $this->render('back_office/contacts.html.twig', [
