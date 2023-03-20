@@ -13,4 +13,9 @@
             {{ message }}
         </div>
     {% endfor %}
+    {% for message in app.flashes('fail') %}
+        <div class="alert-fail">
+            {{ message }}
+        </div>
+    {% endfor %}
 </div>

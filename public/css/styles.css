@@ -86,6 +86,11 @@ button#newsletter_save {
     margin-top: 7px;
 }
 
+.alert-fail {
+    color: rgb(255, 0, 0);
+    margin-top: 7px;
+}
+
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1126px) {
