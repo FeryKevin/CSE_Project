@@ -6,35 +6,27 @@
 
 /* NAVBAR */
 
-#navbar {
-    display: flex;
-    padding: 0px 10%;
-    align-items: center;
-    background: #1c3168;
+.navbar {
+    background-color: #1c3168;
 }
-
-#navbar .logo {
-    width: 9.9%;
-    height: 9.9%;
+.navbar-nav {
+    margin: 0 8%;
+    text-align: center;
 }
-
-#navbar ul {
-    list-style: none;
+.nav-link {
+    color: white !important;
+    margin: 0 20px;
 }
-
-#navbar ul li {
-    display: inline-block;
-}
-
-#navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0px 40px;
-}
-
-#navbar a:hover, #navbar a.active{
+.nav-link.active,
+.nav-link:hover {
     background-color: #b6a786;
     color: #fff !important;
+}
+
+@media screen and (max-width: 991.5px) {
+    .logo{
+        display: none;
+    }
 }
 
 /*ICON*/
@@ -140,12 +132,12 @@ p.offer-description {
     color: black;
 }
 
-li.page-item.disable {
+li.page-number.disable {
     background: rgb(173, 173, 173);
     color: white;
 }
 
-li.page-item.current {
+li.page-number.current {
     border-color: #054bfc !important;
     color: #054bfc;
 }
