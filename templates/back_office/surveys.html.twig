@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des sondage | Admin {% endblock %}
+
+{% block body %}
+    <h2 class='admin-title'>Liste des sondages :</h2>
+    <div class='back-survey-container'>
+        {% for survey in surveys %}
+            <div class='survey-stats' survey={{ survey.id }}>
+                <h4>{{ survey.question }}</h4>
+                <div class='answer-container'>
+                    {% for answer in survey.answers %}
+                        <div class='answer-display'>
+                            {% set pourcent = ((answer.answerNumber / survey.totalAnswer) * 100)|round(1) %}
+                            <h5>{{ answer.text }} : {{ pourcent }}%</h5>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:{{ pourcent }}%" aria-valuenow={{ answer.answerNumber }} aria-valuemin="0" aria-valuemax={{ survey.totalAnswer }}>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class='survey-actions' id='survey-{{survey.id}}'>
+                    <a class='survey-update'>Modifier</a>
+                    {% if survey.isActive %}
+                        <a class='survey-desactivate'>Désactiver</a>
+                    {% else %}                    
+                        <a class='survey-activate'>Activer</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="/scripts/survey.js"><script>
+{% endblock %}

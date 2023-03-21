@@ -3,6 +3,7 @@
 namespace App\Controller\Back_Office;
 
 use App\Repository\ContactRepository;
+use App\Repository\SurveyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +21,14 @@ class BOController extends AbstractController
     {
         return $this->render('back_office/contacts.html.twig', [
             'contacts' => $contactRepository->findAll(),
+        ]);
+    }
+
+    #[Route(path: '/admin/surveys', name: 'admin_surveys')]
+    public function surveys(SurveyRepository $surveyRepository): Response
+    {
+        return $this->render('back_office/surveys.html.twig', [
+            'surveys' => $surveyRepository->findAll(),
         ]);
     }
 }

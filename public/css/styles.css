@@ -562,29 +562,26 @@ li.pagination-link.current {
     #imgLogo {
         margin-bottom: 3%;
     }
-}
-
     /* ADMIN */
-
+    
     .table-div {
         display: flex;
         justify-content: center;
         padding-top: 60px;
     }
-
+    
     .contact-msg {
         text-overflow: ellipsis;
     }
-
+    
     #msg-table tr {
         width: 30px;
     }
-
+    
     #msg-table {
         width: 80%;
     }
 }
-
 
 /*ADMIN*/
 
@@ -625,4 +622,150 @@ li.pagination-link.current {
         width: 100%;
         text-align: center;
     }
+}
+
+    /* ADMIN */
+
+.back-survey-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-title{
+    text-align: center;
+    margin: 47px 0;
+}
+
+.survey-stats{
+    border: 1px black solid;
+    width: 30%;
+    margin: 3px;
+    position: relative;
+}
+
+.survey-stats h4{
+    font-size: 16px;
+    margin: 16px;
+    text-align: center;
+}
+
+.answer-container {
+    padding: 0 15px;
+    margin-bottom: 26px;
+}
+
+.survey-actions{
+    margin: 29px;
+}
+
+.survey-actions{
+    display: none;
+}
+
+.survey-actions {
+    position: absolute;
+    width: 100%;
+    background: rgba(128,128,128, 0.9);
+    height: 100%;
+    bottom: -29px;
+    right: -29px;
+}
+
+.survey-actions a {
+    text-decoration: none;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 47px;
+    width: 80%;
+    margin-left: 24px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 38%;
+}
+
+a.survey-update {
+    background-color: #1c3168;
+}
+
+a.survey-activate{
+    background-color: rgb(0, 210, 0);
+}
+
+a.survey-desactivate{
+    background-color: rgb(255, 0, 0);
+}
+
+/* ADMIN */
+
+.back-survey-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-title{
+    text-align: center;
+    margin: 47px 0;
+}
+
+.survey-stats{
+    border: 1px black solid;
+    width: 30%;
+    margin: 3px;
+    position: relative;
+}
+
+.survey-stats h4{
+    font-size: 16px;
+    margin: 16px;
+    text-align: center;
+}
+
+.answer-container {
+    padding: 0 15px;
+    margin-bottom: 26px;
+}
+
+.survey-actions{
+    margin: 29px;
+}
+
+.survey-actions{
+    display: none;
+}
+
+.survey-actions {
+    position: absolute;
+    width: 100%;
+    background: rgba(128,128,128, 0.9);
+    height: 100%;
+    bottom: -29px;
+    right: -29px;
+}
+
+.survey-actions a {
+    text-decoration: none;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 47px;
+    width: 80%;
+    margin-left: 24px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 38%;
+}
+
+a.survey-update {
+    background-color: #1c3168;
+}
+
+a.survey-activate{
+    background-color: rgb(0, 210, 0);
+}
+
+a.survey-desactivate{
+    background-color: rgb(255, 0, 0);
 }
