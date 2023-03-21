@@ -203,31 +203,31 @@ h6.offer-time {
         justify-content: center;
     }
 
-    h6.offer-time{
+    h6.offer-time {
         font-size: 70%;
     }
 
     .offer-container {
         width: 100%;
-        height: 224px;
+        height: 251px;
     }
 
-    #pagination{
+    #pagination {
         display: flex;
         justify-content: center;
         padding: 0;
     }
 
-    .pagination-link{
-        display: none;    
+    .pagination-link {
+        display: none;
     }
 
-    .pagination-link.current{
+    .pagination-link.current {
         display: flex;
     }
 
-    .page-number{
-        display: flex;       
+    .page-number {
+        display: flex;
     }
 }
 
