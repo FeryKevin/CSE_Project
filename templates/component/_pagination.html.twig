@@ -1,0 +1,110 @@
+{% if pagination.pages > 1 %}
+    <nav>
+        <ul id="pagination">
+            {% if pagination.currentPage > 1 %}
+                <li class='pagination-link page-number'>
+                    <a href={{ path('paginedHome', {"page" : pagination.currentPage - 1}) }} class='page-number'>&lt;</a>
+                </li>
+            {% else %}
+                <li class='pagination-link page-number disable'>
+                    <a class='page-number'>&lt;</a>
+                </li>
+            {% endif %}
+
+            {% if pagination.pages > 5 %}
+
+                {% if pagination.currentPage == 1 %}
+                    <li class='pagination-link current'>
+                        <a >1</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : 2}) }}>2</a>
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>  
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : pagination.pages-1}) }}>{{ pagination.pages-1 }}</a>
+                    </li>
+                {% else %}
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : 1}) }}>1</a>
+                    </li>
+                {% endif %}
+
+                {% if pagination.currentPage == 2 %}
+                    <li class='pagination-link current'>
+                        <a>2</a>
+                    </li>
+                {% elseif pagination.currentPage == pagination.pages-1 %}
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : 2}) }}>2</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>
+                {% endif %}
+
+                {# milieu #}
+                {% if pagination.currentPage > 2 and pagination.currentPage < (pagination.pages - 1) %}
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>
+                    <li class='pagination-link current'>
+                        <a>{{ pagination.currentPage }}</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>
+                {% endif %}
+                
+                {% if pagination.currentPage == pagination.pages-1 %}
+                    <li class='pagination-link current'>
+                        <a>{{ pagination.pages-1 }}</a>
+                    </li>
+                {% elseif pagination.currentPage == 2 %}
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : pagination.pages-1 }) }}>{{ pagination.pages-1 }}</a>
+                    </li>
+                {% endif %}
+
+                {% if pagination.currentPage == pagination.pages %}
+                    <li class='pagination-link current'>
+                        <a>{{ pagination.currentPage }}</a>
+                    </li>
+                {% else %}
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : pagination.pages}) }}>{{ pagination.pages }}</a>
+                    </li>
+                {% endif %}
+
+            {% else %}
+                {# seulement 5 pages #}
+                {% for page in 1..pagination.pages %}
+                    {% if pagination.currentPage == page %}
+                        <li class='pagination-link current'>
+                            <a>{{ page }}</a>
+                        </li>
+                    {% else %}
+                        <li class='pagination-link'>
+                            <a href={{ path('paginedHome', {"page" : page}) }}>{{ page }}</a>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+            {% endif %}
+
+            {% if pagination.currentPage < pagination.pages %}
+                <li class='pagination-link page-number'>
+                    <a href={{ path('paginedHome', {"page" : pagination.currentPage + 1}) }} class='page-number'>&gt;</a>
+                </li>
+            {% else %}
+                <li class='pagination-link page-number disable'>
+                    <a class='page-number'>&gt;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

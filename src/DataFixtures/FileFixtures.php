@@ -18,14 +18,14 @@ class FileFixtures extends Fixture
         for ($i = 0; $i < 10; $i++) {
             $file = FILE::createFromPath($faker->image('public/img/offer', 640, 480, 'company', true, true, 'partner'));
             $file->setOriginalName($faker->word());
-            $this->addReference('partner-'.$i, $file);
+            $this->addReference('partner-' . $i, $file);
             $manager->persist($file);
         }
 
         for ($i = 0; $i < 50; $i++) {
             $file = FILE::createFromPath($faker->image('public/img/offer', 640, 480, 'placeholder', true, true, 'offer'));
             $file->setOriginalName($faker->word());
-            $this->addReference('offer-'.$i, $file);
+            $this->addReference('offer-' . $i, $file);
             $manager->persist($file);
         }
 

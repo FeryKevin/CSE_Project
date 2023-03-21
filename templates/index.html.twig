@@ -1,5 +1,29 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
-    {{ render(controller('App\\Controller\\HomeController::renderNewsletter')) }}
+{% block title %} Homepage {% endblock %}
+
+{% block body %}    
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                <h3>Dernières offres ponctuelles</h3>
+
+                <div class="offer">
+                    {% for offer in pagination.data %}
+                        <div class="offer-container">
+                            <div class='offer-top'>
+                                <div class='offer-icon'>Offre ponctuelle</div>
+                                <h6 class='offer-time'>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }} </h6>
+                            </div>
+                            <p class='offer-description'>{{ offer.description }}</p>
+                            <a  class='offer-about' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ include('component/_pagination.html.twig') }}
+
 {% endblock %}

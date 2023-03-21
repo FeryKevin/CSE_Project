@@ -14,47 +14,55 @@
     background-color: #1c3168;
     padding: 0;
 }
+
 .navbar-nav {
     text-align: center;
     align-items: center;
 }
+
 .nav-link {
     color: white !important;
     font-size: 18px;
     margin: 0 20px;
 }
+
 .nav-link.active,
 .nav-link:hover {
     background-color: #b6a786;
     color: #fff !important;
 }
-.navbar-brand{
+
+.navbar-brand {
     padding: 0;
 }
-#imgLogo
-{
+
+#imgLogo {
     padding: 0;
 }
 
 @media screen and (min-width: 991.5px) {
-    .logo, .logo2{
+
+    .logo,
+    .logo2 {
         height: 12vh;
         width: 16vw;
     }
-    
-    .navbar-nav{
+
+    .navbar-nav {
         margin: 0 10vh;
     }
-    #navbar .container-fluid{
+
+    #navbar .container-fluid {
         padding: 0;
     }
 }
 
-@media screen and (max-width: 991.5px) {  
-    .logo{
+@media screen and (max-width: 991.5px) {
+    .logo {
         display: none;
     }
 }
+
 /*ICON*/
 
 #icon {
@@ -90,7 +98,7 @@ div#newsletter-form {
     width: 23%;
 }
 
-.newsletter-bottom{
+.newsletter-bottom {
     margin-top: 10px;
 }
 
@@ -126,58 +134,260 @@ button#newsletter_save {
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1126px) {
-    nav {
+    .logo {
+        display: none;
+    }
+}
+
+/*ICON*/
+
+#icon {
+    background-color: #b6a786;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#icon svg {
+    color: #FFF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #FFF;
+}
+
+#icon:hover svg {
+    color: #b6a786;
+}
+
+#checkbox,
+#icon {
+    display: none;
+}
+
+/* HOMEPAGE */
+
+.offer-container {
+    background-color: #EFEDED;
+    width: 60%;
+    padding: 20px 10px;
+    margin-bottom: 2%;
+    height: 30%;
+}
+
+.offer-icon {
+    font-size: 63%;
+    background-color: #1c3168;
+    color: white;
+    border-radius: 6px;
+    width: 175px;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.offer-top {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h6.offer-time {
+    margin-top: 7px;
+    margin-left: 5px;
+    font-size: 78%;
+}
+
+.offer-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    padding-top: 20px;
+}
+
+.offer-about {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    float: right;
+    bottom: 18px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 5%;
+    vertical-align: bottom;
+}
+
+.offer-about:hover {
+    text-decoration: underline;
+    background-color: inherit;
+    padding: 0;
+    color: #b6a786;
+}
+
+@media screen and (max-width: 768.5px) {
+    h3 {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .offer {
+        justify-content: center;
+    }
+
+    h6.offer-time {
+        font-size: 70%;
+    }
+
+    .offer-container {
+        width: 100%;
+        height: 251px;
+    }
+
+    #pagination {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .pagination-link {
+        display: none;
+    }
+
+    .pagination-link.current {
+        display: flex;
+    }
+
+    .page-number {
+        display: flex;
+    }
+
+    #navbar ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 71px);
+        background-color: #18283B;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        margin-top: 71px;
+    }
+
+    #navbar ul li {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #checkbox:checked~ul {
+        display: block;
+    }
+}
+
+/* PAGINATION */
+
+#pagination {
+    display: inline-flex;
+    list-style-type: none;
+}
+
+#pagination li {
+    border: black 1px solid;
+    margin-inline: 19px;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+#pagination a {
+    text-decoration: none;
+    padding: 5px 11px;
+}
+
+#pagination a:visited {
+    color: black;
+}
+
+li.pagination-link.disable {
+    background: rgb(173, 173, 173);
+    color: white;
+}
+
+li.pagination-link.current {
+    border-color: #054bfc !important;
+    color: #054bfc;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1126px) {
+    #navbar {
         border-bottom: 1px solid #455468;
-    }    
+    }
 }
 
 /* FOOTER */
 
-.footer{
+.footer {
     background-color: #b6a786;
     justify-content: space-between;
 }
 
-.footer a, p, h4, h6{
+.footer a,
+.footer p,
+.footer h4,
+.footer h6 {
     color: #fff;
     text-decoration: none;
 }
 
-.hCSE{
+.hCSE {
     font-family: Inter;
     font-weight: 700;
     margin-bottom: 18px;
     line-height: 24px;
 }
 
-.footer a{
+.footer a {
     font-weight: 400;
 }
 
-.footer p{
+.footer p {
     line-height: 17px;
     font-size: 14px;
 }
 
-.footer a:hover{
+.footer a:hover {
     text-decoration: underline;
 }
 
-#footer-right
-{
+#footer-right {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.footer h6{
+.footer h6 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
     line-height: 20px;
 }
 
-.inputNewsletter{
+.inputNewsletter {
     font-size: 14px;
     border: none;
     border-radius: 6px;
@@ -185,12 +395,12 @@ button#newsletter_save {
     width: 60%;
 }
 
-.inputNewsletter::placeholder{
+.inputNewsletter::placeholder {
     color: #c3c3c3;
     text-align: center;
 }
 
-.btnNewsletter{
+.btnNewsletter {
     font-size: 14px;
     border: none;
     border-radius: 6px;
@@ -199,143 +409,133 @@ button#newsletter_save {
     width: 30%;
 }
 
-.btnNewsletter:hover{
+.btnNewsletter:hover {
     color: #b6a786;
 }
 
 @media screen and (min-width: 991.5px) {
-    .footer{
+    .footer {
         display: flex;
         padding: 1vh 16px;
     }
 
-    #footer-left
-    {
+    #footer-left {
         display: flex;
     }
 
-    .footer a{
+    .footer a {
         line-height: 21px;
         font-size: 18px;
     }
 
-    #imgLogo
-    {
+    #imgLogo {
         height: 100%;
         width: fit-content;
         margin: 0 5vh 0 10vh;
     }
 
-    .page-links{
+    .page-links {
         width: 40vw;
     }
 
-    .aLink
-    {
+    .aLink {
         width: 20vw;
         margin: 4px 0;
     }
 
-    .link{
+    .link {
         display: flex;
     }
 
-    #footer-form
-    {
+    #footer-form {
         margin-top: 2vh;
     }
 }
 
 @media screen and (min-width: 991.5px) and (max-width: 1200px) {
-    .offreFooter
-    {
+    .offreFooter {
         padding-right: 12%;
     }
 }
 
 @media screen and (max-width: 991.5px) {
-    .footer
-    {
+    .footer {
         text-align: center;
         padding: 2% 0 3%;
     }
 
-    #imgLogo
-    {
+    #imgLogo {
         display: none;
     }
-    
-    .hCSE{
+
+    .hCSE {
         font-size: 20px;
         margin-bottom: 15px;
         line-height: 20px;
     }
 
-    .footer h6{
+    .footer h6 {
         font-size: 16px;
         line-height: 20px;
     }
-    
-    .footer p{
+
+    .footer p {
         line-height: 15px;
         font-size: 12px;
     }
 
-    .link
-    {
+    .link {
         justify-content: center;
     }
 
-    .aLink
-    {
+    .aLink {
         font-size: 14px;
     }
 
-    .offreFooter{
+    .offreFooter {
         margin-top: 2%;
     }
 
-    #footer-form
-    {
+    #footer-form {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .inputNewsletter{
+    .inputNewsletter {
         font-size: 12px;
         width: 25vw;
         margin-bottom: 1vh;
     }
 
-    .btnNewsletter{
+    .btnNewsletter {
         font-size: 12px;
         width: 12vw;
     }
 }
 
 @media screen and (max-width: 767.5px) {
-    #imgLogo
-    {
+    #imgLogo {
         margin-bottom: 3%;
     }
 
-/* ADMIN */
+    /* ADMIN */
 
-.table-div{
-    display: flex;
-    justify-content: center;
-    padding-top: 60px;
-}
+    .table-div {
+        display: flex;
+        justify-content: center;
+        padding-top: 60px;
+    }
 
-.contact-msg{
-    text-overflow: ellipsis;
-}
+    .contact-msg {
+        text-overflow: ellipsis;
+    }
 
-#msg-table tr{
-    width: 30px;
-}
+    #msg-table tr {
+        width: 30px;
+    }
 
-#msg-table{
-    width: 80%;
+    #msg-table {
+        width: 80%;
+    }
 }
