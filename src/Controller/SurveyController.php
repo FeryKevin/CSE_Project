@@ -43,7 +43,7 @@ class SurveyController extends AbstractController
         $answer->setAnswerNumber($answer->getAnswerNumber() + 1);
         $em->persist($answer);
         $em->flush();
-        $this->addFlash('success', 'Votre réponse à été enregistée');
+        $this->addFlash('SurveySuccess', 'Votre réponsé à été renregistée');
 
         return $this->redirect($request->headers->get('referer'));
     }
