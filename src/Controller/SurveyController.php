@@ -51,7 +51,6 @@ class SurveyController extends AbstractController
     #[Route(path: '/survey')]
     public function suvery()
     {
-        // dd();
 
         return $this->render('test.html.twig');
     }

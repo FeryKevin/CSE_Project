@@ -21,6 +21,7 @@ class SurveyFormType extends AbstractType
             'choices' => $survey->getAnswers(),
             'choice_label' => 'text',
             'expanded' => true,
+            'attr' => ['class' => 'survey-form-choices'],
         ])
             ->add('save', SubmitType::class);
     }

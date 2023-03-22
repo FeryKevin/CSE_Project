@@ -23,9 +23,9 @@
                 <div class='survey-actions' id='survey-{{survey.id}}'>
                     <a class='survey-update'>Modifier</a>
                     {% if survey.isActive %}
-                        <a class='survey-desactivate'>Désactiver</a>
+                        <a class='survey-desactivate' status='0'>Désactiver</a>
                     {% else %}                    
-                        <a class='survey-activate'>Activer</a>
+                        <a class='survey-activate' status='1'>Activer</a>
                     {% endif %}
                 </div>
             </div>

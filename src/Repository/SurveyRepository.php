@@ -43,7 +43,9 @@ class SurveyRepository extends ServiceEntityRepository
     {
         $all = $this->findBy(['active' => 1]);
 
-        return $all[array_rand($all)];
+        if (!empty($all)) return $all[array_rand($all)];
+
+        return $all;
     }
     //    /**
     //     * @return Survey[] Returns an array of Survey objects
