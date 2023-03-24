@@ -119,6 +119,12 @@
     right: 25px;
 }
 
+@media screen and (max-width: 768px) {
+    .survey-container {
+        display: none;
+    }  
+}
+
 /*ICON*/
 
 #icon {
