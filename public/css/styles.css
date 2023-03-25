@@ -131,6 +131,15 @@
 .answer-container.answer-display {
     size: 10%;
     padding: 0 49px;
+    margin: 0;
+}
+
+.answer-display > .progress {
+    height: 10px;
+}
+
+.answer-display > h5 {
+    font-size: 87%;
 }
 
 .answer-container.answer-display h4 {
