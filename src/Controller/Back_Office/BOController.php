@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back_Office;
 
+use App\Entity\Survey;
 use App\Repository\ContactRepository;
 use App\Repository\SurveyRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,13 +35,25 @@ class BOController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/admin/survey_status', name: 'admin_survey_status', methods: ['POST'])]
+    #[Route(path: '/admin/survey_status', name: 'admin_survey_status', methods: ['POST', 'OPTIONS'])]
     public function surveyStatus(SurveyRepository $surveyRepository, Request $request, EntityManagerInterface $em): Response
     {
         $post = json_decode($request->getContent(), true);
         $survey = $surveyRepository->find($post['id']);
 
         $survey->setActive($post['status']);
+
+        $em->persist($survey);
+        $em->flush();
+
+        return new Response('Survey has been updated');
+    }
+
+    #[Route(path: '/admin/survey/update/{id}', name: 'admin_survey_update', methods: ['POST', 'OPTIONS'])]
+    public function surveyQuestion(Survey $survey, Request $request, EntityManagerInterface $em): Response
+    {
+        $post = json_decode($request->getContent(), true);
+        $survey->setQuestion($post['question']);
 
         $em->persist($survey);
         $em->flush();

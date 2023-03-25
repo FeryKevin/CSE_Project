@@ -2,17 +2,22 @@
     <div class='survey-header'><h5>Votre avis compte</h5></div>
     {{ form_start(form) }}
     <div class='survey-body'>
-        <h6>{{ survey.question }}</h6>
-        <div class='survey-choices'>
-            {{ form_widget(form.answers) }}
-        </div>
-        <input type='hidden' name='survey' value={{ survey.id }} /> 
-        {% for message in app.flashes('success') %}
-            <div class="alert-success">
-                {{ message }}
+        <div class='survey-no-stat'>
+            <h6>{{ survey.question }}</h6>
+            <div class='survey-choices'>
+                {{ form_widget(form.answers) }}
             </div>
-        {% endfor %}
+            <input type='hidden' name='survey' value={{ survey.id }} /> 
+            {% for message in app.flashes('success') %}
+                <div class="alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
         </div>
-        <div class='survey-footer'><a>Voir les réponses</a> {{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
+        <div class='survey-stat-display'>
+            {% include 'components/_survey_stats.html.twig' with {"class": "answer-display"} %}
+        </div>
+    </div>
+    <div class='survey-footer'><a id='view-stats'>Voir les réponses</a> {{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
     {{ form_end(form) }}
 </div>

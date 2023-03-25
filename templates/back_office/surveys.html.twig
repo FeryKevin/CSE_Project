@@ -7,24 +7,12 @@
     <div class='back-survey-container'>
         {% for survey in surveys %}
             <div class='survey-stats' survey={{ survey.id }}>
-                <h4>{{ survey.question }}</h4>
-                <div class='answer-container'>
-                    {% for answer in survey.answers %}
-                        <div class='answer-display'>
-                            {% set pourcent = ((answer.answerNumber / survey.totalAnswer) * 100)|round(1) %}
-                            <h5>{{ answer.text }} : {{ pourcent }}%</h5>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:{{ pourcent }}%" aria-valuenow={{ answer.answerNumber }} aria-valuemin="0" aria-valuemax={{ survey.totalAnswer }}>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                {% include 'components/_survey_stats.html.twig' %}
                 <div class='survey-actions' id='survey-{{survey.id}}'>
-                    <a class='survey-update' data-bs-toggle="modal" data-bs-target="#updateModal">Modifier</a>
+                    <a class='survey-update' data-bs-toggle="modal" data-bs-target="#updateModal" data='{{ survey.question }}' data-id={{ survey.id }}>Modifier</a>
                     {% if survey.isActive %}
                         <a class='survey-desactivate' status='0'>Désactiver</a>
-                    {% else %}                    
+                    {% else %}
                         <a class='survey-activate' status='1'>Activer</a>
                     {% endif %}
                 </div>
@@ -43,10 +31,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Appliquer</button>
+                <button type="button" id='survey-update-submit' class="btn btn-primary">Appliquer</button>
             </div>
             </div>
         </div>
     </div>
-    <script src="/scripts/survey.js"><script>
+    <script src="/scripts/survey.js"></script>
 {% endblock %}
