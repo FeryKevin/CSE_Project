@@ -48,18 +48,18 @@ class HomeController extends AbstractController
         return $this->redirect($request->headers->get('referer'));
     }
 
-    #[Route(path: '/', name: 'home'), Route(path: '/{page}', name: 'paginedHome')]
-    public function home(int $page = 1): Response
-    {
-        $pagination = $this->offerRepository->findWithPaginator($page);
+    // #[Route(path: '/', name: 'home'), Route(path: '/{page}', name: 'paginedHome')]
+    // public function home(int $page = 1): Response
+    // {
+    //     $pagination = $this->offerRepository->findWithPaginator($page);
 
-        return $this->render(
-            'index.html.twig',
-            [
-                'pagination' => $pagination,
-            ]
-        );
-    }
+    //     return $this->render(
+    //         'index.html.twig',
+    //         [
+    //             'pagination' => $pagination,
+    //         ]
+    //     );
+    // }
 
 
     public function renderNewsletter(): Response

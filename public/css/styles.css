@@ -539,3 +539,38 @@ li.pagination-link.current {
         width: 80%;
     }
 }
+
+
+/*ADMIN*/
+
+.connexion {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    width: 30%;
+    background-color: #EFEDED;
+}
+
+.connexion h3 {
+    text-align: center;
+}
+
+.btnCo {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnCo button {
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1c3168;
+    color: white;
+    height: 40px;
+    width: 40%;
+}
+
+.btnCo button:hover {
+    background-color: #b6a786;
+}
