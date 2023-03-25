@@ -22,9 +22,12 @@ class Partner
     #[ORM\Column(length: 50)]
     private ?string $websiteLink = null;
 
-    #[ORM\OneToOne(inversedBy: 'partner')]
-    #[ORM\JoinColumn(name: 'file_id', nullable: false)]
-    private ?File $image = null;
+    // #[ORM\OneToOne(inversedBy: 'partner')]
+    // #[ORM\JoinColumn(name: 'file_id', nullable: false)]
+    // private ?string $image = null;
+
+    #[ORM\OneToOne(targetEntity: Image::class, mappedBy: 'partner')]
+    private Image $image;
 
     public function getId(): ?int
     {
@@ -67,12 +70,12 @@ class Partner
         return $this;
     }
 
-    public function getImage(): File
+    public function getImage(): ?Image
     {
         return $this->image;
     }
 
-    public function setImage(File $image): self
+    public function setImage(Image $image): self
     {
         $this->image = $image;
 
