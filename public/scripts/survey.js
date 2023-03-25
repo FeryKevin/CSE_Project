@@ -9,7 +9,7 @@ for (let item of surveys) {
         let data = `{"id": "${id}","status": "${status}"}`
         postData(data = data).then(() => { location.reload() })
     })
-
+    
     item.addEventListener('mouseenter', (e) => {
         div.style.display = 'grid'
     })
