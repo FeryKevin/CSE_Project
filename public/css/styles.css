@@ -543,7 +543,7 @@ li.pagination-link.current {
 
 /*ADMIN*/
 
-.connexion {
+.connection {
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -551,7 +551,7 @@ li.pagination-link.current {
     background-color: #EFEDED;
 }
 
-.connexion h3 {
+.connection h3 {
     text-align: center;
 }
 
@@ -576,7 +576,7 @@ li.pagination-link.current {
 }
 
 @media screen and (max-width: 991.5px) {
-    .connexion {
+    .connection {
         width: 100%;
         text-align: center;
     }
