@@ -29,12 +29,13 @@
 
     <div id="footer-right">
         <div class='offreFooter'>
-            <h6>Inscrivez-vous aux offres</h6>
+            {# <h6>Inscrivez-vous aux offres</h6>
             <p>Reçevez un email à chaque nouvelle offre sur le site internet.</p>
             <div id="footer-form">
                 <input type='text' class='inputNewsletter' placeholder='Saisissez-votre email'></input>
                 <button type='submit' class='btnNewsletter'>S'inscrire</button>
-            </div>
+            </div> #}
+            {% include 'components/_newsletter.html.twig' %}
         </div>
     </div>
 </div>

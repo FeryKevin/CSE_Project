@@ -124,6 +124,7 @@ button#newsletter_save {
 .alert-success {
     color: rgb(0, 218, 0);
     margin-top: 7px;
+    background: none;
 }
 
 .alert-fail {
