@@ -6,9 +6,7 @@ use App\Entity\Survey;
 use App\Repository\ContactRepository;
 use App\Repository\SurveyRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,7 +28,6 @@ class BOController extends AbstractController
     }
 
     #[Route(path: '/admin/surveys', name: 'admin_surveys')]
-    public function surveys(SurveyRepository $surveyRepository, Request $re): Response
     public function surveys(SurveyRepository $surveyRepository, Request $re): Response
     {
         return $this->render('back_office/surveys.html.twig', [
