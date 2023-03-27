@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Partner;
-use App\Entity\Image;
+use App\Entity\File;
 use App\Form\Admin\PartnerType;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,39 +23,17 @@ class PartnerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $partner = $form->getData();
+            $partner->getImage()->handleForm($request->files->get('partner')['image']['originalName']->getClientOriginalName());
 
-            $image = $form->get('image')->getData();
-            $check = true;
+            dd($partner);
+            $manager->persist($partner->getImage());
+            $manager->persist($partner);
+            $manager->flush();
 
-            foreach ($image as $images) {
-                $extension = $images->guessExtension();
+            $this->addFlash('success', 'Le partenaire a été ajouté.');
 
-                if ('png' !== $extension && 'jpg' !== $extension && 'jpeg' !== $extension && 'webp' !== $extension && 'svg' !== $extension) {
-                    $this->addFlash('error', 'Format d\'image incorrect');
-                    $check = false;
-                }
-            }
-
-            if ($check) {
-                foreach ($images as $image) {
-                    $fileName = md5(uniqid()) . '.' . $image->guessExtension();
-                    $image->move(
-                        $this->getParameter('project_directory'),
-                        $fileName
-                    );
-
-                    $image = new Image();
-                    $image->setImage($fileName);
-                    $partner->setImage($image);
-                }
-
-                $manager->persist($partner);
-                $manager->flush();
-
-                $this->addFlash('success', 'Le partenaire a été ajouté');
-
-                return $this->redirectToRoute('partner_create');
-            }
+            return $this->redirectToRoute('partner_create');
         }
 
         return $this->render('/back_office/partner/create.html.twig', [
