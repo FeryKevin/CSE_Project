@@ -45,10 +45,22 @@ class File
         if (!is_dir('./img/partner'))
             mkdir('./img/partner');
 
+        $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+        $name = str_replace('.' . $ext, '', $originalName);
         $this->setOriginalName(str_replace('public/img/partner\\', '', $originalName))
-            ->setStoredName(('public/img/partner\\', '', $originalName))
-            ->setExtension(pathinfo($originalName, PATHINFO_EXTENSION))
-            ->setPath($originalName);
+            ->setExtension($ext);
+
+        if (file_exists('./img/partner/' . $originalName)) {
+            $i = 1;
+            while (file_exists('./img/partner/' . $name . $i . $ext)) {
+                $i++;
+            }
+            $i++;
+        }
+
+        $i = $i === 0 ? null : $i;
+        $this->setStoredName($name . $i)
+            ->setPath('./img/partner/' . $name . $i . '.' . $ext);
 
         return $this;
     }

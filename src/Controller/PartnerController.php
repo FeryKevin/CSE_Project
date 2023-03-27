@@ -14,6 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartnerController extends AbstractController
 {
+    #[Route('/admin/partner', name: 'partner_index', methods: ['GET', 'POST'])]
+    public function index(Request $request, EntityManagerInterface $manager): Response
+    {
+
+        return $this->render('/back_office/partner/index.html.twig', [
+        ]);
+    }
+
     #[Route('/admin/partner/create', name: 'partner_create', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $manager): Response
     {
@@ -24,9 +32,10 @@ class PartnerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $partner = $form->getData();
+            $path = $partner->getImage()->getOriginalName();
             $partner->getImage()->handleForm($request->files->get('partner')['image']['originalName']->getClientOriginalName());
 
-            dd($partner);
+            move_uploaded_file($path, $partner->getImage()->getPath());
             $manager->persist($partner->getImage());
             $manager->persist($partner);
             $manager->flush();
