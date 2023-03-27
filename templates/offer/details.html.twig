@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{offer.name}} {% endblock %}
+
+{% block body %}
+    <div class='offer-page'>
+        <h2>{{offer.name}}</h2>
+        <h4>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }}</h4>
+        <div class='offer-body'>
+            <div class='offer-description'>
+                {{ offer.description }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

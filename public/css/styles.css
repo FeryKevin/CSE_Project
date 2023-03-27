@@ -582,3 +582,11 @@ li.pagination-link.current {
         text-align: center;
     }
 }
+
+/* OFFER PAGE */
+
+.offer-page {
+    text-align: center;
+    width: 70%;
+    margin: 9px 15%;
+}
