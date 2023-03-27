@@ -670,7 +670,7 @@ li.pagination-link.current {
     }
 }
 
-    /* ADMIN */
+/* ADMIN */
 
 .back-survey-container {
     display: flex;
@@ -702,15 +702,9 @@ li.pagination-link.current {
     margin-bottom: 26px;
 }
 
-.survey-actions{
-    margin: 29px;
-}
-
-.survey-actions{
-    display: none;
-}
-
 .survey-actions {
+    display: none;
+    margin: 29px;
     position: absolute;
     width: 100%;
     background: rgba(128,128,128, 0.9);
@@ -725,7 +719,7 @@ li.pagination-link.current {
     padding: 2px 10px;
     border-radius: 47px;
     width: 80%;
-    margin-left: 24px;
+    /* margin-left: 24px; */
     display: inline-block;
     text-align: center;
     margin-top: 38%;
@@ -741,6 +735,19 @@ a.survey-activate{
 
 a.survey-desactivate{
     background-color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 768px) {
+    .back-survey-container {
+        display: grid !important;
+        grid-column: 2 !important;
+    }
+    
+    .survey-stats {
+        width: 90% !important;
+        margin: 14px 5% !important;
+
+    }
 }
 
 /* ADMIN */
