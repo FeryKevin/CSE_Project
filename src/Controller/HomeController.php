@@ -37,7 +37,7 @@ class HomeController extends AbstractController
         $errors = $validator->validate($newsletter);
 
         if (count($errors) === 0) {
-            $this->addFlash('success', 'Vous avez bien été inscrit(e) à la newsletter');
+            $this->addFlash('NewsletterSuccess', 'Vous avez bien été inscrit(e) à la newsletter');
 
             $em->persist($newsletter);
             $em->flush();

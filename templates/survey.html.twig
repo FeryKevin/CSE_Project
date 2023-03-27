@@ -8,7 +8,7 @@
                 {{ form_widget(form.answers) }}
             </div>
             <input type='hidden' name='survey' value={{ survey.id }} /> 
-            {% for message in app.flashes('success') %}
+            {% for message in app.flashes('SurveySuccess') %}
                 <div class="alert-success">
                     {{ message }}
                 </div>
