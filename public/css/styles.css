@@ -135,6 +135,14 @@ a#view-stats {
     position: relative;
 }
 
+.answer-display h5{
+    font-size: 80%;
+}
+
+.answer-display .progress{
+    height: 8px;
+}
+
 .survey-form-choices label{
     right: 25px;
 }
