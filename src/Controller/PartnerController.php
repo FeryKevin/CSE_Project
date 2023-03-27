@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartnerController extends AbstractController
 {
-    #[Route('/partner/create', name: 'partner_create', methods: ['GET', 'POST'])]
+    #[Route('/admin/partner/create', name: 'partner_create', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $manager): Response
     {
         $partner = new Partner();
@@ -58,7 +58,7 @@ class PartnerController extends AbstractController
             }
         }
 
-        return $this->render('/partner/create.html.twig', [
+        return $this->render('/back_office/partner/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
