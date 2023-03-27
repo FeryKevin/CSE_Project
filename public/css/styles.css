@@ -124,6 +124,7 @@ button#newsletter_save {
 .alert-success {
     color: rgb(0, 218, 0);
     margin-top: 7px;
+    background: none;
 }
 
 .alert-fail {
@@ -537,5 +538,47 @@ li.pagination-link.current {
 
     #msg-table {
         width: 80%;
+    }
+}
+
+
+/*ADMIN*/
+
+.connection {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    width: 30%;
+    background-color: #EFEDED;
+}
+
+.connection h3 {
+    text-align: center;
+}
+
+.btnCo {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnCo button {
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1c3168;
+    color: white;
+    height: 40px;
+    width: 40%;
+}
+
+.btnCo button:hover {
+    background-color: #b6a786;
+}
+
+@media screen and (max-width: 991.5px) {
+    .connection {
+        width: 100%;
+        text-align: center;
     }
 }
