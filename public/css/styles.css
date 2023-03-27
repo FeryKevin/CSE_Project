@@ -96,6 +96,10 @@
     padding: 20px 0;
 }
 
+a#view-stats {
+    font-size: 63%;
+}
+
 .survey-footer {
     background-color: #1c3168;
     height: 52px;
@@ -146,7 +150,7 @@
     font-size: 10%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .survey-container {
         display: none;
     }  
