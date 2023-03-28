@@ -21,6 +21,8 @@ class Survey
     #[ORM\Column(length: 255)]
     private ?string $question = null;
 
+    private ?int $totalAnswer = 0;
+
     #[ORM\OneToMany(mappedBy: 'survey', targetEntity: Answer::class)]
     private Collection $answers;
 
@@ -74,6 +76,17 @@ class Survey
         }
 
         return $this;
+    }
+
+    public function getTotalAnswer(): int
+    {
+        if (0 === $this->totalAnswer) {
+            foreach ($this->answers as $answer) {
+                $this->totalAnswer += $answer->getAnswerNumber();
+            }
+        }
+
+        return $this->totalAnswer;
     }
 
     public function removeAnswer(Answer $answer): self

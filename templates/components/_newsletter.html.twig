@@ -9,7 +9,7 @@
             <input type="hidden" id="newsletter__token" name="token" value={{ csrf_token('newsletter') }} />
         </form>
     </div>
-    {% for message in app.flashes('success') %}
+    {% for message in app.flashes('NewsletterSuccess') %}
         <div class="alert-success">
             {{ message }}
         </div>

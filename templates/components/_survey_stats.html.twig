@@ -1,0 +1,17 @@
+{% if class is defined %}
+    <h6>{{ survey.question }}</h6>
+{% else %}
+    <h4>{{ survey.question }}</h4>
+{% endif %}
+<div class='answer-container {{ (class is defined) ? class : '' }} '>
+    {% for answer in survey.answers %}
+        <div class='answer-display'>
+            {% set pourcent = ((answer.answerNumber / survey.totalAnswer) * 100)|round(1) %}
+            <h5>{{ answer.text }} : {{ pourcent }}%</h5>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:{{ pourcent }}%" aria-valuenow={{ answer.answerNumber }} aria-valuemin="0" aria-valuemax={{ survey.totalAnswer }}>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
