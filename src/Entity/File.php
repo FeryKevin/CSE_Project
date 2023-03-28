@@ -29,11 +29,16 @@ class File
     #[ORM\JoinColumn(nullable: true)]
     private ?Offer $offer = null;
 
-    public static function createFromPath(string $path): self{
+    public static function createFromPath(string $path, bool $isPartner = false): self
+    {
         $file = new static;
 
-        $file->setStoredName(str_replace('public/img/offer\\', '', $path))
-            ->setExtension(pathinfo($path, PATHINFO_EXTENSION))
+        if ($isPartner) {
+            $file->setStoredName(str_replace('public/img/partner\\', '', $path));
+        } else {
+            $file->setStoredName(str_replace('public/img/offer\\', '', $path));
+        }
+        $file->setExtension(pathinfo($path, PATHINFO_EXTENSION))
             ->setPath($path);
 
         return $file;
