@@ -850,6 +850,14 @@ input#question {
 }
 
 .offer-body img {
-    width: 36%;
-    margin-inline: 17px;
+    width: 361px;
+    height: auto;
+    margin-inline: 20px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    .offer-body img {
+        width: 85%;
+    }
 }
