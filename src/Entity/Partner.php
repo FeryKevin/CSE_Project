@@ -22,7 +22,7 @@ class Partner
     #[ORM\Column(length: 50)]
     private ?string $websiteLink = null;
 
-    #[ORM\OneToOne(inversedBy: 'partner')]
+    #[ORM\OneToOne()]
     #[ORM\JoinColumn(name: 'file_id', nullable: false)]
     private ?File $image = null;
 

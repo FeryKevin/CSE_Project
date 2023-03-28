@@ -14,11 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartnerController extends AbstractController
 {
-    #[Route('/admin/partner', name: 'partner_index', methods: ['GET', 'POST'])]
-    public function index(Request $request, EntityManagerInterface $manager): Response
+    #[Route('/admin/partner', name: 'partner_index')]
+    public function index(PartnerRepository $partnerRepository): Response
     {
+        $partners = $partnerRepository->findAll();
 
         return $this->render('/back_office/partner/index.html.twig', [
+            'partners' => $partners,
         ]);
     }
 
