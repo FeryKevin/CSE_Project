@@ -13,15 +13,13 @@ class CSEFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 2; $i++) {
-            $cse = new CSE();
-            $cse->setPresentationHome($faker->text())
-                ->setPresentationAbout($faker->text())
-                ->setRules($faker->text())
-                ->setEmail($faker->email())
-                ->setActions($faker->text());
-            $manager->persist($cse);
-        }
+        $cse = new CSE();
+        $cse->setPresentationHome($faker->text())
+            ->setPresentationAbout($faker->text())
+            ->setRules($faker->text())
+            ->setEmail($faker->email())
+            ->setActions($faker->text());
+        $manager->persist($cse);
 
         $manager->flush();
     }
