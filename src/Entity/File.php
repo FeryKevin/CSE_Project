@@ -50,6 +50,7 @@ class File
         $this->setOriginalName(str_replace('public/img/partner\\', '', $originalName))
             ->setExtension($ext);
 
+        $i = 0;
         if (file_exists('./img/partner/' . $originalName)) {
             $i = 1;
             while (file_exists('./img/partner/' . $name . $i . $ext)) {
