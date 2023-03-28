@@ -1,23 +1,26 @@
 <div class='survey-container'>
     <div class='survey-header'><h5>Votre avis compte</h5></div>
-    {{ form_start(form) }}
     <div class='survey-body'>
-        <div class='survey-no-stat'>
-            <h6>{{ survey.question }}</h6>
-            <div class='survey-choices'>
-                {{ form_widget(form.answers) }}
-            </div>
-            <input type='hidden' name='survey' value={{ survey.id }} /> 
-            {% for message in app.flashes('SurveySuccess') %}
-                <div class="alert-success">
-                    {{ message }}
+    {% if form is defined %}
+        {{ form_start(form) }}
+            <div class='survey-no-stat'>
+                <h6>{{ survey.question }}</h6>
+                <div class='survey-choices'>
+                    {{ form_widget(form.answers) }}
                 </div>
-            {% endfor %}
+                <input type='hidden' name='survey' value={{ survey.id }} /> 
+                {% for message in app.flashes('SurveySuccess') %}
+                    <div class="alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class='survey-stat-display'>
-            {% include 'components/_survey_stats.html.twig' with {"class": "answer-display"} %}
+        <div class='survey-footer'>{{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
+        {{ form_end(form) }}
+    {% else %}
+        <h3>Il n'y a pas de sondage actuellement disponible</h3>
         </div>
-    </div>
-    <div class='survey-footer'><a id='view-stats'>Voir les réponses</a> {{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
-    {{ form_end(form) }}
+        <div class='survey-footer'></div>
+    {% endif %}
 </div>

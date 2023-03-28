@@ -63,26 +63,11 @@
     }
 }
 
-
 /* SURVEY */
 
 .survey-container{
     width: 20%;
     text-align: center;
-}
-
-.survey-stat-display {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    border-color: lightgrey;
-}
-
-.survey-stat-display {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    border-color: lightgrey;
 }
 
 .survey-header {
@@ -163,6 +148,10 @@ a#view-stats {
 
 .answer-container.answer-display h4 {
     font-size: 10%;
+}
+
+.survey-container h3 {
+    padding: 67px 0px;
 }
 
 @media screen and (max-width: 996px) {

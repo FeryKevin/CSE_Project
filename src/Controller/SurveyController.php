@@ -24,6 +24,10 @@ class SurveyController extends AbstractController
     public function surveyForm(): Response
     {
         $survey = $this->surveyRepository->findRandomOneActive();
+        if (empty($survey)) {
+            return $this->render('survey.html.twig');
+        }
+
         $form = $this->createForm(SurveyFormType::class, $survey, ['action' => $this->generateUrl('handle_survey')]);
 
         return $this->render(
@@ -39,6 +43,8 @@ class SurveyController extends AbstractController
     public function handleSurveyForm(Request $request, EntityManagerInterface $em)
     {
         $survey = $this->surveyRepository->find($request->get('survey'));
+        if (!array_key_exists('answers', $request->get('survey_form'))) return $this->redirect($request->headers->get('referer'));
+
         $answer = $survey->getAnswers()[$request->get('survey_form')['answers']];
         $answer->setAnswerNumber($answer->getAnswerNumber() + 1);
         $em->persist($answer);
