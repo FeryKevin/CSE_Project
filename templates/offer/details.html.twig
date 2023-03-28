@@ -10,6 +10,9 @@
             <div class='offer-description'>
                 {{ offer.description }}
             </div>
+            {% for image in offer.images %}
+                <img src={{ image.path }}/>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
