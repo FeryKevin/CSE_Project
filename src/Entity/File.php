@@ -39,7 +39,7 @@ class File
             $file->setStoredName(str_replace('public/img/offer\\', '', $path));
         }
         $file->setExtension(pathinfo($path, PATHINFO_EXTENSION))
-            ->setPath($path);
+            ->setPath(str_replace('/public', '', $path));
 
         return $file;
     }
