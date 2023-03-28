@@ -16,7 +16,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class HomeController extends AbstractController
 {
-
     private OfferRepository $offerRepository;
 
     public function __construct(OfferRepository $offerRepository)
@@ -60,7 +59,6 @@ class HomeController extends AbstractController
             ]
         );
     }
-
 
     public function renderNewsletter(): Response
     {

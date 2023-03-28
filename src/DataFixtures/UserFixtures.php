@@ -29,6 +29,12 @@ class UserFixtures extends Fixture
             $manager->persist($user);
         }
 
+        $user = new User();
+        $user->setEmail('e@e.e')
+            ->setPassword('$argon2i$v=19$m=65536,t=4,p=1$a3Z0enFWN1lCa3M4ZDAwTw$k5q0xgFmu+Di5s8GE4yT/8FTSx0EW9jLX9IFjaGVup8')
+            ->setRoles(['ROLE_ADMIN']);
+        $manager->persist($user);
+
         $manager->flush();
     }
 }

@@ -851,3 +851,11 @@ a.survey-desactivate{
 input#question {
     width: 100%;
 }
+
+/* OFFER PAGE */
+
+.offer-page {
+    text-align: center;
+    width: 70%;
+    margin: 9px 15%;
+}

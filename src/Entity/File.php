@@ -29,14 +29,45 @@ class File
     #[ORM\JoinColumn(nullable: true)]
     private ?Offer $offer = null;
 
-    public static function createFromPath(string $path): self{
+    public static function createFromPath(string $path, bool $isPartner = false): self
+    {
         $file = new static;
 
-        $file->setStoredName(str_replace('public/img/offer\\', '', $path))
-            ->setExtension(pathinfo($path, PATHINFO_EXTENSION))
+        if ($isPartner) {
+            $file->setStoredName(str_replace('public/img/partner\\', '', $path));
+        } else {
+            $file->setStoredName(str_replace('public/img/offer\\', '', $path));
+        }
+        $file->setExtension(pathinfo($path, PATHINFO_EXTENSION))
             ->setPath($path);
 
         return $file;
+    }
+
+    public function handleForm(string $originalName): self
+    {
+        if (!is_dir('./img/partner'))
+            mkdir('./img/partner');
+
+        $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+        $name = str_replace('.' . $ext, '', $originalName);
+        $this->setOriginalName(str_replace('public/img/partner\\', '', $originalName))
+            ->setExtension($ext);
+
+        $i = 0;
+        if (file_exists('./img/partner/' . $originalName)) {
+            $i = 1;
+            while (file_exists('./img/partner/' . $name . $i . $ext)) {
+                $i++;
+            }
+            $i++;
+        }
+
+        $i = $i === 0 ? null : $i;
+        $this->setStoredName($name . $i)
+            ->setPath('./img/partner/' . $name . $i . '.' . $ext);
+
+        return $this;
     }
 
     public function getId(): ?int

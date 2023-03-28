@@ -32,7 +32,7 @@ class OfferFixtures extends Fixture implements DependentFixtureInterface
             if ($type === 'limited') {
                 $offer->setLimitedDisplayBeginning($faker->dateTime())
                     ->setLimitedDisplayEnding($publish->modify("+{$faker->randomDigitNotZero()} days"))
-                    ->setLimitedDisplayNumber($faker->randomNumber(5, false));
+                    ->setLimitedDisplayNumber($faker->numberBetween(0, 10));
             } else {
                 $validate = $faker->dateTime();
                 $offer->setPermanentMinimumPlaces($faker->randomNumber(2, false))
