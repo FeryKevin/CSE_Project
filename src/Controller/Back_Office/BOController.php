@@ -71,11 +71,24 @@ class BOController extends AbstractController
     }
 
     #[Route(path: '/admin/aboutUs/update', name: 'admin_update_about')]
-    public function updateAbout(CSERepository $cseRepository): Response
+    public function updateAbout(CSERepository $cseRepository, Request $request, EntityManagerInterface $em): Response
     {
         $cse = $cseRepository->findAll()[0];
 
         $form = $this->createForm(CSEFormType::class, $cse);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $cse = $form->getData();
+
+            $em->persist($cse);
+            $em->flush();
+
+            $this->addFlash('success', 'Le partenaire a été ajouté.');
+
+            return $this->redirectToRoute('aboutUs');
+        }
 
         return $this->render('back_office/updateAbout.html.twig', [
             'form' => $form
