@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Newsletter;
 use App\Form\NewsletterType;
+use App\Repository\CSERepository;
 use App\Repository\NewsletterRepository;
 use App\Repository\OfferRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -22,6 +23,19 @@ class HomeController extends AbstractController
     {
         $this->offerRepository = $offerRepository;
     }
+
+    #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
+    public function aboutUs(CSERepository $cseRepository)
+    {
+        $cse = $cseRepository->findAll()[0];
+
+        return $this->render('aboutUs.html.twig', [
+            'text' => $cse->getPresentationAbout(),
+            'rules' => $cse->getRules(),
+            'actions' => $cse->getActions(),
+        ]);
+    }
+
 
     #[Route(path: '/newsletterInscription', name: 'newsletter_inscription', methods: ['POST'])]
     public function newsletterInscription(Request $request, EntityManagerInterface $em, ValidatorInterface $validator)
