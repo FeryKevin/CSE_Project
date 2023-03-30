@@ -5,7 +5,7 @@
 {% block body %}
     <div id='aboutUs'>
         <h2>A propos de nous</h2>
-        <p>{{ text }}</p>
+        <p>{{ text | raw }}</p>
         <h2>Qui sommes nous ?</h2>
         <div class='aboutUs-photos'>
             <div class='about-presentation'>
@@ -43,11 +43,11 @@
         </div>
         <div class='aboutus-rules'>
             <h2>Règlement</h2>
-            <p>{{ rules }}</p>            
+            <p>{{ rules | raw }}</p>            
         </div>
         <div class='aboutus-actions'>
             <h2>Nos actions</h2>
-            <p>{{ actions }}</p>            
+            <p>{{ actions | raw }}</p>            
         </div>
     </div>
 {% endblock %}
