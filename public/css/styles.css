@@ -697,6 +697,7 @@ li.pagination-link.current {
     width: 30%;
     margin: 3px;
     position: relative;
+    min-height: 275px;
 }
 
 .survey-stats h4{
