@@ -13,10 +13,24 @@
     text-decoration: none;
 }
 
+#imgLogoFooter
+{
+    background-color: white;
+    padding: 1vh 1vw;
+    margin: 0;
+}
+
+.logo2
+{
+    height: 10vh;
+    width: 12vw;
+}
+
 .hCSE {
     font-family: Inter;
     font-weight: 700;
-    margin-bottom: 18px;
+    margin-bottom: 0.5vh;
+    padding: 0.5vh 0;
     line-height: 24px;
 }
 
@@ -46,36 +60,50 @@
     line-height: 20px;
 }
 
-.inputNewsletter {
-    font-size: 14px;
-    border: none;
-    border-radius: 6px;
-    height: 31px;
-    width: 60%;
+/* NEWSLETTER INSCRIPTION */
+
+div#newsletter-form {
+    width: 23%;
 }
 
-.inputNewsletter::placeholder {
-    color: #c3c3c3;
+.newsletter-bottom {
+    margin-top: 10px;
+}
+
+input#newsletter_email {
+    border-radius: 7px;
+    border: 1px grey solid;
+    padding: 4px 3px;
+    width: 45%;
+}
+
+input#newsletter_email::placeholder {
     text-align: center;
 }
 
-.btnNewsletter {
-    font-size: 14px;
-    border: none;
-    border-radius: 6px;
-    background-color: #fff;
-    height: 31px;
-    width: 30%;
+button#newsletter_save {
+    background-color: white;
+    border: 1px grey solid;
+    border-radius: 7px;
+    padding: 4px 13px;
+    margin-left: 5px;
 }
 
-.btnNewsletter:hover {
-    color: #b6a786;
+.alert-success {
+    color: rgb(0, 218, 0);
+    margin-top: 7px;
+    background: none;
+}
+
+.alert-fail {
+    color: rgb(255, 0, 0);
+    margin-top: 7px;
 }
 
 @media screen and (min-width: 991.5px) {
     .footer {
         display: flex;
-        padding: 1vh 16px;
+        padding: 2vh 0 2vh 10vw;
     }
 
     #footer-left {
@@ -87,13 +115,8 @@
         font-size: 18px;
     }
 
-    #imgLogo {
-        height: 100%;
-        width: fit-content;
-        margin: 0 5vh 0 10vh;
-    }
-
     .page-links {
+        margin-left: 3vw;
         width: 40vw;
     }
 
@@ -109,6 +132,10 @@
     #footer-form {
         margin-top: 2vh;
     }
+    #newsletter-text
+    {
+        width: 70%;
+    }
 }
 
 @media screen and (min-width: 991.5px) and (max-width: 1200px) {
@@ -123,24 +150,14 @@
         padding: 2% 0 3%;
     }
 
-    #imgLogo {
+    #imgLogoFooter {
         display: none;
     }
 
     .hCSE {
-        font-size: 20px;
-        margin-bottom: 15px;
-        line-height: 20px;
-    }
-
-    .footer h6 {
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    .footer p {
-        line-height: 15px;
-        font-size: 12px;
+        font-size: 22px;
+        margin-bottom: 12px;
+        line-height: 22px;
     }
 
     .link {
@@ -148,11 +165,15 @@
     }
 
     .aLink {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .offreFooter {
-        margin-top: 2%;
+        margin-top: 1.5%;
+    }
+
+    #newsletter-text > * {
+        margin: 0;
     }
 
     #footer-form {
@@ -170,11 +191,5 @@
     .btnNewsletter {
         font-size: 12px;
         width: 12vw;
-    }
-}
-
-@media screen and (max-width: 767.5px) {
-    #imgLogo {
-        margin-bottom: 3%;
     }
 }

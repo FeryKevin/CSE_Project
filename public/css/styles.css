@@ -140,46 +140,6 @@ a#view-stats {
     display: none;
 }
 
-/* NEWSLETTER INSCRIPTION */
-
-div#newsletter-form {
-    width: 23%;
-}
-
-.newsletter-bottom {
-    margin-top: 10px;
-}
-
-input#newsletter_email {
-    border-radius: 7px;
-    border: 1px grey solid;
-    padding: 4px 3px;
-    width: 53%;
-}
-
-input#newsletter_email::placeholder {
-    text-align: center;
-}
-
-button#newsletter_save {
-    background-color: white;
-    border: 1px grey solid;
-    border-radius: 7px;
-    padding: 4px 13px;
-    margin-left: 5px;
-}
-
-.alert-success {
-    color: rgb(0, 218, 0);
-    margin-top: 7px;
-    background: none;
-}
-
-.alert-fail {
-    color: rgb(255, 0, 0);
-    margin-top: 7px;
-}
-
 /*ICON*/
 
 #icon {
