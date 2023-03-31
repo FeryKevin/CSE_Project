@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+    <div class='admin-user'>
+        <h1>Liste des utilisateurs : </h1>
+
+        <div class='table-responsive'>
+            <table class="table admin-table">
+                <thead class='thead-dark'>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ user.email }}</th>
+                        <td>
+                            <a href="{{ path('app_admin_show', {'id': user.id}) }}">show</a>
+                            <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Pas d'utilisateur trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ path('app_admin_new') }}">Create new</a>
+    </div>
+{% endblock %}

@@ -962,3 +962,11 @@ form button:hover {
         width: 85%;
     }
 }
+
+.admin-user h1{
+    text-align: center;
+}
+
+.admin-table{
+    width: 40%;
+}
