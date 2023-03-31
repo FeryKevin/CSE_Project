@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back_office/base.html.twig' %}
 
 {% block title %}Utilisateurs{% endblock %}
 
@@ -19,8 +19,8 @@
                     <tr>
                         <th scope="row">{{ user.email }}</th>
                         <td>
-                            <a href="{{ path('app_admin_show', {'id': user.id}) }}">show</a>
-                            <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                            <a class='admin-update' href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                            {{ include('back_office/user/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% else %}
@@ -31,7 +31,8 @@
                 </tbody>
             </table>
         </div>
-
-        <a href="{{ path('app_admin_new') }}">Create new</a>
+        <div class='admin-user-footer'>
+            <a class='admin-create' href="{{ path('user_new') }}">Nouvel utilisateur</a>
+        </div>
     </div>
 {% endblock %}

@@ -167,6 +167,7 @@ button#newsletter_save {
     border-radius: 7px;
     padding: 4px 13px;
     margin-left: 5px;
+    color: black;
 }
 
 .alert-success {
@@ -642,7 +643,6 @@ li.pagination-link.current {
     background-color: #1c3168;
     color: white;
     height: 40px;
-    width: 40%;
 }
 
 .btnCo button:hover {
@@ -971,6 +971,42 @@ form button:hover {
     width: 40%;
 }
 
+.admin-table th{
+    vertical-align: middle;
+}
+
+.admin-update {
+    background-color: #054bfc;
+    padding: 5px 17px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.admin-update:hover {
+    color: #18283B;
+}
+
+.admin-delete {
+    background-color: red;
+    padding: 2px 5px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.admin-create{
+    background-color: green;
+    padding: 5px 5px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
 .table-responsive {
     display: flex;
     justify-content: center;
@@ -980,7 +1016,17 @@ form button:hover {
     text-align: center;
 }
 
-#user > div {
+.user-form {
     display: grid;
+    justify-content: center;
+    margin: 22px 0;
+}
+
+.user-form label{
+    margin: 5px 0;
+}
+
+.admin-user-footer{
+    display: flex;
     justify-content: center;
 }
