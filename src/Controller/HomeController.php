@@ -24,6 +24,22 @@ class HomeController extends AbstractController
         $this->offerRepository = $offerRepository;
     }
 
+    #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
+    public function home(CSERepository $cseRepository, int $page = 1): Response
+    {
+        $pagination = $this->offerRepository->findWithPaginator($page);
+
+        $cse = $cseRepository->findAll()[0];
+
+        return $this->render(
+            'index.html.twig',
+            [
+                'pagination' => $pagination,
+                'text' => $cse->getPresentationHome(),
+            ]
+        );
+    }
+
     #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
     public function aboutUs(CSERepository $cseRepository)
     {
@@ -35,7 +51,6 @@ class HomeController extends AbstractController
             'actions' => $cse->getActions(),
         ]);
     }
-
 
     #[Route(path: '/newsletterInscription', name: 'newsletter_inscription', methods: ['POST'])]
     public function newsletterInscription(Request $request, EntityManagerInterface $em, ValidatorInterface $validator)
@@ -59,19 +74,6 @@ class HomeController extends AbstractController
         }
 
         return $this->redirect($request->headers->get('referer'));
-    }
-
-    #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
-    public function home(int $page = 1): Response
-    {
-        $pagination = $this->offerRepository->findWithPaginator($page);
-
-        return $this->render(
-            'index.html.twig',
-            [
-                'pagination' => $pagination,
-            ]
-        );
     }
 
     public function renderNewsletter(): Response
