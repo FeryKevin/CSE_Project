@@ -271,6 +271,37 @@ button#newsletter_save {
 
 /* HOMEPAGE */
 
+.cse {
+    background-color: #d9d9d9;
+    padding-bottom: 1px;
+    width: 60%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.cse h4 {
+    color: #1c3168;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.cse p {
+    padding: 0 0 0 10px;
+}
+
+@media screen and (max-width: 768.5px) {
+
+    .cse h4 .cse p {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .cse {
+        width: 100%;
+    }
+}
+
 .offer-container {
     background-color: #EFEDED;
     width: 60%;
