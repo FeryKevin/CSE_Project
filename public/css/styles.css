@@ -140,47 +140,6 @@ a#view-stats {
     display: none;
 }
 
-/* NEWSLETTER INSCRIPTION */
-
-div#newsletter-form {
-    width: 23%;
-}
-
-.newsletter-bottom {
-    margin-top: 10px;
-}
-
-input#newsletter_email {
-    border-radius: 7px;
-    border: 1px grey solid;
-    padding: 4px 3px;
-    width: 53%;
-}
-
-input#newsletter_email::placeholder {
-    text-align: center;
-}
-
-button#newsletter_save {
-    background-color: white;
-    border: 1px grey solid;
-    border-radius: 7px;
-    padding: 4px 13px;
-    margin-left: 5px;
-    color: black;
-}
-
-.alert-success {
-    color: rgb(0, 218, 0);
-    margin-top: 7px;
-    background: none;
-}
-
-.alert-fail {
-    color: rgb(255, 0, 0);
-    margin-top: 7px;
-}
-
 /*ICON*/
 
 #icon {
@@ -467,6 +426,7 @@ li.pagination-link.current {
     background-color: #1c3168;
     color: white;
     height: 40px;
+    width: 40%;
 }
 
 .btnCo button:hover {
@@ -785,72 +745,4 @@ form button:hover {
     .offer-body img {
         width: 85%;
     }
-}
-
-.admin-user h1{
-    text-align: center;
-}
-
-.admin-table{
-    width: 40%;
-}
-
-.admin-table th{
-    vertical-align: middle;
-}
-
-.admin-update {
-    background-color: #054bfc;
-    padding: 5px 17px;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.admin-update:hover {
-    color: #18283B;
-}
-
-.admin-delete {
-    background-color: red;
-    padding: 2px 5px;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.admin-create{
-    background-color: green;
-    padding: 5px 5px;
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-
-.table-responsive {
-    display: flex;
-    justify-content: center;
-}   
-
-.admin-form{
-    text-align: center;
-}
-
-.user-form {
-    display: grid;
-    justify-content: center;
-    margin: 22px 0;
-}
-
-.user-form label{
-    margin: 5px 0;
-}
-
-.admin-user-footer{
-    display: flex;
-    justify-content: center;
 }
