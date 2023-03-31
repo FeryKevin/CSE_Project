@@ -1,22 +1,23 @@
-<h6>Inscrivez-vous aux offres</h6>
-<p>Reçevez un email à chaque nouvelle offre sur le site internet.</p>
-    <div id="footer-form">
-        <form name="newsletter" method="post" action={{ path('newsletter_inscription') }}>
-            <div class='newsletter-bottom'>
+<div id="newsletter-text">
+    <h6>Inscrivez-vous aux offres</h6>
+    <p>Reçevez un email à chaque nouvelle offre sur le site internet.</p>
+</div>
+<div id="footer-form">
+    <form name="newsletter" method="post" action={{ path('newsletter_inscription') }}>
+        <div class='newsletter-bottom'>
             <input type="email" id="newsletter_email" name="email" required="required" placeholder="Saisissez votre email" class="newsletter-input" />
             <button type="submit" id="newsletter_save" name="newsletter[save]" class="newsletter-btn">S&#039;inscrire</button>
-            </div>
-            <input type="hidden" id="newsletter__token" name="token" value={{ csrf_token('newsletter') }} />
-        </form>
-    </div>
-    {% for message in app.flashes('NewsletterSuccess') %}
-        <div class="alert-success">
-            {{ message }}
         </div>
-    {% endfor %}
-    {% for message in app.flashes('fail') %}
-        <div class="alert-fail">
-            {{ message }}
-        </div>
-    {% endfor %}
+        <input type="hidden" id="newsletter__token" name="token" value={{ csrf_token('newsletter') }} />
+    </form>
 </div>
+{% for message in app.flashes('NewsletterSuccess') %}
+    <div class="alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+{% for message in app.flashes('fail') %}
+    <div class="alert-fail">
+        {{ message }}
+    </div>
+{% endfor %}
