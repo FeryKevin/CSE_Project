@@ -907,3 +907,20 @@ input#question {
 #cse_form div:first-child{
     display: grid;
 }
+
+form button
+{
+    margin: 1vh 0;
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 5px;
+    color: white;
+    background-color: #1c3168;
+}
+
+form button:hover
+{
+    color: #b6a786;
+}

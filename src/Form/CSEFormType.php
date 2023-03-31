@@ -26,7 +26,9 @@ class CSEFormType extends AbstractType
             ->add('actions', CKEditorType::class, [
                 'label' => "Actions sur la page présentation",
             ])
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, [
+                'attr' => ['class' => "offer-button"],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
