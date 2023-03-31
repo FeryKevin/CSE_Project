@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Partner;
 use App\Entity\File;
-use App\Form\Admin\PartnerType;
+use App\Form\PartnerForm;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +28,7 @@ class PartnerController extends AbstractController
     public function create(Request $request, EntityManagerInterface $manager): Response
     {
         $partner = new Partner();
-        $form = $this->createForm(PartnerType::class, $partner);
+        $form = $this->createForm(PartnerForm::class, $partner);
 
         $form->handleRequest($request);
 

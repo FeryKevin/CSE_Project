@@ -1,3 +1,11 @@
 <h3>Liste des partenaires : </h3>
 
+{% for partners in partners %}
+    <p>{{ partners.name }}</p>
+    <p>{{ partners.description }}</p>
+    <a href="{{ partners.websiteLink }}" target='_blank'>{{ partners.websiteLink }}</a> 
+    <img src="{{app.request.basepath}}/img/partner/{{partners.image.originalName}}.{{partners.image.extension}}" alt="monimg" />
+    <br><br> 
+{% endfor %}
+
 <a href='{{ path('partner_create') }}'>Ajouter</a>
