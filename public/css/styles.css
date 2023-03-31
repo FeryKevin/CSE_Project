@@ -697,7 +697,7 @@ li.pagination-link.current {
     width: 30%;
     margin: 3px;
     position: relative;
-    min-height: 300px   ;
+    min-height: 300px;
 }
 
 .survey-stats h4{
@@ -971,5 +971,18 @@ form button:hover
 
     .admin-choice img{
         display: none;
+    }
+}
+
+.offer-body img {
+    width: 361px;
+    height: auto;
+    margin-inline: 20px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    .offer-body img {
+        width: 85%;
     }
 }
