@@ -970,3 +970,8 @@ form button:hover {
 .admin-table{
     width: 40%;
 }
+
+.table-responsive {
+    display: flex;
+    justify-content: center;
+}

@@ -9,17 +9,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Role\RoleHierarchy;
 
-class UserType extends AbsgitractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $user = $builder->getData();
-
-        dd($this->container->getParameter('security.role_hierarchy.roles'));
         $builder
             ->add('email')
             ->add('roles', ChoiceType::class, [
-                'choices'  => RoleHierarchy::getReachableRoles()
+                'choices' => ['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER', 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN'],
+                'multiple' => true
             ])
             ->add('password', options: ['data' => null, 'required' => true]);
     }
