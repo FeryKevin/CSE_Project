@@ -6,60 +6,104 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
+
+    /* Pour debug */
+    /* outline: 1px red solid; */
 }
 
 /* NAVBAR */
 
 .navbar {
-    background-color: #1c3168;
     padding: 0;
 }
-
+.navbar-left > div{
+    width: 10vw;
+}
+.navbar-right {
+    display: flex;
+    flex-direction: column;
+}
+.navbar-grey {
+    background-color: #EFEDED;
+}
+.navbar-blue {
+    background-color: #1c3168;
+}
+.navbar-right .navbar-blue {
+    display: flex;
+}
 .navbar-nav {
     text-align: center;
     align-items: center;
 }
-
 .nav-link {
+    display: flex;
+    align-items: center;
     color: white !important;
     font-size: 18px;
-    margin: 0 20px;
+    padding: 0 2vw !important;
+    vertical-align: middle;
 }
-
-.nav-link.active,
-.nav-link:hover {
+.nav-link.active, .nav-link:hover {
     background-color: #b6a786;
     color: #fff !important;
 }
-
-.navbar-brand {
-    padding: 0;
+.navbar-img {
+    padding: 1vh 1vw;
 }
-
-#imgLogo {
-    padding: 0;
+.navbar-brand{
+    background-color: white;
+    padding: 1vh 1vw;
+    margin: 0;
+}
+.logo
+{
+    height: 10vh;
+    width: 12vw;
 }
 
 @media screen and (min-width: 991.5px) {
-
-    .logo,
-    .logo2 {
+    .navbar
+    {
         height: 12vh;
-        width: 16vw;
     }
-
-    .navbar-nav {
-        margin: 0 10vh;
+    .navbar-grey, .navbar-blue
+    {
+        height: 6vh;
     }
-
-    #navbar .container-fluid {
+    .navbar-right
+    {
+        width: 75vw;
+    }
+    #navbar .container-fluid{
         padding: 0;
     }
 }
 
 @media screen and (max-width: 991.5px) {
-    .logo {
+    .navbar-left, .navbar-right .navbar-grey, .navbar-brand
+    {
         display: none;
+    }
+    .navbar-right .navbar-blue
+    {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 1vh;
+    }
+    #navbar
+    {
+        background-color: #1c3168;
+    }
+    .navbar-toggler
+    {
+        border: 1px white solid;
+        margin: 1vh;
+    }
+    .nav-link
+    {
+        font-size: 22px;
+        line-height: 40px;
     }
 }
 
@@ -227,14 +271,6 @@ button#newsletter_save {
 .alert-fail {
     color: rgb(255, 0, 0);
     margin-top: 7px;
-}
-
-/*RESPONSIVE*/
-
-@media screen and (max-width: 1126px) {
-    .logo {
-        display: none;
-    }
 }
 
 /*ICON*/
@@ -564,6 +600,11 @@ li.pagination-link.current {
 
     #imgLogo {
         display: none;
+    }
+    .logo2
+    {
+        height: 12vh;
+        width: 16vw;
     }
 
     .hCSE {
