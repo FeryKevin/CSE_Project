@@ -697,6 +697,7 @@ li.pagination-link.current {
     width: 30%;
     margin: 3px;
     position: relative;
+    min-height: 275px;
 }
 
 .survey-stats h4{
@@ -923,4 +924,17 @@ form button
 form button:hover
 {
     color: #b6a786;
+}
+
+.offer-body img {
+    width: 361px;
+    height: auto;
+    margin-inline: 20px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    .offer-body img {
+        width: 85%;
+    }
 }

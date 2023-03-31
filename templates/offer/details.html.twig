@@ -10,6 +10,11 @@
             <div class='offer-description'>
                 {{ offer.description }}
             </div>
+            <div class='offer-imgs'>
+                {% for image in offer.images %}
+                    <img src="{{ asset('/img/offer/' ~ image.storedName) }}"/>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
