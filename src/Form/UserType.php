@@ -21,7 +21,8 @@ class UserType extends AbstractType
                 'constraints' => [
                     new Assert\Email([
                         'message' => 'L\'email "{{ value }}" n\'est pas valide.',
-                    ])
+                    ]),
+                    new Assert\NotBlank()
                 ],
             ])
             ->add('roles', ChoiceType::class, [
