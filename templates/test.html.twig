@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ render(controller('App\\Controller\\SurveyController::surveyForm')) }}
+    <script src='/scripts/homepage.js'></script>
+
+{% endblock %}

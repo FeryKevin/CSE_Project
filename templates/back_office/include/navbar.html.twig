@@ -1,0 +1,21 @@
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav">
+                <a class="navbar-brand" href="https://www.lycee-stvincent.fr/">
+                    <img class='logo' src="/img\logo.png" alt="" width="180" height="80">
+                </a>
+                <a class="nav-link" href={{ path('admin') }}>Accueil</a>
+                <a class="nav-link" href={{ path('admin_surveys') }}>Sondages</a>
+                <a class="nav-link" href={{ path('admin_contacts') }}>Messages</a>
+                <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
+            </div>
+        </div>
+    </div>
+</nav>

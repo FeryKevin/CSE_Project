@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}| Lycée Saint-Vincent</title>
+        <title>{% block title %}{% endblock %} | Administration | Lycée Saint-Vincent</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Bootstrap #}
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
         {% endblock %}
     </head>
     <body>
-        {{ include('include/navbar.html.twig') }}
+        {{ include('back_office/include/navbar.html.twig') }}
         {% block body %}{% endblock %}
         {{ include('include/footer.html.twig') }}
     </body>

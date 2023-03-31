@@ -71,6 +71,15 @@
                 {% endif %}
 
                 {% if pagination.currentPage == pagination.pages %}
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : 2}) }}>2</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a>...</a>
+                    </li>
+                    <li class='pagination-link'>
+                        <a href={{ path('paginedHome', {"page" : pagination.pages -1 }) }}>{{ pagination.pages -1 }} </a>
+                    </li>  
                     <li class='pagination-link current'>
                         <a>{{ pagination.currentPage }}</a>
                     </li>

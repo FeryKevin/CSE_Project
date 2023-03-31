@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Newsletter;
 use App\Form\NewsletterType;
+use App\Repository\CSERepository;
 use App\Repository\NewsletterRepository;
 use App\Repository\OfferRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -23,6 +24,34 @@ class HomeController extends AbstractController
         $this->offerRepository = $offerRepository;
     }
 
+    #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
+    public function home(CSERepository $cseRepository, int $page = 1): Response
+    {
+        $pagination = $this->offerRepository->findWithPaginator($page);
+
+        $cse = $cseRepository->findAll()[0];
+
+        return $this->render(
+            'index.html.twig',
+            [
+                'pagination' => $pagination,
+                'text' => $cse->getPresentationHome(),
+            ]
+        );
+    }
+
+    #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
+    public function aboutUs(CSERepository $cseRepository)
+    {
+        $cse = $cseRepository->findAll()[0];
+
+        return $this->render('aboutUs.html.twig', [
+            'text' => $cse->getPresentationAbout(),
+            'rules' => $cse->getRules(),
+            'actions' => $cse->getActions(),
+        ]);
+    }
+
     #[Route(path: '/newsletterInscription', name: 'newsletter_inscription', methods: ['POST'])]
     public function newsletterInscription(Request $request, EntityManagerInterface $em, ValidatorInterface $validator)
     {
@@ -36,7 +65,7 @@ class HomeController extends AbstractController
         $errors = $validator->validate($newsletter);
 
         if (count($errors) === 0) {
-            $this->addFlash('success', 'Vous avez bien été inscrit(e) à la newsletter');
+            $this->addFlash('NewsletterSuccess', 'Vous avez bien été inscrit(e) à la newsletter');
 
             $em->persist($newsletter);
             $em->flush();
@@ -45,19 +74,6 @@ class HomeController extends AbstractController
         }
 
         return $this->redirect($request->headers->get('referer'));
-    }
-
-    #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
-    public function home(int $page = 1): Response
-    {
-        $pagination = $this->offerRepository->findWithPaginator($page);
-
-        return $this->render(
-            'index.html.twig',
-            [
-                'pagination' => $pagination,
-            ]
-        );
     }
 
     public function renderNewsletter(): Response
