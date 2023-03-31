@@ -13,9 +13,6 @@
 
 /* NAVBAR */
 
-.navbar {
-    padding: 0;
-}
 .navbar-left > div{
     width: 10vw;
 }
@@ -71,9 +68,13 @@
     {
         height: 6vh;
     }
+    .navbar-nav
+    {
+        width: 100%;
+    }
     .navbar-right
     {
-        width: 75vw;
+        width: 100%;
     }
     #navbar .container-fluid{
         padding: 0;
@@ -463,14 +464,6 @@ li.pagination-link.disable {
 li.pagination-link.current {
     border-color: #054bfc !important;
     color: #054bfc;
-}
-
-/*RESPONSIVE*/
-
-@media screen and (max-width: 1126px) {
-    #navbar {
-        border-bottom: 1px solid #455468;
-    }
 }
 
 /* FOOTER */
