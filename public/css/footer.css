@@ -182,14 +182,12 @@ button#newsletter_save {
         align-items: center;
     }
 
-    .inputNewsletter {
-        font-size: 12px;
-        width: 25vw;
-        margin-bottom: 1vh;
+    input#newsletter_email {
+        padding: 6px 3px;
+        width: 60%;
     }
-
-    .btnNewsletter {
-        font-size: 12px;
-        width: 12vw;
+    
+    button#newsletter_save {
+        padding: 6px 13px;
     }
 }
