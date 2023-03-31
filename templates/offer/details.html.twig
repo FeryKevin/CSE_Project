@@ -12,7 +12,7 @@
             </div>
             <div class='offer-imgs'>
                 {% for image in offer.images %}
-                    <img src={{ image.path }}/>
+                    <img src="{{ asset('/img/offer/' ~ image.storedName) }}"/>
                 {% endfor %}
             </div>
         </div>
