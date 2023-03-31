@@ -1,20 +1,28 @@
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
+        <div class="navbar-left">
+            <div class="navbar-grey"></div>
+            <div class="navbar-blue"></div>
+        </div>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-responsive" aria-controls="navbar-responsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbar">
+        <div class="collapse navbar-collapse" id="navbar-responsive">
             <div class="navbar-nav">
                 <a class="navbar-brand" href="https://www.lycee-stvincent.fr/">
-                    <img class='logo' src="/img\logo.png" alt="" width="180" height="80">
+                    <img class='logo' src="/img\logo.png" alt="St-Vincent logo">
                 </a>
-                <a class="nav-link" href={{ path('admin') }}>Accueil</a>
-                <a class="nav-link" href={{ path('admin_surveys') }}>Sondages</a>
-                <a class="nav-link" href={{ path('admin_contacts') }}>Messages</a>
-                <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
+                <div class="navbar-right">
+                    <div class="navbar-grey"></div>
+                    <div class="navbar-blue">
+                        <a class="nav-link" href={{ path('admin') }}>Accueil</a>
+                        <a class="nav-link" href={{ path('admin_surveys') }}>Sondages</a>
+                        <a class="nav-link" href={{ path('admin_contacts') }}>Messages</a>
+                        <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
