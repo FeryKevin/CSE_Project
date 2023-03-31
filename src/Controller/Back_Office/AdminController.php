@@ -64,6 +64,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $user->setPassword($this->encoder->hashPassword($user, $user->getPassword()));
             $em->persist($user);
             $em->flush();

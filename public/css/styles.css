@@ -974,4 +974,13 @@ form button:hover {
 .table-responsive {
     display: flex;
     justify-content: center;
+}   
+
+.admin-form{
+    text-align: center;
+}
+
+#user > div {
+    display: grid;
+    justify-content: center;
 }

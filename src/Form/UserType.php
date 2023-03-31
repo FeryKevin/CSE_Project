@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Role\RoleHierarchy;
 
 class UserType extends AbstractType
 {
@@ -19,7 +18,7 @@ class UserType extends AbstractType
                 'choices' => ['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER', 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN'],
                 'multiple' => true
             ])
-            ->add('password', options: ['data' => null, 'required' => true]);
+            ->add('password', options: ['data' => null, 'required' => true, 'label' => 'Mot de passe']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
