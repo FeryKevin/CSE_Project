@@ -28,6 +28,7 @@ class CSEFormType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => "offer-button"],
+                'label' => "Valider"
             ]);
     }
 

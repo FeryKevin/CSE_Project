@@ -1,3 +1,60 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
 {% block body %}
-    <a href="{{ path('app_logout') }}">Déconnexion</a>
+    <div class='admin-homepage'>
+        <h2>Bienvenue {{ app.user.email }} !</h2>
+        <h4>Que voulez-vous faire aujourd'hui ?</h4>
+        <div class='admin-body'>
+            <a href={{ path('admin_contacts') }}>
+                <div class='admin-choice'>
+                    <h3>Messages</h3>
+                    <img src='/img/message.png' />
+                </div>
+            </a>
+            <a href={{ path('admin_surveys') }}>
+                <div class='admin-choice'>
+                    <h3>Sondages</h3>
+                    <img src='/img/survey.png' />
+                </div>
+            </a>
+            <a href=''>
+                <div class='admin-choice'>
+                    <h3>Partenariats</h3>
+                    <img src='/img/partner.png' />
+                </div>
+            </a>
+            <a href={{ path('admin_update_about') }}>
+                <div class='admin-choice'>
+                    <h3>A propos de nous</h3>
+                    <img src='/img/aboutUs.png' />
+                </div>
+            </a>
+            <a href=''>
+                <div class='admin-choice'>
+                    <h3>Accueil</h3>
+                    <img src='/img/homepage.png' />
+                </div>
+            </a>
+            <a href=''>
+                <div class='admin-choice'>
+                    <h3>Billetterie</h3>
+                    <img src='/img/ticketing.png' />
+                </div>
+            </a>
+            <a href=''>
+                <div class='admin-choice'>
+                    <h3>Offres</h3>
+                    <img src='/img/partner.png' />
+                </div>
+            </a>
+            <a href=''>
+                <div class='admin-choice'>
+                    <h3>Admins</h3>
+                    <img src='/img/admin.png' />
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock body %}
