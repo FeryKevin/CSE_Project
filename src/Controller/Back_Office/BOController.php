@@ -3,7 +3,9 @@
 namespace App\Controller\Back_Office;
 
 use App\Entity\Survey;
+use App\Form\CSEFormType;
 use App\Repository\ContactRepository;
+use App\Repository\CSERepository;
 use App\Repository\SurveyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,5 +68,30 @@ class BOController extends AbstractController
         $em->flush();
 
         return new Response('Survey has been updated');
+    }
+
+    #[Route(path: '/admin/aboutUs/update', name: 'admin_update_about')]
+    public function updateAbout(CSERepository $cseRepository, Request $request, EntityManagerInterface $em): Response
+    {
+        $cse = $cseRepository->findAll()[0];
+
+        $form = $this->createForm(CSEFormType::class, $cse);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $cse = $form->getData();
+
+            $em->persist($cse);
+            $em->flush();
+
+            $this->addFlash('success', 'Le partenaire a été ajouté.');
+
+            return $this->redirectToRoute('aboutUs');
+        }
+
+        return $this->render('back_office/updateAbout.html.twig', [
+            'form' => $form
+        ]);
     }
 }
