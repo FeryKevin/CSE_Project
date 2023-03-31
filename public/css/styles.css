@@ -65,13 +65,13 @@
 
 /* SURVEY */
 
-.survey-container{
+.survey-container {
     width: 20%;
     text-align: center;
 }
 
 .survey-header {
-    background-color: #1c3168 ;
+    background-color: #1c3168;
     padding: 10px 3px;
     color: white;
 }
@@ -83,7 +83,8 @@
     padding-bottom: 20px;
 }
 
-.survey-container h6, h4 {
+.survey-container h6,
+h4 {
     color: black;
     padding: 20px 0;
 }
@@ -99,7 +100,8 @@ a#view-stats {
     justify-content: center;
 }
 
-.survey-footer a, #survey_form_save {
+.survey-footer a,
+#survey_form_save {
     background-color: white;
     border: 1px solid;
     display: flex;
@@ -113,22 +115,23 @@ a#view-stats {
     margin-top: 9px;
 }
 
-.survey-form-choices input, .survey-form-choices label{
+.survey-form-choices input,
+.survey-form-choices label {
     right: 34px;
     margin-left: 2%;
     display: block;
     position: relative;
 }
 
-.answer-display h5{
+.answer-display h5 {
     font-size: 80%;
 }
 
-.answer-display .progress{
+.answer-display .progress {
     height: 8px;
 }
 
-.survey-form-choices label{
+.survey-form-choices label {
     right: 25px;
 }
 
@@ -155,9 +158,9 @@ a#view-stats {
 }
 
 @media screen and (max-width: 996px) {
-    .survey-container{
+    .survey-container {
         display: none;
-    }  
+    }
 }
 
 /*ICON*/
@@ -616,22 +619,23 @@ li.pagination-link.current {
     #imgLogo {
         margin-bottom: 3%;
     }
+
     /* ADMIN */
-    
+
     .table-div {
         display: flex;
         justify-content: center;
         padding-top: 60px;
     }
-    
+
     .contact-msg {
         text-overflow: ellipsis;
     }
-    
+
     #msg-table tr {
         width: 30px;
     }
-    
+
     #msg-table {
         width: 80%;
     }
@@ -687,12 +691,12 @@ li.pagination-link.current {
     justify-content: center;
 }
 
-.admin-title{
+.admin-title {
     text-align: center;
     margin: 47px 0;
 }
 
-.survey-stats{
+.survey-stats {
     border: 1px black solid;
     width: 30%;
     margin: 3px;
@@ -700,7 +704,7 @@ li.pagination-link.current {
     min-height: 300px;
 }
 
-.survey-stats h4{
+.survey-stats h4 {
     font-size: 16px;
     margin: 16px;
     text-align: center;
@@ -716,7 +720,7 @@ li.pagination-link.current {
     margin: 29px;
     position: absolute;
     width: 100%;
-    background: rgba(128,128,128, 0.9);
+    background: rgba(128, 128, 128, 0.9);
     height: 100%;
     bottom: -29px;
     right: -29px;
@@ -738,11 +742,11 @@ a.survey-update {
     background-color: #1c3168;
 }
 
-a.survey-activate{
+a.survey-activate {
     background-color: rgb(0, 210, 0);
 }
 
-a.survey-desactivate{
+a.survey-desactivate {
     background-color: rgb(255, 0, 0);
 }
 
@@ -751,7 +755,7 @@ a.survey-desactivate{
         display: grid !important;
         grid-column: 2 !important;
     }
-    
+
     .survey-stats {
         width: 90% !important;
         margin: 14px 5% !important;
@@ -768,19 +772,19 @@ a.survey-desactivate{
     justify-content: center;
 }
 
-.admin-title{
+.admin-title {
     text-align: center;
     margin: 47px 0;
 }
 
-.survey-stats{
+.survey-stats {
     border: 1px black solid;
     width: 30%;
     margin: 3px;
     position: relative;
 }
 
-.survey-stats h4{
+.survey-stats h4 {
     font-size: 16px;
     margin: 16px;
     text-align: center;
@@ -791,18 +795,18 @@ a.survey-desactivate{
     margin-bottom: 26px;
 }
 
-.survey-actions{
+.survey-actions {
     margin: 29px;
 }
 
-.survey-actions{
+.survey-actions {
     display: none;
 }
 
 .survey-actions {
     position: absolute;
     width: 100%;
-    background: rgba(128,128,128, 0.9);
+    background: rgba(128, 128, 128, 0.9);
     height: 100%;
     bottom: -29px;
     right: -29px;
@@ -821,18 +825,18 @@ a.survey-desactivate{
 }
 
 a.survey-update {
-    background-color: #1c3168   ;
+    background-color: #1c3168;
 }
 
-a.survey-activate{
+a.survey-activate {
     background-color: rgb(0, 210, 0);
 }
 
-a.survey-desactivate{
+a.survey-desactivate {
     background-color: rgb(255, 0, 0);
 }
 
-.survey-form-choices{
+.survey-form-choices {
     display: grid;
     grid-template-columns: 13px 13px;
     justify-content: center;
@@ -852,7 +856,7 @@ input#question {
 
 /* About Us */
 
-#aboutUs{
+#aboutUs {
     width: 80%;
     padding-top: 40px;
 }
@@ -867,50 +871,49 @@ input#question {
     text-align: center;
 }
 
-.aboutUs-photos{
+.aboutUs-photos {
     padding-top: 40px;
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     margin-inline: 20px;
     justify-content: space-evenly;
 }
 
-.about-presentation img{
+.about-presentation img {
     width: 186px;
 }
 
-@media screen and (max-width: 992px){
-    #aboutUs{
+@media screen and (max-width: 992px) {
+    #aboutUs {
         display: inline;
     }
 }
 
 /* ADMIN */
 
-.update-about{
+.update-about {
     text-align: center;
 }
 
-.update-about h2{
+.update-about h2 {
     padding: 40px 0;
 }
 
-.update-about-form{   
+.update-about-form {
     display: flex;
     justify-content: center;
     padding: 0;
 }
 
-#cse_form label{
+#cse_form label {
     margin: 31px 0px;
 }
 
-#cse_form div:first-child{
+#cse_form div:first-child {
     display: grid;
 }
 
-form button
-{
+form button {
     margin: 1vh 0;
     text-decoration: none;
     font-size: larger;
@@ -921,22 +924,21 @@ form button
     background-color: #1c3168;
 }
 
-form button:hover
-{
+form button:hover {
     color: #b6a786;
 }
 
-.admin-homepage h2{
+.admin-homepage h2 {
     text-align: center;
     margin: 42px 0;
 }
 
-.admin-homepage h4{
+.admin-homepage h4 {
     text-align: center;
     margin: 42px 0;
 }
 
-.admin-body{
+.admin-body {
     display: flex;
     margin-inline: 90px;
     flex-wrap: wrap;
@@ -948,7 +950,7 @@ form button:hover
     color: black;
 }
 
-.admin-choice{
+.admin-choice {
     border: black 1px solid;
     padding: 20px 30px;
     margin-inline: 30px;
@@ -958,18 +960,18 @@ form button:hover
     text-align: center;
 }
 
-.admin-choice img{
+.admin-choice img {
     width: 247px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .admin-choice {
         width: 258px;
         height: 122px;
         margin-inline: 2px;
     }
 
-    .admin-choice img{
+    .admin-choice img {
         display: none;
     }
 }
