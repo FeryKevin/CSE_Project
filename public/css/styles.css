@@ -848,3 +848,79 @@ input#question {
     width: 70%;
     margin: 9px 15%;
 }
+
+/* About Us */
+
+#aboutUs{
+    width: 80%;
+    padding-top: 40px;
+}
+
+#aboutUs p {
+    font-size: 132%;
+    padding-top: 20px;
+    padding-left: 15%;
+}
+
+#aboutUs h2 {
+    text-align: center;
+}
+
+.aboutUs-photos{
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap ;
+    margin-inline: 20px;
+    justify-content: space-evenly;
+}
+
+.about-presentation img{
+    width: 186px;
+}
+
+@media screen and (max-width: 992px){
+    #aboutUs{
+        display: inline;
+    }
+}
+
+/* ADMIN */
+
+.update-about{
+    text-align: center;
+}
+
+.update-about h2{
+    padding: 40px 0;
+}
+
+.update-about-form{   
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#cse_form label{
+    margin: 31px 0px;
+}
+
+#cse_form div:first-child{
+    display: grid;
+}
+
+form button
+{
+    margin: 1vh 0;
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 5px;
+    color: white;
+    background-color: #1c3168;
+}
+
+form button:hover
+{
+    color: #b6a786;
+}
