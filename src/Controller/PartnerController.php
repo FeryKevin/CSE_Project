@@ -52,6 +52,32 @@ class PartnerController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/partner/modifiy/{id}', name: 'partner_modify', methods: ['GET', 'POST'])]
+    public function modify(PartnerRepository $partnerRepository, $id, EntityManagerInterface $manager, Request $request): Response
+    {
+        $partner = $partnerRepository->find($id);
+        $form = $this->createForm(PartnerForm::class, $partner, [
+            'on_edit' => true,
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $partner = $form->getData();
+
+            $manager->persist($partner);
+            $manager->flush();
+
+            $this->addFlash('success', 'Le partenaire a bien été modifié');
+
+            return $this->redirectToRoute('partner_index');
+        }
+
+        return $this->render('admin/partner/modify.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
     #[Route('/admin/partner/delete/{id}', name: 'partner_delete', methods: ['GET', 'POST', 'DELETE'])]
     public function delete(PartnerRepository $partnerRepository, $id, EntityManagerInterface $manager): Response
     {
