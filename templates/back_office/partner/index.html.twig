@@ -8,7 +8,6 @@
 
     <h3>Liste des partenaires :</h3>
 
-
     {% for partners in partners %}
 
         <div class='presPartner'>
@@ -17,32 +16,26 @@
                 <div class='row'>
 
                     <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
                         <img src="{{app.request.basepath}}/img/partner/{{partners.image.originalName}}.{{partners.image.extension}}" alt="{{partners.image.originalName}}"/>
-
                     </div>
 
 
-                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                        
+                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>                        
                         {# <p class='pName'>{{ partners.name }} - <a href=" https://www.{{ partners.websiteLink }}" target='blank'>{{ partners.websiteLink }}</a> </p> #}
                         <p class='pName'>{{ partners.name }} - <a class='Plien' href="{{ partners.websiteLink }}" target='blank'>{{ partners.websiteLink }}</a> </p>
-                        <p class='pDescription'>{{ partners.description }}</p>
-                        
-                        
+                        <p class='pDescription'>{{ partners.description }}</p>                        
                         <a id='btnSup' class='btn btn-danger' href={{ path('partner_delete', {'id' : partners.id}) }}>Supprimer</a>
-
                     </div>
 
                 </div>
-
             </div>
 
         </div>
 
-
     {% endfor %}
+
+    <br>
+    <a class='Pcreate' href={{ path('partner_create') }}>Ajouter</a>
 
 </div>
 

@@ -774,14 +774,6 @@ form button:hover {
     height: 80;
 }
 
-@media screen and (max-width: 767.5) {
-    .presPartner img {
-        margin: auto;
-        display: flex;
-        justify-content: center;
-    }
-}
-
 .pName {
     font-weight: bold;
     margin-top: 5%;
@@ -811,4 +803,18 @@ form button:hover {
 .separate {
     background-color: white;
     margin: 5%;
+}
+
+.Pcreate {
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 25px;
+}
+
+.Pcreate:hover {
+    background-color: #b6a786;
+    color: white;
 }
