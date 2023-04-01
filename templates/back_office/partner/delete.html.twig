@@ -1,4 +1,16 @@
-<form method="post" action="{{ path('partner_delete', {'id': partner.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer ce partenaire ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ partner.id) }}">
-    <button class="">Supprimer</button>
-</form>
+{# {% block content %}
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class='pModal'>Confirmer la suppression :</p>
+            <form action ="{{ path('partner_delete', {'id': app.request.get('id')}) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="token" value="{{ csrf_token('delete-partner') }}" />
+                <button type="submit" name="delete" class="btn btn-danger">Supprimer</button> 
+                <a id="btnClose" class="btn btn-primary btnClose">Annuler</a>
+            </form>
+        </div>
+    </div>
+        
+{% endblock content %} #}

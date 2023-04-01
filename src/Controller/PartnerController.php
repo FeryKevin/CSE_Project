@@ -52,13 +52,16 @@ class PartnerController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/partner/delete/{id}', name: 'partner_delete', methods: ['POST'])]
-    public function delete(Request $request, Partner $partner, PartnerRepository $partnerRepository): Response
+    #[Route('/admin/partner/delete/{id}', name: 'partner_delete', methods: ['GET', 'POST', 'DELETE'])]
+    public function delete(PartnerRepository $partnerRepository, $id, EntityManagerInterface $manager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $partner->getId(), $request->request->get('_token'))) {
-            $partnerRepository->remove($partner, true);
-        }
+        $partner = $partnerRepository->findOneBy(['id' => $id]);
 
-        return $this->redirectToRoute('partner_index', [], Response::HTTP_SEE_OTHER);
+        $manager->remove($partner);
+        $manager->flush();
+
+        $this->addFlash('success', 'Le partenaire a bien été supprimé');
+
+        return $this->redirectToRoute('partner_index');
     }
 }
