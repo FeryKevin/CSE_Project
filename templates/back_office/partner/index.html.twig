@@ -9,8 +9,8 @@
     <p>{{ partners.description }}</p>
     <a href="{{ partners.websiteLink }}" target='_blank'>{{ partners.websiteLink }}</a> 
     <img src="{{app.request.basepath}}/img/partner/{{partners.image.originalName}}.{{partners.image.extension}}" alt="monimg" />
-    {# <a class='' href="{{ path('partner_update', {'id': partners.id}) }}">Modifier</a> #}
-    {# <a class= "btn btn-primary" href="admin/partner/delete/'.$myRessource->getId().'">'.htmlspecialchars('Supprimer').'</a> #}
+    {# <a class='' href={{ path('partner_update', {'id' : partners.id}) }}>Modifier</a> #}
+    <a class='' href={{ path('partner_delete', {'id' : partners.id}) }}>Supprimer</a>
     <br><br> 
 {% endfor %}
 
