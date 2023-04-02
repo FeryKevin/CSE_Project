@@ -4,10 +4,44 @@
 
 {% block body %}
 
-    <h3>Ajout d'un partenaire :</h3>
+    <div class='ajoutP'>
 
-    {{ form_start(form) }}
+        <h3 class='hAjout'>Ajout d'un partenaire :</h3>
 
-    {{ form_end(form) }}
+            <div class='labelP'>
+                {{ form_label(form.name) }}
+            </div>
+            <div class='rowP'>
+                {{ form_widget(form.name) }}
+            </div>
+
+            <div class='labelP'>
+                {{ form_label(form.description) }}
+            </div>
+            <div class='rowP'>
+                {{ form_widget(form.description) }}
+            </div>
+
+            <div class='labelP'>
+                {{ form_label(form.websiteLink) }}
+            </div>
+            <div class='rowP'>
+                {{ form_widget(form.websiteLink) }}
+            </div>
+
+            <div class='labelP'>
+                {{ form_label(form.image) }}
+            </div><br>
+            <div class='rowP'>
+                {{ form_widget(form.image) }}
+            </div>
+
+            <div class='rowP'>
+                {{ form_row(form.submit) }}
+            </div>
+
+    </div>
+
+    <a class='Pretour' href={{ path('partner_index') }}>Retour</a>
 
 {% endblock body %}

@@ -18,7 +18,7 @@ final class PartnerForm extends AbstractType
             'label' => 'Nom :',
             'empty_data' => '',
             'attr' => [
-                'placeholder' => 'Veuillez saisir le nom du partenaire',
+                'placeholder' => 'Nom',
             ],
             'constraints' => [
                 new Assert\NotBlank(),
@@ -28,7 +28,7 @@ final class PartnerForm extends AbstractType
                 'label' => 'Description :',
                 'empty_data' => '',
                 'attr' => [
-                    'placeholder' => 'Veuillez saisir la description du partenaire',
+                    'placeholder' => 'Description',
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -38,18 +38,17 @@ final class PartnerForm extends AbstractType
                 'label' => 'Lien du site :',
                 'empty_data' => '',
                 'attr' => [
-                    'placeholder' => 'Veuillez saisir le lien du site du partenaire',
+                    'placeholder' => 'Site Web',
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
                 ],
             ])
-            ->add('image', FileForm::class)
+            ->add('image', FileForm::class, [
+                'label' => false,
+            ])
             ->add('submit', SubmitType::class, [
-                'label' => $builder->getOption('on_edit') ? '-> Modifier' : '-> Ajouter',
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
+                'label' => $builder->getOption('on_edit') ? 'Modifier' : 'Ajouter',
             ]);
     }
 

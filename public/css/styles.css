@@ -818,3 +818,32 @@ form button:hover {
     background-color: #b6a786;
     color: white;
 }
+
+.hAjout {
+    text-align: center;
+    font-weight: bolder;
+    color: #1c3168;
+    margin-bottom: 30px;
+}
+
+.ajoutP {
+    margin: 3vh 6vw;
+    border: 5px solid #b6a786;
+    outline: 8px solid #1c3168;
+    border-radius: 7px;
+    padding: 2vh 1vw;
+}
+
+.labelP {
+    padding: 15px;
+
+}
+
+.rowP input {
+    margin: 15px;
+    width: 45%;
+}
+
+.rowP input::placeholder {
+    text-align: left;
+}
