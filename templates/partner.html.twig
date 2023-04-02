@@ -1,1 +1,38 @@
-ù
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaires{% endblock %}  
+
+{% block body %}
+
+<div class='partner'>
+
+    <h3>Liste des partenaires :</h3>
+
+    {% for partners in partners %}
+
+        <div class='presPartner'>
+
+            <div class='container-fluid'>
+                <div class='row'>
+
+                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                        {# <img src={{partners.image.path}} alt="{{partners.image.originalName}}"/> #}
+                        <img src="{{app.request.basepath}}/img/partner/{{partners.image.originalName}}.{{partners.image.extension}}" alt="{{partners.image.originalName}}"/>
+                    </div>
+
+                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>                        
+                        {# <p class='pName'>{{ partners.name }} - <a href=" https://www.{{ partners.websiteLink }}" target='blank'>{{ partners.websiteLink }}</a> </p> #}
+                        <p class='pName'>{{ partners.name }} - <a class='Plien' href="{{ partners.websiteLink }}" target='blank'>{{ partners.websiteLink }}</a> </p>
+                        <p class='pDescription'>{{ partners.description }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
