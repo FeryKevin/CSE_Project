@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offres | Admin{% endblock %}
+
+{% block body %}    
+    <section id="form-section">
+        <h2 class="form-title">Nouvelle offre
+            <select id="select-type-offer" onChange="changeOfferForm(this.value)">
+                <option value="permanent">permanente</option>
+                <option value="limited">limitée</option>
+            </select>
+        </h2>
+        <div id="permanent_offers_form">
+            {{ form_start(form_permanent) }}
+            <div class="form">
+                <div class="form-separate">
+                    <div class="form-left">
+                        {{ form_row(form_permanent.name) }}
+                        {{ form_row(form_permanent.description) }}
+                        {# <ul class="images"
+                            data-index="{{ form_permanent.images|length > 0 ? form_permanent.images|last.vars.name + 1 : 0 }}"
+                            data-prototype="{{ form_widget(form_permanent.images.vars.prototype) }}">
+                        </ul>
+                        <button type="button" class="add_item_link" data-collection-holder-class="tags">Add a tag</button> #}
+                    </div>
+                    <div class="form-right">
+                        {{ form_row(form_permanent.permanentValidityBeginning) }}
+                        {{ form_row(form_permanent.permanentValidityEnding) }}
+                        {{ form_row(form_permanent.permanentMinimumPlaces) }}
+                    </div>
+                </div>
+                <div class="full-width-form">
+                    {# {{ form_row(form.image) }} #}
+                    {# {{ technology.image.path }} #}
+                    {# <img src="{{ asset('img/' ~ technology.image.path) }}" alt="Photo"/> #}
+                </div>
+                <div class='offer-form-buttons'>
+                    {{ form_row(form_permanent.submit) }}
+                </div>
+            </div>
+            {{ form_end(form_permanent) }}
+        </div>
+        <div id="limited_offers_form">
+            {{ form_start(form_limited) }}
+            <div class="form">
+                <div class="form-separate">
+                    <div class="form-left">
+                        {{ form_row(form_limited.name) }}
+                        {{ form_row(form_limited.description) }}
+                    </div>
+                    <div class="form-right">
+                        {{ form_row(form_limited.limitedDisplayBeginning) }}
+                        {{ form_row(form_limited.limitedDisplayEnding) }}
+                        {{ form_row(form_limited.limitedDisplayNumber) }}
+                    </div>
+                </div>
+                <div class="full-width-form">
+                    {# {{ form_row(form_limited.image) }} #}
+                    {# {{ technology.image.path }} #}
+                    {# <img src="{{ asset('img/' ~ technology.image.path) }}" alt="Photo"/> #}
+                </div>
+                <div class='offer-form-buttons'>
+                    {{ form_row(form_limited.submit) }}
+                </div>
+            </div>
+            {{ form_end(form_limited) }}
+        </div>
+    </section>
+    <div class="offer-buttons">
+        <a class="offer-button" href="{{ path('offers') }}">Retour au menu des offres</a>
+    </div>
+    <script>
+        changeOfferForm();
+
+        function changeOfferForm(type) {
+            var permanent = document.getElementById("permanent_offers_form");
+            var limited = document.getElementById("limited_offers_form");
+            if (type == "limited") {
+                permanent.style.display = "none";
+                limited.style.display = "inline";
+            } else {
+                permanent.style.display = "inline";
+                limited.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

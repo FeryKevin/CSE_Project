@@ -746,3 +746,170 @@ form button:hover {
         width: 85%;
     }
 }
+
+/* BO offers */
+#offers
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+#offers th
+{
+    border: solid 1px black;
+    color: white;
+    background-color: #1c3168;
+}
+
+#offers td
+{
+    border: solid 1px;
+    padding: 0.5vh 1vw;
+}
+
+#offers td a
+{
+    color: #b6a786;
+}
+
+#select-type-offer
+{
+    font-size: smaller;
+}
+
+#form-section
+{
+    margin: 3vh 6vw;
+    border: 5px solid #b6a786;
+    outline: 8px solid #1c3168;
+    border-radius: 7px;
+    padding: 2vh 1vw;
+}
+
+.form-title
+{
+    text-align: center;
+}
+
+.form-separate
+{
+    display: flex;
+    height: 32vh;
+}
+
+.form-left, .form-right
+{
+    width: 45vw;
+    padding-left: 3vw;
+}
+
+.full-width-form
+{
+    margin-top: 1vh;
+    text-align: center;
+}
+
+form label
+{
+    display: block;
+    margin-bottom: 1vh;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+form input, form textarea, form select, form p
+{
+    margin-bottom: 3vh;
+}
+
+form textarea
+{
+    width: 30vw;
+}
+
+.form-multiple-choice
+{
+    margin-top: 2vh;
+    display: flex;
+}
+
+.form-choice label
+{
+    text-decoration: none;
+}
+
+.form-right select
+{
+    margin-bottom: 1vh;
+}
+
+#offer-body
+{
+    margin: 3vh 0;
+}
+
+.offer-button
+{
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 5px;
+    color: white;
+    background-color: #1c3168;
+}
+
+.offer-button:hover
+{
+    color: #b6a786;
+}
+
+#offers .offer-button
+{
+    margin-top: 1vh;
+}
+
+.offer-form-buttons
+{
+    margin-left: 3vw;
+    display: flex;
+}
+
+.offer-form-buttons > *
+{
+    margin-right: 1vh;
+}
+
+.offer-buttons
+{
+    margin: 0 0 3vh 12vw;
+}
+
+@media screen and (max-width: 991.5px) {
+    #form-section
+    {
+        height: 55vh;
+    }
+    
+    #form-section label
+    {
+        font-size: smaller;
+    }
+
+    .offer-buttons {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .offer-button {
+        font-size: smaller;
+    }
+    
+    #form-section input
+    {
+        width: 50%;
+    }
+}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offres | Admin{% endblock %}
+
+{% block body %}
+    <h1 class='menu-title'>Menu des offres</h1>
+    <section id='offers'>
+        {% if offers|length > 0 %}
+            <table id='offers-table'>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Détails</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for offer in offers %}
+                    <tr>
+                        <td>{{ offer.name }}</td>
+                        <td><a href="{{ path('offer', { slug: offer.name }) }}">Voir les détails</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Aucun résultat</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a class="offer-button" href="{{ path('create_offer') }}">Créer une offre</a>
+        {% else %}
+            Pas de résultats
+        {% endif %}
+    </section>
+    <div class="offer-buttons">
+        <a class="offer-button" href="{{ path('admin') }}">Retour au back-office</a>
+    </div>
+{% endblock %}
