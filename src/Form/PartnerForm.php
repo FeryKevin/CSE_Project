@@ -23,6 +23,7 @@ final class PartnerForm extends AbstractType
             'constraints' => [
                 new Assert\NotBlank(),
             ],
+            'required' => true,
         ])
             ->add('description', TextType::class, [
                 'label' => 'Description :',

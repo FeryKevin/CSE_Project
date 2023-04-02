@@ -8,11 +8,16 @@
 
         <h3 class='hAjout'>Ajout d'un partenaire :</h3>
 
+        {{ form_start(form) }}
+
             <div class='labelP'>
                 {{ form_label(form.name) }}
             </div>
             <div class='rowP'>
                 {{ form_widget(form.name) }}
+            </div>
+            <div class='error'>
+                {{ form_errors(form.name) }}
             </div>
 
             <div class='labelP'>
@@ -21,12 +26,18 @@
             <div class='rowP'>
                 {{ form_widget(form.description) }}
             </div>
+            <div class='error'>
+                {{ form_errors(form.description) }}
+            </div>
 
             <div class='labelP'>
                 {{ form_label(form.websiteLink) }}
             </div>
             <div class='rowP'>
                 {{ form_widget(form.websiteLink) }}
+            </div>
+            <div class='error'>
+                {{ form_errors(form.websiteLink) }}
             </div>
 
             <div class='labelP'>
@@ -35,10 +46,11 @@
             <div class='rowP'>
                 {{ form_widget(form.image) }}
             </div>
-
-            <div class='rowP'>
-                {{ form_row(form.submit) }}
+            <div class='error'>
+                {{ form_errors(form.image) }}
             </div>
+
+        {{ form_end(form) }}
 
     </div>
 

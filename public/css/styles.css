@@ -770,8 +770,8 @@ form button:hover {
 
 .presPartner img {
     margin-left: 2%;
-    width: 80%;
-    height: 80;
+    width: 60%;
+
 }
 
 .pName {
@@ -844,12 +844,17 @@ form button:hover {
     width: 45%;
 }
 
-.rowP input::placeholder {
-    text-align: left;
+#partner_form_submit {
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 2%;
 }
 
-.rowP button {
-    background-color: #1c3168;
+#partner_form_submit:hover {
+    background-color: #b6a786;
     color: white;
     text-decoration: none;
     padding: 5px;
@@ -872,4 +877,8 @@ form button:hover {
 
 .btnRetourP {
     margin: 3% 0% 2% 2%;
+}
+
+.error {
+    color: red;
 }
