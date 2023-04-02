@@ -847,3 +847,29 @@ form button:hover {
 .rowP input::placeholder {
     text-align: left;
 }
+
+.rowP button {
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.Pretour {
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.Pretour:hover {
+    background-color: #b6a786;
+    color: white;
+}
+
+.btnRetourP {
+    margin: 3% 0% 2% 2%;
+}

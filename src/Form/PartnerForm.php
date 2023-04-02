@@ -45,7 +45,7 @@ final class PartnerForm extends AbstractType
                 ],
             ])
             ->add('image', FileForm::class, [
-                'label' => false,
+                'label' => 'Image :',
             ])
             ->add('submit', SubmitType::class, [
                 'label' => $builder->getOption('on_edit') ? 'Modifier' : 'Ajouter',

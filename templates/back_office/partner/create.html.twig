@@ -31,7 +31,7 @@
 
             <div class='labelP'>
                 {{ form_label(form.image) }}
-            </div><br>
+            </div>
             <div class='rowP'>
                 {{ form_widget(form.image) }}
             </div>
@@ -42,6 +42,8 @@
 
     </div>
 
-    <a class='Pretour' href={{ path('partner_index') }}>Retour</a>
+    <div class='btnRetourP'>
+        <a class='Pretour' href={{ path('partner_index') }}>Retour</a>
+    </div>
 
 {% endblock body %}

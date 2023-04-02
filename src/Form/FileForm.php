@@ -17,7 +17,7 @@ final class FileForm extends AbstractType
     {
         $builder
             ->add('originalName', FileType::class, [
-                'label' => 'Image : ',
+                'label' => false,
             ]);
     }
 
