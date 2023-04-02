@@ -6,6 +6,7 @@ use App\Entity\Newsletter;
 use App\Form\NewsletterType;
 use App\Repository\CSERepository;
 use App\Repository\NewsletterRepository;
+use App\Repository\PartnerRepository;
 use App\Repository\OfferRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Doctrine\ORM\EntityManagerInterface;
@@ -38,6 +39,16 @@ class HomeController extends AbstractController
                 'text' => $cse->getPresentationHome(),
             ]
         );
+    }
+
+    #[Route('/partner', name: 'partner')]
+    public function index(PartnerRepository $partnerRepository): Response
+    {
+        $partners = $partnerRepository->findAll();
+
+        return $this->render('partner.html.twig', [
+            'partners' => $partners,
+        ]);
     }
 
     #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
