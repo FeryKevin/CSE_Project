@@ -854,3 +854,45 @@ form button:hover {
     display: flex;
     justify-content: center;
 }
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-form h2 {
+    margin-block: 20px;
+}
+
+div#contact {
+    border: 1px solid black;
+    height: 550px;
+    margin-bottom: 30px;
+    max-height: 720px;
+    height: 110%;
+    padding-bottom: 20px;
+}
+
+div#contact form > div {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 36px;
+    margin-top: 10px;
+}
+
+div#contact > div:first-child{
+    margin-top: 20px;
+}
+
+div#contact textarea{
+    margin-bottom: 20px;
+    height: 120px;
+    resize: none;
+}
+
+.contact-success{
+    text-align: center;
+    color: green;
+}

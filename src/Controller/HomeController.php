@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Newsletter;
+use App\Form\ContactType;
 use App\Form\NewsletterType;
 use App\Repository\CSERepository;
 use App\Repository\NewsletterRepository;
@@ -83,5 +85,23 @@ class HomeController extends AbstractController
         return $this->render('newsletterInscription.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(Request $request, EntityManagerInterface $em)
+    {
+        $form = $this->createForm(ContactType::class, new Contact());
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($form->getData());
+            $em->flush();
+
+            $this->addFlash('contact-success', 'Le message a été envoyé');
+
+            return $this->redirectToRoute('contact');
+        }
+
+        return $this->render('contact.html.twig', ['form' => $form]);
     }
 }
