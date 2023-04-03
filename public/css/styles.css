@@ -826,7 +826,7 @@ form button:hover {
     border: 5px solid #b6a786;
     outline: 8px solid #1c3168;
     border-radius: 7px;
-    padding: 2vh 1vw;
+    padding: 2vh 0.75vw;
 }
 
 .form-title, .menu-title
@@ -852,7 +852,7 @@ form button:hover {
     text-align: center;
 }
 
-form label
+#form-section label
 {
     display: block;
     margin-bottom: 1vh;
@@ -860,12 +860,12 @@ form label
     font-size: 20px;
 }
 
-form input, form textarea, form select, form p
+#form-section input, #form-section textarea, #form-section select, #form-section p
 {
     margin-bottom: 3vh;
 }
 
-form textarea
+#form-section textarea
 {
     width: 30vw;
 }
@@ -925,7 +925,7 @@ form textarea
 
 .offer-buttons
 {
-    margin: 0 0 3vh 12vw;
+    margin: 0 0 3vh 10vw;
 }
 
 @media screen and (max-width: 991.5px) {

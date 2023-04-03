@@ -51,6 +51,7 @@ class PermanentOfferType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Offer::class,
+            'on_edit' => false,
         ]);
     }
 }

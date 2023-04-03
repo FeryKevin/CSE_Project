@@ -56,6 +56,12 @@ class OfferController extends AbstractController
 
             if ($form->isSubmitted() && $form->isValid())
             {
+                $offer = $form->getData();
+                $path = $offer->getImages()->getOriginalName();
+                dd($path);
+
+                move_uploaded_file($path, $offer->getImage()->getPath());
+                $em->persist($offer->getImage());
                 $em->persist($offer);
                 $em->flush();
             }
