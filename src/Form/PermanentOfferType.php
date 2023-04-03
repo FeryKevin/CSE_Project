@@ -35,11 +35,11 @@ class PermanentOfferType extends AbstractType
                 'required' => false,
                 'label' => "Nombre de places minimal",
             ])
-            // ->add('images', CollectionType::class, [
-            //     'entry_type' => FileForm::class,
-            //     // 'entry_options' => ['label' => false],
-            //     // 'allow_add' => true,
-            // ])
+            ->add('images', CollectionType::class, [
+                'entry_type' => FileForm::class,
+                // 'entry_options' => ['label' => false],
+                // 'allow_add' => true,
+            ])
             ->add('submit', SubmitType::class, [
                 'label' => "Valider",
                 'attr' => ['class' => 'offer-button'],

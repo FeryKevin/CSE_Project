@@ -59,7 +59,7 @@ class OfferController extends AbstractController
                 $em->persist($offer);
                 $em->flush();
             }
-            return $this->render('back_office//offers/offer.html.twig', [
+            return $this->render('back_office/offers/offer.html.twig', [
                 'offer' => $offer,
                 'form' => $form->createView(),
             ]);

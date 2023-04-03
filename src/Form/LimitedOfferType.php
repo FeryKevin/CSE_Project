@@ -6,7 +6,7 @@ use App\Entity\Offer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-// use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -53,11 +53,11 @@ class LimitedOfferType extends AbstractType
                     '10' => '10',
                 ],
             ])
-            // ->add('images', CollectionType::class, [
-            //     'entry_type' => FileForm::class,
-            //     // 'entry_options' => ['label' => false],
-            //     // 'allow_add' => true,
-            // ])
+            ->add('images', CollectionType::class, [
+                'entry_type' => FileForm::class,
+                // 'entry_options' => ['label' => false],
+                // 'allow_add' => true,
+            ])
             ->add('submit', SubmitType::class, [
                 'label' => "Valider",
                 'attr' => ['class' => 'offer-button'],

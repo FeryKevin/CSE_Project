@@ -829,7 +829,7 @@ form button:hover {
     padding: 2vh 1vw;
 }
 
-.form-title
+.form-title, .menu-title
 {
     text-align: center;
 }
