@@ -854,3 +854,19 @@ form button:hover {
     display: flex;
     justify-content: center;
 }
+
+#homepage-edit{
+    display: grid;
+    justify-content: center;
+    margin: 22px 0; 
+}
+
+button#homepage_form_submit {
+    width: 100px;
+    height: 33px;
+    margin-block: 20px;
+    background-color: #054bfc;
+    border-radius: 3px;
+    color: white;
+    border: none;
+}
