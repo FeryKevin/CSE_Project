@@ -49,12 +49,14 @@
                     <img src='/img/partner.png' />
                 </div>
             </a>
-            <a href=''>
-                <div class='admin-choice'>
-                    <h3>Admins</h3>
-                    <img src='/img/admin.png' />
-                </div>
-            </a>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <a href={{ path('admin_users') }}>
+                    <div class='admin-choice'>
+                        <h3>Admins</h3>
+                        <img src='/img/admin.png' />
+                    </div>
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endblock body %}
