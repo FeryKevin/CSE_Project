@@ -10,10 +10,6 @@ const newLinkLi = document.createElement('li').append(addTagLink)
 // deleteTagLink.dataset.collectionHolderClass='title'
 // const removeLinkLi = document.createElement('li').append(deleteTagLink)
 
-removeFormButton = document.createElement('button');
-removeFormButton.classList.add('offer-button', 'collection-button');
-removeFormButton.innerText = 'Supprimer image';
-
 collectionHolder = document.getElementById('permanent_offer_images');
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
@@ -22,30 +18,41 @@ collectionHolder.appendChild(addTagLink)
 
 //Fonction pour ajouter une section
 const addFormToCollection = (e) => {
-    collectionHolder = document.getElementById('permanent_offer_images');
+    index = countLi();
 
-    const item = document.createElement('li');
+    if (index < 4){
+        const item = document.createElement('li');
 
-    item.innerHTML = collectionHolder
-    .dataset
-    .prototype
-    .replace(
-        /__name__/g,
-        collectionHolder.dataset.index
-    );
+        item.innerHTML = collectionHolder
+        .dataset
+        .prototype
+        .replace(
+            /__name__/g,
+            collectionHolder.dataset.index
+        );
 
-    collectionHolder.appendChild(item);
-    item.append(removeFormButton);
-    removeFormButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        // remove the li for the tag form
-        item.remove();
-    });
+        removeFormButton = document.createElement('button');
+        removeFormButton.classList.add('offer-button', 'collection-button');
+        removeFormButton.innerText = 'Supprimer une image';
 
-    if (collectionHolder.dataset.index >=3){
-        e.target.removeEventListener('click', addFormToCollection)
+        collectionHolder.appendChild(item);
+        item.append(removeFormButton);
+        removeFormButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // remove the li for the tag form
+            item.remove();
+            index = countLi();
+            console.log(index);
+        });
+
+        collectionHolder.dataset.index++;
     }
-    collectionHolder.dataset.index++;
+}
+
+function countLi() {
+    index = collectionHolder.getElementsByTagName('li').length
+
+    return index;
 }
 
 addTagLink.addEventListener('click', addFormToCollection)

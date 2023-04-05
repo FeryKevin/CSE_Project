@@ -945,12 +945,7 @@ form button:hover {
     list-style-type: none;
 }
 
-@media screen and (max-width: 991.5px) {
-    #form-section
-    {
-        height: 55vh;
-    }
-    
+@media screen and (max-width: 991.5px) {    
     #form-section label
     {
         font-size: smaller;
@@ -1079,6 +1074,7 @@ div#contact textarea{
 .contact-success{
     text-align: center;
     color: green;
+}
 
 #homepage-edit{
     display: grid;
