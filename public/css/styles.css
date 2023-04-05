@@ -837,7 +837,6 @@ form button:hover {
 .form-separate
 {
     display: flex;
-    height: 32vh;
 }
 
 .form-left, .form-right
@@ -868,6 +867,11 @@ form button:hover {
 #form-section textarea
 {
     width: 30vw;
+}
+
+#form-section ul
+{
+    padding-left: 0;
 }
 
 .form-multiple-choice
@@ -902,6 +906,13 @@ form button:hover {
     background-color: #1c3168;
 }
 
+.collection-button
+{
+    font-size: 1em;
+    margin-right: 0.5vw;
+    padding: 0.5vh 0.5vw;
+}
+
 .offer-button:hover
 {
     color: #b6a786;
@@ -926,6 +937,11 @@ form button:hover {
 .offer-buttons
 {
     margin: 0 0 3vh 10vw;
+}
+
+#permanent_offer_images li, #limited_offer_images li
+{
+    list-style-type: none;
 }
 
 @media screen and (max-width: 991.5px) {

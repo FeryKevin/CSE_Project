@@ -1,0 +1,50 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Offres | Admin{% endblock %}
+
+{% block body %}
+    <div id='offer-body'>
+        <h2 class="form-title">Modification de l'offre "{{ offer.name|capitalize }}"</h2>
+        <div id="form-section">
+            <div id="permanent_offers_form">
+                {{ form_start(form) }}
+                <div class="form">
+                    <div class="form-separate">
+                        <div class="form-left">
+                            {{ form_row(form.name) }}
+                            {{ form_row(form.description) }}
+                            {{ form_row(form.images) }}
+                        </div>
+                        {% if form.permanentValidityBeginning is defined %}
+                        <div class="form-right-permanent">
+                            {{ form_row(form.permanentValidityBeginning) }}
+                            {{ form_row(form.permanentValidityEnding) }}
+                            {{ form_row(form.permanentMinimumPlaces) }}
+                        </div>
+                        {% else %}
+                        <div class="form-right-limited">
+                            {{ form_row(form.limitedDisplayBeginning) }}
+                            {{ form_row(form.limitedDisplayEnding) }}
+                            {{ form_row(form.limitedDisplayNumber) }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="full-width-form">
+                        {# {{ form_row(form.image) }} #}
+                    </div>
+                    <div class="offer-form-buttons">
+                        {{ form_row(form.submit) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="offer-buttons">
+            <a class="offer-button" href="{{ path('offers') }}">Retour au menu des offres</a>
+        </div>
+    </div>
+    <script src="/scripts/edit_offer_image.js"></script>
+    <script>
+        addFormToCollection();
+    </script>
+{% endblock %}

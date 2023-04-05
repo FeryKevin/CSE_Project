@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FileRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 class File
@@ -29,6 +30,8 @@ class File
     #[ORM\JoinColumn(nullable: true)]
     private ?Offer $offer = null;
 
+    private UploadedFile $file;
+
     public static function createFromPath(string $path, bool $isPartner = false): self
     {
         $file = new static;
@@ -44,29 +47,31 @@ class File
         return $file;
     }
 
-    public function handleForm(string $originalName): self
+    public function handleForm(Offer $offer): self
     {
-        if (!is_dir('./img/partner'))
-            mkdir('./img/partner');
-
-        $ext = pathinfo($originalName, PATHINFO_EXTENSION);
-        $name = str_replace('.' . $ext, '', $originalName);
-        $this->setOriginalName(str_replace('public/img/partner\\', '', $originalName))
-            ->setExtension($ext);
-
+        $this->setOffer($offer);
+        $folder= "offer";
+        if (!is_dir('./img/' . $folder))
+            mkdir('./img/' . $folder);
+        
+        $ext = pathinfo($this->file->getClientOriginalName(), PATHINFO_EXTENSION);
+        $name = str_replace('.' . $ext, '', $this->file->getClientOriginalName());
+        $this->setOriginalName($name)
+        ->setExtension($ext);
+        
         $i = 0;
-        if (file_exists('./img/partner/' . $originalName)) {
+        if (file_exists('./img/' . $folder . '/' . $this->file->getClientOriginalName())) {
             $i = 1;
-            while (file_exists('./img/partner/' . $name . $i . $ext)) {
+            while (file_exists('./img/' . $folder . '/' . $name . $i . $ext)) {
                 $i++;
             }
             $i++;
         }
-
+        
         $i = $i === 0 ? null : $i;
         $this->setStoredName($name . $i)
-            ->setPath('./img/partner/' . $name . $i . '.' . $ext);
-
+        ->setPath('/img/' . $folder . '/' . $name . $i . '.' . $ext);
+        
         return $this;
     }
 
@@ -133,5 +138,22 @@ class File
         $this->offer = $offer;
 
         return $this;
+    }
+
+    public function getFile(): ?UploadedFile
+    {
+        return $this->file;
+    }
+
+    public function setFile(?UploadedFile $file): self
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->path;
     }
 }

@@ -8,6 +8,7 @@ use App\Form\LimitedOfferType;
 use App\Form\PermanentOfferType;
 use App\Repository\FileRepository;
 use App\Repository\OfferRepository;
+use App\Service\Newsletter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,72 +17,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OfferController extends AbstractController
 {
-    // Partie publique
-    #[Route(path: ('/offre/{id}'), name: 'offer_details')]
-    public function details(Offer $offer)
-    {
-        return $this->render('offer/details.html.twig', [
-            'offer' => $offer,
-        ]);
-    }
-
     // Partie admin
-    #[Route(path: "/admin/offers", name: "offers")]
-    public function offers(OfferRepository $offerRepository): Response
-    {
-        $offers = $offerRepository->findAll();
-
-        return $this->render('back_office/offers/offers.html.twig', [
-            'offers' => $offers,
-        ]);
-    }
-
-    #[Route(path: "/admin/offer/{slug}", name: "offer", methods: ['GET', 'POST', 'DELETE'])]
-    public function offer(OfferRepository $offerRepository, FileRepository $fileRepository, string $slug, EntityManagerInterface $em, Request $request): Response
-    {
-        $slug = $request->get(key: 'slug');
-
-        if($offer = $offerRepository->findOneBy(['name'=> $slug]))
-        {
-            // $images = $fileRepository->findOneBy(['id'=> $offer->getImages()]);
-
-            if ($offer->getType() == "permanent")
-            {
-                $form = $this->createForm(PermanentOfferType::class, $offer);
-                $form->handleRequest($request);
-            } else {
-                $form = $this->createForm(LimitedOfferType::class, $offer);
-                $form->handleRequest($request);
-            }
-
-            if ($form->isSubmitted() && $form->isValid())
-            {
-                $offer = $form->getData();
-                $path = $offer->getImages()->getOriginalName();
-                dd($path);
-
-                move_uploaded_file($path, $offer->getImage()->getPath());
-                $em->persist($offer->getImage());
-                $em->persist($offer);
-                $em->flush();
-            }
-            return $this->render('back_office/offers/offer.html.twig', [
-                'offer' => $offer,
-                'form' => $form->createView(),
-            ]);
-        } else {
-            return $this->render('back_office/offer_error.html.twig', [
-                'slug' => $slug,
-            ]);
-        }
-    }
-
-    #[Route(path: "/admin/offers/create", name: "create_offer")]
+    #[Route(path: "/admin/offer/create", name: "create_offer")]
     public function createOffer(EntityManagerInterface $em, Request $request): Response
     {
         $offer = new Offer();
+
         $formPermanent = $this->createForm(PermanentOfferType::class, $offer);
         $formPermanent->handleRequest($request);
+        
         $formLimited = $this->createForm(LimitedOfferType::class, $offer);
         $formLimited->handleRequest($request);
 
@@ -99,8 +43,14 @@ class OfferController extends AbstractController
             } else {
                 $offer->setPublishedAt($now);
             }
+
+            foreach ($offer->getImages() as $img)
+            {
+                $img->handleForm($offer);
+                $path = $img->getFile()->getRealPath();
+                move_uploaded_file($path, '.'.$img->getPath());
+            }
             
-            // On envoie en base de donnée la nouvelle catégorie.
             $em->persist($offer);
             $em->flush();
 
@@ -120,6 +70,15 @@ class OfferController extends AbstractController
                 } else {
                     $offer->setPublishedAt($now);
                 }
+
+                foreach ($offer->getImages() as $img)
+                {
+                    $img->handleForm($offer);
+                    $path = $img->getFile()->getRealPath();
+                    move_uploaded_file($path, '.'.$img->getPath());
+                }
+
+
                 // On envoie en base de donnée la nouvelle catégorie.
                 $em->persist($offer);
                 $em->flush();
@@ -134,28 +93,101 @@ class OfferController extends AbstractController
         ]);
     }
 
-    // #[Route(path: "/admin/offers/update/{slug}", name: "bo_update_offer", methods: ['GET'])]
-    // public function updateOffer(OfferRepository $offerRepository, string $slug, EntityManagerInterface $manager): Response
-    // {
-    //     if($offer = $offerRepository->findOneBy(['slug'=> $slug]))
-    //     {
-    //         $manager->persist($offer);
-    //         $manager->flush();
-
-    //         $this->addFlash('success', 'Le projet a bien été modifié');
-
-    //         return $this->redirect('offers');
-    //     } else {
-    //         return $this->render('offers/error.html.twig', [
-    //             'slug' => $slug,
-    //         ]);
-    //     }
-    // }
-    
-    #[Route(path: "/admin/offers/delete/{slug}", name: "delete_offer", methods: ['GET', 'DELETE'])]
-    public function deleteOffer(OfferRepository $offerRepository, string $slug, EntityManagerInterface $manager): Response
+    #[Route(path: "/admin/offers", name: "offers")]
+    public function offers(OfferRepository $offerRepository): Response
     {
-        if($offer = $offerRepository->findOneBy(['name'=> $slug]))
+        $offers = $offerRepository->findAll();
+
+        return $this->render('back_office/offers/offers.html.twig', [
+            'offers' => $offers,
+        ]);
+    }
+
+    #[Route(path: "/admin/offer/{id}", name: "offer", methods: ['GET', 'POST'])]
+    public function offer(OfferRepository $offerRepository, int $id, Request $request): Response
+    {
+        $id = $request->get(key: 'id');
+
+        if($offer = $offerRepository->find($id))
+        {
+            if ($offer->getType() == "permanent")
+            {
+                $permanentValidityBeginning = $offer->getPermanentValidityBeginning()->format('Y-m-d H:i:s');
+                $permanentValidityEnding = $offer->getPermanentValidityEnding()->format('Y-m-d H:i:s');
+
+                return $this->render('back_office/offers/offer.html.twig', [
+                    'offer' => $offer,
+                    'validity_beginning' => $permanentValidityBeginning,
+                    'validity_ending' => $permanentValidityEnding,
+                ]);
+            } else {
+                $limitedDisplayBeginning = $offer->getLimitedDisplayBeginning()->format('Y-m-d H:i:s');
+                $limitedDisplayEnding = $offer->getLimitedDisplayEnding()->format('Y-m-d H:i:s');
+
+                return $this->render('back_office/offers/offer.html.twig', [
+                    'offer' => $offer,
+                    'display_beginning' => $limitedDisplayBeginning,
+                    'display_ending' => $limitedDisplayEnding,
+                ]);
+            }
+        } else {
+            return $this->render('back_office/offer_error.html.twig', [
+                'id' => $id,
+                'offer' => $offer,
+            ]);
+        }
+    }
+
+    #[Route(path: "/admin/offer/{id}/update", name: "update_offer", methods: ['GET', 'POST'])]
+    public function update(OfferRepository $offerRepository, int $id, EntityManagerInterface $em, Request $request, Newsletter $newsletter): Response
+    {
+        $id = $request->get(key: 'id');
+
+        if($offer = $offerRepository->find($id))
+        {
+            if ($offer->getType() == "permanent")
+            {
+                $form = $this->createForm(PermanentOfferType::class, $offer, [
+                    'on_edit' => true,
+                ]);
+            } else {
+                $form = $this->createForm(LimitedOfferType::class, $offer, [
+                    'on_edit' => true,
+                ]);
+            }
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $offer = $form->getData();
+
+                foreach ($offer->getImages() as $img)
+                {
+                    $img->handleForm($offer);
+                }
+                
+                $em->persist($offer);
+                $em->flush();
+
+                // $newsletter->sendUpdateOffer($offer);
+            }
+            
+            return $this->render('back_office/offers/edit_offer.html.twig', [
+                'offer' => $offer,
+                'form' => $form->createView(),
+            ]);
+        } else {
+            return $this->render('back_office/offer_error.html.twig', [
+                'id' => $id,
+            ]);
+        }
+    }
+    
+    #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]
+    public function deleteOffer(OfferRepository $offerRepository, int $id, EntityManagerInterface $manager): Response
+    {
+        if($offer = $offerRepository->find($id))
         {
             $manager->remove($offer);
             $manager->flush();
@@ -165,8 +197,17 @@ class OfferController extends AbstractController
             return $this->redirectToRoute('offers');
         } else {
             return $this->render('back_office/offer_error.html.twig', [
-                'slug' => $slug,
+                'id' => $id,
             ]);
         }
+    }
+
+    // Partie publique
+    #[Route(path: ('/offre/{id}'), name: 'offer_details')]
+    public function details(Offer $offer)
+    {
+        return $this->render('offer/details.html.twig', [
+            'offer' => $offer,
+        ]);
     }
 }

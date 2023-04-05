@@ -49,7 +49,7 @@ class Offer
     #[ORM\Column(nullable: true)]
     private ?int $limitedDisplayNumber = null;
 
-    #[ORM\OneToMany(mappedBy: 'offer', targetEntity: File::class)]
+    #[ORM\OneToMany(mappedBy: 'offer', targetEntity: File::class, cascade: ["persist", "remove"])]
     private Collection $images;
 
     public function __construct()

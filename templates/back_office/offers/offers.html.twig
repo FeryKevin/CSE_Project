@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'back_office/base.html.twig' %}
 
 {% block title %}Offres | Admin{% endblock %}
 
@@ -17,7 +17,7 @@
                 {% for offer in offers %}
                     <tr>
                         <td>{{ offer.name }}</td>
-                        <td><a href="{{ path('offer', { slug: offer.name }) }}">Voir les détails</a></td>
+                        <td><a href="{{ path('offer', { id: offer.id }) }}">Voir les détails</a></td>
                     </tr>
                 {% else %}
                     <tr>

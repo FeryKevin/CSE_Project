@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\File;
 use App\Entity\Offer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,10 +33,6 @@ class LimitedOfferType extends AbstractType
                 'required' => false,
                 'label' => "Date de fin d'affichage",
             ])
-            ->add('limitedDisplayNumber', TextType::class, [
-                'required' => false,
-                'label' => "Numéro d'affichage",
-            ])
             ->add('limitedDisplayNumber', ChoiceType::class, [
                 'label' => "Numéro d'affichage",
                 'required' => false,
@@ -55,8 +52,12 @@ class LimitedOfferType extends AbstractType
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,
-                // 'entry_options' => ['label' => false],
-                // 'allow_add' => true,
+                'entry_options' => [
+                    'data_class' => File::class,
+                    'label' => false,
+                ],
+                'allow_add' => true,
+                'allow_delete' => true,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => "Valider",
