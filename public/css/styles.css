@@ -225,6 +225,7 @@ button#newsletter_save {
     color: #1c3168;
     padding: 10px;
     font-weight: bolder;
+    word-break: break-word;
 }
 
 .cse p {
