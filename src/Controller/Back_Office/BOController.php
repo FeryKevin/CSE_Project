@@ -4,6 +4,7 @@ namespace App\Controller\Back_Office;
 
 use App\Entity\Survey;
 use App\Form\CSEFormType;
+use App\Form\HomepageForm;
 use App\Repository\ContactRepository;
 use App\Repository\CSERepository;
 use App\Repository\SurveyRepository;
@@ -92,6 +93,26 @@ class BOController extends AbstractController
 
         return $this->render('back_office/updateAbout.html.twig', [
             'form' => $form
+        ]);
+    }
+
+    #[Route('/admin/homepage', name: 'admin_homepage')]
+    public function homepage(CSERepository $cseRepository, Request $request, EntityManagerInterface $em): Response
+    {
+        $homepage = $cseRepository->findAll()[0];
+
+        $form = $this->createForm(HomepageForm::class, $homepage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($homepage);
+            $em->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('back_office/editHomepage.html.twig', [
+            'form' => $form,
         ]);
     }
 }
