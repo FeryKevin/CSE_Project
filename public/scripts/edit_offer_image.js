@@ -55,6 +55,10 @@ for (let item of images) {
     let id = item.getAttribute('image')
     let div = document.getElementById(`offer-image-${id}`)
     let btnStatus = div.firstElementChild;
+    let imagesNumber = countLi();
+    if (imagesNumber == 1) {
+        btnStatus.style.display = "none";
+    }
     btnStatus.addEventListener('click', () => {
         let data = `{"id": "${id}"}`
         postData(data = data).then(() => { location.reload() })
@@ -67,4 +71,12 @@ async function postData(data = {}, url = 'http://localhost:8000/admin/offers/del
         method: "POST",
         body: data
     })
+}
+
+function countLi() {
+    imagesNumber = document.getElementById('form-section').getAttribute('imagesNumber');
+    collectionHolder.dataset.index = (collectionHolder.getElementsByTagName('li').length) + imagesNumber;
+    index = collectionHolder.dataset.index;
+
+    return index;
 }

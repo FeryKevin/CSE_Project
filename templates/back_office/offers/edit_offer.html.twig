@@ -5,7 +5,7 @@
 {% block body %}
     <div id='offer-body'>
         <h2 class="form-title">Modification de l'offre "{{ offer.name|capitalize }}"</h2>
-        <div id="form-section" type={{ offer.type }}>
+        <div id="form-section" type={{ offer.type }} imagesNumber={{ form.images|length }}>
             <div id="{{ offer.type }}_offers_form">
                 {{ form_start(form) }}
                 <div class="form-separate">
@@ -49,12 +49,4 @@
         </div>
     </div>
     <script src="/scripts/edit_offer_image.js"></script>
-    <script>
-        function countLi() {
-            collectionHolder.dataset.index = (collectionHolder.getElementsByTagName('li').length) + {{ form.images|length }}
-            index = collectionHolder.dataset.index;
-
-            return index;
-        }
-    </script>
 {% endblock %}
