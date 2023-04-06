@@ -4,7 +4,12 @@ addTagLink.innerText='Ajouter une image'
 addTagLink.dataset.collectionHolderClass='title'
 const newLinkLi = document.createElement('li').append(addTagLink)
 
-collectionHolder = document.getElementById('permanent_offer_images');
+let type = document.getElementById('form-section').getAttribute('type')
+if (type == "permanent") {
+    collectionHolder = document.getElementById('permanent_offer_images');
+} else {
+    collectionHolder = document.getElementById('limited_offer_images');
+}
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
 collectionHolder.appendChild(addTagLink)
