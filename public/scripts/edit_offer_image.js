@@ -61,7 +61,8 @@ for (let item of images) {
     }
     btnStatus.addEventListener('click', () => {
         let data = `{"id": "${id}"}`
-        postData(data = data).then(() => { location.reload() })
+        postData(data = data)
+        .then(() => { location.reload() })
     })
 }
 

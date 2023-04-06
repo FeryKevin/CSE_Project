@@ -184,11 +184,11 @@ class OfferController extends AbstractController
         $post = json_decode($request->getContent(), true);
 
         $file = $fileRepository->find($post['id']);
-        // $fileName = $file->getStoredName();
-        // $filePath = '../../public/img/offer/' . $fileName;
 
-        // $filesystem = new Filesystem();
-        // $filesystem->remove($filePath);
+        $fileName = $file->getStoredName();
+        $fileExtension = $file->getExtension();
+        $filePath = $this->getParameter('kernel.project_dir') . '/public/img/offer/' . $fileName . '.' . $fileExtension;
+        unlink($filePath);
 
         $manager->remove($file);
         $manager->flush();
