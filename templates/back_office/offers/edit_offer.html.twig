@@ -32,9 +32,9 @@
                     <div class="offer-images">
                         {% for image in offer.images %}
                             <div class="offer-image" image={{ image.id }}>
-                                <img src="{{ image.path }}" alt="Image"/>
+                                <img src="{{ image.path }}" alt="{{ image.originalName }}"/>
                                 <div class="offer-images-actions" id="offer-image-{{ image.id }}">
-                                    <btn type="submit" class='offer-button'>Supprimer image</btn>
+                                    <btn type="submit" class='offer-button collection-button'>Supprimer image</btn>
                                 </div>
                             </div>
                         {% endfor %}

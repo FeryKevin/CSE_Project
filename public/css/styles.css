@@ -315,10 +315,31 @@ h6.offer-time {
     margin: 0 0 2vh 3vw;
 }
 
+.offer-images > div
+{
+    margin-right: 2vw;
+}
+
 .offer-images img
 {
+    display: block;
     max-height: 20vh;
-    width: 15vw;
+    max-width: 15vw;
+    height: auto;
+    width: auto;
+}
+
+.offer-image
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-images-actions
+{
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 768.5px) {
