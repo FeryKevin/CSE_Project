@@ -46,7 +46,8 @@
     <script src="/scripts/edit_offer_image.js"></script>
     <script>
         function countLi() {
-            index = (collectionHolder.getElementsByTagName('li').length) + {{ form.images|length }}
+            collectionHolder.dataset.index = (collectionHolder.getElementsByTagName('li').length) + {{ form.images|length }}
+            index = collectionHolder.dataset.index;
 
             return index;
         }
