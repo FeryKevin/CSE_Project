@@ -6,36 +6,53 @@
     <div id='offer-body'>
         <h2 class="form-title">{{ offer.name|capitalize }}</h2>
         <div id="form-section">
-            <div id="permanent_offers_form">
+            <div id="offers_form">
                 <div class="form-separate">
                     <div class="form-left">
-                        {{ offer.name }}
-                        {{ offer.description }}
+                        <label for="name">Nom</label>
+                        <p>{{ offer.name }}</p>
+                        <label for="description">Description</label>
+                        <p>{{ offer.description }}</p>
+                        <label for="type">Type</label>
+                        {% if offer.type == 'permanent' %}
+                            <p>Permanente</p>
+                        {% else %}
+                            <p>Limitée</p>
+                        {% endif %}
                     </div>
                     {% if offer.type == 'permanent' %}
                     <div class="form-right-permanent">
-                        {{ validity_beginning }}
-                        {{ validity_ending }}
-                        {{ offer.permanentMinimumPlaces }}
+                        <label for="validity_beginning">Début de validité</label>
+                        <p>{{ validity_beginning }}</p>
+                        <label for="validity_ending">Fin de validité</label>
+                        <p>{{ validity_ending }}</p>
+                        <label for="permanent_minimum_places">Nombre de places minimum</label>
+                        <p>{{ offer.permanentMinimumPlaces }}</p>
                     </div>
                     {% else %}
                     <div class="form-right-limited">
-                        {{ display_beginning }}
-                        {{ display_ending }}
-                        {{ offer.limitedDisplayNumber }}
+                        <label for="display_beginning">Début d'affichage</label>
+                        <p>{{ display_beginning }}</p>
+                        <label for="display_ending">Fin d'affichage</label>
+                        <p>{{ display_ending }}</p>
+                        <label for="limited_display_number">Numéro d'affichage</label>
+                        <p>{{ offer.limitedDisplayNumber }}</p>
                     </div>
                     {% endif %}
                 </div>
+                <h3>Images de l'offre</h3>
                 <div class="offer-images">
                     {% for image in offer.images %}
                         <div class="offer-image">
-                            <img src="{{ image.path }}" alt="Image"/>
+                            <div class="offer-image-display">
+                                <img src="{{ image.path }}" alt={{ image.originalName }}/>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
                 <div class="offer-form-buttons">
-                    <a class="offer-button" href="{{ path('update_offer', { id: offer.id }) }}">Modifier</a>
-                    <a class="offer-button" href="{{ path('delete_offer', { id: offer.id }) }}">Supprimer</a>
+                    <a class="offer-button" href="{{ path('update_offer', { id: offer.id }) }}">Modifier l'offre</a>
+                    <a class="offer-button" href="{{ path('delete_offer', { id: offer.id }) }}">Supprimer l'offre</a>
                 </div>
             </div>
         </div>

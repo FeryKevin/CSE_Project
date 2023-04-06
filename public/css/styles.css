@@ -915,7 +915,6 @@ form button:hover {
 .collection-button
 {
     font-size: 1em;
-    margin-right: 0.5vw;
     padding: 0.5vh 0.5vw;
 }
 
@@ -998,6 +997,16 @@ form button:hover {
 {
     display: flex;
     justify-content: center;
+}
+
+#offers_form label
+{
+    margin: 1vh 0;
+}
+
+#offers_form .offer-images
+{
+    height: 15vh;
 }
 
 @media screen and (max-width: 1070px) {
