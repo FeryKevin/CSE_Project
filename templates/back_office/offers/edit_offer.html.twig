@@ -29,8 +29,15 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="full-width-form">
-                        {# {{ form_row(form.image) }} #}
+                    <div class="offer-images">
+                        {% for image in offer.images %}
+                            <div class="offer-image" image={{ image.id }}>
+                                <img src="{{ image.path }}" alt="Image"/>
+                                <div class="offer-images-actions" id="offer-image-{{ image.id }}">
+                                    <btn type="submit" class='offer-button'>Supprimer image</btn>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="offer-form-buttons">
                         {{ form_row(form.submit) }}

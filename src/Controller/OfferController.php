@@ -11,6 +11,7 @@ use App\Repository\OfferRepository;
 use App\Service\Newsletter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -175,6 +176,24 @@ class OfferController extends AbstractController
                 'id' => $id,
             ]);
         }
+    }
+    
+    #[Route(path: "/admin/offers/delete_image", name: "delete_offer_image", methods: ['POST', 'OPTIONS', 'DELETE'])]
+    public function deleteImage(FileRepository $fileRepository, Request $request, EntityManagerInterface $manager): Response
+    {
+        $post = json_decode($request->getContent(), true);
+
+        $file = $fileRepository->find($post['id']);
+        // $fileName = $file->getStoredName();
+        // $filePath = '../../public/img/offer/' . $fileName;
+
+        // $filesystem = new Filesystem();
+        // $filesystem->remove($filePath);
+
+        $manager->remove($file);
+        $manager->flush();
+
+        return new Response('Survey has been updated');
     }
     
     #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]

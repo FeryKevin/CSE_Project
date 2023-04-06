@@ -28,7 +28,7 @@ const addFormToCollection = (e) => {
         // Ajout d'un bouton pour chaque image
         removeFormButton = document.createElement('button');
         removeFormButton.classList.add('offer-button', 'collection-button');
-        removeFormButton.innerText = 'Supprimer';
+        removeFormButton.innerText = 'Annuler';
         item.append(removeFormButton);
 
         removeFormButton.addEventListener('click', (e) => {
@@ -42,3 +42,24 @@ const addFormToCollection = (e) => {
 }
 
 addTagLink.addEventListener('click', addFormToCollection)
+
+//Suppression image
+const images = document.getElementsByClassName('offer-image')
+
+for (let item of images) {
+    let id = item.getAttribute('image')
+    let div = document.getElementById(`offer-image-${id}`)
+    let btnStatus = div.firstElementChild;
+    btnStatus.addEventListener('click', () => {
+        let data = `{"id": "${id}"}`
+        postData(data = data).then(() => { location.reload() })
+    })
+}
+
+async function postData(data = {}, url = 'http://localhost:8000/admin/offers/delete_image')
+{
+    const response = await fetch(url, {
+        method: "POST",
+        body: data
+    })
+}
