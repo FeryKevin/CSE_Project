@@ -75,7 +75,7 @@ async function postData(data = {}, url = 'http://localhost:8000/admin/offers/del
 }
 
 function countLi() {
-    imagesNumber = document.getElementById('form-section').getAttribute('imagesNumber');
+    imagesNumber = parseInt(document.getElementById('form-section').getAttribute('imagesNumber'));
     collectionHolder.dataset.index = (collectionHolder.getElementsByTagName('li').length) + imagesNumber;
     index = collectionHolder.dataset.index;
 

@@ -28,10 +28,13 @@
                     </div>
                     {% endif %}
                 </div>
+                <h3>Images de l'offre</h3>
                 <div class="offer-images">
                     {% for image in offer.images %}
                         <div class="offer-image" image={{ image.id }}>
-                            <img src="{{ image.path }}" alt="{{ image.originalName }}"/>
+                            <div class="offer-image-display">
+                                <img src="{{ image.path }}" alt="{{ image.originalName }}"/>
+                            </div>
                             <div class="offer-images-actions" id="offer-image-{{ image.id }}">
                                 <btn type="submit" class='offer-button collection-button'>Supprimer image</btn>
                             </div>

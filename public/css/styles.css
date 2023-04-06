@@ -309,39 +309,6 @@ h6.offer-time {
     color: #b6a786;
 }
 
-.offer-images
-{
-    display: flex;
-    margin: 0 0 2vh 3vw;
-}
-
-.offer-images > div
-{
-    margin-right: 2vw;
-}
-
-.offer-images img
-{
-    display: block;
-    max-height: 20vh;
-    max-width: 15vw;
-    height: auto;
-    width: auto;
-}
-
-.offer-image
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.offer-images-actions
-{
-    display: flex;
-    justify-content: center;
-}
-
 @media screen and (max-width: 768.5px) {
     h3 {
         text-align: center;
@@ -885,6 +852,11 @@ form button:hover {
     text-align: center;
 }
 
+#form-section h3
+{
+    text-align: center;
+}
+
 #form-section label
 {
     display: block;
@@ -975,13 +947,64 @@ form button:hover {
 
 #permanent_offer_images li, #limited_offer_images li
 {
+    margin-top: 1vh;
     display: flex;
     list-style-type: none;
 }
 
 #permanent_offer_images li input, #limited_offer_images li input
 {
-    margin: 1vh 0;
+    margin: 0;
+}
+
+.offer-images
+{
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    margin-bottom: 2vh;
+}
+
+.offer-images > div
+{
+    margin-right: 2vw;
+}
+
+.offer-images img
+{
+    display: block;
+    max-height: 15vh;
+    max-width: 15vw;
+    height: auto;
+    width: auto;
+}
+
+.offer-image-display
+{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-image
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer-images-actions
+{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1070px) {
+    #permanent_offer_images li > div, #limited_offer_images li > div
+    {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 991.5px) {    
