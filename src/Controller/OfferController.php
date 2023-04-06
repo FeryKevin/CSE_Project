@@ -37,12 +37,7 @@ class OfferController extends AbstractController
             $now_string = $now->format('Y-m-d H:i:s');
             $now = date_create_from_format('Y-m-d H:i:s', $now_string);
 
-            if ($offer->getPublishedAt() != "")
-            {
-                $offer->setUpdatedAt($now);
-            } else {
-                $offer->setPublishedAt($now);
-            }
+            $offer->setPublishedAt($now);
 
             foreach ($offer->getImages() as $img)
             {
@@ -64,12 +59,7 @@ class OfferController extends AbstractController
                 $now_string = $now->format('Y-m-d H:i:s');
                 $now = date_create_from_format('Y-m-d H:i:s', $now_string);
 
-                if ($offer->getPublishedAt() != "")
-                {
-                    $offer->setUpdatedAt($now);
-                } else {
-                    $offer->setPublishedAt($now);
-                }
+                $offer->setPublishedAt($now);
 
                 foreach ($offer->getImages() as $img)
                 {
@@ -77,7 +67,6 @@ class OfferController extends AbstractController
                     $path = $img->getFile()->getRealPath();
                     move_uploaded_file($path, '.'.$img->getPath());
                 }
-
 
                 // On envoie en base de donnée la nouvelle catégorie.
                 $em->persist($offer);
@@ -165,12 +154,16 @@ class OfferController extends AbstractController
                 foreach ($offer->getImages() as $img)
                 {
                     $img->handleForm($offer);
+                    $path = $img->getFile()->getRealPath();
+                    move_uploaded_file($path, '.'.$img->getPath());
                 }
                 
                 $em->persist($offer);
                 $em->flush();
 
                 // $newsletter->sendUpdateOffer($offer);
+                
+                return $this->redirectToRoute('offer', ['id' => $id]);
             }
             
             return $this->render('back_office/offers/edit_offer.html.twig', [

@@ -40,11 +40,15 @@
             </div>
         </div>
         <div class="offer-buttons">
-            <a class="offer-button" href="{{ path('offers') }}">Retour au menu des offres</a>
+            <a class="offer-button" href="{{ path('offer', { id: offer.id }) }}">Retour</a>
         </div>
     </div>
     <script src="/scripts/edit_offer_image.js"></script>
     <script>
-        addFormToCollection();
+        function countLi() {
+            index = (collectionHolder.getElementsByTagName('li').length) + {{ form.images|length }}
+
+            return index;
+        }
     </script>
 {% endblock %}

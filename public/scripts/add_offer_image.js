@@ -38,10 +38,30 @@ const addFormToCollection = (e) => {
 
     collectionHolder.appendChild(item);
 
-    if (collectionHolder.dataset.index >=3){
+    // Ajout d'un bouton pour chaque image
+    removeFormButton = document.createElement('button');
+    removeFormButton.classList.add('offer-button', 'collection-button');
+    removeFormButton.innerText = 'Supprimer';
+    item.append(removeFormButton);
+
+    removeFormButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        item.remove();
+        index = countLi();
+    });
+
+    collectionHolder.dataset.index++;
+
+    if (index >= 4){
         e.target.removeEventListener('click', addFormToCollection)
     }
     collectionHolder.dataset.index++;
+}
+
+function countLi() {
+    index = collectionHolder.getElementsByTagName('li').length
+
+    return index;
 }
 
 addTagLink.addEventListener('click', addFormToCollection)

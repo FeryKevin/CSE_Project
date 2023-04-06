@@ -4,19 +4,11 @@ addTagLink.innerText='Ajouter une image'
 addTagLink.dataset.collectionHolderClass='title'
 const newLinkLi = document.createElement('li').append(addTagLink)
 
-// const deleteTagLink = document.createElement('a')
-// deleteTagLink.classList.add('btn', 'offer-button', 'collection-button')
-// deleteTagLink.innerText='Supprimer une image'
-// deleteTagLink.dataset.collectionHolderClass='title'
-// const removeLinkLi = document.createElement('li').append(deleteTagLink)
-
 collectionHolder = document.getElementById('permanent_offer_images');
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
 collectionHolder.appendChild(addTagLink)
-// collectionHolder.appendChild(deleteTagLink)
 
-//Fonction pour ajouter une section
 const addFormToCollection = (e) => {
     index = countLi();
 
@@ -30,29 +22,23 @@ const addFormToCollection = (e) => {
             /__name__/g,
             collectionHolder.dataset.index
         );
+        
+        collectionHolder.appendChild(item);
 
+        // Ajout d'un bouton pour chaque image
         removeFormButton = document.createElement('button');
         removeFormButton.classList.add('offer-button', 'collection-button');
-        removeFormButton.innerText = 'Supprimer une image';
-
-        collectionHolder.appendChild(item);
+        removeFormButton.innerText = 'Supprimer';
         item.append(removeFormButton);
+
         removeFormButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // remove the li for the tag form
             item.remove();
             index = countLi();
-            console.log(index);
         });
 
         collectionHolder.dataset.index++;
     }
-}
-
-function countLi() {
-    index = collectionHolder.getElementsByTagName('li').length
-
-    return index;
 }
 
 addTagLink.addEventListener('click', addFormToCollection)

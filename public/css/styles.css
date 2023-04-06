@@ -942,7 +942,13 @@ form button:hover {
 
 #permanent_offer_images li, #limited_offer_images li
 {
+    display: flex;
     list-style-type: none;
+}
+
+#permanent_offer_images li input, #limited_offer_images li input
+{
+    margin: 1vh 0;
 }
 
 @media screen and (max-width: 991.5px) {    
