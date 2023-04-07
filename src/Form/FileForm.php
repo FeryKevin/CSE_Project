@@ -36,7 +36,7 @@ final class FileForm extends AbstractType
                 ],
                 'attr' => [
                     'class' => 'image-input',
-                    'onChange' => 'checkMimeType(this)'
+                    'onChange' => 'checkImagesInputs()'
                 ]
             ]);
     }
