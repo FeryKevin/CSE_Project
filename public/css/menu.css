@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.menu{
+    margin-left: 10%;
+    margin-right: 1%;
+    margin-top: 1%;
+    width: 15%;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+.h4Menu a{
+    color: #b6a786;
+    text-decoration: none;
+}
+
+.h4Menu a:hover{
+    text-decoration: underline; 
+}
+
+.hLink{
+    color: #b6a786;
+    padding-top: 10%;
+    padding-bottom: 8px;
+}
+
+.aLink{
+    color: black;
+    text-decoration: none;
+}
+
+.aLink:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+.infoLink{
+    color: #667499;
+}
+
+.LienP, .LienP:hover{
+    color: black;
+    text-align: center;
+}

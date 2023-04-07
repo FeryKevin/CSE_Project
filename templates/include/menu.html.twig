@@ -1,1 +1,25 @@
-<i class="bi bi-house-fill"><a href='#'> > Accueil</a></i>
+<div class='menu'>
+
+    <h4 class='h4Menu'>
+        <strong><i class="bi bi-house-fill"> ></i></strong>
+        <a href={{ path('home') }}> Accueil</a>
+    </h4>
+
+    <p>-- insert sondage --</p>
+
+    <h4 class='hLink'>Accès rapide</h4>
+    <a class='aLink' href={{ path('home') }}><strong>></strong> Offres permanentes / Billeterie</a><br>
+    <a class='aLink' href={{ path('contact') }}><strong>></strong> Nous contacter</a>
+
+    <h4 class='hLink'>Information de contact</h4>
+    <p><strong>></strong> Par téléphone : <span class ='infoLink'>+33303030303</span></p>
+    <p><strong>></strong> Par email : <span class ='infoLink'>{{ email | raw }}</span></p>
+    <p><strong>></strong> Au lycée : <span class ='infoLink'>Bureau du CSE (1er étage bâtiment Saint-Vincent)</span></p>
+
+    <h4 class='hLink'>Nos partenaires : </h4>
+
+    <p>-- insert carousel --</p><br>
+
+    <a class='LienP' href='#'>Découvrir tous nos partenaires</a>
+
+</div>

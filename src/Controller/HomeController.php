@@ -38,6 +38,7 @@ class HomeController extends AbstractController
             [
                 'pagination' => $pagination,
                 'text' => $cse->getPresentationHome(),
+                'email' => $cse->getEmail(),
             ]
         );
     }
