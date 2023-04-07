@@ -34,6 +34,10 @@ final class FileForm extends AbstractType
                         'mimeTypesMessage' => 'Please upload a valid document',
                     ])
                 ],
+                'attr' => [
+                    'class' => 'image-input',
+                    'onChange' => 'checkMimeType(this)'
+                ]
             ]);
     }
 

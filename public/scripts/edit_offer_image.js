@@ -81,3 +81,26 @@ function countLi() {
 
     return index;
 }
+
+// Contrôle de saisie pour les input d'images
+const imagesInput = document.getElementsByClassName('image-input');
+mimeError = document.getElementsByClassName('mime-type-error');
+mimeError = mimeError[0];
+mimeError.style.display = "none";
+const validFileTypes = ['png', 'jpg', 'jpeg', 'webp'];
+
+function checkMimeType(input) {
+    submit = document.getElementsByClassName('submit-offer');
+    submit = submit[0];
+    fileName = input.files[0].name;
+    fileExtension = fileName.split('.').pop();
+    result = validFileTypes.includes(fileExtension);
+    console.log(result);
+    if (result == true) {
+        submit.style.display = "inline-block";
+        mimeError.style.display = "none";
+    } else {
+        submit.style.display = "none";
+        mimeError.style.display = "inline";
+    }
+}

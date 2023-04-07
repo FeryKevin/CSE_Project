@@ -58,10 +58,11 @@ class LimitedOfferType extends AbstractType
                 ],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'label' => 'Images (png/jpg/jpeg/webp)'
             ])
             ->add('submit', SubmitType::class, [
                 'label' => "Valider",
-                'attr' => ['class' => 'offer-button'],
+                'attr' => ['class' => 'offer-button submit-offer'],
             ]);
         ;
     }
