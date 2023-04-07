@@ -1035,6 +1035,30 @@ form button:hover {
     {
         width: 50%;
     }
+    #permanent_offer_images li input, #limited_offer_images li input
+    {
+        width: 100%;
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 767.5px) {
+    #permanent_offer_images li, #limited_offer_images li
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    #permanent_offer_images li input, #limited_offer_images li input
+    {
+        margin: 1vh 0 0.5vh;
+        width: 100%;
+    }
+    #permanent_offer_images li button, #limited_offer_images li button
+    {
+        margin: 0;
+        width: fit-content;
+        padding: 0.5vh 2vw;
+    }
 }
 
 .admin-user h1{
