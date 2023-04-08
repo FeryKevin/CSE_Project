@@ -3,18 +3,33 @@
 {% block title %} {{offer.name}} {% endblock %}
 
 {% block body %}
-    <div class='offer-page'>
-        <h2>{{offer.name}}</h2>
-        <h4>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }}</h4>
-        <div class='offer-body'>
-            <div class='offer-description'>
-                {{ offer.description }}
-            </div>
-            <div class='offer-imgs'>
-                {% for image in offer.images %}
-                    <img src={{ image.path }}/>
-                {% endfor %}
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                <div class='offer-page'>
+
+                    <h3 class='hOffreS'>{{offer.name}}</h3>
+
+                    <h5>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }}</h5>
+                    
+                    <div class='offer-body'>
+
+                        <div class='offer-description'>
+                            <p>{{ offer.description }}<p>
+                        </div>
+
+                        <div class='offer-imgs'>
+                            {% for image in offer.images %}
+                                <img src={{ image.path }}/>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+
 {% endblock %}

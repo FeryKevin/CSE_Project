@@ -690,8 +690,24 @@ input#question {
 
 .offer-page {
     text-align: center;
-    width: 70%;
-    margin: 9px 15%;
+    margin-bottom: 6%;
+}
+
+.hOffreS{
+    margin-top: 6%;
+    text-align: center;
+}
+
+.offer-page h5, .offer-page p {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.offer-page p {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* About Us */
@@ -708,7 +724,6 @@ input#question {
 .aboutTxt{
     padding-bottom: 40px;
 }
-
 
 .aboutUs-photos {
     padding-top: 40px;
