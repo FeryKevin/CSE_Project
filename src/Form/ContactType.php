@@ -36,7 +36,7 @@ class ContactType extends AbstractType
                 'label' => 'Message :'
             ])
             ->add('security', TurnstileType::class, [
-                'attr' => ['data-action' => 'contact', 'data-theme' => 'dark'], 'label' => false
+                'attr' => ['data-action' => 'contact'], 'label' => false
             ])
             ->add('sumbit', SubmitType::class, ['label' => 'Envoyer']);
     }

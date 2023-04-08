@@ -920,6 +920,7 @@ form button:hover {
 
 .contact-form h2 {
     margin-block: 20px;
+    text-align: center;
 }
 
 div#contact {
@@ -929,6 +930,8 @@ div#contact {
     max-height: 720px;
     height: 110%;
     padding-bottom: 20px;
+    width: 90%;
+    margin-inline: 16px;
 }
 
 div#contact form > div {
@@ -936,6 +939,10 @@ div#contact form > div {
     flex-direction: column;
     padding-inline: 36px;
     margin-top: 10px;
+}
+
+div#contact form > div > label{
+    margin-bottom: 10px;
 }
 
 div#contact > div:first-child{

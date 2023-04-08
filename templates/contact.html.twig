@@ -7,6 +7,13 @@
         <h2>Vous souhaitez nous contactez ?</h2>
         <div id='contact'>
             {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.message) }}
+
+                {# {{ form_widget(form.security) }} #}
+
                 {% for message in app.flashes('contact-success') %}
                     <div class="contact-success">
                         {{ message }}
