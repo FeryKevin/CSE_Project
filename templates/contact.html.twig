@@ -8,16 +8,22 @@
         {{ include('include/menu.html.twig') }}
     </div>
 
-    <div class='contact-form'>
-        <h2>Vous souhaitez nous contactez ?</h2>
+    <div class='contact-form'>        
         <div id='contact'>
+            <h2>Contactez-nous</h2>
             {{ form_start(form) }}
+
                 {{ form_row(form.name) }}
+                
                 {{ form_row(form.firstName) }}
+
                 {{ form_row(form.email) }}
+
                 {{ form_row(form.message) }}
 
-                {# {{ form_widget(form.security) }} #}
+                <div class='je'>
+                    {{ form_row(form.security) }}
+                </div>
 
                 {% for message in app.flashes('contact-success') %}
                     <div class="contact-success">

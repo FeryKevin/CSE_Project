@@ -28,7 +28,7 @@ class ContactType extends AbstractType
                 'label' => 'Prénom :'
             ])
             ->add('email', TextType::class, [
-                'constraints' => new Assert\Email(['message' => 'Renseignez votre email',]),
+                'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre email',]),
                 'label' => 'Email :'
             ])
             ->add('message', TextareaType::class, [
@@ -36,7 +36,7 @@ class ContactType extends AbstractType
                 'label' => 'Message :'
             ])
             ->add('security', TurnstileType::class, [
-                'attr' => ['data-action' => 'contact'], 'label' => false
+                'attr' => ['data-action' => 'contact', 'data-theme' => 'dark'], 'label' => false
             ])
             ->add('sumbit', SubmitType::class, ['label' => 'Envoyer']);
     }
