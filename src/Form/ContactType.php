@@ -25,15 +25,15 @@ class ContactType extends AbstractType
             ])
             ->add('firstName', TextType::class, [
                 'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre prénom',]),
-                'label' => 'Prénom'
+                'label' => 'Prénom :'
             ])
             ->add('email', TextType::class, [
                 'constraints' => new Assert\Email(['message' => 'Renseignez votre email',]),
-                'label' => 'Email'
+                'label' => 'Email :'
             ])
             ->add('message', TextareaType::class, [
-                'constraints' => new Assert\NotBlank(['message' => 'Que voulez vous nous dire',]),
-                'label' => 'Message'
+                'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre message',]),
+                'label' => 'Message :'
             ])
             ->add('security', TurnstileType::class, [
                 'attr' => ['data-action' => 'contact', 'data-theme' => 'dark'], 'label' => false
