@@ -704,9 +704,14 @@ input#question {
     margin-bottom: 6%;
 }
 
-.hOffreS{
-    margin-top: 6%;
+.hOffreSpe{
+    margin-top: 2%;
     text-align: center;
+}
+
+.hAbout2{
+    margin-top: 3%;
+    margin-bottom: 0%;
 }
 
 .offer-page h5, .offer-page p {
@@ -733,7 +738,7 @@ input#question {
 }
 
 .aboutTxt{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .aboutUs-photos {
