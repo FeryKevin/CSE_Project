@@ -279,6 +279,17 @@ button#newsletter_save {
     height: 30%;
 }
 
+@media screen and (max-width: 991.5px) {
+
+    .offer-container {
+        margin-right: 0%;
+    }
+
+    .cse {
+        margin-right: 0%;
+    }
+}
+
 .offer-icon {
     font-size: 63%;
     background-color: #1c3168;
@@ -317,7 +328,7 @@ h6.offer-time {
     float: right;
     bottom: 18px;
     position: relative;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 5%;
     vertical-align: bottom;
 }
@@ -346,7 +357,7 @@ h6.offer-time {
 
     .offer-container {
         width: 100%;
-        height: 251px;
+        height: 100%;
     }
 
     #pagination {
