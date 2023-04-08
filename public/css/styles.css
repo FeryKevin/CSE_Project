@@ -698,18 +698,17 @@ input#question {
 
 #aboutUs {
     width: 80%;
-    padding-top: 40px;
+    margin-top: 5%;
 }
 
-#aboutUs p {
-    font-size: 132%;
-    padding-top: 20px;
-    padding-left: 15%;
+.hAbout{
+    padding-bottom: 8px;
 }
 
-#aboutUs h2 {
-    text-align: center;
+.aboutTxt{
+    padding-bottom: 40px;
 }
+
 
 .aboutUs-photos {
     padding-top: 40px;
