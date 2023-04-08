@@ -3,7 +3,7 @@
 {% block title %}Offres | Admin{% endblock %}
 
 {% block body %}    
-    <section id="form-section">
+    <section id="form-section" imagesNumber=0>
         <h2 class="form-title">Nouvelle offre
             <select id="select-type-offer" onChange="changeOfferForm(this.value); switchForm(); addFormToCollection()">
                 <option value="permanent">permanente</option>
@@ -26,6 +26,7 @@
                     </div>
                 </div>
                 <div class='offer-form-buttons'>
+                    <p class="image-error"></p>
                     {{ form_row(form_permanent.submit) }}
                 </div>
             </div>
@@ -54,6 +55,7 @@
                     {# <img src="{{ asset('img/' ~ technology.image.path) }}" alt="Photo"/> #}
                 </div>
                 <div class='offer-form-buttons'>
+                    <p class="image-error"></p>
                     {{ form_row(form_limited.submit) }}
                 </div>
             </div>

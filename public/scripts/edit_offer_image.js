@@ -101,64 +101,35 @@ function checkImagesInputs() {
     showSubmit = true;
 
     index = countLi();
-    for (i = 1; i < index; i++) {
-        input = document.getElementById(`${type}_offer_images_${i}_file`);
-        if (input.files !== undefined) {
-            if (input.files) {
-                if (input.files.length > 0) {
-                    fileName = input.files[0].name;
-                    fileExtension = fileName.split('.').pop();
-                    resultExtension = validFileTypes.includes(fileExtension);
-                    if (resultExtension == false) {
-                        imageError.innerText = "Format de fichier invalide";
+    if (index > 1) {
+        for (i = 1; i < index; i++) {
+            input = document.getElementById(`${type}_offer_images_${i}_file`);
+            if (input.files !== undefined) {
+                if (input.files) {
+                    if (input.files.length > 0) {
+                        fileName = input.files[0].name;
+                        fileExtension = fileName.split('.').pop();
+                        resultExtension = validFileTypes.includes(fileExtension);
+                        if (resultExtension == false) {
+                            imageError.innerText = "Format de fichier invalide";
+                            showSubmit = false;
+                        }
+                    } else {
+                        imageError.innerText = "Champ(s) de fichier vide(s)";
                         showSubmit = false;
                     }
                 } else {
-                    imageError.innerText = "Champ(s) de fichier vide(s)";
-                    showSubmit = false;
+                    // showSubmit = false;
                 }
-            } else {
-                // showSubmit = false;
             }
-        }
-    
-        if (showSubmit == true) {
-            submit.style.display = "inline-block";
-            imageError.style.display = "none";
-        } else {
-            submit.style.display = "none";
-            imageError.style.display = "inline";
+        
         }
     }
-
-    
-    // if (imagesInput.length > 0) {
-    //     for (input in imagesInput) {
-    //         if (input[0].files) {
-    //             if (input.files.length > 0) {
-    //                 fileName = input.files[0].name;
-    //                 fileExtension = fileName.split('.').pop();
-    //                 resultExtension = validFileTypes.includes(fileExtension);
-    //                 if (resultExtension == false) {
-    //                     imageError.innerText = "Format de fichier invalide";
-    //                     showSubmit = false;
-    //                 }
-    //             } else {
-    //                 imageError.innerText = "Champ(s) de fichier vide(s)";
-    //                 showSubmit = false;
-    //             }
-    //         } else {
-    //             // showSubmit = false;
-    //         }
-        
-    //         if (showSubmit == true) {
-    //             submit.style.display = "inline-block";
-    //             imageError.style.display = "none";
-    //         } else {
-    //             submit.style.display = "none";
-    //             imageError.style.display = "inline";
-    //         }
-    //     }
-    // }
-    // console.log(showSubmit);
+    if (showSubmit == true) {
+        submit.style.display = "inline-block";
+        imageError.style.display = "none";
+    } else {
+        submit.style.display = "none";
+        imageError.style.display = "inline";
+    }
 }
