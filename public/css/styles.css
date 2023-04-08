@@ -11,6 +11,20 @@
     /* outline: 1px red solid; */
 }
 
+.menuPublic{
+    float:left;
+    width: 15%;
+    margin-left: 10%;
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+@media screen and (max-width: 991.5px) {
+    .menuPublic {
+        display: none;
+    }
+}
+
 /* SURVEY */
 
 .survey-container {
@@ -216,7 +230,7 @@ button#newsletter_save {
     background-color: #d9d9d9;
     padding: 5px;
     padding-bottom: 1%;
-    width: 60%;
+    width: 100%;
     margin-bottom: 3%;
     margin-top: 3%;
 }
@@ -252,8 +266,8 @@ button#newsletter_save {
 
 .offer-container {
     background-color: #EFEDED;
-    width: 60%;
-    padding: 20px 10px;
+    width: 100%;
+    padding: 20px 10px 40px 10px;
     margin-bottom: 2%;
     height: 30%;
 }
@@ -297,7 +311,7 @@ h6.offer-time {
     float: right;
     bottom: 18px;
     position: relative;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 5%;
     vertical-align: bottom;
 }
@@ -896,6 +910,7 @@ div#contact textarea{
 .contact-success{
     text-align: center;
     color: green;
+}
 
 #homepage-edit{
     display: grid;
