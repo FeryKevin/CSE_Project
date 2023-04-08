@@ -1019,3 +1019,9 @@ button#homepage_form_submit {
     color: white;
     border: none;
 }
+
+.hMessage{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
