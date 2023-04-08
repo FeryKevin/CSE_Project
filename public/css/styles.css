@@ -230,16 +230,15 @@ button#newsletter_save {
     background-color: #d9d9d9;
     padding: 5px;
     padding-bottom: 1%;
-    width: 100%;
+    margin-right: 10%;
     margin-bottom: 3%;
-    margin-top: 3%;
+    margin-top: 7%;
 }
 
 .cse h4 {
     color: #1c3168;
     padding: 10px;
-    font-weight: bolder;
-    word-break: break-word;
+    font-weight: bold;
 }
 
 .cse p {
@@ -249,6 +248,10 @@ button#newsletter_save {
 
 .cse a {
     color: #515d77;
+}
+
+.cse a:hover {
+    color: #b6a786;
 }
 
 @media screen and (max-width: 768.5px) {
@@ -264,9 +267,13 @@ button#newsletter_save {
     }
 }
 
+.hOffre{
+    padding-bottom: 15px;
+}
+
 .offer-container {
     background-color: #EFEDED;
-    width: 100%;
+    margin-right: 10%;
     padding: 20px 10px 40px 10px;
     margin-bottom: 2%;
     height: 30%;
@@ -276,9 +283,9 @@ button#newsletter_save {
     font-size: 63%;
     background-color: #1c3168;
     color: white;
-    border-radius: 6px;
-    width: 175px;
-    padding: 5px 7px;
+    border-radius: 10px;
+    width: 150px;
+    padding: 7px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -291,7 +298,6 @@ button#newsletter_save {
 h6.offer-time {
     margin-top: 7px;
     margin-left: 5px;
-    font-size: 78%;
 }
 
 .offer-description {
@@ -399,16 +405,26 @@ h6.offer-time {
     list-style-type: none;
 }
 
+#pagination {
+    padding-left: 0%;
+}
+
 #pagination li {
-    border: black 1px solid;
-    margin-inline: 19px;
-    border-radius: 6px;
-    padding: 4px;
+    border: #ebedf1 1px solid;
+    margin-inline: 4px;
+    border-radius: 3px;
+    padding: 2px;
+    font-weight: bold;
+    color: black;
 }
 
 #pagination a {
     text-decoration: none;
-    padding: 5px 11px;
+    padding: 0px 9px;
+}
+
+.page-number{
+    color: #e2e6ea!important;
 }
 
 #pagination a:visited {
@@ -416,13 +432,13 @@ h6.offer-time {
 }
 
 li.pagination-link.disable {
-    background: rgb(173, 173, 173);
-    color: white;
+    background: #c8cfd5;
+    color: white!important;
 }
 
 li.pagination-link.current {
-    border-color: #054bfc !important;
-    color: #054bfc;
+    border-color: #885fff !important;
+    color: #885fff;
 }
 
 /*RESPONSIVE*/

@@ -28,7 +28,7 @@ p{
 }
 
 .aLink:hover{
-    color: black;
+    color:#b6a786;
     text-decoration: underline;
 }
 
@@ -38,5 +38,10 @@ p{
 
 .LienP, .LienP:hover{
     color: black;
+    text-align: center;
+}
+
+.LienP:hover{
+    color: #b6a786;
     text-align: center;
 }
