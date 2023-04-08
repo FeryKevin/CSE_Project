@@ -832,14 +832,14 @@ form button:hover {
     color: #b6a786;
 }
 
-.admin-homepage h2 {
+.bvAdmin {
     text-align: center;
-    margin: 42px 0;
+    margin-top: 50px;
 }
 
 .admin-homepage h4 {
     text-align: center;
-    margin: 42px 0;
+    margin: 15px 0;
 }
 
 .admin-body {
@@ -855,7 +855,8 @@ form button:hover {
 }
 
 .admin-choice {
-    border: black 1px solid;
+    border: #1c3168 2px solid;
+    border-radius: 5%;
     padding: 20px 30px;
     margin-inline: 30px;
     margin-bottom: 30px;
@@ -865,7 +866,18 @@ form button:hover {
 }
 
 .admin-choice img {
-    width: 247px;
+    width: 80%;
+    margin-top: 20%;
+}
+
+.admin-choice .img2 {
+    width: 90%;
+    margin-top: 30%;
+}
+
+.admin-choice .img3 {
+    width: 100%;
+    margin-top: 5%;
 }
 
 @media screen and (max-width: 768px) {

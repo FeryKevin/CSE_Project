@@ -5,15 +5,15 @@
 {% block body %}
     <div class='admin-homepage'>
 
-        <h2>Bienvenue {{ app.user.email }} !</h2>
+        <h3 class='bvAdmin'>Bienvenue <strong>{{ app.user.email }}</strong> !</h3>
         <h4>Que voulez-vous faire aujourd'hui ?</h4>
 
         <div class='admin-body'>
 
-            <a href=''>
+            <a href={{ path('admin') }}>
                 <div class='admin-choice'>
                     <h3>Partenariats</h3>
-                    <img src='/img/partner.png' />
+                    <img class='img2' src='/img/partner.png' />
                 </div>
             </a>
 
@@ -24,10 +24,10 @@
                 </div>
             </a>
 
-            <a href=''>
+            <a href={{ path('admin') }}>
                 <div class='admin-choice'>
                     <h3>Billetterie</h3>
-                    <img src='/img/ticketing.png' />
+                    <img <img class='img3' src='/img/ticketing.png' />
                 </div>
             </a>
 
@@ -44,7 +44,6 @@
                     <img src='/img/survey.png' />
                 </div>
             </a>
-
 
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <a href={{ path('admin_users') }}>
