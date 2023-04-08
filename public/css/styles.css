@@ -87,6 +87,7 @@ a#view-stats {
 
 .answer-display h5 {
     font-size: 80%;
+    margin-top: 4%;
 }
 
 .answer-display .progress {
@@ -534,6 +535,7 @@ li.pagination-link.current {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 2%;
 }
 
 .admin-title {
@@ -623,7 +625,8 @@ a.survey-desactivate {
 }
 
 .survey-stats {
-    border: 1px black solid;
+    border: 3px #1c3168 solid;
+    border-radius: 4%;
     width: 30%;
     margin: 3px;
     position: relative;
@@ -656,6 +659,9 @@ a.survey-desactivate {
     bottom: -29px;
     right: -29px;
     justify-items: center;
+    border-radius: 4%;
+   
+
 }
 
 .survey-actions a {
