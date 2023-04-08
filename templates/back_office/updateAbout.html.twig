@@ -1,11 +1,70 @@
 {% extends 'back_office/base.html.twig' %}
 
 {% block title %} Modifier le texte {% endblock %}
+
 {% block body %}
+
     <div class='update-about'>
-        <h2>Modifier la page d'accueil</h2>
+
+        <h3 class='hAbout'>A propos de nous</h3>
+
+        {% for message in app.flashes('aboutUs') %}
+            <div class="alert-successBack">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <div class='update-about-form'>
-            {{ form(form) }}
+
+            {{ form_start(form) }}
+
+            <div class='label'>
+                {{ form_label(form.presentationHome) }}
+            </div>
+            {{ form_widget(form.presentationHome) }}
+            <div class='error'>
+                {{ form_errors(form.presentationHome) }}
+            </div>
+
+            <div class='label'>
+                {{ form_label(form.presentationAbout) }}
+            </div>
+            {{ form_widget(form.presentationAbout) }}
+            <div class='error'>
+                {{ form_errors(form.presentationAbout) }}
+            </div>
+
+            <div class='label'>
+                {{ form_label(form.rules) }}
+            </div>
+            {{ form_widget(form.rules) }}
+            <div class='error'>
+                {{ form_errors(form.rules) }}
+            </div>
+
+            <div class='label'>
+                {{ form_label(form.actions) }}
+            </div>
+            {{ form_widget(form.actions) }}
+            <div class='error'>
+                {{ form_errors(form.actions) }}
+            </div>
+
+            <div class='label'>
+                {{ form_label(form.email) }}
+            </div>
+            <div class='row'>
+                {{ form_widget(form.email) }}
+            </div>
+            <div class='error'>
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class='btnAbout'>
+                {{ form_end(form) }}
+            </div>
+
         </div>
     </div>
+
 {% endblock %}

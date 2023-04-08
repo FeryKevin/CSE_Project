@@ -8,23 +8,42 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class CSEFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', options: [
-                'label' => "Email sur la page présentation",
+            ->add('presentationHome', CKEditorType::class, [
+                'label' => "Message de présentation :",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Ce champs ne peut pas être vide',
+                ]),
             ])
             ->add('presentationAbout', CKEditorType::class, [
-                'label' => "Texte sur la page présentation",
+                'label' => "A propos du CSE :",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Ce champs ne peut pas être vide',
+                ]),
             ])
             ->add('rules', CKEditorType::class, [
-                'label' => "Règles sur la page présentation",
+                'label' => "Règles du CSE :",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Ce champs ne peut pas être vide',
+                ]),
             ])
             ->add('actions', CKEditorType::class, [
-                'label' => "Actions sur la page présentation",
+                'label' => "Actions du CSE :",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Ce champs ne peut pas être vide',
+                ]),
+            ])
+            ->add('email', options: [
+                'label' => "Email du CSE :",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Ce champs ne peut pas être vide',
+                ]),
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => "offer-button"],

@@ -751,11 +751,18 @@ input#question {
 /* ADMIN */
 
 .update-about {
-    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.update-about h2 {
-    padding: 40px 0;
+.update-about ol, ul{
+    margin : 0%;
+    padding: 0%;
+    list-style: none;
+}
+
+.update-about h3 {
+    text-align: center;
 }
 
 .update-about-form {
@@ -764,12 +771,44 @@ input#question {
     padding: 0;
 }
 
-#cse_form label {
-    margin: 31px 0px;
+.label{
+    margin-top: 2%;
+    margin-bottom: 1%;
 }
 
-#cse_form div:first-child {
-    display: grid;
+.row{
+    margin: 0%;
+}
+
+.error{
+    color: red;
+}
+
+.btnAbout{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.offer-button{
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.offer-button:hover{
+    background-color: #b6a786;
+    color: white;
+}
+
+.alert-successBack{
+    color: rgb(0, 218, 0);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .form-button {
