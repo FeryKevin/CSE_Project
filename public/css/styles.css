@@ -486,10 +486,16 @@ li.pagination-link.current {
 
 .connection {
     display: flex;
-    justify-content: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    border-radius: 8%;
     padding-top: 50px;
     width: 30%;
     background-color: #EFEDED;
+    margin: 3% 0%;
 }
 
 .connection h3 {
@@ -513,11 +519,12 @@ li.pagination-link.current {
 
 .btnCo button:hover {
     background-color: #b6a786;
+    color: white;
 }
 
 @media screen and (max-width: 991.5px) {
     .connection {
-        width: 100%;
+        width: 80%;
         text-align: center;
     }
 }
