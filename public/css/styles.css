@@ -905,37 +905,54 @@ form button:hover {
     vertical-align: middle;
 }
 
+.btnAdmin{
+    display: flex;
+    justify-content: center;
+}
+
+.btnAdminSpace{
+    margin-left: 5%;
+}
+
 .admin-update {
-    background-color: #054bfc;
-    padding: 5px 17px;
+    background-color: #1c3168;
+    padding: 5px 15px;
     border-radius: 8px;
     color: white;
     text-decoration: none;
-    font-size: 20px;
 }
 
 .admin-update:hover {
-    color: #18283B;
+    background-color: #b6a786;
+    color: white;
 }
 
 .admin-delete {
-    background-color: red;
-    padding: 2px 5px;
+    background-color: #b6a786;
+    padding: 5px 5px;
     border-radius: 8px;
+    border: none;
     color: white;
     text-decoration: none;
-    font-size: 20px;
+}
+
+.admin-delete:hover {
+    background-color: #1c3168;
+    color: white;
 }
 
 .admin-create{
-    background-color: green;
-    padding: 5px 5px;
+    background-color: #1c3168;
+    padding: 5px 15px;
     border-radius: 8px;
     color: white;
     text-decoration: none;
-    font-size: 20px;
 }
 
+.admin-create:hover{
+    background-color: #b6a786;
+    color: white;
+}
 
 .table-responsive {
     display: flex;
@@ -959,7 +976,32 @@ form button:hover {
 .admin-user-footer{
     display: flex;
     justify-content: center;
+    margin-bottom: 1%;
 }
+
+#user_roles{
+    padding: 1%;
+}
+
+#user_roles option{
+    padding-top: 5%;
+}
+
+.retour, .admin-add{
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.retour:hover, .admin-add:hover{
+    background-color: #b6a786;
+    color: white;
+}
+
+
 
 .contact-form {
     display: flex;
