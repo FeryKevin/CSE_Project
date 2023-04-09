@@ -18,7 +18,7 @@ class MemberFixtures extends Fixture implements DependentFixtureInterface
             $member = new Member();
             $member->setImage($this->getReference('member-' . $i))
                 ->setName($faker->name())
-                ->setFirsname($faker->firstName());
+                ->setFirstname($faker->firstName());
             $manager->persist($member);
         }
 

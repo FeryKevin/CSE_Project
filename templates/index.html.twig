@@ -1,8 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Homepage {% endblock %}
+{% block title %} Accueil {% endblock %}
 
-{% block body %}    
+{% block body %} 
+
+    <div class='menuPublic'>
+        {{ include('include/menu.html.twig') }}
+    </div>   
+
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
@@ -10,10 +15,10 @@
                 <div class='cse'>
                     <h4>CSE Lycée Saint-Vincent</h4>
                     <p class='txtAccueil'>{{ text | raw }}</p>
-                    <p class='lienAccueil'>Découvrez <a href='#'>l'équipe</a> et le <a href='#'>rôle</a> et missions de votre CSE.</p>
+                    <p class='lienAccueil'>Découvrez <a href={{ path('aboutUs') }}>l'équipe</a> et le <a href={{ path('aboutUs') }}>rôle</a> et missions de votre CSE.</p>
                 </div>
 
-                <h3>Dernières offres ponctuelles</h3>
+                <h3 class='hOffre'>Dernières offres ponctuelles</h3>
 
                 <div class="offer">
                     {% for offer in pagination.data %}
@@ -27,10 +32,10 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% include 'components/_pagination.html.twig' %}
             </div>
         </div>
     </div>
 
-    {% include 'components/_pagination.html.twig' %}
     <script src='/scripts/homepage.js'></script>
 {% endblock %}

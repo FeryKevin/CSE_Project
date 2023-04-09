@@ -38,6 +38,7 @@ class HomeController extends AbstractController
             [
                 'pagination' => $pagination,
                 'text' => $cse->getPresentationHome(),
+                'email' => $cse->getEmail(),
             ]
         );
     }
@@ -51,6 +52,7 @@ class HomeController extends AbstractController
             'text' => $cse->getPresentationAbout(),
             'rules' => $cse->getRules(),
             'actions' => $cse->getActions(),
+            'email' => $cse->getEmail(),
             'members' => $memberRepository->findAll(),
         ]);
     }
@@ -89,8 +91,10 @@ class HomeController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request, EntityManagerInterface $em)
+    public function contact(Request $request, EntityManagerInterface $em, CSERepository $cseRepository)
     {
+        $cse = $cseRepository->findAll()[0];
+
         $form = $this->createForm(ContactType::class, new Contact());
         $form->handleRequest($request);
 
@@ -103,6 +107,9 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('contact');
         }
 
-        return $this->render('contact.html.twig', ['form' => $form]);
+        return $this->render('contact.html.twig', [
+            'form' => $form,
+            'email' => $cse->getEmail(),
+        ]);
     }
 }

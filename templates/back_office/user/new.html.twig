@@ -3,11 +3,22 @@
 {% block title %}Nouvel utilisateur{% endblock %}
 
 {% block body %}
-    <div class='admin-form'>
-        <h1>Ajouter un utilisateur : </h1>
 
-        {{ include('back_office/user/_form.html.twig') }}
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-        <a href="{{ path('admin_users') }}">&lt;Revenir à la liste</a>
-    <div>
+                <div class='admin-form'>
+                    <h3 class='hMessage'>Ajouter un utilisateur :</h3>
+
+                    {{ include('back_office/user/_form.html.twig') }}
+
+                <div>
+            <div><br>
+
+            <a class='retour' href="{{ path('admin_users') }}">Retour</a>
+
+        <div>
+    <div><br>
+
 {% endblock %}

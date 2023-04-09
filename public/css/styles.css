@@ -11,10 +11,23 @@
     /* outline: 1px red solid; */
 }
 
+.menuPublic{
+    float:left;
+    width: 15%;
+    margin-left: 10%;
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+@media screen and (max-width: 991.5px) {
+    .menuPublic {
+        display: none;
+    }
+}
+
 /* SURVEY */
 
 .survey-container {
-    width: 20%;
     text-align: center;
 }
 
@@ -73,6 +86,7 @@ a#view-stats {
 
 .answer-display h5 {
     font-size: 80%;
+    margin-top: 4%;
 }
 
 .answer-display .progress {
@@ -216,16 +230,15 @@ button#newsletter_save {
     background-color: #d9d9d9;
     padding: 5px;
     padding-bottom: 1%;
-    width: 60%;
+    margin-right: 10%;
     margin-bottom: 3%;
-    margin-top: 3%;
+    margin-top: 7%;
 }
 
 .cse h4 {
     color: #1c3168;
     padding: 10px;
-    font-weight: bolder;
-    word-break: break-word;
+    font-weight: bold;
 }
 
 .cse p {
@@ -235,6 +248,10 @@ button#newsletter_save {
 
 .cse a {
     color: #515d77;
+}
+
+.cse a:hover {
+    color: #b6a786;
 }
 
 @media screen and (max-width: 768.5px) {
@@ -250,21 +267,36 @@ button#newsletter_save {
     }
 }
 
+.hOffre{
+    padding-bottom: 15px;
+}
+
 .offer-container {
     background-color: #EFEDED;
-    width: 60%;
-    padding: 20px 10px;
+    margin-right: 10%;
+    padding: 20px 10px 40px 10px;
     margin-bottom: 2%;
     height: 30%;
+}
+
+@media screen and (max-width: 991.5px) {
+
+    .offer-container {
+        margin-right: 0%;
+    }
+
+    .cse {
+        margin-right: 0%;
+    }
 }
 
 .offer-icon {
     font-size: 63%;
     background-color: #1c3168;
     color: white;
-    border-radius: 6px;
-    width: 175px;
-    padding: 5px 7px;
+    border-radius: 10px;
+    width: 150px;
+    padding: 7px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -277,7 +309,6 @@ button#newsletter_save {
 h6.offer-time {
     margin-top: 7px;
     margin-left: 5px;
-    font-size: 78%;
 }
 
 .offer-description {
@@ -297,7 +328,7 @@ h6.offer-time {
     float: right;
     bottom: 18px;
     position: relative;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 5%;
     vertical-align: bottom;
 }
@@ -326,7 +357,7 @@ h6.offer-time {
 
     .offer-container {
         width: 100%;
-        height: 251px;
+        height: 100%;
     }
 
     #pagination {
@@ -385,16 +416,26 @@ h6.offer-time {
     list-style-type: none;
 }
 
+#pagination {
+    padding-left: 0%;
+}
+
 #pagination li {
-    border: black 1px solid;
-    margin-inline: 19px;
-    border-radius: 6px;
-    padding: 4px;
+    border: #ebedf1 1px solid;
+    margin-inline: 4px;
+    border-radius: 3px;
+    padding: 2px;
+    font-weight: bold;
+    color: black;
 }
 
 #pagination a {
     text-decoration: none;
-    padding: 5px 11px;
+    padding: 0px 9px;
+}
+
+.page-number{
+    color: #e2e6ea!important;
 }
 
 #pagination a:visited {
@@ -402,13 +443,13 @@ h6.offer-time {
 }
 
 li.pagination-link.disable {
-    background: rgb(173, 173, 173);
-    color: white;
+    background: #c8cfd5;
+    color: white!important;
 }
 
 li.pagination-link.current {
-    border-color: #054bfc !important;
-    color: #054bfc;
+    border-color: #885fff !important;
+    color: #885fff;
 }
 
 /*RESPONSIVE*/
@@ -445,10 +486,14 @@ li.pagination-link.current {
 
 .connection {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+    border-radius: 8%;
     padding-top: 50px;
     width: 30%;
     background-color: #EFEDED;
+    margin: 3% 0%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .connection h3 {
@@ -472,11 +517,12 @@ li.pagination-link.current {
 
 .btnCo button:hover {
     background-color: #b6a786;
+    color: white;
 }
 
 @media screen and (max-width: 991.5px) {
     .connection {
-        width: 100%;
+        width: 80%;
         text-align: center;
     }
 }
@@ -488,6 +534,7 @@ li.pagination-link.current {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 2%;
 }
 
 .admin-title {
@@ -577,7 +624,8 @@ a.survey-desactivate {
 }
 
 .survey-stats {
-    border: 1px black solid;
+    border: 3px #1c3168 solid;
+    border-radius: 4%;
     width: 30%;
     margin: 3px;
     position: relative;
@@ -610,6 +658,7 @@ a.survey-desactivate {
     bottom: -29px;
     right: -29px;
     justify-items: center;
+    border-radius: 4%;
 }
 
 .survey-actions a {
@@ -649,25 +698,44 @@ input#question {
 
 .offer-page {
     text-align: center;
-    width: 70%;
-    margin: 9px 15%;
+    margin-bottom: 6%;
+}
+
+.hOffreSpe{
+    margin-top: 2%;
+    text-align: center;
+}
+
+.hAbout2{
+    margin-top: 3%;
+    margin-bottom: 0%;
+}
+
+.offer-page h5, .offer-page p {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.offer-page p {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* About Us */
 
 #aboutUs {
     width: 80%;
-    padding-top: 40px;
+    margin-top: 5%;
 }
 
-#aboutUs p {
-    font-size: 132%;
-    padding-top: 20px;
-    padding-left: 15%;
+.hAbout{
+    padding-bottom: 8px;
 }
 
-#aboutUs h2 {
-    text-align: center;
+.aboutTxt{
+    padding-bottom: 20px;
 }
 
 .aboutUs-photos {
@@ -696,11 +764,18 @@ input#question {
 /* ADMIN */
 
 .update-about {
-    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.update-about h2 {
-    padding: 40px 0;
+.update-about ol, ul{
+    margin : 0%;
+    padding: 0%;
+    list-style: none;
+}
+
+.update-about h3 {
+    text-align: center;
 }
 
 .update-about-form {
@@ -709,12 +784,44 @@ input#question {
     padding: 0;
 }
 
-#cse_form label {
-    margin: 31px 0px;
+.label{
+    margin-top: 2%;
+    margin-bottom: 1%;
 }
 
-#cse_form div:first-child {
-    display: grid;
+.row{
+    margin: 0%;
+}
+
+.error{
+    color: red;
+}
+
+.btnAbout{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.offer-button{
+    background-color: #1c3168;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.offer-button:hover{
+    background-color: #b6a786;
+    color: white;
+}
+
+.alert-successBack{
+    color: rgb(0, 218, 0);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .form-button {
@@ -732,14 +839,14 @@ form button:hover {
     color: #b6a786;
 }
 
-.admin-homepage h2 {
+.bvAdmin {
     text-align: center;
-    margin: 42px 0;
+    margin-top: 50px;
 }
 
 .admin-homepage h4 {
     text-align: center;
-    margin: 42px 0;
+    margin: 30px 0;
 }
 
 .admin-body {
@@ -755,7 +862,8 @@ form button:hover {
 }
 
 .admin-choice {
-    border: black 1px solid;
+    border: #1c3168 2px solid;
+    border-radius: 5%;
     padding: 20px 30px;
     margin-inline: 30px;
     margin-bottom: 30px;
@@ -765,7 +873,18 @@ form button:hover {
 }
 
 .admin-choice img {
-    width: 247px;
+    width: 80%;
+    margin-top: 20%;
+}
+
+.admin-choice .img2 {
+    width: 90%;
+    margin-top: 30%;
+}
+
+.admin-choice .img3 {
+    width: 100%;
+    margin-top: 5%;
 }
 
 @media screen and (max-width: 768px) {
@@ -805,37 +924,54 @@ form button:hover {
     vertical-align: middle;
 }
 
+.btnAdmin{
+    display: flex;
+    justify-content: center;
+}
+
+.btnAdminSpace{
+    margin-left: 5%;
+}
+
 .admin-update {
-    background-color: #054bfc;
-    padding: 5px 17px;
+    background-color: #1c3168;
+    padding: 5px 15px;
     border-radius: 8px;
     color: white;
     text-decoration: none;
-    font-size: 20px;
 }
 
 .admin-update:hover {
-    color: #18283B;
+    background-color: #b6a786;
+    color: white;
 }
 
 .admin-delete {
-    background-color: red;
-    padding: 2px 5px;
+    background-color: #b6a786;
+    padding: 5px 5px;
     border-radius: 8px;
+    border: none;
     color: white;
     text-decoration: none;
-    font-size: 20px;
+}
+
+.admin-delete:hover {
+    background-color: #1c3168;
+    color: white;
 }
 
 .admin-create{
-    background-color: green;
-    padding: 5px 5px;
+    background-color: #1c3168;
+    padding: 5px 15px;
     border-radius: 8px;
     color: white;
     text-decoration: none;
-    font-size: 20px;
 }
 
+.admin-create:hover{
+    background-color: #b6a786;
+    color: white;
+}
 
 .table-responsive {
     display: flex;
@@ -859,6 +995,47 @@ form button:hover {
 .admin-user-footer{
     display: flex;
     justify-content: center;
+    margin-bottom: 1%;
+}
+
+#user_roles{
+    padding: 1%;
+}
+
+#user_roles option{
+    padding-top: 5%;
+}
+
+.retour, .admin-add{
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.retour:hover, .admin-add:hover{
+    background-color: #b6a786;
+    color: white;
+}
+
+#contact{
+    margin-top: 2%;
+}
+
+#contact_sumbit{
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+#contact_sumbit:hover{
+    background-color: #b6a786;
+    color: white;
 }
 
 .contact-form {
@@ -870,15 +1047,19 @@ form button:hover {
 
 .contact-form h2 {
     margin-block: 20px;
+    text-align: center;
 }
 
 div#contact {
-    border: 1px solid black;
+    border: 2px solid #1c3168;
+    border-radius: 1%;
     height: 550px;
     margin-bottom: 30px;
     max-height: 720px;
     height: 110%;
     padding-bottom: 20px;
+    width: 90%;
+    margin-inline: 16px;
 }
 
 div#contact form > div {
@@ -886,6 +1067,10 @@ div#contact form > div {
     flex-direction: column;
     padding-inline: 36px;
     margin-top: 10px;
+}
+
+div#contact form > div > label{
+    margin-bottom: 10px;
 }
 
 div#contact > div:first-child{
@@ -901,6 +1086,7 @@ div#contact textarea{
 .contact-success{
     text-align: center;
     color: green;
+}
 
 #homepage-edit{
     display: grid;
@@ -916,4 +1102,44 @@ button#homepage_form_submit {
     border-radius: 3px;
     color: white;
     border: none;
+}
+
+.hMessage{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.cap{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* @media screen and (max-width: 400px) {
+    #contact{
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+} */
+
+.mb-3 a{
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.mb-3 a:hover{
+    background-color: #b6a786;
+    color: white;
 }
