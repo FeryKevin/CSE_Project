@@ -28,7 +28,6 @@
 /* SURVEY */
 
 .survey-container {
-    width: 20%;
     text-align: center;
 }
 
@@ -660,8 +659,6 @@ a.survey-desactivate {
     right: -29px;
     justify-items: center;
     border-radius: 4%;
-   
-
 }
 
 .survey-actions a {
