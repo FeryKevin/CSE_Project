@@ -678,8 +678,13 @@ input#question {
     justify-content: space-evenly;
 }
 
+.about-presentation {
+    width: 300px;
+    text-align: center;
+}
+
 .about-presentation img {
-    width: 186px;
+    width: 267px;
 }
 
 @media screen and (max-width: 992px) {

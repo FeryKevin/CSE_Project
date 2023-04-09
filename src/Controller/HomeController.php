@@ -7,7 +7,7 @@ use App\Entity\Newsletter;
 use App\Form\ContactType;
 use App\Form\NewsletterType;
 use App\Repository\CSERepository;
-use App\Repository\NewsletterRepository;
+use App\Repository\MemberRepository;
 use App\Repository\OfferRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,7 +43,7 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
-    public function aboutUs(CSERepository $cseRepository)
+    public function aboutUs(CSERepository $cseRepository, MemberRepository $memberRepository)
     {
         $cse = $cseRepository->findAll()[0];
 
@@ -51,6 +51,7 @@ class HomeController extends AbstractController
             'text' => $cse->getPresentationAbout(),
             'rules' => $cse->getRules(),
             'actions' => $cse->getActions(),
+            'members' => $memberRepository->findAll(),
         ]);
     }
 

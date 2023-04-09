@@ -29,15 +29,12 @@ class File
     #[ORM\JoinColumn(nullable: true)]
     private ?Offer $offer = null;
 
-    public static function createFromPath(string $path, bool $isPartner = false): self
+    public static function createFromPath(string $path, string $class): self
     {
         $file = new static;
 
-        if ($isPartner) {
-            $file->setStoredName(str_replace('public/img/partner\\', '', $path));
-        } else {
-            $file->setStoredName(str_replace('public/img/offer\\', '', $path));
-        }
+        $file->setStoredName(str_replace("public/img/${class}\\", '', $path));
+
         $file->setExtension(pathinfo($path, PATHINFO_EXTENSION))
             ->setPath(str_replace('public', '', $path));
 
