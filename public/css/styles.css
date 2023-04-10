@@ -807,10 +807,10 @@ input#question {
     border: none;
 }
 
-.offer-button:hover{
+/* .offer-button:hover{
     background-color: #b6a786;
     color: white;
-}
+} */
 
 .alert-successBack{
     color: rgb(0, 218, 0);

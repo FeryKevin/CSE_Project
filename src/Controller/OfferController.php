@@ -51,7 +51,7 @@ class OfferController extends AbstractController
             $em->persist($offer);
             $em->flush();
 
-            return $this->redirectToRoute('offers');
+            return $this->redirectToRoute('admin_offers');
         } else {
             if ($formLimited->isSubmitted() && $formLimited->isValid())
             {
@@ -74,7 +74,7 @@ class OfferController extends AbstractController
                 $em->persist($offer);
                 $em->flush();
 
-                return $this->redirectToRoute('offers');
+                return $this->redirectToRoute('admin_offers');
             }
         }
         
@@ -84,7 +84,7 @@ class OfferController extends AbstractController
         ]);
     }
 
-    #[Route(path: "/admin/offers", name: "offers")]
+    #[Route(path: "/admin/offers", name: "admin_offers")]
     public function offers(OfferRepository $offerRepository): Response
     {
         $offers = $offerRepository->findAll();
@@ -207,7 +207,7 @@ class OfferController extends AbstractController
 
             $this->addFlash('success', 'L\'offre a bien été supprimée');
 
-            return $this->redirectToRoute('offers');
+            return $this->redirectToRoute('admin_offers');
         } else {
             return $this->render('back_office/offer_error.html.twig', [
                 'id' => $id,
