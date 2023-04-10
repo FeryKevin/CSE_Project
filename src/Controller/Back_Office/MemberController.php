@@ -69,15 +69,20 @@ class MemberController extends AbstractController
         return $this->render('back_office/member/add.html.twig', ['form' => $form]);
     }
 
-    #[Route(path: '/members/img', name: 'change_member_image', methods: ['POST'])]
-    public function changeMember(MemberRepository $memberRepository, Request $request, EntityManagerInterface $em): Response
+    #[Route(path: '/members/img/{id}', name: 'change_member_image', methods: ['POST'])]
+    public function changeMember(MemberRepository $memberRepository, Request $request, EntityManagerInterface $em, Member $member): Response
     {
         $post = json_decode($request->getContent(), true);
 
-        dd($request->getContent());
-        $member = $memberRepository->find($post['id']);
+        $member->getImage()->setFile($request->files->get('image'));
+        $member->getImage()->handleMember();
 
-        dd($request->getContent());
+        $path = $member->getImage()->getFile()->getRealPath();
+        move_uploaded_file($path, '.' . $member->getImage()->getPath());
+
+        $em->persist($member);
+        $em->flush();
+
         return new Response('Image has been udpate');
     }
 }

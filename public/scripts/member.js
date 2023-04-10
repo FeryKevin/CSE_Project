@@ -31,19 +31,15 @@ const forms = document.getElementsByClassName('form-member-image')
 for (let form of forms){
 
     form.addEventListener('change', (e) => {
+
         let id = e.target.getAttribute('data')
 
         let body = new FormData()
 
-        body.append('id', id)
         body.append('image', e.target.files[0])
         
-        postImgData(body, "http://localhost:8000/admin/members/img")
+        postImgData(body, id).then(window.location.reload())
     })
-}
-
-const handleImgChange = () => {
-    console.log('change')
 }
 
 async function postData(data, url) {
@@ -56,12 +52,9 @@ async function postData(data, url) {
     })
 }
 
-async function postImgData(data) {
-    const response = await fetch("http://localhost:8000/admin/members/img", {
+async function postImgData(data, id) {
+    const response = await fetch(`http://localhost:8000/admin/members/img/${id}`, {
         method: "POST",
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
         body: data
     })
 }
