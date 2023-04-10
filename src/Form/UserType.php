@@ -16,24 +16,27 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'row_attr' => ['class' => 'user-form'],
-                'constraints' => [
-                    new Assert\Email([
-                        'message' => 'L\'email "{{ value }}" n\'est pas valide.',
-                    ]),
-                    new Assert\NotBlank()
-                ],
-            ])
-            ->add('roles', ChoiceType::class, [
-                'choices' => ['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER', 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN'],
-                'multiple' => true,
-                'row_attr' => ['class' => 'user-form']
-            ]);
+        ->add('roles', ChoiceType::class, [
+            'choices' => ['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER', 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN'],
+            'multiple' => true,
+            'label' => 'Rôles :',
+            'row_attr' => ['class' => 'user-form']
+        ])
+        ->add('email', EmailType::class, [
+            'label' => 'Email :',
+            'row_attr' => ['class' => 'user-form'],
+            'constraints' => [
+                new Assert\Email([
+                    'message' => 'L\'email "{{ value }}" n\'est pas valide.',
+                ]),
+                new Assert\NotBlank()
+            ],
+        ]);
+            
         if (null === $builder->getData()->getId()) {
             $builder->add('password', PasswordType::class, ['label' => 'Mot de passe', 'row_attr' => ['class' => 'user-form']]);
         } else {
-            $builder->add('plainPassword', PasswordType::class, ['data' => null, 'required' => false, 'label' => 'Mot de passe', 'row_attr' => ['class' => 'user-form']]);
+            $builder->add('plainPassword', PasswordType::class, ['data' => null, 'required' => false, 'label' => 'Mot de passe :', 'row_attr' => ['class' => 'user-form']]);
         }
     }
 

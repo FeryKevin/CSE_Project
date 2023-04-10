@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use \DateTime;
 use App\Entity\Offer;
+use App\Repository\CSERepository;
 use App\Form\LimitedOfferType;
 use App\Form\PermanentOfferType;
 use App\Repository\FileRepository;
@@ -216,10 +217,13 @@ class OfferController extends AbstractController
 
     // Partie publique
     #[Route(path: ('/offre/{id}'), name: 'offer_details')]
-    public function details(Offer $offer)
+    public function details(Offer $offer, CSERepository $cseRepository)
     {
+        $cse = $cseRepository->findAll()[0];
+
         return $this->render('offer/details.html.twig', [
             'offer' => $offer,
+            'email' => $cse->getEmail(),
         ]);
     }
 }
