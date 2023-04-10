@@ -753,6 +753,7 @@ input#question {
 
 .about-presentation img {
     width: 267px;
+    height: 210px;
 }
 
 @media screen and (max-width: 992px) {
@@ -1142,4 +1143,120 @@ button#homepage_form_submit {
 .mb-3 a:hover{
     background-color: #b6a786;
     color: white;
+}
+
+.members-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member-card{
+    display: flex;
+    margin:10px 20px;
+    background-color: #b6a786;
+}
+
+@media screen and (max-width: 768px){
+    .member-card{
+        flex-direction: column;
+    }
+
+    .member-right{
+        padding-block: 20px;
+    }
+
+    .member-card:last-child{
+        flex-direction: column;
+        width: 90% !important;
+    }
+
+    .members-container a {
+        width: 325px;
+    }
+}
+
+.member-card img {
+    width: 300px;
+    height: 230px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-inline: 32px;
+}
+
+.member-info input{
+    margin-block: 5px;
+}
+
+.member-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.member-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.member-actions a {
+    text-decoration: none;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-delete{
+    background-color: red;
+}
+
+.member-update{
+    background-color: green;
+}
+
+
+.member-card:last-child{
+    width: 556px;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.member-card input[type=file]{
+    display: none;
+}
+
+.member-card-add h3{
+    color: #1c3168;
+}
+
+.member-form {
+    display: flex;
+    justify-content: center;
+}
+
+.member-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-form form > div {
+    display: flex;
+    flex-direction: column;
+    margin-block: 6px;
+}
+
+#member_image > div{
+    display: flex;
+    flex-direction: column;
 }

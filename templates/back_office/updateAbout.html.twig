@@ -8,6 +8,8 @@
 
         <h3 class='hAbout'>A propos de nous</h3>
 
+        <a href={{ path('update_members') }}>Modifier les membres</a>
+
         {% for message in app.flashes('aboutUs') %}
             <div class="alert-successBack">
                 {{ message }}
