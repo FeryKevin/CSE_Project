@@ -39,17 +39,18 @@ class SurveyController extends AbstractController
         );
     }
 
-    #[Route(path: 'surveyHandler', name: 'handle_survey',  methods: ['POST'])]
+    #[Route(path: 'surveyHandler', name: 'handle_survey', methods: ['POST'])]
     public function handleSurveyForm(Request $request, EntityManagerInterface $em)
     {
         $survey = $this->surveyRepository->find($request->get('survey'));
-        if (!array_key_exists('answers', $request->get('survey_form'))) return $this->redirect($request->headers->get('referer'));
+        if (!array_key_exists('answers', $request->get('survey_form')))
+            return $this->redirect($request->headers->get('referer'));
 
         $answer = $survey->getAnswers()[$request->get('survey_form')['answers']];
         $answer->setAnswerNumber($answer->getAnswerNumber() + 1);
         $em->persist($answer);
         $em->flush();
-        $this->addFlash('SurveySuccess', 'Votre réponsé à été renregistée');
+        $this->addFlash('SurveySuccess', 'Votre réponsé à été enregistée');
 
         return $this->redirect($request->headers->get('referer'));
     }
