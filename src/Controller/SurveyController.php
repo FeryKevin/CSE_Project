@@ -23,18 +23,18 @@ class SurveyController extends AbstractController
 
     public function surveyForm(): Response
     {
-        $survey = $this->surveyRepository->findRandomOneActive();
+        $survey = $this->surveyRepository->findActive();
         if (empty($survey)) {
             return $this->render('survey.html.twig');
         }
 
-        $form = $this->createForm(SurveyFormType::class, $survey, ['action' => $this->generateUrl('handle_survey')]);
+        $form = $this->createForm(SurveyFormType::class, $survey[0], ['action' => $this->generateUrl('handle_survey')]);
 
         return $this->render(
             'survey.html.twig',
             [
                 'form' => $form->createView(),
-                'survey' => $survey,
+                'survey' => $survey[0],
             ]
         );
     }
