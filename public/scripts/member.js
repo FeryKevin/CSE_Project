@@ -36,9 +36,11 @@ for (let form of forms){
 
         let body = new FormData()
 
-        body.append('image', e.target.files[0])
+        if (['png', 'webp', 'jpg'].includes(e.target.value.split('.').pop())){
+            body.append('image', e.target.files[0])
+            postImgData(body, id).then(window.location.reload())
+        }
         
-        postImgData(body, id).then(window.location.reload())
     })
 }
 
