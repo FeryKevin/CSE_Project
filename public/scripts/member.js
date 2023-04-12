@@ -5,7 +5,9 @@ for (let button of btnDelete) {
         let id = e.target.getAttribute('data')
         
         let data = `{"id": "${id}"}`
-        postData(data, "http://localhost:8000/admin/members/delete").then(window.location.reload())
+        if(confirm('Voulez vous vraiment supprimer ce membre')){
+            postData(data, "http://localhost:8000/admin/members/delete").then(window.location.reload())
+        }
     })
 }
 
