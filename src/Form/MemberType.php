@@ -8,16 +8,31 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class MemberType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'Nom :'])
-            ->add('firstname', TextType::class, ['label' => 'Prénom :'])
-            ->add('image', FileForm::class, ['label' => false])
-            ->add('submit', SubmitType::class, ['label' => 'Ajouter']);
+            ->add('name', TextType::class, [
+                'label' => 'Nom :',
+                'constraints' => new Assert\NotBlank(['message' => 'Veuillez remplir ce champ'])
+            ])
+            ->add('firstname', TextType::class, [
+                'label' => 'Prénom :',
+                'constraints' => new Assert\NotBlank(['message' => 'Veuillez remplir ce champ'])
+            ])
+            ->add('image', FileForm::class, [
+                'label' => false,
+            ])
+            ->add(
+                'submit',
+                SubmitType::class,
+                [
+                    'label' => 'Ajouter',
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
