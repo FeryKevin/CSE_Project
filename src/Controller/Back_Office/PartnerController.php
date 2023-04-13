@@ -4,7 +4,7 @@ namespace App\Controller\Back_Office;
 
 use App\Entity\Partner;
 use App\Entity\File;
-use App\Form\Admin\PartnerType;
+use App\Form\PartnerForm;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,4 +24,28 @@ class PartnerController extends AbstractController
             'partners' => $partners,
         ]);
     }
+
+    #[Route(path: '/partners/add', name: 'partner_create')]
+    public function create(Request $request, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(PartnerForm::class, new Partner());
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $partner = $form->getData();
+            $partner->getImage()->handlePartner();
+
+            $path = $partner->getImage()->getFile()->getRealPath();
+            move_uploaded_file($path, '.' . $partner->getImage()->getPath());
+
+            $em->persist($partner);
+            $em->flush();
+
+            return $this->redirectToRoute('partners');
+        }
+
+        return $this->render('back_office/partner/create.html.twig', ['form' => $form]);
+    }
+
 }

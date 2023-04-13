@@ -24,40 +24,42 @@ final class PartnerForm extends AbstractType
                 new Assert\NotBlank(),
             ],
         ])
-            ->add('description', TextType::class, [
-                'label' => 'Description :',
-                'empty_data' => '',
-                'attr' => [
-                    'placeholder' => 'Veuillez saisir la description du partenaire',
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
-            ])
-            ->add('websiteLink', TextType::class, [
-                'label' => 'Lien du site :',
-                'empty_data' => '',
-                'attr' => [
-                    'placeholder' => 'Veuillez saisir le lien du site du partenaire',
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
-            ])
-            ->add('image', FileForm::class)
-            ->add('submit', SubmitType::class, [
-                'label' => $builder->getOption('on_edit') ? '-> Modifier' : '-> Ajouter',
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
-            ]);
+        ->add('description', TextType::class, [
+            'label' => 'Description :',
+            'empty_data' => '',
+            'attr' => [
+                'placeholder' => 'Veuillez saisir la description du partenaire',
+            ],
+            'constraints' => [
+                new Assert\NotBlank(),
+            ],
+        ])
+        ->add('websiteLink', TextType::class, [
+            'label' => 'Lien du site :',
+            'empty_data' => '',
+            'attr' => [
+                'placeholder' => 'Veuillez saisir le lien du site du partenaire',
+            ],
+            'constraints' => [
+                new Assert\NotBlank(),
+            ],
+        ])
+        ->add('image', FileForm::class, [
+            'label' => false,
+        ])
+        ->add(
+            'submit',
+            SubmitType::class,
+            [
+                'label' => 'Ajouter',
+            ]
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Partner::class,
-            'on_edit' => false,
         ]);
     }
 }
