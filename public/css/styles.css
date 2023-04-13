@@ -907,15 +907,15 @@ form button:hover {
     }
 }
 
-.admin-user h1 {
+.admin-user h1{
     text-align: center;
 }
 
-.admin-table {
+.admin-table{
     width: 40%;
 }
 
-.admin-table th {
+.admin-table th{
     vertical-align: middle;
 }
 
@@ -971,9 +971,9 @@ form button:hover {
 .table-responsive {
     display: flex;
     justify-content: center;
-}
+}   
 
-.admin-form {
+.admin-form{
     text-align: center;
 }
 
@@ -983,11 +983,11 @@ form button:hover {
     margin: 22px 0;
 }
 
-.user-form label {
+.user-form label{
     margin: 5px 0;
 }
 
-.admin-user-footer {
+.admin-user-footer{
     display: flex;
     justify-content: center;
     margin-bottom: 1%;
