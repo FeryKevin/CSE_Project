@@ -1,1 +1,28 @@
-{# <a href='{{ path('partner_create') }}'>Ajouter</a> #}
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Partenaires{% endblock %}  
+
+{% block body %}
+
+    <h3 class='hMessage'>Partenaires :</h3>
+    
+    {% for partners in partners %}
+
+        <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+
+        <form class='form-partners-image' enctype="multipart/form-data">
+            <input type='file' name='image-input' id='image-input-{{ partners.id }}' class='inputs-partners' data={{ partners.id }} />
+        </form>
+
+        <input type='text' name='name' class='partners-{{ partners.id }}' value="{{ partners.name }}" />
+        <input type='text' name='description' class='partners-{{ partners.id }}' value="{{ partners.description }}" /> 
+        <input type='text' name='websiteLink' class='partners-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
+
+        <a class='partners-update' data={{ partners.id }}>Modifier</a>
+        <a class='partners-delete' data={{ partners.id }}>Supprimer</a>
+
+        <br><br><br><br><br>
+
+    {% endfor %}
+
+{% endblock %}
