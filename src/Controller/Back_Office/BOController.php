@@ -43,11 +43,12 @@ class BOController extends AbstractController
     public function surveyStatus(SurveyRepository $surveyRepository, Request $request, EntityManagerInterface $em): Response
     {
         $post = json_decode($request->getContent(), true);
+
         if ((bool)$post['status']) {
-            $oldSurvey = $surveyRepository->findRandomOneActive();
+            $oldSurvey = $surveyRepository->findActive();
             if (!empty($oldSurvey)) {
-                $oldSurvey->setActive(0);
-                $em->persist($oldSurvey);
+                $oldSurvey[0]->setActive(0);
+                $em->persist($oldSurvey[0]);
             }
         }
         $survey = $surveyRepository->find($post['id']);
