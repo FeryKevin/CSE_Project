@@ -39,7 +39,7 @@ class CSE
         return $this->presentationHome;
     }
 
-    public function setPresentationHome(string $presentationHome): self
+    public function setPresentationHome(?string $presentationHome): self
     {
         $this->presentationHome = $presentationHome;
 

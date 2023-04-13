@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier utilisateur{% endblock %}
+{% block title %}Modifier un utilisateur{% endblock %}
 
 {% block body %}
-    <div class='admin-form'>
-        <h1>Modifier l'utilisateur</h1>
 
-        {{ include('back_office/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                <div class='admin-form'>
+                    <h3 class='hMessage'>Modifier un utilisateur :</h3>
 
-        {{ include('back_office/user/_delete_form.html.twig') }}
-        <a href="{{ path('admin_users') }}">&lt;Retourner à la liste</a>
-    </div>
+                    {{ include('back_office/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+                <div>
+            <div><br>
+
+            <a class='retour' href="{{ path('admin_users') }}">Retour</a>
+
+        <div>
+    <div><br>
+
 {% endblock %}

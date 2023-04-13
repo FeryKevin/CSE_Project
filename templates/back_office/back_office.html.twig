@@ -4,8 +4,10 @@
 
 {% block body %}
     <div class='admin-homepage'>
-        <h2>Bienvenue {{ app.user.email }} !</h2>
+
+        <h3 class='bvAdmin'>Bienvenue <strong>{{ app.user.email }}</strong> !</h3>
         <h4>Que voulez-vous faire aujourd'hui ?</h4>
+
         <div class='admin-body'>
             <a href={{ path('admin_contacts') }}>
                 <div class='admin-choice'>
@@ -22,41 +24,47 @@
             <a href={{ path('partner_index') }}>
                 <div class='admin-choice'>
                     <h3>Partenariats</h3>
-                    <img src='/img/partner.png' />
+                    <img class='img2' src='/img/partner.png' />
                 </div>
             </a>
+
             <a href={{ path('admin_update_about') }}>
                 <div class='admin-choice'>
                     <h3>A propos de nous</h3>
                     <img src='/img/aboutUs.png' />
                 </div>
             </a>
-            <a href=''>
-                <div class='admin-choice'>
-                    <h3>Accueil</h3>
-                    <img src='/img/homepage.png' />
-                </div>
-            </a>
-            <a href=''>
+
+            <a href={{ path('admin') }}>
                 <div class='admin-choice'>
                     <h3>Billetterie</h3>
-                    <img src='/img/ticketing.png' />
+                    <img <img class='img3' src='/img/ticketing.png' />
                 </div>
             </a>
-            <a href=''>
+
+            <a href={{ path('admin_contacts') }}>
                 <div class='admin-choice'>
-                    <h3>Offres</h3>
-                    <img src='/img/partner.png' />
+                    <h3>Message</h3>
+                    <img src='/img/message.png' />
                 </div>
             </a>
+
+            <a href={{ path('admin_surveys') }}>
+                <div class='admin-choice'>
+                    <h3>Sondage</h3>
+                    <img src='/img/survey.png' />
+                </div>
+            </a>
+
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <a href={{ path('admin_users') }}>
                     <div class='admin-choice'>
-                        <h3>Admins</h3>
+                        <h3>Compte</h3>
                         <img src='/img/admin.png' />
                     </div>
                 </a>
             {% endif %}
+
         </div>
     </div>
 {% endblock body %}

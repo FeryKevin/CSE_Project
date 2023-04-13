@@ -1,5 +1,25 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_label(form.roles) }}<br>
+    {{ form_widget(form.roles) }}<br>
+    <div class='error'>
+        {{ form_errors(form.roles) }}
+    </div><br>
+
+
+    {{ form_label(form.email) }}<br>
+    {{ form_widget(form.email) }}<br>
+    <div class='error'>
+        {{ form_errors(form.email) }}
+    </div><br>
+
+
+    {{ form_label(form.password) }}<br>
+    {{ form_widget(form.password) }}<br>
+    <div class='error'>
+        {{ form_errors(form.password) }}
+    </div><br>
+
+    <button class="admin-add">{{ button_label|default('Enregistrer') }}</button>
     
-    <button class="admin-update">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

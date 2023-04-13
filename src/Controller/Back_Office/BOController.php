@@ -4,6 +4,7 @@ namespace App\Controller\Back_Office;
 
 use App\Entity\Survey;
 use App\Form\CSEFormType;
+use App\Form\HomepageForm;
 use App\Repository\ContactRepository;
 use App\Repository\CSERepository;
 use App\Repository\SurveyRepository;
@@ -41,11 +42,12 @@ class BOController extends AbstractController
     public function surveyStatus(SurveyRepository $surveyRepository, Request $request, EntityManagerInterface $em): Response
     {
         $post = json_decode($request->getContent(), true);
+
         if ((bool)$post['status']) {
-            $oldSurvey = $surveyRepository->findRandomOneActive();
+            $oldSurvey = $surveyRepository->findActive();
             if (!empty($oldSurvey)) {
-                $oldSurvey->setActive(0);
-                $em->persist($oldSurvey);
+                $oldSurvey[0]->setActive(0);
+                $em->persist($oldSurvey[0]);
             }
         }
         $survey = $surveyRepository->find($post['id']);
@@ -85,9 +87,9 @@ class BOController extends AbstractController
             $em->persist($cse);
             $em->flush();
 
-            $this->addFlash('success', 'Le partenaire a été ajouté.');
+            $this->addFlash('aboutUs', 'Les champs ont a été mise à jour.');
 
-            return $this->redirectToRoute('aboutUs');
+            return $this->redirectToRoute('admin_update_about');
         }
 
         return $this->render('back_office/updateAbout.html.twig', [
