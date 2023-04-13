@@ -48,4 +48,15 @@ class PartnerController extends AbstractController
         return $this->render('back_office/partner/create.html.twig', ['form' => $form]);
     }
 
+    #[Route(path: '/partners/delete', name: 'partner_delete', methods: ['POST'])]
+    public function delete(PartnerReposiroy $partnerRepository, Request $request, EntityManagerInterface $em): Response
+    {
+        $post = json_decode($request->getContent(), true);
+
+        $em->remove($partnerRepository->find($post['id']));
+        $em->flush();
+
+        return new Response('Partner has been deleted');
+    }
+
 }

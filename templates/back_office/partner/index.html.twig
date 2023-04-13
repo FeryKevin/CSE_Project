@@ -18,8 +18,10 @@
         <input type='text' name='description' class='partners-{{ partners.id }}' value="{{ partners.description }}" /> 
         <input type='text' name='websiteLink' class='partners-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
 
-        <a class='partners-update' data={{ partners.id }}>Modifier</a>
-        <a class='partners-delete' data={{ partners.id }}>Supprimer</a>
+        <div class='partner-actions'>
+            <a class='partner-update' data={{ partners.id }}>Modifier</a>
+            <a class='partner-delete' data={{ partners.id }}>Supprimer</a>
+        </div>
 
         <br><br><br><br><br>
 
