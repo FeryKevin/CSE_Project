@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FileRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 class File
@@ -29,15 +30,14 @@ class File
     #[ORM\JoinColumn(nullable: true)]
     private ?Offer $offer = null;
 
-    public static function createFromPath(string $path, bool $isPartner = false): self
+    private ?UploadedFile $file = null;
+
+    public static function createFromPath(string $path, string $class): self
     {
         $file = new static;
 
-        if ($isPartner) {
-            $file->setStoredName(str_replace('public/img/partner\\', '', $path));
-        } else {
-            $file->setStoredName(str_replace('public/img/offer\\', '', $path));
-        }
+        $file->setStoredName(str_replace("public/img/${class}\\", '', $path));
+
         $file->setExtension(pathinfo($path, PATHINFO_EXTENSION))
             ->setPath(str_replace('public', '', $path));
 
@@ -68,6 +68,27 @@ class File
             ->setPath('./img/partner/' . $name . $i . '.' . $ext);
 
         return $this;
+    }
+
+    public function handlePartner()
+    {
+        if (!is_dir('./img/partner')) mkdir('./img/partner');
+
+        $ext = pathinfo($this->file->getClientOriginalName(), PATHINFO_EXTENSION);
+        $name = str_replace('.' . $ext, '', $this->file->getClientOriginalName());
+        $this->setOriginalName($name)
+            ->setExtension($ext);
+
+        $i = 0;
+        if (file_exists('./img/partner/' . $this->file->getClientOriginalName())) {
+            $i = 1;
+            while (file_exists('./img/partner/' . $name . $i . $ext)) {
+                $i++;
+            }
+            $i++;
+        }
+        $this->setStoredName($name . $i)
+            ->setPath('/img/partner/' . $name . $i . '.' . $ext);
     }
 
     public function getId(): ?int
@@ -131,6 +152,18 @@ class File
     public function setOffer(?Offer $offer): self
     {
         $this->offer = $offer;
+
+        return $this;
+    }
+
+    public function getFile(): ?UploadedFile
+    {
+        return $this->file;
+    }
+
+    public function setFile(?UploadedFile $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

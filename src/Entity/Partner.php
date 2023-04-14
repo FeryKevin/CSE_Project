@@ -22,8 +22,8 @@ class Partner
     #[ORM\Column(length: 50)]
     private ?string $websiteLink = null;
 
-    #[ORM\OneToOne()]
-    #[ORM\JoinColumn(name: 'file_id', nullable: false)]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private ?File $image = null;
 
     public function getId(): ?int

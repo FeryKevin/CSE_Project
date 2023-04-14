@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Partner;
 use App\Entity\Newsletter;
 use App\Form\ContactType;
 use App\Form\NewsletterType;
 use App\Repository\CSERepository;
+use App\Repository\PartnerRepository;
 use App\Repository\NewsletterRepository;
 use App\Repository\OfferRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -41,6 +43,18 @@ class HomeController extends AbstractController
                 'email' => $cse->getEmail(),
             ]
         );
+    }
+
+    #[Route('/partners', name: 'partnersPublic')]
+    public function index(PartnerRepository $partnerRepository, CSERepository $cseRepository): Response
+    {
+        $cse = $cseRepository->findAll()[0];
+        $partners = $partnerRepository->findAll();
+
+        return $this->render('partner.html.twig', [
+            'partners' => $partnerRepository->findAll(),
+            'email' => $cse->getEmail(),
+        ]);
     }
 
     #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]

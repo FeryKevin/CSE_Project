@@ -1,10 +1,43 @@
+{% extends 'back_office/base.html.twig' %}
 
-{% block content %} 
+{% block title %}Ajouter un partenaire {% endblock %}
 
-    <h3>Ajout d'un partenaire :</h3>
+{% block body %}
 
-    {{ form_start(form) }}
+    <div class='addPartner'>
 
-    {{ form_end(form) }}
+        <h3 class='hMessage'>Ajouter un partenaire :</h3>
 
-{% endblock content %}
+        <div class='partner-form'>
+
+            {{ form_start(form) }}
+
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
+
+                {{ form_label(form.websiteLink) }}
+                {{ form_widget(form.websiteLink) }}
+                {{ form_errors(form.websiteLink) }}
+
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image) }}
+                {{ form_errors(form.image) }}
+
+                {{ form_widget(form.submit) }}
+
+            {{ form_end(form) }}
+
+        </div>
+
+        <div class='btnPArtner'>
+            <a class='admin-update' href={{ path('partners') }}>Retour</a>
+        </div>
+
+    </div>
+
+{% endblock %}
