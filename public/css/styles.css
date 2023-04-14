@@ -1151,6 +1151,25 @@ button#homepage_form_submit {
     background-color: #d9d9d9;
 }
 
+@media screen and (max-width: 768px){
+    .partner-card{
+        flex-direction: column;
+    }
+
+    .partner-right{
+        padding-block: 20px;
+    }
+
+    .partner-card:last-child{
+        flex-direction: column;
+        width: 90% !important;
+    }
+
+    .partners-container a {
+        width: 325px;
+    }
+}
+
 .partner-card img {
     width: 300px;
     height: 230px;
@@ -1225,23 +1244,4 @@ button#homepage_form_submit {
 #partner_image > div{
     display: flex;
     flex-direction: column;
-}
-
-@media screen and (max-width: 768px){
-    .partner-card{
-        flex-direction: column;
-    }
-
-    .partner-right{
-        padding-block: 20px;
-    }
-
-    .partner-card:last-child{
-        flex-direction: column;
-        width: 90% !important;
-    }
-
-    .partners-container a {
-        width: 325px;
-    }
 }
