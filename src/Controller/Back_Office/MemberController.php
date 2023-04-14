@@ -63,7 +63,7 @@ class MemberController extends AbstractController
             $em->persist($member);
             $em->flush();
 
-            return $this->redirectToRoute('aboutUs');
+            return $this->redirectToRoute('update_members');
         }
 
         return $this->render('back_office/member/add.html.twig', ['form' => $form]);

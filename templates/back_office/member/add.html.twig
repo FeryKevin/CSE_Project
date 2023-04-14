@@ -3,17 +3,37 @@
 {% block title %}Ajouter un membre {% endblock %}
 
 {% block body %}
-    <div class='update-about'>
 
-        <h3 class='hAbout'>Ajouter un membre:</h3>
+    <div class='addPartner'>
 
-        <div class='member-form'>
+        <h3 class='hMessage'>Ajouter un membre :</h3>
+
+        <div class='partner-form'>
+
             {{ form_start(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.firstname) }}
-                {{ form_row(form.image) }}
+
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+
+                {{ form_label(form.firstname) }}
+                {{ form_widget(form.firstname) }}
+                {{ form_errors(form.firstname) }}
+
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image) }}
+                {{ form_errors(form.image) }}
+
                 {{ form_widget(form.submit) }}
+
             {{ form_end(form) }}
+
         </div>
+
+        <div class='btnPArtner'>
+            <a class='admin-update' href={{ path('update_members') }}>Retour</a>
+        </div>
+
     </div>
+
 {% endblock %}
