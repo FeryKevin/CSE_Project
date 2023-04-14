@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}À propos de nous{% endblock %}
+{% block title %}Partenariats {% endblock %}
 
 {% block body %} 
 
@@ -12,7 +12,41 @@
         <div class='row'>
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                <div style='margin-top:1000px;'>
+                <h3 class='hPartner'>Nos partenaires</h3>
+
+                <div class='partners-container'>
+
+                    {% for partners in partners %}
+
+                        <div class='partner-card'>
+
+                            <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+
+                            <div class='partner-right'>
+
+                                <div class='partner-info'>
+
+                                    <div class='partnerName'>
+                                        {{ partners.name }}
+                                    </div>
+
+                                    <div class='partnerDescription'>
+                                    {{ partners.description }}
+                                    </div>
+
+                                    <div class='partnerLink'>
+                                    <a href='{{ partners.websiteLink }}' target='blank'>{{ partners.websiteLink }}</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                    {% endfor %}
+                    
+                </div>
 
             </div>
         </div>

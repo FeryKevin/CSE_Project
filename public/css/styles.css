@@ -1330,3 +1330,33 @@ button#homepage_form_submit {
         width: 100%;
     }
 }
+
+/* PARYNER PUBLIC */
+
+.hPartner{
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.partnerName{
+    font-weight: bold;
+    color: #1c3168;
+    width: 200px;
+}
+
+.partnerDescription{
+    margin: 15% 0% 15% 0%;
+    width: 200px;
+}
+
+.partnerLink a{
+    text-decoration: none;
+    color: #b6a786;
+    width: 200px;
+}
+
+.partnerLink:hover a{
+    text-decoration: underline;
+    color: #b6a786;
+}
