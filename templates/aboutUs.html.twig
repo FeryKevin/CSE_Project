@@ -2,26 +2,43 @@
 
 {% block title %}À propos de nous{% endblock %}
 
-{% block body %}
-    <div id='aboutUs'>
-        <h2>A propos de nous</h2>
-        <p>{{ text | raw }}</p>
-        <h2>Qui sommes nous ?</h2>
-        <div class='aboutUs-photos'>
-            {% for member in members %}
-                <div class='about-presentation'>
-                    <img src={{ member.image.path }} />
-                    <h4>{{ member.name }} {{ member.firstname }}</h4>
+{% block body %} 
+
+    <div class='menuPublic'>
+        {{ include('include/menu.html.twig') }}
+    </div>
+
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                <div id=''>
+
+                    <h3 class='hAbout2'>A propos de nous</h3><br>
+                    <p class='aboutTxt'>{{ text | raw }}</p>
+
+                    <div class='aboutus-rules'>
+                        <h3 class='hAbout2'>Règlement</h3><br>
+                        <p class='aboutTxt'>{{ rules | raw }}</p>            
+                    </div>
+
+                    <div class='aboutus-actions'>
+                        <h3 class='hAbout2'>Nos actions</h3><br>
+                        <p class='aboutTxt'>{{ actions | raw }}</p><br>         
+                    </div>
+                    
+                    <h3 class='hAbout2'>Nos membres</h3>
+                    <div class='aboutUs-photos'>
+                        {% for member in members %}
+                            <div class='about-presentation'>
+                                <img src={{ member.image.path }} />
+                                <p>{{ member.name }} {{ member.firstname }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            {% endfor %}
-        </div>
-        <div class='aboutus-rules'>
-            <h2>Règlement</h2>
-            <p>{{ rules | raw }}</p>            
-        </div>
-        <div class='aboutus-actions'>
-            <h2>Nos actions</h2>
-            <p>{{ actions | raw }}</p>            
+
+            </div>
         </div>
     </div>
 

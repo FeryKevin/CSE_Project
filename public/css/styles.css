@@ -707,8 +707,9 @@ input#question {
 }
 
 .hAbout2{
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 0%;
+    text-align: center;
 }
 
 .offer-page h5, .offer-page p {
@@ -735,7 +736,7 @@ input#question {
 }
 
 .aboutTxt{
-    padding-bottom: 20px;
+    text-align: center;
 }
 
 .aboutUs-photos {
@@ -747,13 +748,31 @@ input#question {
 }
 
 .about-presentation {
+    margin-bottom: 3%;
+    padding-top: 15px;
+    background-color: #d9d9d9;
+    border-radius: 5%;
     width: 300px;
     text-align: center;
+    color: #1c3168;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 380px) {
+    .about-presentation {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
 .about-presentation img {
     width: 267px;
     height: 210px;
+}
+
+.about-presentation p {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 @media screen and (max-width: 992px) {
@@ -1467,7 +1486,7 @@ button#homepage_form_submit {
 
 .hPartner{
     text-align: center;
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 2%;
 }
 
