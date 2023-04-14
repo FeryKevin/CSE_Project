@@ -6,9 +6,11 @@
 
     <div class='update-about'>
 
-        <h3 class='hAbout'>A propos de nous</h3>
+        <h3 class='hAbout'>A propos de nous</h3><br>
 
-        <a href={{ path('update_members') }}>Modifier les membres</a>
+        <div class='btnPArtner'>
+            <a class='admin-update' href={{ path('update_members') }}>Gérer les membres</a>
+        </div>
 
         {% for message in app.flashes('aboutUs') %}
             <div class="alert-successBack">

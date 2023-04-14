@@ -1122,15 +1122,6 @@ button#homepage_form_submit {
     margin-right: auto;
 }
 
-/* @media screen and (max-width: 400px) {
-    #contact{
-        width: 100%;
-        height: 100%;
-        margin: 0%;
-        padding: 0%;
-    }
-} */
-
 .mb-3 a{
     background-color: #1c3168;
     padding: 5px 15px;
@@ -1214,13 +1205,31 @@ button#homepage_form_submit {
     justify-content: center;
 }
 
-.member-delete{
-    background-color: red;
+.member-update {
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
 }
 
-.member-update{
+.member-update:hover {
+    background-color: #b6a786;
+    color: white;
+}
+
+.member-delete {
+    background-color: #b6a786;
+    padding: 5px 5px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.member-delete:hover {
     background-color: #1c3168;
-    /* aze */
+    color: white;
 }
 
 
