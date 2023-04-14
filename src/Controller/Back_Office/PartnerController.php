@@ -3,7 +3,7 @@
 namespace App\Controller\Back_Office;
 
 use App\Entity\Partner;
-use App\Form\PartnerType;
+use App\Form\PartnerForm;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,14 +48,13 @@ class PartnerController extends AbstractController
     }
 
     #[Route(path: '/partners/delete', name: 'partner_delete', methods: ['POST'])]
-    public function delete(PartnerReposiroy $partnerRepository, Request $request, EntityManagerInterface $em): Response
+    public function delete(PartnerRepository $partnerRepository, Request $request, EntityManagerInterface $em): Response
     {
         $post = json_decode($request->getContent(), true);
 
         $em->remove($partnerRepository->find($post['id']));
         $em->flush();
 
-        return new Response('Partner has been deleted');
+        return new Response('Partenaire has been deleted');
     }
-
 }
