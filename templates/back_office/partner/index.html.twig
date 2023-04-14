@@ -6,26 +6,36 @@
 
     <h3 class='hMessage'>Partenaires :</h3>
     
-    {% for partners in partners %}
+    <div class='partners-container'>
 
-        <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+        {% for partners in partners %}
 
-        <form class='form-partner-image' enctype="multipart/form-data">
-            <input type='file' name='image-input' id='image-input-{{ partners.id }}' class='inputs-partners' data={{ partners.id }} />
-        </form>
+            <div class='partner-card'>
 
-        <input type='text' name='name' class='partner-{{ partners.id }}' value="{{ partners.name }}" />
-        <input type='text' name='description' class='partner-{{ partners.id }}' value="{{ partners.description }}" /> 
-        <input type='text' name='websiteLink' class='partner-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
+                <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
 
-        <div class='partner-actions'>
-            <a class='partner-update' data={{ partners.id }}>Modifier</a>
-            <a class='partner-delete' data={{ partners.id }}>Supprimer</a>
-        </div>
+                <form class='form-partner-image' enctype="multipart/form-data">
+                    <input type='file' name='image-input' id='image-input-{{ partners.id }}' class='inputs-partners' data={{ partners.id }} />
+                </form>
 
-        <br><br><br><br><br>
+                <div class='partner-right'>
 
-    {% endfor %}
+                    <div class='partner-info'>
+                        <input type='text' name='name' class='partner-{{ partners.id }}' value="{{ partners.name }}" />
+                        <input type='text' name='description' class='partner-{{ partners.id }}' value="{{ partners.description }}" /> 
+                        <input type='text' name='websiteLink' class='partner-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
+                    </div>
+
+                    <div class='partner-actions'>
+                        <a class='partner-update' data={{ partners.id }}>Modifier</a>
+                        <a class='partner-delete' data={{ partners.id }}>Supprimer</a>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
 
     <a href={{ path('partner_create') }}>
         <div class='partner-card'>

@@ -1138,3 +1138,110 @@ button#homepage_form_submit {
     background-color: #b6a786;
     color: white;
 }
+
+.partners-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.partner-card{
+    display: flex;
+    margin:10px 20px;
+    background-color: #d9d9d9;
+}
+
+.partner-card img {
+    width: 300px;
+    height: 230px;
+}
+
+.partner-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-inline: 32px;
+}
+
+.partner-info input{
+    margin-block: 5px;
+}
+
+.partner-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.partner-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.partner-actions a {
+    text-decoration: none;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-card:last-child{
+    width: 556px;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.partner-card input[type=file]{
+    display: none;
+}
+
+.partner-card-add h3{
+    color: #1c3168;
+}
+
+.partner-form {
+    display: flex;
+    justify-content: center;
+}
+
+.partner-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.partner-form form > div {
+    display: flex;
+    flex-direction: column;
+    margin-block: 6px;
+}
+
+#partner_image > div{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px){
+    .partner-card{
+        flex-direction: column;
+    }
+
+    .partner-right{
+        padding-block: 20px;
+    }
+
+    .partner-card:last-child{
+        flex-direction: column;
+        width: 90% !important;
+    }
+
+    .partners-container a {
+        width: 325px;
+    }
+}
