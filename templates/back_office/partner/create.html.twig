@@ -4,16 +4,40 @@
 
 {% block body %}
 
-    <h3 class='hMessage'>Ajouter un partenaire:</h3>
+    <div class='addPartner'>
 
-    <div class='partner-form'>
-        {{ form_start(form) }}
-            {{ form_row(form.name) }}
-            {{ form_row(form.description) }}
-            {{ form_row(form.websiteLink) }}
-            {{ form_row(form.image) }}
-            {{ form_widget(form.submit) }}
-        {{ form_end(form) }}
+        <h3 class='hMessage'>Ajouter un partenaire :</h3>
+
+        <div class='partner-form'>
+
+            {{ form_start(form) }}
+
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
+
+                {{ form_label(form.websiteLink) }}
+                {{ form_widget(form.websiteLink) }}
+                {{ form_errors(form.websiteLink) }}
+
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image) }}
+                {{ form_errors(form.image) }}
+
+                {{ form_widget(form.submit) }}
+
+            {{ form_end(form) }}
+
+        </div>
+
+        <div class='btnPArtner'>
+            <a class='admin-update' href={{ path('partners') }}>Retour</a>
+        </div>
+
     </div>
 
 {% endblock %}

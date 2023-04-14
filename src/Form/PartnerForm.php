@@ -20,9 +20,9 @@ final class PartnerForm extends AbstractType
             'attr' => [
                 'placeholder' => 'Veuillez saisir le nom du partenaire',
             ],
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
+            'constraints' => new Assert\NotBlank([
+                'message' => 'Ce champs ne peut pas être vide',
+            ]),
         ])
         ->add('description', TextType::class, [
             'label' => 'Description :',
@@ -30,9 +30,9 @@ final class PartnerForm extends AbstractType
             'attr' => [
                 'placeholder' => 'Veuillez saisir la description du partenaire',
             ],
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
+            'constraints' => new Assert\NotBlank([
+                'message' => 'Ce champs ne peut pas être vide',
+            ]),
         ])
         ->add('websiteLink', TextType::class, [
             'label' => 'Lien du site :',
@@ -40,9 +40,9 @@ final class PartnerForm extends AbstractType
             'attr' => [
                 'placeholder' => 'Veuillez saisir le lien du site du partenaire',
             ],
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
+            'constraints' => new Assert\NotBlank([
+                'message' => 'Ce champs ne peut pas être vide',
+            ]),
         ])
         ->add('image', FileForm::class, [
             'label' => false,
