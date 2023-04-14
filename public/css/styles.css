@@ -707,8 +707,9 @@ input#question {
 }
 
 .hAbout2{
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 0%;
+    text-align: center;
 }
 
 .offer-page h5, .offer-page p {
@@ -735,7 +736,7 @@ input#question {
 }
 
 .aboutTxt{
-    padding-bottom: 20px;
+    text-align: center;
 }
 
 .aboutUs-photos {
@@ -746,8 +747,32 @@ input#question {
     justify-content: space-evenly;
 }
 
+.about-presentation {
+    margin-bottom: 3%;
+    padding-top: 15px;
+    background-color: #d9d9d9;
+    border-radius: 5%;
+    width: 300px;
+    text-align: center;
+    color: #1c3168;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 380px) {
+    .about-presentation {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
 .about-presentation img {
-    width: 186px;
+    width: 267px;
+    height: 210px;
+}
+
+.about-presentation p {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 @media screen and (max-width: 992px) {
@@ -1116,15 +1141,6 @@ button#homepage_form_submit {
     margin-right: auto;
 }
 
-/* @media screen and (max-width: 400px) {
-    #contact{
-        width: 100%;
-        height: 100%;
-        margin: 0%;
-        padding: 0%;
-    }
-} */
-
 .mb-3 a{
     background-color: #1c3168;
     padding: 5px 15px;
@@ -1137,6 +1153,141 @@ button#homepage_form_submit {
 .mb-3 a:hover{
     background-color: #b6a786;
     color: white;
+}
+
+.members-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member-card{
+    display: flex;
+    margin:10px 20px;
+    background-color: #b6a786;
+}
+
+@media screen and (max-width: 768px){
+    .member-card{
+        flex-direction: column;
+    }
+
+    .member-right{
+        padding-block: 20px;
+    }
+
+    .member-card:last-child{
+        flex-direction: column;
+        width: 90% !important;
+    }
+
+    .members-container a {
+        width: 325px;
+    }
+}
+
+.member-card img {
+    width: 300px;
+    height: 230px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-inline: 32px;
+}
+
+.member-info input{
+    margin-block: 5px;
+}
+
+.member-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.member-actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.member-actions a {
+    text-decoration: none;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-update {
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.member-update:hover {
+    background-color: #b6a786;
+    color: white;
+}
+
+.member-delete {
+    background-color: #b6a786;
+    padding: 5px 5px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.member-delete:hover {
+    background-color: #1c3168;
+    color: white;
+}
+
+
+.member-card:last-child{
+    width: 556px;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.member-card input[type=file]{
+    display: none;
+}
+
+.member-card-add h3{
+    color: #1c3168;
+}
+
+.member-form {
+    display: flex;
+    justify-content: center;
+}
+
+.member-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-form form > div {
+    display: flex;
+    flex-direction: column;
+    margin-block: 6px;
+}
+
+#member_image > div{
+    display: flex;
+    flex-direction: column;
 }
 
 /* PARTNER */
@@ -1335,7 +1486,7 @@ button#homepage_form_submit {
 
 .hPartner{
     text-align: center;
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 2%;
 }
 

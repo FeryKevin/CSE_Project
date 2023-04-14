@@ -8,6 +8,7 @@ use App\Entity\Newsletter;
 use App\Form\ContactType;
 use App\Form\NewsletterType;
 use App\Repository\CSERepository;
+use App\Repository\MemberRepository;
 use App\Repository\PartnerRepository;
 use App\Repository\NewsletterRepository;
 use App\Repository\OfferRepository;
@@ -58,7 +59,7 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/a_propos_de_nous', name: 'aboutUs')]
-    public function aboutUs(CSERepository $cseRepository)
+    public function aboutUs(CSERepository $cseRepository, MemberRepository $memberRepository)
     {
         $cse = $cseRepository->findAll()[0];
 
@@ -67,6 +68,7 @@ class HomeController extends AbstractController
             'rules' => $cse->getRules(),
             'actions' => $cse->getActions(),
             'email' => $cse->getEmail(),
+            'members' => $memberRepository->findAll(),
         ]);
     }
 
@@ -121,7 +123,7 @@ class HomeController extends AbstractController
         }
 
         return $this->render('contact.html.twig', [
-            'form' => $form, 
+            'form' => $form,
             'email' => $cse->getEmail(),
         ]);
     }

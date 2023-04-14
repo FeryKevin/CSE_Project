@@ -7,6 +7,7 @@ use App\Form\CSEFormType;
 use App\Form\HomepageForm;
 use App\Repository\ContactRepository;
 use App\Repository\CSERepository;
+use App\Repository\MemberRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
