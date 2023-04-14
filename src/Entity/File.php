@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\FileRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 class File
@@ -34,13 +33,8 @@ class File
     private ?UploadedFile $file = null;
 
     public static function createFromPath(string $path, string $class): self
-    private ?UploadedFile $file = null;
-
-    public static function createFromPath(string $path, string $class): self
     {
         $file = new static;
-
-        $file->setStoredName(str_replace("public/img/${class}\\", '', $path));
 
         $file->setStoredName(str_replace("public/img/${class}\\", '', $path));
 
@@ -179,18 +173,6 @@ class File
     public function setOffer(?Offer $offer): self
     {
         $this->offer = $offer;
-
-        return $this;
-    }
-
-    public function getFile(): ?UploadedFile
-    {
-        return $this->file;
-    }
-
-    public function setFile(?UploadedFile $file): self
-    {
-        $this->file = $file;
 
         return $this;
     }
