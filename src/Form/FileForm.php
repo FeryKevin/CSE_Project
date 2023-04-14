@@ -28,8 +28,11 @@ final class FileForm extends AbstractType
                         'image/png',
                         'image/webp',
                     ],
-                    'mimeTypesMessage' => 'Please upload a valid document',
-                ])
+                    'mimeTypesMessage' => 'Veuillez mettre une image en format jpeg, jpg, png ou webp',
+                ]),
+                new Assert\NotBlank([
+                'message' => 'Ce champs ne peut pas être vide',
+                ]),
             ],
             'attr' => [
                 'class' => 'image-input',

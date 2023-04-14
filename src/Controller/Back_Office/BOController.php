@@ -9,6 +9,7 @@ use App\Repository\ContactRepository;
 use App\Repository\CSERepository;
 use App\Repository\MemberRepository;
 use App\Repository\SurveyRepository;
+use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
