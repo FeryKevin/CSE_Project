@@ -3,8 +3,7 @@
 namespace App\Controller\Back_Office;
 
 use App\Entity\Partner;
-use App\Entity\File;
-use App\Form\PartnerForm;
+use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
