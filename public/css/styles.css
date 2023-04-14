@@ -1156,6 +1156,12 @@ button#homepage_form_submit {
     border-radius: 5px;
 }
 
+.partner-card:last-child{
+    height: auto!important;
+    width: auto!important;
+    align-items: initial!important;
+}
+
 @media screen and (max-width: 768px){
     .partner-card{
         flex-direction: column;
@@ -1168,7 +1174,7 @@ button#homepage_form_submit {
 
     .partner-card:last-child{
         flex-direction: column;
-        width: 90% !important;
+        width: auto;
     }
 
     .partners-container a {
