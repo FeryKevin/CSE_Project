@@ -1139,21 +1139,27 @@ button#homepage_form_submit {
     color: white;
 }
 
+/* PARTNER */
+
 .partners-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: 2%;
 }
 
 .partner-card{
     display: flex;
+    padding: 10px;
     margin:10px 20px;
     background-color: #d9d9d9;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 768px){
     .partner-card{
         flex-direction: column;
+        padding: 5px;
     }
 
     .partner-right{
@@ -1168,6 +1174,16 @@ button#homepage_form_submit {
     .partners-container a {
         width: 325px;
     }
+
+    .partner-actions a{
+        margin-top: 6%;
+    }
+}
+
+.btnPArtner{
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
 }
 
 .partner-card img {
@@ -1198,8 +1214,6 @@ button#homepage_form_submit {
 }
 
 .partner-actions a {
-    text-decoration: none;
-    color: #fff;
     height: 40px;
     width: 120px;
     border-radius: 5px;
@@ -1244,4 +1258,31 @@ button#homepage_form_submit {
 #partner_image > div{
     display: flex;
     flex-direction: column;
+}
+
+.partner-update {
+    background-color: #1c3168;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.partner-update:hover {
+    background-color: #b6a786;
+    color: white;
+}
+
+.partner-delete {
+    background-color: #b6a786;
+    padding: 5px 5px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    text-decoration: none;
+}
+
+.partner-delete:hover {
+    background-color: #1c3168;
+    color: white;
 }

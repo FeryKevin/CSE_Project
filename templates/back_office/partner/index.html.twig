@@ -5,6 +5,10 @@
 {% block body %}
 
     <h3 class='hMessage'>Partenaires :</h3>
+
+    <div class='btnPArtner'>
+        <a class='admin-update' href={{ path('partner_create') }}>Ajouter</a>
+    </div>
     
     <div class='partners-container'>
 
@@ -36,12 +40,6 @@
 
         {% endfor %}
     </div>
-
-    <a href={{ path('partner_create') }}>
-        <div class='partner-card'>
-            <h3>Ajouter un partenaire</h3>
-        </div>
-    </a>
 
     <script src='/scripts/partner.js'></script>
 
