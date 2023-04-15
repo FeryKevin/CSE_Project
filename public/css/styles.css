@@ -11,8 +11,8 @@
     /* outline: 1px red solid; */
 }
 
-.menuPublic{
-    float:left;
+.menuPublic {
+    float: left;
     width: 15%;
     margin-left: 10%;
     margin-right: 1%;
@@ -267,7 +267,7 @@ button#newsletter_save {
     }
 }
 
-.hOffre{
+.hOffre {
     padding-bottom: 15px;
 }
 
@@ -434,8 +434,8 @@ h6.offer-time {
     padding: 0px 9px;
 }
 
-.page-number{
-    color: #e2e6ea!important;
+.page-number {
+    color: #e2e6ea !important;
 }
 
 #pagination a:visited {
@@ -444,7 +444,7 @@ h6.offer-time {
 
 li.pagination-link.disable {
     background: #c8cfd5;
-    color: white!important;
+    color: white !important;
 }
 
 li.pagination-link.current {
@@ -486,7 +486,7 @@ li.pagination-link.current {
 
 .connection {
     display: flex;
-	justify-content: center;
+    justify-content: center;
     border-radius: 8%;
     padding-top: 50px;
     width: 30%;
@@ -578,10 +578,9 @@ li.pagination-link.current {
     padding: 2px 10px;
     border-radius: 47px;
     width: 80%;
-    /* margin-left: 24px; */
     display: inline-block;
     text-align: center;
-    margin-top: 38%;
+    margin-top: 15%;
 }
 
 a.survey-update {
@@ -701,18 +700,19 @@ input#question {
     margin-bottom: 6%;
 }
 
-.hOffreSpe{
+.hOffreSpe {
     margin-top: 2%;
     text-align: center;
 }
 
-.hAbout2{
+.hAbout2 {
     margin-top: 7%;
     margin-bottom: 0%;
     text-align: center;
 }
 
-.offer-page h5, .offer-page p {
+.offer-page h5,
+.offer-page p {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -731,11 +731,11 @@ input#question {
     margin-top: 5%;
 }
 
-.hAbout{
+.hAbout {
     padding-bottom: 8px;
 }
 
-.aboutTxt{
+.aboutTxt {
     text-align: center;
 }
 
@@ -788,8 +788,9 @@ input#question {
     margin-bottom: 2%;
 }
 
-.update-about ol, ul{
-    margin : 0%;
+.update-about ol,
+ul {
+    margin: 0%;
     padding: 0%;
     list-style: none;
 }
@@ -804,26 +805,26 @@ input#question {
     padding: 0;
 }
 
-.label{
+.label {
     margin-top: 2%;
     margin-bottom: 1%;
 }
 
-.row{
+.row {
     margin: 0%;
 }
 
-.error{
+.error {
     color: red;
 }
 
-.btnAbout{
+.btnAbout {
     display: flex;
     justify-content: center;
     margin-top: 3%;
 }
 
-.offer-button{
+.offer-button {
     background-color: #1c3168;
     color: white;
     text-decoration: none;
@@ -832,12 +833,12 @@ input#question {
     border: none;
 }
 
-.offer-button:hover{
+.offer-button:hover {
     background-color: #b6a786;
     color: white;
 }
 
-.alert-successBack{
+.alert-successBack {
     color: rgb(0, 218, 0);
     text-align: center;
     padding-top: 15px;
@@ -932,24 +933,24 @@ form button:hover {
     }
 }
 
-.admin-user h1{
+.admin-user h1 {
     text-align: center;
 }
 
-.admin-table{
+.admin-table {
     width: 40%;
 }
 
-.admin-table th{
+.admin-table th {
     vertical-align: middle;
 }
 
-.btnAdmin{
+.btnAdmin {
     display: flex;
     justify-content: center;
 }
 
-.btnAdminSpace{
+.btnAdminSpace {
     margin-left: 5%;
 }
 
@@ -980,7 +981,7 @@ form button:hover {
     color: white;
 }
 
-.admin-create{
+.admin-create {
     background-color: #1c3168;
     padding: 5px 15px;
     border-radius: 8px;
@@ -988,7 +989,7 @@ form button:hover {
     text-decoration: none;
 }
 
-.admin-create:hover{
+.admin-create:hover {
     background-color: #b6a786;
     color: white;
 }
@@ -996,9 +997,9 @@ form button:hover {
 .table-responsive {
     display: flex;
     justify-content: center;
-}   
+}
 
-.admin-form{
+.admin-form {
     text-align: center;
 }
 
@@ -1008,25 +1009,26 @@ form button:hover {
     margin: 22px 0;
 }
 
-.user-form label{
+.user-form label {
     margin: 5px 0;
 }
 
-.admin-user-footer{
+.admin-user-footer {
     display: flex;
     justify-content: center;
     margin-bottom: 1%;
 }
 
-#user_roles{
+#user_roles {
     padding: 1%;
 }
 
-#user_roles option{
+#user_roles option {
     padding-top: 5%;
 }
 
-.retour, .admin-add{
+.retour,
+.admin-add {
     background-color: #1c3168;
     padding: 5px 15px;
     border-radius: 8px;
@@ -1035,16 +1037,17 @@ form button:hover {
     border: none;
 }
 
-.retour:hover, .admin-add:hover{
+.retour:hover,
+.admin-add:hover {
     background-color: #b6a786;
     color: white;
 }
 
-#contact{
+#contact {
     margin-top: 6%;
 }
 
-#contact_sumbit{
+#contact_sumbit {
     background-color: #1c3168;
     padding: 5px 15px;
     border-radius: 8px;
@@ -1053,7 +1056,7 @@ form button:hover {
     border: none;
 }
 
-#contact_sumbit:hover{
+#contact_sumbit:hover {
     background-color: #b6a786;
     color: white;
 }
@@ -1082,36 +1085,36 @@ div#contact {
     margin-inline: 16px;
 }
 
-div#contact form > div {
+div#contact form>div {
     display: flex;
     flex-direction: column;
     padding-inline: 36px;
     margin-top: 10px;
 }
 
-div#contact form > div > label{
+div#contact form>div>label {
     margin-bottom: 10px;
 }
 
-div#contact > div:first-child{
+div#contact>div:first-child {
     margin-top: 20px;
 }
 
-div#contact textarea{
+div#contact textarea {
     margin-bottom: 20px;
     height: 120px;
     resize: none;
 }
 
-.contact-success{
+.contact-success {
     text-align: center;
     color: green;
 }
 
-#homepage-edit{
+#homepage-edit {
     display: grid;
     justify-content: center;
-    margin: 22px 0; 
+    margin: 22px 0;
 }
 
 button#homepage_form_submit {
@@ -1124,24 +1127,24 @@ button#homepage_form_submit {
     border: none;
 }
 
-.hMessage{
+.hMessage {
     text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
-.cap{
+.cap {
     display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
     margin-left: auto;
     margin-right: auto;
 }
 
-.mb-3 a{
+.mb-3 a {
     background-color: #1c3168;
     padding: 5px 15px;
     border-radius: 8px;
@@ -1150,7 +1153,7 @@ button#homepage_form_submit {
     border: none;
 }
 
-.mb-3 a:hover{
+.mb-3 a:hover {
     background-color: #b6a786;
     color: white;
 }
@@ -1161,22 +1164,22 @@ button#homepage_form_submit {
     justify-content: space-around;
 }
 
-.member-card{
+.member-card {
     display: flex;
-    margin:10px 20px;
+    margin: 10px 20px;
     background-color: #b6a786;
 }
 
-@media screen and (max-width: 768px){
-    .member-card{
+@media screen and (max-width: 768px) {
+    .member-card {
         flex-direction: column;
     }
 
-    .member-right{
+    .member-right {
         padding-block: 20px;
     }
 
-    .member-card:last-child{
+    .member-card:last-child {
         flex-direction: column;
         width: 90% !important;
     }
@@ -1198,7 +1201,7 @@ button#homepage_form_submit {
     margin-inline: 32px;
 }
 
-.member-info input{
+.member-info input {
     margin-block: 5px;
 }
 
@@ -1208,7 +1211,7 @@ button#homepage_form_submit {
     justify-content: space-around;
 }
 
-.member-actions{
+.member-actions {
     display: flex;
     justify-content: space-around;
 }
@@ -1252,7 +1255,7 @@ button#homepage_form_submit {
 }
 
 
-.member-card:last-child{
+.member-card:last-child {
     width: 556px;
     height: 224px;
     display: flex;
@@ -1261,11 +1264,11 @@ button#homepage_form_submit {
     text-decoration: none;
 }
 
-.member-card input[type=file]{
+.member-card input[type=file] {
     display: none;
 }
 
-.member-card-add h3{
+.member-card-add h3 {
     color: #1c3168;
 }
 
@@ -1279,51 +1282,51 @@ button#homepage_form_submit {
     flex-direction: column;
 }
 
-.member-form form > div {
+.member-form form>div {
     display: flex;
     flex-direction: column;
     margin-block: 6px;
 }
 
-#member_image > div{
+#member_image>div {
     display: flex;
     flex-direction: column;
 }
 
 /* PARTNER */
 
-.partners-container{
+.partners-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 2%;
 }
 
-.partner-card{
+.partner-card {
     display: flex;
     padding: 10px;
-    margin:10px 20px;
+    margin: 10px 20px;
     background-color: #d9d9d9;
     border-radius: 5px;
 }
 
-.partner-card:last-child{
-    height: auto!important;
-    width: auto!important;
-    align-items: initial!important;
+.partner-card:last-child {
+    height: auto !important;
+    width: auto !important;
+    align-items: initial !important;
 }
 
-@media screen and (max-width: 768px){
-    .partner-card{
+@media screen and (max-width: 768px) {
+    .partner-card {
         flex-direction: column;
         padding: 5px;
     }
 
-    .partner-right{
+    .partner-right {
         padding-block: 20px;
     }
 
-    .partner-card:last-child{
+    .partner-card:last-child {
         flex-direction: column;
         width: auto;
     }
@@ -1332,12 +1335,12 @@ button#homepage_form_submit {
         width: 325px;
     }
 
-    .partner-actions a{
+    .partner-actions a {
         margin-top: 6%;
     }
 }
 
-.btnPArtner{
+.btnPArtner {
     margin-bottom: 1%;
     display: flex;
     justify-content: center;
@@ -1348,14 +1351,14 @@ button#homepage_form_submit {
     height: 230px;
 }
 
-.partner-info{
+.partner-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-inline: 32px;
 }
 
-.partner-info input{
+.partner-info input {
     margin-block: 5px;
 }
 
@@ -1365,7 +1368,7 @@ button#homepage_form_submit {
     justify-content: space-around;
 }
 
-.partner-actions{
+.partner-actions {
     display: flex;
     justify-content: space-around;
 }
@@ -1379,7 +1382,7 @@ button#homepage_form_submit {
     justify-content: center;
 }
 
-.partner-card:last-child{
+.partner-card:last-child {
     width: 556px;
     height: 224px;
     display: flex;
@@ -1388,11 +1391,11 @@ button#homepage_form_submit {
     text-decoration: none;
 }
 
-.partner-card input[type=file]{
+.partner-card input[type=file] {
     display: none;
 }
 
-.partner-card-add h3{
+.partner-card-add h3 {
     color: #1c3168;
 }
 
@@ -1406,13 +1409,13 @@ button#homepage_form_submit {
     flex-direction: column;
 }
 
-.partner-form form > div {
+.partner-form form>div {
     display: flex;
     flex-direction: column;
     margin-block: 6px;
 }
 
-#partner_image > div{
+#partner_image>div {
     display: flex;
     flex-direction: column;
 }
@@ -1444,23 +1447,23 @@ button#homepage_form_submit {
     color: white;
 }
 
-.partner-form{
+.partner-form {
     margin-bottom: 1%;
 }
 
-.addPartner input{
+.addPartner input {
     margin-bottom: 2%;
     margin-top: 2%;
     padding: 1%;
 }
 
-.addPartner ul li{
+.addPartner ul li {
     margin-bottom: 2%;
     margin-top: 2%;
     color: red;
 }
 
-.addPartner button{
+.addPartner button {
     background-color: #1c3168;
     border-radius: 8px;
     color: white;
@@ -1470,44 +1473,44 @@ button#homepage_form_submit {
     margin-top: 5%;
 }
 
-.addPartner button:hover{
+.addPartner button:hover {
     background-color: #b6a786;
     border: none;
     color: white;
 }
 
-@media screen and (max-width: 768px){
-    .addPartner input{
+@media screen and (max-width: 768px) {
+    .addPartner input {
         width: 100%;
     }
 }
 
 /* PARYNER PUBLIC */
 
-.hPartner{
+.hPartner {
     text-align: center;
     margin-top: 7%;
     margin-bottom: 2%;
 }
 
-.partnerName{
+.partnerName {
     font-weight: bold;
     color: #1c3168;
     width: 200px;
 }
 
-.partnerDescription{
+.partnerDescription {
     margin: 15% 0% 15% 0%;
     width: 200px;
 }
 
-.partnerLink a{
+.partnerLink a {
     text-decoration: none;
     color: #b6a786;
     width: 200px;
 }
 
-.partnerLink:hover a{
+.partnerLink:hover a {
     text-decoration: underline;
     color: #b6a786;
 }
