@@ -11,34 +11,36 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-// use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\File as consFile;
 
 final class FileForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('file', FileType::class, [
-                'label' => false,
-                'required' => false,
-                'constraints' => [
-                    new consFile([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/jpg',
-                            'image/png',
-                            'image/webp',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid document',
-                    ])
-                ],
-                'attr' => [
-                    'class' => 'image-input',
-                    'onChange' => 'checkImagesInputs()'
-                ]
-            ]);
+        $builder->add('file', FileType::class, [
+            'label' => false,
+            'required' => false,
+            'constraints' => [
+                new consFile([
+                    'maxSize' => '1024k',
+                    'mimeTypes' => [
+                        'image/jpeg',
+                        'image/jpg',
+                        'image/png',
+                        'image/webp',
+                    ],
+                    'mimeTypesMessage' => 'Veuillez mettre une image en format jpeg, jpg, png ou webp',
+                ]),
+                new Assert\NotBlank([
+                'message' => 'Ce champs ne peut pas être vide',
+                ]),
+            ],
+            'attr' => [
+                'class' => 'image-input',
+                'onChange' => 'checkImagesInputs()'
+            ]
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

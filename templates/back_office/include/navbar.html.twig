@@ -18,14 +18,9 @@
                     <div class="navbar-grey"></div>
                     <div class="navbar-blue">
                         <a class="nav-link" href={{ path('admin') }}>Accueil</a>
-                        <a class="nav-link" href={{ path('admin') }}>Partenariats</a>
+                        <a class="nav-link" href={{ path('partners') }}>Partenariats</a>
                         <a class="nav-link" href={{ path('admin_update_about') }}>A propos de nous</a>
                         <a class="nav-link" href={{ path('admin') }}>Billetterie</a>
-                        {# <a class="nav-link" href={{ path('admin_contacts') }}>Message</a>
-                        <a class="nav-link" href={{ path('admin_surveys') }}>Sondage</a>
-                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <a class="nav-link" href={{ path('admin_users') }}>Compte</a>
-                        {% endif %}                         #}
                         <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
                     </div>
                 </div>

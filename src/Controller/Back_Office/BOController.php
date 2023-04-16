@@ -7,7 +7,9 @@ use App\Form\CSEFormType;
 use App\Form\HomepageForm;
 use App\Repository\ContactRepository;
 use App\Repository\CSERepository;
+use App\Repository\MemberRepository;
 use App\Repository\SurveyRepository;
+use App\Repository\PartnerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,11 +44,12 @@ class BOController extends AbstractController
     public function surveyStatus(SurveyRepository $surveyRepository, Request $request, EntityManagerInterface $em): Response
     {
         $post = json_decode($request->getContent(), true);
+
         if ((bool)$post['status']) {
-            $oldSurvey = $surveyRepository->findRandomOneActive();
+            $oldSurvey = $surveyRepository->findActive();
             if (!empty($oldSurvey)) {
-                $oldSurvey->setActive(0);
-                $em->persist($oldSurvey);
+                $oldSurvey[0]->setActive(0);
+                $em->persist($oldSurvey[0]);
             }
         }
         $survey = $surveyRepository->find($post['id']);

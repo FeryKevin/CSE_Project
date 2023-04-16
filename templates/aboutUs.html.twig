@@ -12,56 +12,29 @@
         <div class='row'>
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                <div id='aboutUs'>
+                <div id=''>
 
-                    <h3 class='hAbout2'>A propos de nous</h3>
+                    <h3 class='hAbout2'>A propos de nous</h3><br>
                     <p class='aboutTxt'>{{ text | raw }}</p>
 
                     <div class='aboutus-rules'>
-                        <h3 class='hAbout2'>Règlement</h3>
+                        <h3 class='hAbout2'>Règlement</h3><br>
                         <p class='aboutTxt'>{{ rules | raw }}</p>            
                     </div>
 
-                    <h3 class='hAbout2'>Nos membres</h3>
-
-                    <div class='aboutUs-photos'>
-                        <div class='about-presentation'>
-                            <img src='https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg' />
-                            <h4>Barack Obama</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src='https://images.genius.com/b7856ba4b9670f426d8b347b3fc20a52.403x363x1.png' />
-                            <h4>Bin chilling</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src="https://static.jojowiki.com/images/thumb/0/02/latest/20210208021057/JesusCh58.png/192px-JesusCh58.png" />
-                            <h4>Real Jesus</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src='https://pm1.narvii.com/6654/ef046e21eedfc0744641ac5401d1aa4c388027ea_hq.jpg' />
-                            <h4>Ace (ce qu'il en reste)</h4>
-                        </div>
-                                    <div class='about-presentation'>
-                            <img src='https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg' />
-                            <h4>Barack Obama</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src='https://images.genius.com/b7856ba4b9670f426d8b347b3fc20a52.403x363x1.png' />
-                            <h4>Bin chilling</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src="https://static.jojowiki.com/images/thumb/0/02/latest/20210208021057/JesusCh58.png/192px-JesusCh58.png" />
-                            <h4>Real Jesus</h4>
-                        </div>
-                        <div class='about-presentation'>
-                            <img src='https://pm1.narvii.com/6654/ef046e21eedfc0744641ac5401d1aa4c388027ea_hq.jpg' />
-                            <h4>Ace (ce qu'il en reste)</h4>
-                        </div>
-                    </div>
-
                     <div class='aboutus-actions'>
-                        <h3 class='hAbout2'>Nos actions</h3>
+                        <h3 class='hAbout2'>Nos actions</h3><br>
                         <p class='aboutTxt'>{{ actions | raw }}</p><br>         
+                    </div>
+                    
+                    <h3 class='hAbout2'>Nos membres</h3>
+                    <div class='aboutUs-photos'>
+                        {% for member in members %}
+                            <div class='about-presentation'>
+                                <img src={{ member.image.path }} />
+                                <p>{{ member.name }} {{ member.firstname }}</p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -69,4 +42,6 @@
         </div>
     </div>
 
-</div>{% endblock %}
+</div>
+
+{% endblock %}

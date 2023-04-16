@@ -1,0 +1,52 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Modifier les membres {% endblock %}
+
+{% block body %}
+    <div class='update-about'>
+
+        <h3 class='hMessage'>Membres :</h3>
+
+        <div class='btnPArtner'>
+            <a class='admin-update' href={{ path('create_member') }}>Ajouter</a>
+        </div>
+
+        <div class='members-container'>
+
+            {% for member in members %}
+            
+                <div class='partner-card'>
+
+                    <label for='image-input-{{ member.id }}'> <img src={{ member.image.path }} /> </label>
+
+                    <form class='form-member-image' enctype="multipart/form-data">
+                        <input type='file' name='image-input' id='image-input-{{ member.id }}' class='inputs-member' data={{ member.id }} />
+                    </form>
+
+                    <div class='member-right'>
+
+                        <div class='member-info'>
+                            <input type='text' name='name' class='member-{{ member.id }}' value="{{ member.name }}" />
+                            <input type='text' name='firstname' class='member-{{ member.id }}' value="{{ member.firstname }}" />
+                        </div>
+                        <div class='partner-actions'>
+                            <a class='member-update' data={{ member.id }}>Modifier</a>
+                            <a class='member-delete' data={{ member.id }}>Supprimer</a>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class='btnPArtner'>
+        <a class='admin-update' href={{ path('admin_update_about') }}>Retour</a>
+    </div>
+
+    <script src='/scripts/member.js'></script>
+    
+{% endblock %}

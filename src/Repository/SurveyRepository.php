@@ -39,13 +39,11 @@ class SurveyRepository extends ServiceEntityRepository
         }
     }
 
-    public function findRandomOneActive()
+    public function findActive()
     {
-        $all = $this->findBy(['active' => 1]);
+        $survey = $this->findBy(['active' => 1]);
 
-        if (!empty($all)) return $all[array_rand($all)];
-
-        return $all;
+        return $survey;
     }
     //    /**
     //     * @return Survey[] Returns an array of Survey objects

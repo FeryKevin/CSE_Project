@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PartnerRepository;
+use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PartnerRepository::class)]
-class Partner
+#[ORM\Entity(repositoryClass: MemberRepository::class)]
+class Member
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,10 +17,7 @@ class Partner
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
-
-    #[ORM\Column(length: 50)]
-    private ?string $websiteLink = null;
+    private ?string $firstname = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -43,26 +40,14 @@ class Partner
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->description;
+        return $this->firstname;
     }
 
-    public function setDescription(string $description): self
+    public function setFirstname(string $firstname): self
     {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getWebsiteLink(): ?string
-    {
-        return $this->websiteLink;
-    }
-
-    public function setWebsiteLink(string $websiteLink): self
-    {
-        $this->websiteLink = $websiteLink;
+        $this->firstname = $firstname;
 
         return $this;
     }
