@@ -49,11 +49,6 @@
                         {{ form_row(form_limited.limitedDisplayNumber) }}
                     </div>
                 </div>
-                <div class="full-width-form">
-                    {# {{ form_row(form_limited.image) }} #}
-                    {# {{ technology.image.path }} #}
-                    {# <img src="{{ asset('img/' ~ technology.image.path) }}" alt="Photo"/> #}
-                </div>
                 <div class='offer-form-buttons'>
                     <p class="image-error"></p>
                     {{ form_row(form_limited.submit) }}
@@ -63,7 +58,7 @@
         </div>
     </section>
     <div class="offer-buttons">
-        <a class="offer-button" href="{{ path('offers') }}">Retour au menu des offres</a>
+        <a class="offer-button" href="{{ path('admin_offers') }}">Retour au menu des offres</a>
     </div>
     <script src="/scripts/add_offer_image.js"></script>
     <script>
@@ -74,7 +69,7 @@
         function changeOfferForm(type) {
             var permanent = document.getElementById("permanent_offers_form");
             var limited = document.getElementById("limited_offers_form");
-            if (type == "limited") {
+            if (type === "limited") {
                 permanent.style.display = "none";
                 limited.style.display = "inline";
             } else {

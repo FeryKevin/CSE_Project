@@ -942,7 +942,7 @@ form button:hover {
 
 #form-section
 {
-    margin: 3vh 6vw;
+    margin: 3vh 10vw;
     border: 5px solid #b6a786;
     outline: 8px solid #1c3168;
     border-radius: 7px;
@@ -1060,7 +1060,7 @@ form button:hover {
 
 .offer-buttons
 {
-    margin: 0 0 3vh 10vw;
+    margin: 0 0 3vh 14vw;
 }
 
 #permanent_offer_images li, #limited_offer_images li

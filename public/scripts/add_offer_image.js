@@ -1,11 +1,16 @@
-addTagLink = document.createElement('a')
-addTagLink.classList.add('btn', 'offer-button', 'collection-button')
-addTagLink.innerText='Ajouter une image'
-addTagLink.dataset.collectionHolderClass='title'
-const newLinkLi = document.createElement('li').append(addTagLink)
+addTagLink = document.createElement('a');
+addTagLink.classList.add('btn', 'offer-button', 'collection-button');
+addTagLink.innerText='Ajouter une image';
+addTagLink.dataset.collectionHolderClass='title';
+const newLinkLi = document.createElement('li').append(addTagLink);
 
-const select = document.getElementById('select-type-offer')
-const type = select.value
+const select = document.getElementById('select-type-offer');
+type = select.value;
+
+const validFileTypes = ['png', 'jpg', 'jpeg', 'webp'];
+const imagesInput = document.getElementsByClassName('li-image');
+imageErrors = document.getElementsByClassName('image-error');
+
 if (type == "permanent") {
     collectionHolder = document.getElementById('permanent_offer_images');
 } else {
@@ -14,13 +19,7 @@ if (type == "permanent") {
 
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
-collectionHolder.appendChild(addTagLink)
-
-const imagesInput = document.getElementsByClassName('li-image');
-imageError = document.getElementsByClassName('image-error');
-imageError = imageError[0];
-imageError.style.display = "none";
-const validFileTypes = ['png', 'jpg', 'jpeg', 'webp'];
+collectionHolder.appendChild(addTagLink);
 
 const addFormToCollection = (e) => {
     index = countLi();
@@ -75,7 +74,14 @@ function countLi() {
 function checkImagesInputs() {
     
     submit = document.getElementsByClassName('submit-offer');
-    submit = submit[0];
+    if (type == "permanent") {
+        submit = submit[0]; // Submit du 1e formulaire, celui d'offre permanente
+        imageError = imageErrors[0]; // Idem pour le message d'erreur
+    } else {
+        submit = submit[1]; // Submit du 2nd formulaire, celui d'offre limitée
+        imageError = imageErrors[1]; // ...
+    }
+    imageError.style.display = "none";
     showSubmit = true;
 
     index = countLi();
@@ -96,8 +102,6 @@ function checkImagesInputs() {
                         imageError.innerText = "Champ(s) de fichier vide(s)";
                         showSubmit = false;
                     }
-                } else {
-                    // showSubmit = false;
                 }
             }
         
@@ -115,10 +119,12 @@ function checkImagesInputs() {
 function switchForm() {
     if (select.value == "permanent") {
         collectionHolder = document.getElementById('permanent_offer_images');
+        type = "permanent";
     } else {
         collectionHolder = document.getElementById('limited_offer_images');
+        type = "limited";
     }
     collectionHolder.innerHTML = "";
     collectionHolder.dataset.index = 0;
-    collectionHolder.appendChild(addTagLink)
+    collectionHolder.appendChild(addTagLink);
 }

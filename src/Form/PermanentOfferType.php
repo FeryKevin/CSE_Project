@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class PermanentOfferType extends AbstractType
 {
@@ -20,9 +21,17 @@ class PermanentOfferType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => "Nom",
+                'required' => true,
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer un nom',
+                ]),
             ])
             ->add('description', TextareaType::class, [
                 'label' => "Description",
+                'required' => true,
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une description',
+                ]),
             ])
             ->add('permanentValidityBeginning', DateTimeType::class, [
                 'required' => false,

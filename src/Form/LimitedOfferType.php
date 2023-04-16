@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class LimitedOfferType extends AbstractType
 {
@@ -21,9 +22,17 @@ class LimitedOfferType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => "Nom",
+                'required' => true,
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer un nom',
+                ]),
             ])
             ->add('description', TextareaType::class, [
                 'label' => "Description",
+                'required' => true,
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une description',
+                ]),
             ])
             ->add('limitedDisplayBeginning', DateTimeType::class, [
                 'required' => false,
@@ -33,22 +42,9 @@ class LimitedOfferType extends AbstractType
                 'required' => false,
                 'label' => "Date de fin d'affichage",
             ])
-            ->add('limitedDisplayNumber', ChoiceType::class, [
-                'label' => "Numéro d'affichage",
+            ->add('limitedDisplayNumber', TextType::class, [
+                'label' => "Numéro d'affichage (0-10)",
                 'required' => false,
-                'choices'  => [
-                    '0' => '0',
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                    '7' => '7',
-                    '8' => '8',
-                    '9' => '9',
-                    '10' => '10',
-                ],
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,
