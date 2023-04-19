@@ -13,12 +13,19 @@
         {{ form_errors(form.email) }}
     </div><br>
 
-
-    {{ form_label(form.password) }}<br>
-    {{ form_widget(form.password) }}<br>
-    <div class='error'>
-        {{ form_errors(form.password) }}
-    </div><br>
+    {% if form.password is defined %}
+        {{ form_label(form.password) }}<br>
+        {{ form_widget(form.password) }}<br>
+        <div class='error'>
+            {{ form_errors(form.password) }}
+        </div><br>
+    {% else %}
+        {{ form_label(form.plainPassword) }}<br>
+        {{ form_widget(form.plainPassword) }}<br>
+        <div class='error'>
+            {{ form_errors(form.plainPassword) }}
+        </div><br>
+    {% endif %}
 
     <button class="admin-add">{{ button_label|default('Enregistrer') }}</button>
     
