@@ -42,7 +42,7 @@ class PartnerRepository extends ServiceEntityRepository
     /**
     * @return Partner[] Returns an array of Partner objects
     */
-    public function findBy3($value): array
+    public function findBy3(): array
     {
         return $this->createQueryBuilder('p')
             ->setMaxResults(3)

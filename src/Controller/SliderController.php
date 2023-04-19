@@ -15,9 +15,7 @@ class SliderController extends AbstractController
     #[Route('/slider', name: 'slider')]
     public function index(PartnerRepository $partnerRepository): Response
     {
-        $a = $partnerRepository->findAll();
-
-        $partners = $partnerRepository->findBy3($a);
+        $partners = $partnerRepository->findBy3();
 
         return $this->render('slider.html.twig', [
             'partners' => $partners,
