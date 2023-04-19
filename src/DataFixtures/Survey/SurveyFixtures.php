@@ -14,11 +14,13 @@ class SurveyFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
+
         for ($i = 0; $i <= 5; $i++) {
             $survey = new Survey();
-            $survey->setActive($faker->boolean());
+            $survey->setActive(0);
             $survey->setQuestion(str_replace('.', '?', $faker->sentence()));
-            $this->addReference('survey-' . $i + 1, $survey);
+
+            $this->addReference('survey'. $i, $survey);
             $manager->persist($survey);
         }
 
