@@ -34,16 +34,25 @@ class PermanentOfferType extends AbstractType
                 ]),
             ])
             ->add('permanentValidityBeginning', DateTimeType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => "Date de début de validité",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une date de début de validité',
+                ]),
             ])
             ->add('permanentValidityEnding', DateTimeType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => "Date de fin de validité",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une date de fin de validité',
+                ]),
             ])
             ->add('permanentMinimumPlaces', TextType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => "Nombre de places minimal",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer un nombre de places minimal',
+                ]),
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,

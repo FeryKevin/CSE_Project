@@ -35,16 +35,25 @@ class LimitedOfferType extends AbstractType
                 ]),
             ])
             ->add('limitedDisplayBeginning', DateTimeType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => "Date de début d'affichage",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une date de début d\'affichage',
+                ]),
             ])
             ->add('limitedDisplayEnding', DateTimeType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => "Date de fin d'affichage",
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer une date de fin d\'affichage',
+                ]),
             ])
             ->add('limitedDisplayNumber', TextType::class, [
                 'label' => "Numéro d'affichage (0-10)",
-                'required' => false,
+                'required' => true,
+                'constraints' => new Assert\NotBlank([
+                    'message' => 'Veuillez entrer un numéro d\'affichage',
+                ]),
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,
