@@ -45,6 +45,7 @@ class PartnerRepository extends ServiceEntityRepository
     public function findBy3(): array
     {
         return $this->createQueryBuilder('p')
+            ->orderBy('RAND()')
             ->setMaxResults(3)
             ->getQuery()
             ->getResult()
