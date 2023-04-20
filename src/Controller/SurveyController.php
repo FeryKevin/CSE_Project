@@ -54,10 +54,4 @@ class SurveyController extends AbstractController
 
         return $this->redirect($request->headers->get('referer'));
     }
-
-    #[Route(path: '/survey')]
-    public function suvery()
-    {
-        return $this->render('test.html.twig');
-    }
 }
