@@ -1493,3 +1493,13 @@ button#homepage_form_submit {
     text-decoration: underline;
     color: #b6a786;
 }
+
+/* RESPONSIVE CAPTCHA */
+
+@media screen and (max-width: 991.5px) {
+    .cf-turnstile iframe{
+        border: none;
+        overflow: hidden;
+        width: 250px!important;
+    }
+}
