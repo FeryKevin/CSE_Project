@@ -119,12 +119,6 @@ a#view-stats {
     padding: 67px 0px;
 }
 
-@media screen and (max-width: 996px) {
-    .survey-container {
-        display: none;
-    }
-}
-
 /*ICON*/
 
 #icon {
@@ -1462,7 +1456,7 @@ button#homepage_form_submit {
     }
 }
 
-/* PARYNER PUBLIC */
+/* PARTNER PUBLIC */
 
 .hPartner {
     text-align: center;

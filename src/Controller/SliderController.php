@@ -12,8 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SliderController extends AbstractController
 {
-    #[Route('/slider', name: 'slider')]
-    public function index(PartnerRepository $partnerRepository): Response
+    #[Route(name: 'slider')]
+    public function slider(PartnerRepository $partnerRepository): Response
     {
         $partners = $partnerRepository->findBy3();
 
