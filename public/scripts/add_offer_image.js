@@ -38,8 +38,6 @@ const addFormToCollection = (e) => {
         );
             
         collectionHolder.appendChild(item);
-                
-        checkImagesInputs();
 
         // Ajout d'un bouton pour annuler l'ajout d'une image
         removeFormButton = document.createElement('button');
@@ -53,7 +51,6 @@ const addFormToCollection = (e) => {
             e.preventDefault();
             item.remove();
             index = countLi();
-            checkImagesInputs();
         });
 
         collectionHolder.dataset.index++;
@@ -68,52 +65,6 @@ function countLi() {
     index = collectionHolder.dataset.index;
 
     return index;
-}
-
-// Contrôle de saisie pour les input d'images
-function checkImagesInputs() {
-    
-    submit = document.getElementsByClassName('submit-offer');
-    if (type == "permanent") {
-        submit = submit[0]; // Submit du 1e formulaire, celui d'offre permanente
-        imageError = imageErrors[0]; // Idem pour le message d'erreur
-    } else {
-        submit = submit[1]; // Submit du 2nd formulaire, celui d'offre limitée
-        imageError = imageErrors[1]; // ...
-    }
-    imageError.style.display = "none";
-    showSubmit = true;
-
-    index = countLi();
-    if (index > 0) {
-        for (i = 0; i < index; i++) {
-            input = document.getElementById(`${type}_offer_images_${i}_file`);
-            if (input.files !== undefined) {
-                if (input.files) {
-                    if (input.files.length > 0) {
-                        fileName = input.files[0].name;
-                        fileExtension = fileName.split('.').pop();
-                        resultExtension = validFileTypes.includes(fileExtension);
-                        if (resultExtension == false) {
-                            imageError.innerText = "Format de fichier invalide";
-                            showSubmit = false;
-                        }
-                    } else {
-                        imageError.innerText = "Champ(s) de fichier vide(s)";
-                        showSubmit = false;
-                    }
-                }
-            }
-        
-        }
-    }
-    if (showSubmit == true) {
-        submit.style.display = "inline-block";
-        imageError.style.display = "none";
-    } else {
-        submit.style.display = "none";
-        imageError.style.display = "inline";
-    }
 }
 
 function switchForm() {

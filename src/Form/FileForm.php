@@ -33,12 +33,11 @@ final class FileForm extends AbstractType
                     'mimeTypesMessage' => 'Veuillez mettre une image en format jpeg, jpg, png ou webp',
                 ]),
                 new Assert\NotBlank([
-                'message' => 'Ce champs ne peut pas être vide',
+                    'message' => 'Ce champ ne peut pas être vide',
                 ]),
             ],
             'attr' => [
                 'class' => 'image-input',
-                'onChange' => 'checkImagesInputs()'
             ]
         ]);
     }

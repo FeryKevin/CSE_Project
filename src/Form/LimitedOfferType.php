@@ -22,27 +22,23 @@ class LimitedOfferType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => "Nom",
-                'required' => true,
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nom',
                 ]),
             ])
             ->add('description', TextareaType::class, [
                 'label' => "Description",
-                'required' => true,
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une description',
                 ]),
             ])
             ->add('limitedDisplayBeginning', DateTimeType::class, [
-                'required' => true,
                 'label' => "Date de début d'affichage",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début d\'affichage',
                 ]),
             ])
             ->add('limitedDisplayEnding', DateTimeType::class, [
-                'required' => true,
                 'label' => "Date de fin d'affichage",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin d\'affichage',
@@ -50,7 +46,6 @@ class LimitedOfferType extends AbstractType
             ])
             ->add('limitedDisplayNumber', TextType::class, [
                 'label' => "Numéro d'affichage (0-10)",
-                'required' => true,
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un numéro d\'affichage',
                 ]),

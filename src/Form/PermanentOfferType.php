@@ -21,34 +21,29 @@ class PermanentOfferType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => "Nom",
-                'required' => true,
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nom',
                 ]),
             ])
             ->add('description', TextareaType::class, [
                 'label' => "Description",
-                'required' => true,
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une description',
                 ]),
             ])
             ->add('permanentValidityBeginning', DateTimeType::class, [
-                'required' => true,
                 'label' => "Date de début de validité",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début de validité',
                 ]),
             ])
             ->add('permanentValidityEnding', DateTimeType::class, [
-                'required' => true,
                 'label' => "Date de fin de validité",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin de validité',
                 ]),
             ])
             ->add('permanentMinimumPlaces', TextType::class, [
-                'required' => true,
                 'label' => "Nombre de places minimal",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nombre de places minimal',
