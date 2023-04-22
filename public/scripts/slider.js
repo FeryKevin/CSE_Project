@@ -25,3 +25,5 @@ function showSlides(n) {
     slides[currentIndex-1].style.display = "block";
     dots[currentIndex-1].className += " active";
 }
+
+setInterval("plusSlides(1)", 4000);
