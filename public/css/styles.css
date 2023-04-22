@@ -412,6 +412,7 @@ h6.offer-time {
 
 #pagination {
     padding-left: 0%;
+    margin-bottom: 50px;
 }
 
 #pagination li {
@@ -667,6 +668,7 @@ input#question {
 /* OFFER PAGE */
 
 .offer-page {
+    margin-top: 7%;
     text-align: center;
     margin-bottom: 6%;
 }
@@ -682,17 +684,17 @@ input#question {
     text-align: center;
 }
 
-.offer-page h5,
 .offer-page p {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 50px;
     padding-bottom: 10px;
 }
 
-.offer-page p {
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.offer-imgs img{
+    background-color: #c8cfd5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 50px;
 }
 
 /* About Us */

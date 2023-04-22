@@ -3,6 +3,9 @@
 .footer {
     background-color: #b6a786;
     justify-content: space-between;
+    content:"";
+    display:block;
+    clear:both
 }
 
 .footer a,

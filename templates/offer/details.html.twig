@@ -16,22 +16,24 @@
 
                     <h3 class='hOffreS'>{{offer.name}}</h3>
 
-                    <h5>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }}</h5>
+                    <p>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }}</p>
                     
                     <div class='offer-body'>
 
-                        <div class='offer-description'>
-                            <p>{{ offer.description }}<p>
-                        </div>
+                        <p>{{ offer.description }}<p>
 
                         <div class='offer-imgs'>
-                            {% for image in offer.images %}
-                                <img src={{ image.path }}/>
+                            {% for offer in offer.images %}
+                                <img src={{ offer.path }}/>
                             {% endfor %}
                         </div>
                         
                     </div>
                 </div>
+
+                <div class='btnPArtner'>
+                    <a class='admin-update' href={{ path('home') }}>Retour</a>
+                </div><br>
 
             </div>
         </div>
