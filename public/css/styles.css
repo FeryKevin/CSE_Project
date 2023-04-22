@@ -300,6 +300,12 @@ button#newsletter_save {
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 1222.5px) {
+    .offer-top {
+        display: block;
+    }
+}
+
 h6.offer-time {
     margin-top: 7px;
     margin-left: 5px;
