@@ -33,15 +33,19 @@ p{
 }
 
 .infoLink{
+    text-overflow: ellipsis;
     color: #667499;
 }
 
-.LienP, .LienP:hover{
-    color: black;
+.LienP{
     text-align: center;
+    padding-top: 10px;
 }
 
-.LienP:hover{
-    color: #b6a786;
-    text-align: center;
+.linkP{
+    color: black!important;
+}
+
+.linkP:hover{
+    color: #b6a786!important;
 }

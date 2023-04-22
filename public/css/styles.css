@@ -119,12 +119,6 @@ a#view-stats {
     padding: 67px 0px;
 }
 
-@media screen and (max-width: 996px) {
-    .survey-container {
-        display: none;
-    }
-}
-
 /*ICON*/
 
 #icon {
@@ -572,29 +566,6 @@ li.pagination-link.current {
     right: -29px;
 }
 
-.survey-actions a {
-    text-decoration: none;
-    color: white;
-    padding: 2px 10px;
-    border-radius: 47px;
-    width: 80%;
-    display: inline-block;
-    text-align: center;
-    margin-top: 15%;
-}
-
-a.survey-update {
-    background-color: #1c3168;
-}
-
-a.survey-activate {
-    background-color: rgb(0, 210, 0);
-}
-
-a.survey-desactivate {
-    background-color: rgb(255, 0, 0);
-}
-
 @media screen and (max-width: 768px) {
     .back-survey-container {
         display: grid !important;
@@ -667,7 +638,7 @@ a.survey-desactivate {
     border-radius: 47px;
     width: 80%;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 50px;
     height: 30px;
 }
 
@@ -1758,7 +1729,7 @@ button#homepage_form_submit {
     }
 }
 
-/* PARYNER PUBLIC */
+/* PARTNER PUBLIC */
 
 .hPartner {
     text-align: center;

@@ -5,7 +5,6 @@
         <a href={{ path('home') }}> Accueil</a>
     </h4>
 
-    {# <p>-- insert sondage --</p> #}
     {{ render(controller('App\\Controller\\SurveyController::surveyForm')) }}
 
     <h4 class='hLink'>Accès rapide</h4>
@@ -19,8 +18,10 @@
 
     <h4 class='hLink'>Nos partenaires : </h4>
 
-    <p>-- insert carousel --</p><br>
+    {{ render(controller('App\\Controller\\SliderController::slider')) }}
 
-    <a class='LienP' href={{ path('home') }}>Découvrir tous nos partenaires</a>
+    <div class='LienP'>
+        <a class='linkP' href={{ path('partnersPublic') }}>Découvrir tous nos partenaires</a>
+    </div>
 
 </div>
