@@ -1,3 +1,5 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
         <div class="navbar-left">
@@ -17,11 +19,11 @@
                 <div class="navbar-right">
                     <div class="navbar-grey"></div>
                     <div class="navbar-blue">
-                        <a class="nav-link" href={{ path('home') }}>Accueil</a>
-                        <a class="nav-link" href={{ path('partnersPublic') }}>Partenariats</a>
-                        <a class="nav-link" href={{ path('aboutUs') }}>A propos de nous</a>
-                        <a class="nav-link" href={{ path('home') }}>Billetterie</a>
-                        <a class="nav-link" href={{ path('contact') }}>Contact</a>
+                        <a {% if route_name == "home" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('home') }}>Accueil</a>
+                        <a {% if route_name == "partnersPublic" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('partnersPublic') }}>Partenariats</a>
+                        <a {% if route_name == "aboutUs" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('aboutUs') }}>A propos de nous</a>
+                        <a {% if route_name == "home" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('home') }}>Billetterie</a>
+                        <a {% if route_name == "contact" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('contact') }}>Contact</a>
                     </div>
                 </div>
             </div>
