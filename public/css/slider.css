@@ -1,0 +1,74 @@
+.fade:not(.show) {
+    opacity: 100%;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.baseCarousel{
+    background-color: #e9ebf0;
+}
+
+.baseCarousel img{
+    width: 67%;
+    height: 67%;
+    padding-top: 30px;
+}
+
+.baseCarousel label{
+    text-align: center;
+}
+
+.navigation-dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-top: 6%;
+    margin-bottom: 8px;
+}
+.active, .navigation-dot:hover {
+    background-color: black;
+}
+
+.navigation-dot:hover {
+    background-color: #b6a786;
+}
+
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    margin-left: 3%;
+    margin-right: 3%;
+    top: 35%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover, .next:hover {
+    color: #b6a786;
+}
+
+@media screen and (max-width: 1281px) {
+    .previous, .next {
+        top: 30%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .previous, .next {
+        font-size: 35px;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="carousel-container">
+    
+    <div class='baseCarousel'>
+
+        {% for partners in partners %}
+            <div class="images fade">
+                <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+            </div>
+        {% endfor %}
+
+        <div style="text-align:center">
+            <span class="navigation-dot" onclick="currentSlide(1)"></span>
+            <span class="navigation-dot" onclick="currentSlide(2)"></span>
+            <span class="navigation-dot" onclick="currentSlide(3)"></span>
+        </div>
+
+    </div>
+     
+    <a class="previous" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<script src="/scripts/slider.js"></script>
