@@ -1,3 +1,5 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
         <div class="navbar-left">
@@ -17,10 +19,10 @@
                 <div class="navbar-right">
                     <div class="navbar-grey"></div>
                     <div class="navbar-blue">
-                        <a class="nav-link" href={{ path('admin') }}>Accueil</a>
-                        <a class="nav-link" href={{ path('partners') }}>Partenariats</a>
-                        <a class="nav-link" href={{ path('admin_update_about') }}>A propos de nous</a>
-                        <a class="nav-link" href={{ path('admin') }}>Billetterie</a>
+                        <a {% if route_name == "admin" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin') }}>Accueil</a>
+                        <a {% if route_name == "partners" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('partners') }}>Partenariats</a>
+                        <a {% if route_name == "admin_update_about" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin_update_about') }}>A propos de nous</a>
+                        <a {% if route_name == "admin" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin') }}>Billetterie</a>
                         <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
                     </div>
                 </div>
