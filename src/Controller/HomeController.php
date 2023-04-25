@@ -114,7 +114,15 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($form->getData());
+            $msg = $form->getData();
+            if ($form->get('newsletter')->getData()) {
+                $client = new Newsletter();
+                $client->setEmail($msg->getEmail())
+                    ->setIsRegistered(1)
+                    ->setRegisteredAt(new \Datetime());
+                $em->persist($client);
+            }
+            $em->persist($msg);
             $em->flush();
 
             $this->addFlash('contact-success', 'Le message a été envoyé');
