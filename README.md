@@ -40,4 +40,4 @@ symfony serve
 ```
 
 ## Optionnel
-Possibilité de lancer le projet avec docker, l'environment se compose d'une partie base de données ainsi qu'une partie mailcatcher
+Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher
