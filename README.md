@@ -14,6 +14,13 @@ Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des conn
 
 <br>
 
+## Prérequis :
+ - PHP 8.1 +
+ - Système de gestion de base de données
+ - Composer
+
+<br>
+
 ## Installation
 Un makefile est présent afin de simplifier l'installation et la préparation, vous pouvez effectuer plusieurs commande :
 
@@ -31,3 +38,6 @@ Pour lancer le serveur de développement :
 ```bash
 symfony serve
 ```
+
+## Optionnel
+Possibilité de lancer le projet avec docker, l'environment se compose d'une partie base de données ainsi qu'une partie mailcatcher
