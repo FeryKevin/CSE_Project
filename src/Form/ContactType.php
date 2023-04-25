@@ -50,7 +50,6 @@ class ContactType extends AbstractType
             ])
             ->add('security', TurnstileType::class, [
                 'attr' => ['data-action' => 'contact', 'data-theme' => 'dark'], 'label' => false,
-                'constraints' => new Assert\NotBlank(['message' => 'Résolvez le captcha de sécurité',]),
             ])
             ->add('sumbit', SubmitType::class, ['label' => 'Envoyer']);
     }
