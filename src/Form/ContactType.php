@@ -29,7 +29,7 @@ class ContactType extends AbstractType
                 'label' => 'Prénom :'
             ])
             ->add('email', TextType::class, [
-                'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre email',]),
+                'constraints' => new Assert\Email(['message' => 'Renseignez votre email',]),
                 'label' => 'Email :'
             ])
             ->add('message', TextareaType::class, [
