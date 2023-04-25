@@ -21,6 +21,10 @@
 
                 {{ form_row(form.message) }}
 
+                <div class='contact-newsletter'>
+                    {{ form_row(form.newsletter) }}
+                </div><br>
+
                 <div class='cap'>
                     {{ form_row(form.security) }}
                 </div>
@@ -30,7 +34,9 @@
                         {{ message }}
                     </div>
                 {% endfor %}
+                <br>
             {{ form_end(form) }}
+            <br>
         </div>
     </div>
 {% endblock %}

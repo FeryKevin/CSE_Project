@@ -696,7 +696,7 @@ input#question {
     padding-bottom: 10px;
 }
 
-.offer-imgs img{
+.offer-imgs img {
     background-color: #c8cfd5;
     padding: 20px;
     border-radius: 5px;
@@ -1320,6 +1320,19 @@ form button:hover {
     flex-wrap: wrap;
 }
 
+.contact-newsletter>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.contact-newsletter>div input {
+    position: relative;
+    top: 2px;
+    margin-left: 20px;
+}
+
 .contact-form h2 {
     margin-block: 20px;
     text-align: center;
@@ -1330,7 +1343,6 @@ div#contact {
     border-radius: 1%;
     height: 550px;
     margin-bottom: 30px;
-    max-height: 720px;
     height: 110%;
     padding-bottom: 20px;
     width: 90%;
@@ -1770,9 +1782,9 @@ button#homepage_form_submit {
 /* RESPONSIVE CAPTCHA */
 
 @media screen and (max-width: 991.5px) {
-    .cf-turnstile iframe{
+    .cf-turnstile iframe {
         border: none;
         overflow: hidden;
-        width: 250px!important;
+        width: 250px !important;
     }
 }
