@@ -4,55 +4,33 @@
 
 {% block body %}    
     <section id="form-section" imagesNumber=0>
-        <h2 class="form-title">Nouvelle offre
-            <select id="select-type-offer" onChange="changeOfferForm(this.value); switchForm(); addFormToCollection()">
-                <option value="permanent">permanente</option>
-                <option value="limited">limitée</option>
-            </select>
-        </h2>
+        <h2 class="form-title">Nouvelle offre {{ type }}</h2>
         <div id="permanent_offers_form">
-            {{ form_start(form_permanent) }}
-            <div class="form">
+            {{ form_start(form) }}
+            <div class="form" type={{ type }}>
                 <div class="form-separate">
                     <div class="form-left">
-                        {{ form_row(form_permanent.name) }}
-                        {{ form_row(form_permanent.description) }}
-                        {{ form_row(form_permanent.images) }}
+                        {{ form_row(form.name) }}
+                        {{ form_row(form.description) }}
+                        {{ form_row(form.images) }}
                     </div>
                     <div class="form-right">
-                        {{ form_row(form_permanent.permanentValidityBeginning) }}
-                        {{ form_row(form_permanent.permanentValidityEnding) }}
-                        {{ form_row(form_permanent.permanentMinimumPlaces) }}
+                        {% if type == "permanente" %}
+                            {{ form_row(form.permanentValidityBeginning) }}
+                            {{ form_row(form.permanentValidityEnding) }}
+                            {{ form_row(form.permanentMinimumPlaces) }}
+                        {% else %}
+                            {{ form_row(form.limitedDisplayBeginning) }}
+                            {{ form_row(form.limitedDisplayEnding) }}
+                            {{ form_row(form.limitedDisplayNumber) }}
+                        {% endif %}
                     </div>
                 </div>
                 <div class='offer-form-buttons'>
-                    {{ form_row(form_permanent.submit) }}
+                    {{ form_row(form.submit) }}
                 </div>
             </div>
-            {{ form_end(form_permanent) }}
-        </div>
-        <div id="limited_offers_form">
-            {{ form_start(form_limited) }}
-            <div class="form">
-                <div class="form-separate">
-                    <div class="form-left">
-                        {{ form_row(form_limited.name) }}
-                        {{ form_row(form_limited.description) }}
-                        {{ form_row(form_limited.images) }}
-                        <ul id="limited-images">
-                        </ul>
-                    </div>
-                    <div class="form-right">
-                        {{ form_row(form_limited.limitedDisplayBeginning) }}
-                        {{ form_row(form_limited.limitedDisplayEnding) }}
-                        {{ form_row(form_limited.limitedDisplayNumber) }}
-                    </div>
-                </div>
-                <div class='offer-form-buttons'>
-                    {{ form_row(form_limited.submit) }}
-                </div>
-            </div>
-            {{ form_end(form_limited) }}
+            {{ form_end(form) }}
         </div>
     </section>
     <div class="offer-buttons">
@@ -60,20 +38,6 @@
     </div>
     <script src="/scripts/add_offer_image.js"></script>
     <script>
-        changeOfferForm();
-        switchForm();
         addFormToCollection();
-
-        function changeOfferForm(type) {
-            var permanent = document.getElementById("permanent_offers_form");
-            var limited = document.getElementById("limited_offers_form");
-            if (type === "limited") {
-                permanent.style.display = "none";
-                limited.style.display = "inline";
-            } else {
-                permanent.style.display = "inline";
-                limited.style.display = "none";
-            }
-        }
     </script>
 {% endblock %}

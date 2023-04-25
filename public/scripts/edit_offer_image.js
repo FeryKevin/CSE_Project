@@ -1,10 +1,10 @@
-addTagLink = document.createElement('a')
-addTagLink.classList.add('btn', 'offer-button', 'collection-button')
-addTagLink.innerText='Ajouter une image'
-addTagLink.dataset.collectionHolderClass='title'
-const newLinkLi = document.createElement('li').append(addTagLink)
+addTagLink = document.createElement('a');
+addTagLink.classList.add('btn', 'offer-button', 'collection-button');
+addTagLink.innerText='Ajouter une image';
+addTagLink.dataset.collectionHolderClass='title';
+const newLinkLi = document.createElement('li').append(addTagLink);
 
-const type = document.getElementById('form-section').getAttribute('type')
+const type = document.getElementById('form-section').getAttribute('type');
 if (type == "permanent") {
     collectionHolder = document.getElementById('permanent_offer_images');
 } else {
@@ -12,13 +12,7 @@ if (type == "permanent") {
 }
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
-collectionHolder.appendChild(addTagLink)
-
-const imagesInput = document.getElementsByClassName('li-image');
-imageError = document.getElementsByClassName('image-error');
-imageError = imageError[0];
-imageError.style.display = "none";
-const validFileTypes = ['png', 'jpg', 'jpeg', 'webp'];
+collectionHolder.appendChild(addTagLink);
 
 const addFormToCollection = (e) => {
     index = countLi();
@@ -54,10 +48,10 @@ const addFormToCollection = (e) => {
     }
 }
 
-addTagLink.addEventListener('click', addFormToCollection)
+addTagLink.addEventListener('click', addFormToCollection);
 
 //Suppression image
-const images = document.getElementsByClassName('offer-image')
+const images = document.getElementsByClassName('offer-image');
 
 for (let item of images) {
     let id = item.getAttribute('image')

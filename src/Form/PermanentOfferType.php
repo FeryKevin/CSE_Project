@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -43,7 +44,7 @@ class PermanentOfferType extends AbstractType
                     'message' => 'Veuillez entrer une date de fin de validité',
                 ]),
             ])
-            ->add('permanentMinimumPlaces', TextType::class, [
+            ->add('permanentMinimumPlaces', IntegerType::class, [
                 'label' => "Nombre de places minimal",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nombre de places minimal',

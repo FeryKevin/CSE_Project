@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -44,11 +45,21 @@ class LimitedOfferType extends AbstractType
                     'message' => 'Veuillez entrer une date de fin d\'affichage',
                 ]),
             ])
-            ->add('limitedDisplayNumber', TextType::class, [
+            ->add('limitedDisplayNumber', IntegerType::class, [
                 'label' => "Numéro d'affichage (0-10)",
-                'constraints' => new Assert\NotBlank([
-                    'message' => 'Veuillez entrer un numéro d\'affichage',
-                ]),
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Veuillez entrer un numéro d\'affichage',
+                    ]),
+                    new Assert\GreaterThanOrEqual([
+                        'value' => 0,
+                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10'
+                    ]),
+                    new Assert\LessThanOrEqual([
+                        'value' => 10,
+                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10'
+                    ]),
+                ]
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,

@@ -4,19 +4,13 @@ addTagLink.innerText='Ajouter une image';
 addTagLink.dataset.collectionHolderClass='title';
 const newLinkLi = document.createElement('li').append(addTagLink);
 
-const select = document.getElementById('select-type-offer');
-type = select.value;
-
-const validFileTypes = ['png', 'jpg', 'jpeg', 'webp'];
-const imagesInput = document.getElementsByClassName('li-image');
-imageErrors = document.getElementsByClassName('image-error');
-
-if (type == "permanent") {
+type = document.getElementsByClassName('form')[0];
+type = type.getAttribute('type');
+if (type == "permanente") {
     collectionHolder = document.getElementById('permanent_offer_images');
 } else {
     collectionHolder = document.getElementById('limited_offer_images');
 }
-
 collectionHolder.innerHTML = "";
 collectionHolder.dataset.index = 0;
 collectionHolder.appendChild(addTagLink);
@@ -57,7 +51,7 @@ const addFormToCollection = (e) => {
     }
 }
 
-addTagLink.addEventListener('click', addFormToCollection)
+addTagLink.addEventListener('click', addFormToCollection);
 
 function countLi() {
     imagesNumber = parseInt(document.getElementById('form-section').getAttribute('imagesNumber'));
@@ -65,17 +59,4 @@ function countLi() {
     index = collectionHolder.dataset.index;
 
     return index;
-}
-
-function switchForm() {
-    if (select.value == "permanent") {
-        collectionHolder = document.getElementById('permanent_offer_images');
-        type = "permanent";
-    } else {
-        collectionHolder = document.getElementById('limited_offer_images');
-        type = "limited";
-    }
-    collectionHolder.innerHTML = "";
-    collectionHolder.dataset.index = 0;
-    collectionHolder.appendChild(addTagLink);
 }

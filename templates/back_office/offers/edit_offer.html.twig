@@ -14,7 +14,7 @@
                         {{ form_row(form.description) }}
                         {{ form_row(form.images) }}
                     </div>
-                    {% if form.permanentValidityBeginning is defined %}
+                    {% if offer.type == "permanent" %}
                     <div class="form-right-permanent">
                         {{ form_row(form.permanentValidityBeginning) }}
                         {{ form_row(form.permanentValidityEnding) }}

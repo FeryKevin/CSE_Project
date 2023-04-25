@@ -26,7 +26,8 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <a class="offer-button" href="{{ path('create_offer') }}">Créer une offre</a>
+            <a class="offer-button" href="{{ path('create_permanent_offer') }}">Nouvelle offre permanente</a>
+            <a class="offer-button" href="{{ path('create_limited_offer') }}">Nouvelle offre limitée</a>
         {% else %}
             Pas de résultats
         {% endif %}

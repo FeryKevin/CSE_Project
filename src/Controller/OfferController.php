@@ -20,18 +20,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class OfferController extends AbstractController
 {
     // Partie admin
-    #[Route(path: "/admin/offer/create", name: "create_offer")]
-    public function createOffer(EntityManagerInterface $em, Request $request): Response
+    #[Route(path: "/admin/offer/create_permanent", name: "create_permanent_offer")]
+    public function createPermanentOffer(EntityManagerInterface $em, Request $request): Response
     {
         $offer = new Offer();
 
-        $formPermanent = $this->createForm(PermanentOfferType::class, $offer);
-        $formPermanent->handleRequest($request);
-        
-        $formLimited = $this->createForm(LimitedOfferType::class, $offer);
-        $formLimited->handleRequest($request);
+        $form = $this->createForm(PermanentOfferType::class, $offer);
+        $form->handleRequest($request);
 
-        if ($formPermanent->isSubmitted() && $formPermanent->isValid())
+        if ($form->isSubmitted() && $form->isValid())
         {
             $offer->setType("permanent");
 
@@ -52,35 +49,48 @@ class OfferController extends AbstractController
             $em->flush();
 
             return $this->redirectToRoute('admin_offers');
-        } else {
-            if ($formLimited->isSubmitted() && $formLimited->isValid())
-            {
-                $offer->setType("limited");
-                
-                $now = new DateTime('now');
-                $now_string = $now->format('Y-m-d H:i:s');
-                $now = date_create_from_format('Y-m-d H:i:s', $now_string);
-
-                $offer->setPublishedAt($now);
-
-                foreach ($offer->getImages() as $img)
-                {
-                    $img->handleForm($offer);
-                    $path = $img->getFile()->getRealPath();
-                    move_uploaded_file($path, '.'.$img->getPath());
-                }
-
-                // On envoie en base de donnée la nouvelle catégorie.
-                $em->persist($offer);
-                $em->flush();
-
-                return $this->redirectToRoute('admin_offers');
-            }
         }
         
         return $this->render('back_office/offers/create_offer.html.twig', [
-            'form_permanent' => $formPermanent->createView(),
-            'form_limited' => $formLimited->createView(),
+            'form' => $form->createView(),
+            'type' => 'permanente'
+        ]);
+    }
+
+    #[Route(path: "/admin/offer/create_limited", name: "create_limited_offer")]
+    public function createLimitedOffer(EntityManagerInterface $em, Request $request): Response
+    {
+        $offer = new Offer();
+        
+        $form = $this->createForm(LimitedOfferType::class, $offer);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $offer->setType("limited");
+            
+            $now = new DateTime('now');
+            $now_string = $now->format('Y-m-d H:i:s');
+            $now = date_create_from_format('Y-m-d H:i:s', $now_string);
+
+            $offer->setPublishedAt($now);
+
+            foreach ($offer->getImages() as $img)
+            {
+                $img->handleForm($offer);
+                $path = $img->getFile()->getRealPath();
+                move_uploaded_file($path, '.'.$img->getPath());
+            }
+
+            $em->persist($offer);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_offers');
+        }
+        
+        return $this->render('back_office/offers/create_offer.html.twig', [
+            'form' => $form->createView(),
+            'type' => 'limitée'
         ]);
     }
 
