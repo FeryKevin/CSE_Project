@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Contact;
 use PixelOpen\CloudflareTurnstileBundle\Type\TurnstileType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -28,9 +29,15 @@ class ContactType extends AbstractType
                 'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre prénom',]),
                 'label' => 'Prénom :'
             ])
-            ->add('email', TextType::class, [
-                'constraints' => new Assert\Email(['message' => 'Renseignez votre email',]),
-                'label' => 'Email :'
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Renseignez votre email',
+                    ]),
+                    new Assert\Email([
+                        'message' => 'Renseignez un email correct',
+                    ]),
+                ],
             ])
             ->add('message', TextareaType::class, [
                 'constraints' => new Assert\NotBlank(['message' => 'Renseignez votre message',]),
