@@ -1,6 +1,6 @@
 # Projet CSE
 
-Site du comité social et économique dy lycée Saint-Vincent, il permet de consulter les informations sur les offres et les partenariats du CSE à ses salariés.
+Site du comité social et économique du lycée Saint-Vincent, il permet de consulter les informations sur les offres et les partenariats du CSE à ses salariés.
 
 ## Contexte
 Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des connaissances et permet de capitaliser les deux années d'apprentissages au sein du BTS.
