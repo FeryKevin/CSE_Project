@@ -12,7 +12,6 @@ use App\Repository\OfferRepository;
 use App\Service\Newsletter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -164,11 +163,9 @@ class OfferController extends AbstractController
                     $em->persist($offer);
                     $em->flush();
     
-                    // $newsletter->sendUpdateOffer($offer);
+                    $newsletter->sendUpdateOffer($offer);
                     
                     return $this->redirectToRoute('offer', ['id' => $id]);
-                } else {
-                    // return $this->redirectToRoute('update_offer', ['id' => $id]);
                 }
             }
             
