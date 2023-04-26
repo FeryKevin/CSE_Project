@@ -1000,7 +1000,7 @@ form button:hover {
 
 #form-section input, #form-section textarea, #form-section select, #form-section p
 {
-    margin: 2% 0;
+    margin: 0.5vh 0;
 }
 
 #form-section textarea
@@ -1011,6 +1011,12 @@ form button:hover {
 #form-section ul
 {
     padding-left: 0;
+}
+
+#form-section li:not(.li-image)
+{
+    margin-top: 0;
+    color: red;
 }
 
 .form-multiple-choice
@@ -1063,6 +1069,7 @@ form button:hover {
 
 .offer-form-buttons
 {
+    margin-top: 1vh;
     margin-left: 3vw;
     display: flex;
 }
@@ -1070,6 +1077,11 @@ form button:hover {
 .offer-form-buttons > *
 {
     margin-right: 1vh;
+}
+
+.offer-form-buttons .offer-button
+{
+    font-size: 14px;
 }
 
 .offer-buttons
@@ -1103,7 +1115,9 @@ form button:hover {
 
 .image-error
 {
+    font-size: 14px;
     color: red;
+    margin: 1vh 0 !important;
 }
 
 .offer-images
@@ -1162,7 +1176,6 @@ form button:hover {
 .view-offer label
 {
     font-weight: bold;
-    margin-top: 2vh !important;
     margin: 2vh 0 0 !important;
 }
 

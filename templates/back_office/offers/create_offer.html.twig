@@ -10,19 +10,43 @@
             <div class="form" type={{ type }}>
                 <div class="form-separate">
                     <div class="form-left">
-                        {{ form_row(form.name) }}
-                        {{ form_row(form.description) }}
-                        {{ form_row(form.images) }}
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+
+                        {{ form_label(form.images) }}
+                        {{ form_widget(form.images) }}
+                        {{ form_errors(form.images) }}
                     </div>
                     <div class="form-right">
                         {% if type == "permanente" %}
-                            {{ form_row(form.permanentValidityBeginning) }}
-                            {{ form_row(form.permanentValidityEnding) }}
-                            {{ form_row(form.permanentMinimumPlaces) }}
+                            {{ form_label(form.permanentValidityBeginning) }}
+                            {{ form_widget(form.permanentValidityBeginning) }}
+                            {{ form_errors(form.permanentValidityBeginning) }}
+
+                            {{ form_label(form.permanentValidityEnding) }}
+                            {{ form_widget(form.permanentValidityEnding) }}
+                            {{ form_errors(form.permanentValidityEnding) }}
+                            
+                            {{ form_label(form.permanentMinimumPlaces) }}
+                            {{ form_widget(form.permanentMinimumPlaces) }}
+                            {{ form_errors(form.permanentMinimumPlaces) }}
                         {% else %}
-                            {{ form_row(form.limitedDisplayBeginning) }}
-                            {{ form_row(form.limitedDisplayEnding) }}
-                            {{ form_row(form.limitedDisplayNumber) }}
+                            {{ form_label(form.limitedDisplayBeginning) }}
+                            {{ form_widget(form.limitedDisplayBeginning) }}
+                            {{ form_errors(form.limitedDisplayBeginning) }}
+                            
+                            {{ form_label(form.limitedDisplayEnding) }}
+                            {{ form_widget(form.limitedDisplayEnding) }}
+                            {{ form_errors(form.limitedDisplayEnding) }}
+                            
+                            {{ form_label(form.limitedDisplayNumber) }}
+                            {{ form_widget(form.limitedDisplayNumber) }}
+                            {{ form_errors(form.limitedDisplayNumber) }}
                         {% endif %}
                     </div>
                 </div>
