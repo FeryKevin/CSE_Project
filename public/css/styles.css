@@ -1074,6 +1074,13 @@ form button:hover {
 
 .offer-buttons
 {
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 3vh;
+}
+
+.offer-return
+{
     margin: 0 0 3vh 14vw;
 }
 
@@ -1092,6 +1099,11 @@ form button:hover {
 #permanent_offer_images li input, #limited_offer_images li input
 {
     margin: 0;
+}
+
+.image-error
+{
+    color: red;
 }
 
 .offer-images
@@ -1142,6 +1154,18 @@ form button:hover {
     margin: 1vh 0;
 }
 
+.view-offer
+{
+    padding-top: 0 !important;
+}
+
+.view-offer label
+{
+    font-weight: bold;
+    margin-top: 2vh !important;
+    margin: 2vh 0 0 !important;
+}
+
 #offers_form .offer-images
 {
     height: 15vh;
@@ -1155,19 +1179,22 @@ form button:hover {
 }
 
 @media screen and (max-width: 991.5px) {
-    .offer-buttons {
-        margin-left: 0;
-        text-align: center;
+    .offer-button
+    {
+        font-size: smaller;
     }
 
-    .offer-button {
-        font-size: smaller;
+    .offer-return
+    {
+        margin-left: 0;
+        text-align: center;
     }
     
     #form-section input
     {
         width: 50%;
     }
+
     #permanent_offer_images li input, #limited_offer_images li input
     {
         width: 100%;

@@ -53,6 +53,9 @@ class PermanentOfferType extends AbstractType
             ->add('images', CollectionType::class, [
                 'entry_type' => FileForm::class,
                 'entry_options' => [
+                    'attr' => [
+                        'onChange' => 'checkImagesInputs()'
+                    ],
                     'data_class' => File::class,
                     'label' => false,
                 ],

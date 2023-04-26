@@ -27,13 +27,14 @@
                     </div>
                 </div>
                 <div class='offer-form-buttons'>
+                    <p class="image-error"></p>
                     {{ form_row(form.submit) }}
                 </div>
             </div>
             {{ form_end(form) }}
         </div>
     </section>
-    <div class="offer-buttons">
+    <div class="offer-return">
         <a class="offer-button" href="{{ path('admin_offers') }}">Retour au menu des offres</a>
     </div>
     <script src="/scripts/add_offer_image.js"></script>

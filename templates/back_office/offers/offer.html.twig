@@ -5,7 +5,7 @@
 {% block body %}
     <div id='offer-body'>
         <h2 class="form-title">{{ offer.name|capitalize }}</h2>
-        <div id="form-section">
+        <div id="form-section" class="view-offer">
             <div id="offers_form">
                 <div class="form-separate">
                     <div class="form-left">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="offer-buttons">
+        <div class="offer-return">
             <a class="offer-button" href="{{ path('admin_offers') }}">Retour au menu des offres</a>
         </div>
     </div>
