@@ -4,7 +4,10 @@
 
 {% block body %}
     <div id='offer-body'>
-        <h2 class="form-title">Modification de l'offre "{{ offer.name|capitalize }}"</h2>
+        <h2 class="form-title">Modification de l'offre 
+            <span style="text-decoration:underline;">
+            {% if offer.type == "permanent" %}permanente{% else %}limitée{% endif %}</span>
+            "{{ offer.name|capitalize }}"</h2>
         <div id="form-section" type={{ offer.type }} imagesNumber={{ form.images|length }}>
             <div id="{{ offer.type }}_offers_form">
                 {{ form_start(form) }}

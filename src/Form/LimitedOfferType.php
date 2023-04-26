@@ -53,11 +53,11 @@ class LimitedOfferType extends AbstractType
                     ]),
                     new Assert\GreaterThanOrEqual([
                         'value' => 0,
-                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10'
+                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10',
                     ]),
                     new Assert\LessThanOrEqual([
                         'value' => 10,
-                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10'
+                        'message' => 'Veuillez entrer un nombre compris entre 0 et 10',
                     ]),
                 ]
             ])

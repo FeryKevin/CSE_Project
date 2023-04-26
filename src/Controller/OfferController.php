@@ -28,8 +28,7 @@ class OfferController extends AbstractController
         $form = $this->createForm(PermanentOfferType::class, $offer);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $offer->setType("permanent");
 
             $now = new DateTime('now');
@@ -38,8 +37,7 @@ class OfferController extends AbstractController
 
             $offer->setPublishedAt($now);
 
-            foreach ($offer->getImages() as $img)
-            {
+            foreach ($offer->getImages() as $img) {
                 $img->handleForm($offer);
                 $path = $img->getFile()->getRealPath();
                 move_uploaded_file($path, '.'.$img->getPath());
@@ -65,8 +63,7 @@ class OfferController extends AbstractController
         $form = $this->createForm(LimitedOfferType::class, $offer);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $offer->setType("limited");
             
             $now = new DateTime('now');
@@ -75,8 +72,7 @@ class OfferController extends AbstractController
 
             $offer->setPublishedAt($now);
 
-            foreach ($offer->getImages() as $img)
-            {
+            foreach ($offer->getImages() as $img) {
                 $img->handleForm($offer);
                 $path = $img->getFile()->getRealPath();
                 move_uploaded_file($path, '.'.$img->getPath());
@@ -109,10 +105,8 @@ class OfferController extends AbstractController
     {
         $id = $request->get(key: 'id');
 
-        if($offer = $offerRepository->find($id))
-        {
-            if ($offer->getType() == "permanent")
-            {
+        if($offer = $offerRepository->find($id)) {
+            if ($offer->getType() == "permanent") {
                 $permanentValidityBeginning = $offer->getPermanentValidityBeginning()->format('Y-m-d H:i:s');
                 $permanentValidityEnding = $offer->getPermanentValidityEnding()->format('Y-m-d H:i:s');
 
@@ -144,10 +138,8 @@ class OfferController extends AbstractController
     {
         $id = $request->get(key: 'id');
 
-        if($offer = $offerRepository->find($id))
-        {
-            if ($offer->getType() == "permanent")
-            {
+        if($offer = $offerRepository->find($id)) {
+            if ($offer->getType() == "permanent") {
                 $form = $this->createForm(PermanentOfferType::class, $offer, [
                     'on_edit' => true,
                 ]);
@@ -159,23 +151,25 @@ class OfferController extends AbstractController
 
             $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid())
-            {
-                $offer = $form->getData();
-
-                foreach ($offer->getImages() as $img)
-                {
-                    $img->handleForm($offer);
-                    $path = $img->getFile()->getRealPath();
-                    move_uploaded_file($path, '.'.$img->getPath());
+            if ($form->isSubmitted()) {
+                if ($form->isValid()) {
+                    $offer = $form->getData();
+    
+                    foreach ($offer->getImages() as $img) {
+                        $img->handleForm($offer);
+                        $path = $img->getFile()->getRealPath();
+                        move_uploaded_file($path, '.'.$img->getPath());
+                    }
+                    
+                    $em->persist($offer);
+                    $em->flush();
+    
+                    // $newsletter->sendUpdateOffer($offer);
+                    
+                    return $this->redirectToRoute('offer', ['id' => $id]);
+                } else {
+                    // return $this->redirectToRoute('update_offer', ['id' => $id]);
                 }
-                
-                $em->persist($offer);
-                $em->flush();
-
-                // $newsletter->sendUpdateOffer($offer);
-                
-                return $this->redirectToRoute('offer', ['id' => $id]);
             }
             
             return $this->render('back_office/offers/edit_offer.html.twig', [
@@ -210,8 +204,7 @@ class OfferController extends AbstractController
     #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]
     public function deleteOffer(OfferRepository $offerRepository, int $id, EntityManagerInterface $manager): Response
     {
-        if($offer = $offerRepository->find($id))
-        {
+        if($offer = $offerRepository->find($id)) {
             $manager->remove($offer);
             $manager->flush();
 
