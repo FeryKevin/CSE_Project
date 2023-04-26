@@ -3,8 +3,12 @@
 {% block title %}Offres | Admin{% endblock %}
 
 {% block body %}
-    <h1 class='menu-title'>Menu des offres</h1>
+    <h1 class='menu-title'>Offres</h1>
     <section id='offers'>
+        <div id="new-offer-buttons">
+            <a class="offer-button" href="{{ path('create_permanent_offer') }}">Nouvelle offre permanente</a>
+            <a class="offer-button" href="{{ path('create_limited_offer') }}">Nouvelle offre limitée</a>
+        </div>
         {% if offers|length > 0 %}
             <table id='offers-table'>
                 <thead>
@@ -26,8 +30,6 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <a class="offer-button" href="{{ path('create_permanent_offer') }}">Nouvelle offre permanente</a>
-            <a class="offer-button" href="{{ path('create_limited_offer') }}">Nouvelle offre limitée</a>
         {% else %}
             Pas de résultats
         {% endif %}

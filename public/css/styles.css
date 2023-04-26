@@ -6,9 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
-
-    /* Pour debug */
-    /* outline: 1px red solid; */
 }
 
 .menuPublic {
@@ -922,6 +919,11 @@ form button:hover {
     margin-bottom: 3vh;
 }
 
+#new-offer-buttons
+{
+    margin-bottom: 3vh;
+}
+
 #offers th
 {
     border: solid 1px black;
@@ -959,6 +961,11 @@ form button:hover {
     text-align: center;
 }
 
+.menu-title
+{
+    margin: 3vh 0;
+}
+
 .form-separate
 {
     display: flex;
@@ -976,6 +983,11 @@ form button:hover {
     text-align: center;
 }
 
+.form-left > div, .form-right-permanent > div, .form-right-limited > div
+{
+    margin-bottom: 1vh;
+}
+
 #form-section h3
 {
     text-align: center;
@@ -984,14 +996,11 @@ form button:hover {
 #form-section label
 {
     display: block;
-    margin-bottom: 1vh;
-    font-weight: bold;
-    font-size: 20px;
 }
 
 #form-section input, #form-section textarea, #form-section select, #form-section p
 {
-    margin-bottom: 3vh;
+    margin: 2% 0;
 }
 
 #form-section textarea
@@ -1068,6 +1077,11 @@ form button:hover {
     margin: 0 0 3vh 14vw;
 }
 
+#permanent_offer_images, #limited_offer_images
+{
+    margin-top: 1vh;
+}
+
 #permanent_offer_images li, #limited_offer_images li
 {
     margin-top: 1vh;
@@ -1140,12 +1154,7 @@ form button:hover {
     }
 }
 
-@media screen and (max-width: 991.5px) {    
-    #form-section label
-    {
-        font-size: smaller;
-    }
-
+@media screen and (max-width: 991.5px) {
     .offer-buttons {
         margin-left: 0;
         text-align: center;
