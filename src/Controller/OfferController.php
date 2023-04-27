@@ -124,11 +124,6 @@ class OfferController extends AbstractController
                     'display_ending' => $limitedDisplayEnding,
                 ]);
             }
-        } else {
-            return $this->render('back_office/offer_error.html.twig', [
-                'id' => $id,
-                'offer' => $offer,
-            ]);
         }
     }
 
@@ -173,10 +168,6 @@ class OfferController extends AbstractController
                 'offer' => $offer,
                 'form' => $form->createView(),
             ]);
-        } else {
-            return $this->render('back_office/offer_error.html.twig', [
-                'id' => $id,
-            ]);
         }
     }
     
@@ -206,10 +197,6 @@ class OfferController extends AbstractController
             $this->addFlash('success', 'L\'offre a bien été supprimée');
 
             return $this->redirectToRoute('admin_offers');
-        } else {
-            return $this->render('back_office/offer_error.html.twig', [
-                'id' => $id,
-            ]);
         }
     }
 
