@@ -213,7 +213,7 @@ class OfferController extends AbstractController
     }
 
     // Partie publique
-    #[Route(path: ('/offres/'), name: 'offers')]
+    #[Route(path: ('/offres'), name: 'offers')]
     public function index(OfferRepository $offerRepository)
     {
         $offers = $offerRepository->findAll();
