@@ -104,7 +104,7 @@ class OfferController extends AbstractController
     {
         $id = $request->get(key: 'id');
 
-        if($offer = $offerRepository->find($id)) {
+        if ($offer = $offerRepository->find($id)) {
             if ($offer->getType() == "permanent") {
                 $permanentValidityBeginning = $offer->getPermanentValidityBeginning()->format('Y-m-d H:i:s');
                 $permanentValidityEnding = $offer->getPermanentValidityEnding()->format('Y-m-d H:i:s');
@@ -137,7 +137,7 @@ class OfferController extends AbstractController
     {
         $id = $request->get(key: 'id');
 
-        if($offer = $offerRepository->find($id)) {
+        if ($offer = $offerRepository->find($id)) {
             if ($offer->getType() == "permanent") {
                 $form = $this->createForm(PermanentOfferType::class, $offer, [
                     'on_edit' => true,
@@ -186,7 +186,6 @@ class OfferController extends AbstractController
         $post = json_decode($request->getContent(), true);
 
         $file = $fileRepository->find($post['id']);
-
         $fileName = $file->getStoredName();
         $fileExtension = $file->getExtension();
         $filePath = $this->getParameter('kernel.project_dir') . '/public/img/offer/' . $fileName . '.' . $fileExtension;
@@ -201,10 +200,9 @@ class OfferController extends AbstractController
     #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]
     public function deleteOffer(OfferRepository $offerRepository, int $id, EntityManagerInterface $manager): Response
     {
-        if($offer = $offerRepository->find($id)) {
+        if ($offer = $offerRepository->find($id)) {
             $manager->remove($offer);
             $manager->flush();
-
             $this->addFlash('success', 'L\'offre a bien été supprimée');
 
             return $this->redirectToRoute('admin_offers');
@@ -224,6 +222,17 @@ class OfferController extends AbstractController
         return $this->render('offer/details.html.twig', [
             'offer' => $offer,
             'email' => $cse->getEmail(),
+        ]);
+    }
+
+    // Partie publique
+    #[Route(path: ('/offres/'), name: 'offers')]
+    public function index(OfferRepository $offerRepository)
+    {
+        $offers = $offerRepository->findAll();
+
+        return $this->render('offer/index.html.twig', [
+            'offers' => $offers,
         ]);
     }
 }
