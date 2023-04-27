@@ -6,7 +6,6 @@ use App\Entity\File;
 use App\Entity\Offer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -22,31 +21,32 @@ class LimitedOfferType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => "Nom",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nom',
                 ]),
+                'empty_data' => '',
+                'label' => "Nom",
             ])
             ->add('description', TextareaType::class, [
-                'label' => "Description",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une description',
                 ]),
+                'empty_data' => '',
+                'label' => "Description",
             ])
             ->add('limitedDisplayBeginning', DateTimeType::class, [
-                'label' => "Date de début d'affichage",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début d\'affichage',
                 ]),
+                'label' => "Date de début d'affichage",
             ])
             ->add('limitedDisplayEnding', DateTimeType::class, [
-                'label' => "Date de fin d'affichage",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin d\'affichage',
                 ]),
+                'label' => "Date de fin d'affichage",
             ])
             ->add('limitedDisplayNumber', IntegerType::class, [
-                'label' => "Numéro d'affichage (0-10)",
                 'constraints' => [
                     new Assert\NotBlank([
                         'message' => 'Veuillez entrer un numéro d\'affichage',
@@ -59,10 +59,12 @@ class LimitedOfferType extends AbstractType
                         'value' => 10,
                         'message' => 'Veuillez entrer un nombre compris entre 0 et 10',
                     ]),
-                ]
+                ],
+                'label' => "Numéro d'affichage (0-10)",
             ])
             ->add('images', CollectionType::class, [
-                'entry_type' => FileForm::class,
+                'allow_add' => true,
+                'allow_delete' => true,
                 'entry_options' => [
                     'attr' => [
                         'onChange' => 'checkImagesInputs()'
@@ -70,13 +72,12 @@ class LimitedOfferType extends AbstractType
                     'data_class' => File::class,
                     'label' => false,
                 ],
-                'allow_add' => true,
-                'allow_delete' => true,
+                'entry_type' => FileForm::class,
                 'label' => 'Images (png/jpg/jpeg/webp)'
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "Valider",
                 'attr' => ['class' => 'offer-button submit-offer'],
+                'label' => "Valider",
             ]);
         ;
     }

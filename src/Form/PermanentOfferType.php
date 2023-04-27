@@ -21,37 +21,40 @@ class PermanentOfferType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => "Nom",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nom',
                 ]),
+                'empty_data' => '',
+                'label' => "Nom",
             ])
             ->add('description', TextareaType::class, [
-                'label' => "Description",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une description',
                 ]),
+                'empty_data' => '',
+                'label' => "Description",
             ])
             ->add('permanentValidityBeginning', DateTimeType::class, [
-                'label' => "Date de début de validité",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début de validité',
                 ]),
+                'label' => "Date de début de validité",
             ])
             ->add('permanentValidityEnding', DateTimeType::class, [
-                'label' => "Date de fin de validité",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin de validité',
                 ]),
+                'label' => "Date de fin de validité",
             ])
             ->add('permanentMinimumPlaces', IntegerType::class, [
-                'label' => "Nombre de places minimal",
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer un nombre de places minimal',
                 ]),
+                'label' => "Nombre de places minimal",
             ])
             ->add('images', CollectionType::class, [
-                'entry_type' => FileForm::class,
+                'allow_add' => true,
+                'allow_delete' => true,
                 'entry_options' => [
                     'attr' => [
                         'onChange' => 'checkImagesInputs()'
@@ -59,13 +62,12 @@ class PermanentOfferType extends AbstractType
                     'data_class' => File::class,
                     'label' => false,
                 ],
-                'allow_add' => true,
-                'allow_delete' => true,
+                'entry_type' => FileForm::class,
                 'label' => 'Images (png/jpg/jpeg/webp)'
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "Valider",
                 'attr' => ['class' => 'offer-button submit-offer'],
+                'label' => "Valider",
             ]);
         ;
     }
