@@ -53,7 +53,7 @@ class HomeController extends AbstractController
         $partners = $partnerRepository->findAll();
 
         return $this->render('partner.html.twig', [
-            'partners' => $partnerRepository->findAll(),
+            'partners' => $partners,
             'email' => $cse->getEmail(),
         ]);
     }
