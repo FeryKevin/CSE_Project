@@ -1006,6 +1006,7 @@ form button:hover {
 
 #offers th
 {
+    font-weight: 500;
     border: solid 1px black;
     color: white;
     background-color: #1c3168;
@@ -1179,6 +1180,11 @@ form button:hover {
     margin: 0 0 3vh 14vw;
 }
 
+#form-section input[type=text], #form-section input[type=number]
+{
+    margin-bottom: 1vh;
+}
+
 #permanent_offer_images, #limited_offer_images
 {
     margin-top: 1vh;
@@ -1213,16 +1219,16 @@ form button:hover {
 
 .offer-images > div
 {
-    margin-right: 2vw;
+    margin: 0 1vw;
 }
 
 .offer-images img
 {
     display: block;
+    min-height: 12vh;
+    min-width: 12vw;
     max-height: 15vh;
     max-width: 15vw;
-    height: auto;
-    width: auto;
 }
 
 .offer-image-display
@@ -1277,7 +1283,7 @@ form button:hover {
 @media screen and (max-width: 991.5px) {
     .offer-button
     {
-        font-size: smaller;
+        font-size: initial;
     }
 
     .offer-return
