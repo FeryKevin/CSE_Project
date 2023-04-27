@@ -1167,11 +1167,6 @@ form button:hover {
     margin-right: 1vh;
 }
 
-.offer-form-buttons .offer-button
-{
-    font-size: 14px;
-}
-
 .offer-buttons
 {
     text-align: center;
@@ -1203,7 +1198,7 @@ form button:hover {
 
 .image-error
 {
-    font-size: 14px;
+    font-size: larger;
     color: red;
     margin: 1vh 0 !important;
 }
