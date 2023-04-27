@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Offer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Mapping\OrderBy;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -58,7 +59,8 @@ class OfferRepository extends ServiceEntityRepository
             ->from('App\Entity\Offer', 'f')
             ->setMaxResults($limit)
             ->setFirstResult(($page - 1) * $limit)
-            ->where('f.limitedDisplayBeginning IS null');
+            ->where('f.permanentValidityBeginning IS null')
+            ->orderBy('f.limitedDisplayNumber', 'DESC');
 
         $paginator = new Paginator($query);
         $data = $query->getQuery()->getResult();
