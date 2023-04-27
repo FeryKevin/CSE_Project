@@ -206,7 +206,7 @@ class OfferController extends AbstractController
     {
         $cse = $cseRepository->findAll()[0];
 
-        return $this->render('offer/details.html.twig', [
+        return $this->render('offers/details.html.twig', [
             'offer' => $offer,
             'email' => $cse->getEmail(),
         ]);
@@ -218,7 +218,7 @@ class OfferController extends AbstractController
     {
         $offers = $offerRepository->findAll();
 
-        return $this->render('offer/index.html.twig', [
+        return $this->render('offers/index.html.twig', [
             'offers' => $offers,
         ]);
     }
