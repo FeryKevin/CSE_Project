@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offres{% endblock %}  
+
+{% block body %}
+    <h3 class='hMessage'>Offres :</h3> 
+    <div class='partners-container'>
+        {% for offer in offers %}
+            <div class='offer-card'>
+                <label for='image-{{ offer.id }}'><img src={{ offer.images[0].path }} /></label>
+                <div class='offer-right'>
+                    <div class='offer-info'>
+                        <h4>{{ offer.name }}</h4>
+                        <div class="offer-description">
+                            <p>{{ offer.description }}</p>
+                        </div>
+                        <a class='offer-about' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

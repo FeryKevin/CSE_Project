@@ -2,12 +2,14 @@
 
 namespace App\Form;
 
+
 use App\Entity\File;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\File as consFile;
@@ -31,12 +33,11 @@ final class FileForm extends AbstractType
                     'mimeTypesMessage' => 'Veuillez mettre une image en format jpeg, jpg, png ou webp',
                 ]),
                 new Assert\NotBlank([
-                'message' => 'Ce champs ne peut pas être vide',
+                    'message' => 'Ce champ ne peut pas être vide',
                 ]),
             ],
             'attr' => [
                 'class' => 'image-input',
-                'onChange' => 'checkImagesInputs()'
             ]
         ]);
     }

@@ -20,16 +20,16 @@ class Offer
     private ?\DateTimeInterface $publishedAt = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    private string $description;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $type = null;
+    private string $type;
 
     #[ORM\Column(length: 50)]
-    private ?string $name = null;
+    private string $name;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $permanentValidityBeginning = null;
@@ -49,7 +49,7 @@ class Offer
     #[ORM\Column(nullable: true)]
     private ?int $limitedDisplayNumber = null;
 
-    #[ORM\OneToMany(mappedBy: 'offer', targetEntity: File::class)]
+    #[ORM\OneToMany(mappedBy: 'offer', targetEntity: File::class, cascade: ["persist", "remove"])]
     private Collection $images;
 
     public function __construct()
@@ -74,7 +74,7 @@ class Offer
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -98,7 +98,7 @@ class Offer
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -110,7 +110,7 @@ class Offer
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }

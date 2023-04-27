@@ -1,0 +1,77 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Offres | Admin{% endblock %}
+
+{% block body %}
+    <div id='offer-body'>
+        <h2 class="form-title">{{ offer.name|capitalize }}</h2>
+        <div id="form-section" class="view-offer">
+            <div id="offers_form">
+                <div class="form-separate">
+                    <div class="form-left">
+                        <label for="name">Nom</label>
+                        <p>{{ offer.name }}</p>
+                        <label for="description">Description</label>
+                        <p>{{ offer.description }}</p>
+                        <label for="type">Type</label>
+                        {% if offer.type == 'permanent' %}
+                            <p>Permanente</p>
+                        {% else %}
+                            <p>Limitée</p>
+                        {% endif %}
+                    </div>
+                    {% if offer.type == 'permanent' %}
+                    <div class="form-right-permanent">
+                        <label for="validity_beginning">Début de validité</label>
+                        <p>{{ validity_beginning }}</p>
+                        <label for="validity_ending">Fin de validité</label>
+                        <p>{{ validity_ending }}</p>
+                        <label for="permanent_minimum_places">Nombre de places minimum</label>
+                        <p>{{ offer.permanentMinimumPlaces }}</p>
+                    </div>
+                    {% else %}
+                    <div class="form-right-limited">
+                        <label for="display_beginning">Début d'affichage</label>
+                        <p>{{ display_beginning }}</p>
+                        <label for="display_ending">Fin d'affichage</label>
+                        <p>{{ display_ending }}</p>
+                        <label for="limited_display_number">Numéro d'affichage</label>
+                        <p>{{ offer.limitedDisplayNumber }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <h3>Images de l'offre</h3>
+                <div class="offer-images">
+                    {% for image in offer.images %}
+                        <div class="offer-image">
+                            <div class="offer-image-display">
+                                <img src="{{ image.path }}" alt={{ image.originalName }}/>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="offer-form-buttons">
+                    <a class="offer-button" href="{{ path('update_offer', { id: offer.id }) }}">Modifier l'offre</a>
+                    <button class="offer-button" data-bs-toggle="modal" data-bs-target="#modal-delete">Supprimer l'offre</button>
+                </div>
+            </div>
+        </div>
+        <div class="offer-return">
+            <a class="offer-button" href="{{ path('admin_offers') }}">Retour au menu des offres</a>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" id="modal-delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Êtes-vous sûr(e) de vouloir supprimer cette offre ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <a type="button" class="offer-button" data-bs-dismiss="modal">Annuler</a>
+                    <a type="button" class="offer-button" href="{{ path('delete_offer', { id: offer.id }) }}">Supprimer l'offre</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

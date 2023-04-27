@@ -1,0 +1,83 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block title %}Offres | Admin{% endblock %}
+
+{% block body %}
+    <div id='offer-body'>
+        <h2 class="form-title">Modification de l'offre 
+            <span style="text-decoration:underline;">
+            {% if offer.type == "permanent" %}permanente{% else %}limitée{% endif %}</span>
+            "{{ offer.name|capitalize }}"</h2>
+        <div id="form-section" type={{ offer.type }} imagesNumber={{ form.images|length }}>
+            <div id="{{ offer.type }}_offers_form">
+                {{ form_start(form) }}
+                <div class="form-separate">
+                    <div class="form-left">
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+
+                        {{ form_label(form.images) }}
+                        {{ form_widget(form.images) }}
+                        {{ form_errors(form.images) }}
+                    </div>
+                    {% if offer.type == "permanent" %}
+                    <div class="form-right-permanent">
+                        {{ form_label(form.permanentValidityBeginning) }}
+                        {{ form_widget(form.permanentValidityBeginning) }}
+                        {{ form_errors(form.permanentValidityBeginning) }}
+
+                        {{ form_label(form.permanentValidityEnding) }}
+                        {{ form_widget(form.permanentValidityEnding) }}
+                        {{ form_errors(form.permanentValidityEnding) }}
+                        
+                        {{ form_label(form.permanentMinimumPlaces) }}
+                        {{ form_widget(form.permanentMinimumPlaces) }}
+                        {{ form_errors(form.permanentMinimumPlaces) }}
+                    </div>
+                    {% else %}
+                    <div class="form-right-limited">
+                        {{ form_label(form.limitedDisplayBeginning) }}
+                        {{ form_widget(form.limitedDisplayBeginning) }}
+                        {{ form_errors(form.limitedDisplayBeginning) }}
+                        
+                        {{ form_label(form.limitedDisplayEnding) }}
+                        {{ form_widget(form.limitedDisplayEnding) }}
+                        {{ form_errors(form.limitedDisplayEnding) }}
+                        
+                        {{ form_label(form.limitedDisplayNumber) }}
+                        {{ form_widget(form.limitedDisplayNumber) }}
+                        {{ form_errors(form.limitedDisplayNumber) }}
+                    </div>
+                    {% endif %}
+                </div>
+                <h3>Images de l'offre</h3>
+                <div class="offer-images">
+                    {% for image in offer.images %}
+                        <div class="offer-image" image={{ image.id }}>
+                            <div class="offer-image-display">
+                                <img src="{{ image.path }}" alt={{ image.originalName }}/>
+                            </div>
+                            <div class="offer-images-actions" id="offer-image-{{ image.id }}">
+                                <btn type="submit" class='offer-button collection-button'>Supprimer image</btn>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="offer-form-buttons">
+                    <p class="image-error"></p>
+                    {{ form_row(form.submit) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="offer-return">
+            <a class="offer-button" href="{{ path('offer', { id: offer.id }) }}">Retour</a>
+        </div>
+    </div>
+    <script src="/scripts/edit_offer_image.js"></script>
+{% endblock %}

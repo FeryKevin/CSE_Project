@@ -6,9 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
-
-    /* Pour debug */
-    /* outline: 1px red solid; */
 }
 
 .menuPublic {
@@ -671,6 +668,95 @@ input#question {
     width: 100%;
 }
 
+/* OFFERS INDEX */
+
+.offer-card {
+    display: flex;
+    padding: 10px;
+    margin: 10px 20px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+}
+
+.offer-card:last-child {
+    height: auto !important;
+    width: auto !important;
+    align-items: initial !important;
+}
+
+.offer-card img {
+    width: 300px;
+    height: 230px;
+}
+
+.offer-card:last-child {
+    width: 556px;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.offer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-inline: 32px;
+    width: 15vw;
+}
+
+.offer-info h4
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    margin: 0 0 12px;
+    padding: 12px 0 0;
+    text-overflow: ellipsis;
+}
+
+.offer-description
+{
+    padding: 0;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 992px) {
+    .offer-info h4
+    {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .offer-info {
+        width: 40vw;
+    }
+    
+    .offer-card {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .offer-right {
+        padding-block: 20px;
+    }
+
+    .offer-card:last-child {
+        flex-direction: column;
+        width: auto;
+    }
+}
+
 /* OFFER PAGE */
 
 .offer-page {
@@ -812,11 +898,6 @@ ul {
     border: none;
 }
 
-.offer-button:hover {
-    background-color: #b6a786;
-    color: white;
-}
-
 .alert-successBack {
     color: rgb(0, 218, 0);
     text-align: center;
@@ -899,11 +980,364 @@ form button:hover {
     }
 }
 
+/* BO offers */
+#offers
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+#new-offer-buttons
+{
+    margin-bottom: 3vh;
+}
+
+#offers th
+{
+    border: solid 1px black;
+    color: white;
+    background-color: #1c3168;
+}
+
+#offers td
+{
+    border: solid 1px;
+    padding: 0.5vh 1vw;
+}
+
+#offers td a
+{
+    color: #b6a786;
+}
+
+#select-type-offer
+{
+    font-size: smaller;
+}
+
+#form-section
+{
+    margin: 3vh 10vw;
+    border: 5px solid #b6a786;
+    outline: 8px solid #1c3168;
+    border-radius: 7px;
+    padding: 2vh 0.75vw;
+}
+
+.form-title, .menu-title
+{
+    text-align: center;
+}
+
+.menu-title
+{
+    margin: 3vh 0;
+}
+
+.form-separate
+{
+    display: flex;
+}
+
+.form-left, .form-right
+{
+    width: 45vw;
+    padding-left: 3vw;
+}
+
+.full-width-form
+{
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.form-left > div, .form-right-permanent > div, .form-right-limited > div
+{
+    margin-bottom: 1vh;
+}
+
+#form-section h3
+{
+    text-align: center;
+}
+
+#form-section label
+{
+    display: block;
+}
+
+#form-section input, #form-section textarea, #form-section select, #form-section p
+{
+    margin: 0.5vh 0;
+}
+
+#form-section textarea
+{
+    width: 30vw;
+}
+
+#form-section ul
+{
+    padding-left: 0;
+}
+
+#form-section li:not(.li-image)
+{
+    margin-top: 0;
+    color: red;
+}
+
+.form-multiple-choice
+{
+    margin-top: 2vh;
+    display: flex;
+}
+
+.form-choice label
+{
+    text-decoration: none;
+}
+
+.form-right select
+{
+    margin-bottom: 1vh;
+}
+
+#offer-body
+{
+    margin: 3vh 0;
+}
+
 .offer-body img {
     width: 361px;
     height: auto;
     margin-inline: 20px;
     margin-top: 20px;
+}
+
+.offer-button
+{
+    text-decoration: none;
+    font-size: larger;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 5px;
+    color: white;
+    background-color: #1c3168;
+}
+
+.collection-button
+{
+    font-size: 1em;
+    padding: 0.5vh 0.5vw;
+}
+
+.offer-button:hover
+{
+    color: #b6a786;
+}
+
+#offers .offer-button
+{
+    margin-top: 1vh;
+}
+
+.offer-form-buttons
+{
+    margin-top: 1vh;
+    margin-left: 3vw;
+    display: flex;
+}
+
+.offer-form-buttons > *
+{
+    margin-right: 1vh;
+}
+
+.offer-form-buttons .offer-button
+{
+    font-size: 14px;
+}
+
+.offer-buttons
+{
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 3vh;
+}
+
+.offer-return
+{
+    margin: 0 0 3vh 14vw;
+}
+
+#permanent_offer_images, #limited_offer_images
+{
+    margin-top: 1vh;
+}
+
+#permanent_offer_images li, #limited_offer_images li
+{
+    margin-top: 1vh;
+    display: flex;
+    list-style-type: none;
+}
+
+#permanent_offer_images li input, #limited_offer_images li input
+{
+    margin: 0;
+}
+
+.image-error
+{
+    font-size: 14px;
+    color: red;
+    margin: 1vh 0 !important;
+}
+
+.offer-images
+{
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    margin-bottom: 2vh;
+}
+
+.offer-images > div
+{
+    margin-right: 2vw;
+}
+
+.offer-images img
+{
+    display: block;
+    max-height: 15vh;
+    max-width: 15vw;
+    height: auto;
+    width: auto;
+}
+
+.offer-image-display
+{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-image
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer-images-actions
+{
+    display: flex;
+    justify-content: center;
+}
+
+#offers_form label
+{
+    margin: 1vh 0;
+}
+
+.view-offer
+{
+    padding-top: 0 !important;
+}
+
+.view-offer label
+{
+    font-weight: bold;
+    margin: 2vh 0 0 !important;
+}
+
+#offers_form .offer-images
+{
+    height: 15vh;
+}
+
+@media screen and (max-width: 1070px) {
+    #permanent_offer_images li > div, #limited_offer_images li > div
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 991.5px) {
+    .offer-button
+    {
+        font-size: smaller;
+    }
+
+    .offer-return
+    {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    #form-section input
+    {
+        width: 50%;
+    }
+
+    #permanent_offer_images li input, #limited_offer_images li input
+    {
+        width: 100%;
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 767.5px) {
+    #new-offer-buttons
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-separate
+    {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .offer-form-buttons
+    {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #permanent_offer_images, #limited_offer_images
+    {
+        align-items: center;
+    }
+    
+    #permanent_offer_images li, #limited_offer_images li
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #permanent_offer_images li input, #limited_offer_images li input
+    {
+        margin: 1vh 0 0.5vh;
+        width: 100%;
+    }
+    
+    #permanent_offer_images li button, #limited_offer_images li button
+    {
+        margin: 0;
+        width: fit-content;
+        padding: 0.5vh 2vw;
+    }
 }
 
 @media screen and (max-width: 580px) {
