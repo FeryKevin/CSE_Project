@@ -1146,7 +1146,8 @@ form button:hover {
 
 .offer-button:hover
 {
-    color: #b6a786;
+    color: white;
+    background-color: #b6a786;
 }
 
 #offers .offer-button
