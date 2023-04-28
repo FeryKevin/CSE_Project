@@ -49,7 +49,7 @@ class OfferRepository extends ServiceEntityRepository
      * 
      * @return Offer[]
      */
-    public function findWithPaginator(int $page, int $limit = 3): array
+    public function findWithPaginator(int $page, int $limit, string $type = null): array
     {
         $result = [];
         $page = abs($page);
@@ -58,9 +58,12 @@ class OfferRepository extends ServiceEntityRepository
             ->select('f')
             ->from('App\Entity\Offer', 'f')
             ->setMaxResults($limit)
-            ->setFirstResult(($page - 1) * $limit)
-            ->where('f.permanentValidityBeginning IS null')
-            ->orderBy('f.limitedDisplayNumber', 'DESC');
+            ->setFirstResult(($page - 1) * $limit);
+        if ($type === "limited") {
+            $query
+                ->where('f.permanentValidityBeginning IS null')
+                ->orderBy('f.limitedDisplayNumber', 'DESC');
+        }
 
         $paginator = new Paginator($query);
         $data = $query->getQuery()->getResult();

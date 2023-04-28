@@ -3,9 +3,13 @@
 {% block title %}Offres{% endblock %}  
 
 {% block body %}
+    <div class='menuPublic'>
+        {{ include('include/menu.html.twig') }}
+    </div>
+
     <h3 class='hMessage'>Offres :</h3> 
     <div class='partners-container'>
-        {% for offer in offers %}
+        {% for offer in pagination.data %}
             <div class='offer-card'>
                 <label for='image-{{ offer.id }}'><img src={{ offer.images[0].path }} /></label>
                 <div class='offer-right'>
@@ -20,6 +24,7 @@
             </div>
         {% endfor %}
     </div>
+    {{ include('components/_paginationIndex.html.twig') }}
     <div class='btnPArtner'>
         <a class='offer-button' href={{ path('home') }}>Retour à l'accueil</a>
     </div>
