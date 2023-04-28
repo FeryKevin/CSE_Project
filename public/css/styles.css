@@ -674,28 +674,55 @@ input#question {
 {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
-.offer-card {
+#offers-index:first-child
+{
+    flex-direction: row;
+}
+
+.offer-card
+{
     display: flex;
     padding: 10px;
-    margin: 10px 15px;
+    margin: 10px 10px;
     background-color: #d9d9d9;
     border-radius: 5px;
 }
 
-.offer-card:last-child {
+.offer-card:last-child
+{
     height: auto !important;
     width: auto !important;
     align-items: initial !important;
 }
 
-.offer-card img {
-    width: 300px;
-    height: 230px;
+.offer-card label
+{
+    display: flex;
+    justify-content: center;
 }
 
-.offer-card:last-child {
+.offer-more
+{
+    margin-top: 2vh;
+}
+
+.offer-more a
+{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.offer-card img {
+    width: 260px;
+    height: 210px;
+}
+
+.offer-card:last-child
+{
     width: 556px;
     height: 224px;
     display: flex;
@@ -704,7 +731,8 @@ input#question {
     text-decoration: none;
 }
 
-.offer-right {
+.offer-right
+{
     display: flex;
     flex-direction: column;
 }
@@ -714,7 +742,7 @@ input#question {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-inline: 32px;
+    margin-inline: 20px;
     width: 12vw;
 }
 
@@ -752,8 +780,16 @@ input#question {
         justify-content: center !important;
     }
     
-    .offer-info {
+    .offer-info
+    {
+        height: 100%;
         width: 30vw;
+        justify-content: space-between;
+    }
+
+    .offer-more
+    {
+        padding-bottom: 12px;
     }
 
     .pagination-offers
@@ -763,7 +799,8 @@ input#question {
 }
 
 @media screen and (max-width: 992px) {
-    .offer-info {
+    .offer-info
+    {
         width: 40vw;
     }
     
@@ -772,7 +809,8 @@ input#question {
         font-size: 20px;
     }
 
-    .offer-card img {
+    .offer-card img
+    {
         width: 300px;
         height: 230px;
     }
@@ -782,6 +820,12 @@ input#question {
     .offer-info
     {
         width: 60vw;
+    }
+
+    .offer-more
+    {
+        margin-top: 3vh;
+        padding: 0;
     }
     
     .offer-card
@@ -1105,6 +1149,11 @@ form button:hover {
     text-align: center;
 }
 
+.form-title
+{
+    margin: 2vh 3vw 3vh;
+}
+
 .menu-title
 {
     margin: 3vh 0;
@@ -1346,11 +1395,6 @@ form button:hover {
     margin: 1vh 0;
 }
 
-.view-offer
-{
-    padding-top: 0 !important;
-}
-
 .view-offer label
 {
     font-weight: bold;
@@ -1377,6 +1421,11 @@ form button:hover {
 }
 
 @media screen and (max-width: 991.5px) {
+    .form-title
+    {
+        margin: 1vh 3vw 2vh;
+    }
+
     #offer-body h3
     {
         font-size: 18px;
@@ -1398,9 +1447,9 @@ form button:hover {
         text-align: center;
     }
     
-    #form-section input[type=text]
+    #form-section input[type=text], #form-section textarea
     {
-        width: 24vh;
+        width: 50vw;
     }
 
     #permanent_offer_images li input, #limited_offer_images li input
@@ -1434,6 +1483,7 @@ form button:hover {
         width: fit-content;
         padding-left: 2vw;
         padding-right: 2vw;
+        margin-bottom: 1vh;
     }
 
     .form-separate

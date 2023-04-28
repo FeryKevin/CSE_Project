@@ -19,7 +19,9 @@
                             <div class="offer-description">
                                 <p>{{ offer.description }}</p>
                             </div>
-                            <a class='offer-about' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+                            <div class="offer-more">
+                                <a class='offer-about-button' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+                            </div>
                         </div>
                     </div>
                 </div><br>
