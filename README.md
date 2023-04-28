@@ -38,6 +38,7 @@ Pour lancer le serveur de développement :
 ```bash
 symfony serve
 ```
+<br>
 
 ## Connexion
 
@@ -50,6 +51,7 @@ Password :
 ```bash
 aaa
 ```
+<br>
 
 ## Optionnel
 Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher
