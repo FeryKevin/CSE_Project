@@ -213,13 +213,17 @@ class OfferController extends AbstractController
     }
 
     // Partie publique
-    #[Route(path: ('/offres'), name: 'offers')]
-    public function index(OfferRepository $offerRepository)
+    #[Route(path: '/offres', name: 'offers'), Route(path: '/offres/page/{page}', name: 'pagined_offers')]
+    public function home(CSERepository $cseRepository, OfferRepository $offerRepository, int $page = 1): Response
     {
-        $offers = $offerRepository->findAll();
+        $pagination = $offerRepository->findWithPaginator($page, $limit = 8);
+
+        $cse = $cseRepository->findAll()[0];
 
         return $this->render('offers/index.html.twig', [
-            'offers' => $offers,
-        ]);
+                'pagination' => $pagination,
+                'email' => $cse->getEmail(),
+            ]
+        );
     }
 }

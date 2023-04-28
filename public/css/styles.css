@@ -670,26 +670,59 @@ input#question {
 
 /* OFFERS INDEX */
 
-.offer-card {
+#offers-index
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#offers-index:first-child
+{
+    flex-direction: row;
+}
+
+.offer-card
+{
     display: flex;
     padding: 10px;
-    margin: 10px 20px;
+    margin: 10px 10px;
     background-color: #d9d9d9;
     border-radius: 5px;
 }
 
-.offer-card:last-child {
+.offer-card:last-child
+{
     height: auto !important;
     width: auto !important;
     align-items: initial !important;
 }
 
-.offer-card img {
-    width: 300px;
-    height: 230px;
+.offer-card label
+{
+    display: flex;
+    justify-content: center;
 }
 
-.offer-card:last-child {
+.offer-more
+{
+    margin-top: 2vh;
+}
+
+.offer-more a
+{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.offer-card img {
+    width: 260px;
+    height: 210px;
+}
+
+.offer-card:last-child
+{
     width: 556px;
     height: 224px;
     display: flex;
@@ -698,7 +731,8 @@ input#question {
     text-decoration: none;
 }
 
-.offer-right {
+.offer-right
+{
     display: flex;
     flex-direction: column;
 }
@@ -708,8 +742,8 @@ input#question {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-inline: 32px;
-    width: 15vw;
+    margin-inline: 20px;
+    width: 12vw;
 }
 
 .offer-info h4
@@ -724,36 +758,107 @@ input#question {
     text-overflow: ellipsis;
 }
 
+.offer-info a
+{
+    width: auto !important;
+}
+
 .offer-description
 {
     padding: 0;
     text-overflow: ellipsis;
 }
 
+.pagination-offers
+{
+    text-align: center;
+}
+
+@media screen and (max-width: 1400px) {
+    .offers-container
+    {
+        justify-content: center !important;
+    }
+    
+    .offer-info
+    {
+        height: 100%;
+        width: 30vw;
+        justify-content: space-between;
+    }
+
+    .offer-more
+    {
+        padding-bottom: 12px;
+    }
+}
+
 @media screen and (max-width: 992px) {
+    .offer-info
+    {
+        width: 40vw;
+    }
+    
     .offer-info h4
     {
         font-size: 20px;
     }
+
+    .offer-card img
+    {
+        width: 300px;
+        height: 230px;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .offer-info {
-        width: 40vw;
+    .offer-info
+    {
+        width: 60vw;
+    }
+
+    .offer-more
+    {
+        margin-top: 3vh;
+        padding: 0;
     }
     
-    .offer-card {
+    .offer-card
+    {
         flex-direction: column;
         padding: 5px;
     }
 
-    .offer-right {
+    .offer-right
+    {
         padding-block: 20px;
     }
 
-    .offer-card:last-child {
+    .offer-card:last-child
+    {
         flex-direction: column;
         width: auto;
+    }
+
+    .offer-card label
+    {
+        display: flex;
+        justify-content: center;
+    }
+
+    .offer-card label img
+    {
+        margin-top: 2vh;
+        width: 360px;
+        height: 270px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .offer-card label img
+    {
+        width: 300px;
+        height: 230px;
     }
 }
 
@@ -995,8 +1100,14 @@ form button:hover {
     margin-bottom: 3vh;
 }
 
+#new-offer-buttons a
+{
+    display: inline-block;
+}
+
 #offers th
 {
+    font-weight: 500;
     border: solid 1px black;
     color: white;
     background-color: #1c3168;
@@ -1010,7 +1121,8 @@ form button:hover {
 
 #offers td a
 {
-    color: #b6a786;
+    color: white;
+    text-decoration: none;
 }
 
 #select-type-offer
@@ -1030,6 +1142,11 @@ form button:hover {
 .form-title, .menu-title
 {
     text-align: center;
+}
+
+.form-title
+{
+    margin: 2vh 3vw 3vh;
 }
 
 .menu-title
@@ -1074,11 +1191,6 @@ form button:hover {
     margin: 0.5vh 0;
 }
 
-#form-section textarea
-{
-    width: 30vw;
-}
-
 #form-section ul
 {
     padding-left: 0;
@@ -1111,7 +1223,19 @@ form button:hover {
     margin: 3vh 0;
 }
 
-.offer-body img {
+#offer-body label
+{
+    margin-top: 2vh !important;
+    font-weight: 600;
+}
+
+#offer-body p
+{
+    max-width: 35vw;
+}
+
+.offer-body img
+{
     width: 361px;
     height: auto;
     margin-inline: 20px;
@@ -1120,12 +1244,29 @@ form button:hover {
 
 .offer-button
 {
-    text-decoration: none;
-    font-size: larger;
-    border: none;
-    padding: 1vh 1vw;
-    border-radius: 5px;
+    background-color: #1c3168;
+    border-radius: 8px;
     color: white;
+    text-decoration: none;
+    border: none;
+    margin-top: 5%;
+}
+
+.offer-button:hover
+{
+    background-color: #b6a786;
+    border: none;
+    color: white;
+}
+
+.yellow-button
+{
+    background-color: #b6a786;
+    color: white;
+}
+
+.yellow-button:hover
+{
     background-color: #1c3168;
 }
 
@@ -1133,11 +1274,7 @@ form button:hover {
 {
     font-size: 1em;
     padding: 0.5vh 0.5vw;
-}
-
-.offer-button:hover
-{
-    color: #b6a786;
+    margin-top: 0;
 }
 
 #offers .offer-button
@@ -1157,9 +1294,10 @@ form button:hover {
     margin-right: 1vh;
 }
 
-.offer-form-buttons .offer-button
+.offer-form-buttons > div > .offer-button
 {
-    font-size: 14px;
+    width: fit-content;
+    margin-top: 0;
 }
 
 .offer-buttons
@@ -1171,7 +1309,27 @@ form button:hover {
 
 .offer-return
 {
-    margin: 0 0 3vh 14vw;
+    margin: 0 0 3vh 10vw;
+}
+
+#form-section input[type=text]
+{
+    width: 30vw;
+}
+
+#form-section textarea
+{
+    width: 35vw;
+}
+
+#form-section input[type=text], #form-section input[type=number], #form-section textarea
+{
+    margin-bottom: 2vh;
+}
+
+.form-right > div, .form-right-permanent > div, .form-right-limited > div
+{
+    margin-bottom: 2vh;
 }
 
 #permanent_offer_images, #limited_offer_images
@@ -1193,9 +1351,9 @@ form button:hover {
 
 .image-error
 {
-    font-size: 14px;
-    color: red;
     margin: 1vh 0 !important;
+    font-size: 1rem;
+    color: red;
 }
 
 .offer-images
@@ -1208,16 +1366,16 @@ form button:hover {
 
 .offer-images > div
 {
-    margin-right: 2vw;
+    margin: 0 1vw;
 }
 
 .offer-images img
 {
     display: block;
+    min-height: 12vh;
+    min-width: 12vw;
     max-height: 15vh;
     max-width: 15vw;
-    height: auto;
-    width: auto;
 }
 
 .offer-image-display
@@ -1246,11 +1404,6 @@ form button:hover {
     margin: 1vh 0;
 }
 
-.view-offer
-{
-    padding-top: 0 !important;
-}
-
 .view-offer label
 {
     font-weight: bold;
@@ -1262,34 +1415,49 @@ form button:hover {
     height: 15vh;
 }
 
-@media screen and (max-width: 1070px) {
-    #permanent_offer_images li > div, #limited_offer_images li > div
-    {
-        width: 80%;
-    }
+#modal-delete .modal-body a
+{
+    margin-top: 0;
 }
 
 @media screen and (max-width: 991.5px) {
-    .offer-button
+    .form-title
+    {
+        margin: 1vh 3vw 2vh;
+    }
+
+    #offer-body h3
+    {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    
+    #offer-body
     {
         font-size: smaller;
     }
-
+    
     .offer-return
     {
         margin-left: 0;
         text-align: center;
-    }
-    
-    #form-section input
-    {
-        width: 50%;
     }
 
     #permanent_offer_images li input, #limited_offer_images li input
     {
         width: 100%;
         font-size: smaller;
+    }
+
+    .offer-images img
+    {
+        max-width: 18vw;
+        max-height: 18vh;
+    }
+
+    .offer-form-buttons > div > .offer-button
+    {
+        padding: 1vh 1vw;
     }
 }
 
@@ -1298,6 +1466,15 @@ form button:hover {
     {
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    #new-offer-buttons a
+    {
+        width: fit-content;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        margin-bottom: 1vh;
     }
 
     .form-separate
@@ -1305,6 +1482,38 @@ form button:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .form-left, .form-right
+    {
+        width: 75vw;
+    }
+
+    .form-left
+    {
+        padding-left: 0;
+    }
+
+    #offer-body p
+    {
+        max-width: initial;
+    }
+
+    #form-section input[type=text], #form-section textarea
+    {
+        width: 50vw;
+    }
+
+    #permanent_offer_images, #limited_offer_images
+    {
+        margin-bottom: 2vh;
+    }
+
+    #permanent_offer_images li > div, #limited_offer_images li > div
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .offer-form-buttons
@@ -1315,6 +1524,24 @@ form button:hover {
         align-items: center;
     }
 
+    .offer-form-buttons > *
+    {
+        margin-right: 0;
+    }
+
+    .offer-form-buttons > div
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 15vw;
+    }
+
+    .offer-form-buttons .offer-button
+    {
+        margin: 1vh 0;
+    }
+
     #permanent_offer_images, #limited_offer_images
     {
         align-items: center;
@@ -1322,6 +1549,7 @@ form button:hover {
     
     #permanent_offer_images li, #limited_offer_images li
     {
+        margin: 0 2vw;
         flex-direction: column;
         align-items: center;
     }
@@ -1338,9 +1566,45 @@ form button:hover {
         width: fit-content;
         padding: 0.5vh 2vw;
     }
+
+    .offer-images
+    {
+        height: fit-content !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .offer-images > div
+    {
+        margin-right: 0;
+    }
+    
+    .offer-images img
+    {
+        max-width: 40vw;
+        max-height: 40vh;
+    }
+
+    .offer-image-display
+    {
+        margin: 1vh 0 0.5vh;
+        height: fit-content !important;
+    }
+
+    .submit-offer
+    {
+        padding: 0.5vh 0.5vw !important;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 580px) {
+    .offer-body img {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 425px) {
     .offer-body img {
         width: 85%;
     }

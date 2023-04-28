@@ -32,7 +32,7 @@ class HomeController extends AbstractController
     #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
     public function home(CSERepository $cseRepository, int $page = 1): Response
     {
-        $pagination = $this->offerRepository->findWithPaginator($page);
+        $pagination = $this->offerRepository->findWithPaginator($page, $limit = 3, $type = "limited");
 
         $cse = $cseRepository->findAll()[0];
 
@@ -53,7 +53,7 @@ class HomeController extends AbstractController
         $partners = $partnerRepository->findAll();
 
         return $this->render('partner.html.twig', [
-            'partners' => $partnerRepository->findAll(),
+            'partners' => $partners,
             'email' => $cse->getEmail(),
         ]);
     }
