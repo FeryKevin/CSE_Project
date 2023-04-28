@@ -22,7 +22,7 @@
                         <a {% if route_name == "admin" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin') }}>Accueil</a>
                         <a {% if route_name == "partners" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('partners') }}>Partenariats</a>
                         <a {% if route_name == "admin_update_about" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin_update_about') }}>A propos de nous</a>
-                        <a {% if route_name == "admin_offers" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin') }}>Billetterie</a>
+                        <a {% if route_name == "admin_offers" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href={{ path('admin_offers') }}>Billetterie</a>
                         <a class="nav-link" href={{ path('app_logout') }}>Déconnexion</a>
                     </div>
                 </div>

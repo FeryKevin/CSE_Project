@@ -1020,7 +1020,8 @@ form button:hover {
 
 #offers td a
 {
-    color: #b6a786;
+    color: white;
+    text-decoration: none;
 }
 
 #select-type-offer
