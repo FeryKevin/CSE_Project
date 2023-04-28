@@ -39,5 +39,9 @@ Pour lancer le serveur de développement :
 symfony serve
 ```
 
+## Connexion
+Login : e@e.e
+Password : aaa
+
 ## Optionnel
 Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher
