@@ -41,12 +41,14 @@ symfony serve
 
 ## Connexion
 
+Login :
 ```bash
-Login : e@e.e
+e@e.e
 ```
 
+Password :
 ```bash
-Password : aaa
+aaa
 ```
 
 ## Optionnel
