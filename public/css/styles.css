@@ -1045,8 +1045,8 @@ form button:hover {
 
 #offers td a
 {
-    color: white;
-    text-decoration: none;
+    color: #b6a786;
+    text-decoration: underline;
 }
 
 #select-type-offer
@@ -1160,7 +1160,6 @@ form button:hover {
     color: white;
     text-decoration: none;
     border: none;
-    padding: 1%;
     margin-top: 5%;
 }
 
@@ -1209,7 +1208,6 @@ form button:hover {
 {
     width: fit-content;
     margin-top: 0;
-    padding: 1vh 1vw;
 }
 
 .offer-buttons
@@ -1368,6 +1366,11 @@ form button:hover {
     {
         max-width: 18vw;
         max-height: 18vh;
+    }
+
+    .offer-form-buttons > div > .offer-button
+    {
+        padding: 1vh 1vw;
     }
 }
 

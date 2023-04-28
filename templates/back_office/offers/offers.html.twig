@@ -21,7 +21,7 @@
                 {% for offer in offers %}
                     <tr>
                         <td>{{ offer.name }}</td>
-                        <td><button class='admin-delete'><a href="{{ path('offer', { id: offer.id }) }}">Voir les détails</a></button></td>
+                        <td><a href="{{ path('offer', { id: offer.id }) }}">Voir les détails</a></td>
                     </tr>
                 {% else %}
                     <tr>
