@@ -103,7 +103,7 @@ function checkImagesInputs() {
     if (index > 1) {
         for (i = 1; i < index; i++) {
             input = document.getElementById(`${type}_offer_images_${i}_file`);
-            if (input.files !== undefined) {
+            if (input !== null) {
                 if (input.files) {
                     if (input.files.length > 0) {
                         fileName = input.files[0].name;
@@ -117,8 +117,6 @@ function checkImagesInputs() {
                         imageError.innerText = "Champ(s) de fichier vide(s)";
                         showSubmit = false;
                     }
-                } else {
-                    // showSubmit = false;
                 }
             }
         
