@@ -1228,6 +1228,12 @@ form button:hover {
     margin: 3vh 0;
 }
 
+#offer-body label
+{
+    margin-top: 2vh !important;
+    font-weight: 600;
+}
+
 .offer-body img {
     width: 361px;
     height: auto;
