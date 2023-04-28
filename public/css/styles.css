@@ -670,6 +670,12 @@ input#question {
 
 /* OFFERS INDEX */
 
+#offers-index
+{
+    display: flex;
+    flex-direction: column;
+}
+
 .offer-card {
     display: flex;
     padding: 10px;
@@ -685,7 +691,7 @@ input#question {
 }
 
 .offer-card img {
-    width: 230px;
+    width: 300px;
     height: 230px;
 }
 
@@ -735,9 +741,24 @@ input#question {
     text-overflow: ellipsis;
 }
 
+.pagination-offers
+{
+    margin-left: 11px;
+}
+
 @media screen and (max-width: 1400px) {
+    .offers-container
+    {
+        justify-content: center !important;
+    }
+    
     .offer-info {
         width: 30vw;
+    }
+
+    .pagination-offers
+    {
+        text-align: center;
     }
 }
 
@@ -758,31 +779,47 @@ input#question {
 }
 
 @media screen and (max-width: 768px) {
-    .offer-info {
+    .offer-info
+    {
         width: 60vw;
     }
     
-    .offer-card {
+    .offer-card
+    {
         flex-direction: column;
         padding: 5px;
     }
 
-    .offer-right {
+    .offer-right
+    {
         padding-block: 20px;
     }
 
-    .offer-card:last-child {
+    .offer-card:last-child
+    {
         flex-direction: column;
         width: auto;
     }
 
-    .offer-card label {
+    .offer-card label
+    {
         display: flex;
         justify-content: center;
     }
 
-    .offer-card label img {
-        width: 100%;
+    .offer-card label img
+    {
+        margin-top: 2vh;
+        width: 360px;
+        height: 270px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .offer-card label img
+    {
+        width: 300px;
+        height: 230px;
     }
 }
 
@@ -1110,11 +1147,6 @@ form button:hover {
     margin: 0.5vh 0;
 }
 
-#form-section textarea
-{
-    width: 30vw;
-}
-
 #form-section ul
 {
     padding-left: 0;
@@ -1222,9 +1254,24 @@ form button:hover {
     margin: 0 0 3vh 10vw;
 }
 
-#form-section input[type=text], #form-section input[type=number]
+#form-section input[type=text]
 {
-    margin-bottom: 1vh;
+    width: 30vw;
+}
+
+#form-section textarea
+{
+    width: 35vw;
+}
+
+#form-section input[type=text], #form-section input[type=number], #form-section textarea
+{
+    margin-bottom: 2vh;
+}
+
+.form-right > div, .form-right-permanent > div, .form-right-limited > div
+{
+    margin-bottom: 2vh;
 }
 
 #permanent_offer_images, #limited_offer_images
@@ -1330,7 +1377,7 @@ form button:hover {
 }
 
 @media screen and (max-width: 991.5px) {
-    .form-title, #offer-body h3
+    #offer-body h3
     {
         font-size: 18px;
     }
@@ -1351,9 +1398,9 @@ form button:hover {
         text-align: center;
     }
     
-    #form-section input
+    #form-section input[type=text]
     {
-        width: 50%;
+        width: 24vh;
     }
 
     #permanent_offer_images li input, #limited_offer_images li input
