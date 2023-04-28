@@ -13,40 +13,49 @@
                         {{ form_label(form.name) }}
                         {{ form_widget(form.name) }}
                         {{ form_errors(form.name) }}
+                        <br>
 
                         {{ form_label(form.description) }}
                         {{ form_widget(form.description) }}
                         {{ form_errors(form.description) }}
+                        <br>
 
                         {{ form_label(form.images) }}
                         {{ form_widget(form.images) }}
                         {{ form_errors(form.images) }}
+                        <br>
                     </div>
                     <div class="form-right">
                         {% if type == "permanente" %}
                             {{ form_label(form.permanentValidityBeginning) }}
                             {{ form_widget(form.permanentValidityBeginning) }}
                             {{ form_errors(form.permanentValidityBeginning) }}
+                            <br>
 
                             {{ form_label(form.permanentValidityEnding) }}
                             {{ form_widget(form.permanentValidityEnding) }}
                             {{ form_errors(form.permanentValidityEnding) }}
+                            <br>
                             
                             {{ form_label(form.permanentMinimumPlaces) }}
                             {{ form_widget(form.permanentMinimumPlaces) }}
                             {{ form_errors(form.permanentMinimumPlaces) }}
+                            <br>
                         {% else %}
                             {{ form_label(form.limitedDisplayBeginning) }}
                             {{ form_widget(form.limitedDisplayBeginning) }}
                             {{ form_errors(form.limitedDisplayBeginning) }}
+                            <br>
                             
                             {{ form_label(form.limitedDisplayEnding) }}
                             {{ form_widget(form.limitedDisplayEnding) }}
                             {{ form_errors(form.limitedDisplayEnding) }}
+                            <br>
                             
                             {{ form_label(form.limitedDisplayNumber) }}
                             {{ form_widget(form.limitedDisplayNumber) }}
                             {{ form_errors(form.limitedDisplayNumber) }}
+                            <br>
                         {% endif %}
                     </div>
                 </div>
@@ -59,7 +68,7 @@
         </div>
     </section>
     <div class="offer-return">
-        <a class="offer-button" href="{{ path('admin_offers') }}">Retour au menu des offres</a>
+        <a class="offer-button" href="{{ path('admin_offers') }}">Retour</a>
     </div>
     <script src="/scripts/add_offer_image.js"></script>
     <script>
