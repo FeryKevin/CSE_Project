@@ -1234,6 +1234,11 @@ form button:hover {
     font-weight: 600;
 }
 
+#offer-body p
+{
+    max-width: 35vw;
+}
+
 .offer-body img {
     width: 361px;
     height: auto;
