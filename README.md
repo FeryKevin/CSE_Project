@@ -40,8 +40,14 @@ symfony serve
 ```
 
 ## Connexion
+
+```bash
 Login : e@e.e
+```
+
+```bash
 Password : aaa
+```
 
 ## Optionnel
 Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher
