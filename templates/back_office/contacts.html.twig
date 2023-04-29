@@ -10,26 +10,30 @@
                 
                 <h3 class='hMessage'>Messages :</h3>
 
-                <div class='table-responsive'>
-                    <table class="table table-striped table-bordered" id='msg-table'>
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Prénom</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Message</th>
-                            <tr>
-                        </thead>
-                        {% for message in contacts %}
-                            <tr>
-                                <th scope="row">{{ message.name }}</th>
-                                <td>{{ message.firstName }}</td>
-                                <td>{{ message.email }}</td>
-                                <td class='contact-msg'>{{ message.message }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+                {% if contacts|length > 0 %}
+                    <div class='table-responsive'>
+                        <table class="table table-striped table-bordered" id='msg-table'>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Message</th>
+                                <tr>
+                            </thead>
+                            {% for message in contacts %}
+                                <tr>
+                                    <th scope="row">{{ message.name }}</th>
+                                    <td>{{ message.firstName }}</td>
+                                    <td>{{ message.email }}</td>
+                                    <td class='contact-msg'>{{ message.message }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                {% else %}
+                    <p class='hMessage'>Pas de message</p>
+                {% endif %}
 
             </div>
         </div>

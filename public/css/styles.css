@@ -677,9 +677,28 @@ input#question {
     margin: 0;
 }
 
-#offers-index:first-child
+.filter-buttons
 {
-    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    margin-right: 4%;
+    margin-bottom: 2%;
+}
+
+.filter-buttons a
+{
+    margin-top: 0;
+    margin-left: 3%;
+}
+
+.index-filters
+{
+    margin-top: 20vh;
+}
+
+.index-filters a
+{
+    padding: 2vh 2vw;
 }
 
 .offers-container
@@ -711,7 +730,7 @@ input#question {
 
 .offer-more
 {
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 .offer-more a
@@ -758,9 +777,15 @@ input#question {
     -webkit-box-orient: vertical;
     overflow: hidden;
     white-space: normal;
-    margin: 0 0 12px;
+    margin: 0;
     padding: 12px 0 0;
     text-overflow: ellipsis;
+}
+
+.offer-published-at
+{
+    margin: 0 0 10px;
+    font-size: smaller;
 }
 
 .offer-info a
@@ -794,6 +819,11 @@ input#question {
 }
 
 @media screen and (max-width: 992px) {
+    .filter-buttons a
+    {
+        font-size: 14px;
+    }
+    
     .offer-info
     {
         width: 40vw;
@@ -812,6 +842,11 @@ input#question {
 }
 
 @media screen and (max-width: 768px) {
+    .filter-buttons
+    {
+        margin-right: 6%;
+    }
+    
     .offer-info
     {
         width: 60vw;
@@ -855,6 +890,11 @@ input#question {
 }
 
 @media screen and (max-width: 425px) {
+    .filter-buttons
+    {
+        margin-right: 0;
+    }
+
     .offer-card label img
     {
         width: 300px;
@@ -1401,7 +1441,7 @@ form button:hover {
 
 #offers_form label
 {
-    margin: 1vh 0;
+    margin: 2vh 0 0;
 }
 
 .view-offer label

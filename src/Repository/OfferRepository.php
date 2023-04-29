@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Offer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping\OrderBy;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
@@ -58,11 +59,25 @@ class OfferRepository extends ServiceEntityRepository
             ->select('f')
             ->from('App\Entity\Offer', 'f')
             ->setMaxResults($limit)
-            ->setFirstResult(($page - 1) * $limit);
+            ->setFirstResult(($page - 1) * $limit)
+            ->addOrderBy('f.limitedDisplayNumber', 'ASC')
+            ->addOrderBy('f.publishedAt', 'DESC');
         if ($type === "limited") {
             $query
                 ->where('f.permanentValidityBeginning IS null')
-                ->orderBy('f.limitedDisplayNumber', 'DESC');
+                ->andWhere($query->expr()->lte('f.limitedDisplayBeginning', ':now'))
+                ->andWhere($query->expr()->gte('f.limitedDisplayEnding', ':now'))
+                ->andWhere($query->expr()->neq('f.limitedDisplayNumber', 0))
+                ->setParameter('now', new \DateTimeImmutable(), Types::DATETIME_IMMUTABLE);
+
+        } elseif ($type === "permanent") {
+            $query
+                ->where('f.limitedDisplayNumber IS null');
+        } elseif ($type === "lastLimited") {
+            $query
+                ->where('f.permanentValidityBeginning IS null')
+                ->andWhere($query->expr()->neq('f.limitedDisplayNumber', 0))
+                ->orderBy('f.publishedAt', 'DESC');
         }
 
         $paginator = new Paginator($query);
