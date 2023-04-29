@@ -40,15 +40,15 @@ class OfferController extends AbstractController
             foreach ($offer->getImages() as $img) {
                 $img->handleForm($offer);
                 $path = $img->getFile()->getRealPath();
-                move_uploaded_file($path, '.'.$img->getPath());
+                move_uploaded_file($path, '.' . $img->getPath());
             }
-            
+
             $em->persist($offer);
             $em->flush();
 
             return $this->redirectToRoute('admin_offers');
         }
-        
+
         return $this->render('back_office/offers/create_offer.html.twig', [
             'form' => $form->createView(),
             'type' => 'permanente'
@@ -56,17 +56,16 @@ class OfferController extends AbstractController
     }
 
     #[Route(path: "/admin/offer/create_limited", name: "create_limited_offer")]
-    public function createLimitedOffer(EntityManagerInterface $em,
-        Request $request): Response
+    public function createLimitedOffer(EntityManagerInterface $em, Request $request, Newsletter $mailer): Response
     {
         $offer = new Offer();
-        
+
         $form = $this->createForm(LimitedOfferType::class, $offer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $offer->setType("limited");
-            
+
             $now = new DateTime('now');
             $now_string = $now->format('Y-m-d H:i:s');
             $now = date_create_from_format('Y-m-d H:i:s', $now_string);
@@ -76,15 +75,17 @@ class OfferController extends AbstractController
             foreach ($offer->getImages() as $img) {
                 $img->handleForm($offer);
                 $path = $img->getFile()->getRealPath();
-                move_uploaded_file($path, '.'.$img->getPath());
+                move_uploaded_file($path, '.' . $img->getPath());
             }
 
             $em->persist($offer);
             $em->flush();
 
+            $mailer->sendNewOffer($offer);
+
             return $this->redirectToRoute('admin_offers');
         }
-        
+
         return $this->render('back_office/offers/create_offer.html.twig', [
             'form' => $form->createView(),
             'type' => 'limitée'
@@ -156,29 +157,31 @@ class OfferController extends AbstractController
             if ($form->isSubmitted()) {
                 if ($form->isValid()) {
                     $offer = $form->getData();
-    
+
                     foreach ($offer->getImages() as $img) {
                         $img->handleForm($offer);
                         $path = $img->getFile()->getRealPath();
-                        move_uploaded_file($path, '.'.$img->getPath());
+                        move_uploaded_file($path, '.' . $img->getPath());
                     }
-                    
+
                     $em->persist($offer);
                     $em->flush();
-    
-                    $newsletter->sendUpdateOffer($offer);
-                    
+
+                    if ($offer->getType() == "limited") {
+                        $newsletter->sendUpdateOffer($offer);
+                    }
+
                     return $this->redirectToRoute('offer', ['id' => $id]);
                 }
             }
-            
+
             return $this->render('back_office/offers/edit_offer.html.twig', [
                 'offer' => $offer,
                 'form' => $form->createView(),
             ]);
         }
     }
-    
+
     #[Route(path: "/admin/offers/delete_image", name: "delete_offer_image", methods: ['POST', 'OPTIONS', 'DELETE'])]
     public function deleteImage(FileRepository $fileRepository,
         Request $request,
@@ -198,7 +201,7 @@ class OfferController extends AbstractController
 
         return new Response('Survey has been updated');
     }
-    
+
     #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]
     public function deleteOffer(OfferRepository $offerRepository,
         int $id,
@@ -261,7 +264,9 @@ class OfferController extends AbstractController
 
         $cse = $cseRepository->findAll()[0];
 
-        return $this->render('offers/index.html.twig', [
+        return $this->render(
+            'offers/index.html.twig',
+            [
                 'pagination' => $pagination,
                 'email' => $cse->getEmail(),
                 'type' => 'limited',

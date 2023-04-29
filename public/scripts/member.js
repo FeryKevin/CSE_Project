@@ -3,9 +3,9 @@ const btnDelete = document.getElementsByClassName('member-delete')
 for (let button of btnDelete) {
     button.addEventListener('click', (e) => {
         let id = e.target.getAttribute('data')
-        
+
         let data = `{"id": "${id}"}`
-        if(confirm('Voulez vous vraiment supprimer ce membre')){
+        if (confirm('Voulez vous vraiment supprimer ce membre')) {
             postData(data, "http://localhost:8000/admin/members/delete").then(window.location.reload())
         }
     })
@@ -19,7 +19,7 @@ for (let button of btnUpdate) {
         let inputs = document.getElementsByClassName(`member-${id}`)
         let data = `{"id" : ${id}, `
 
-        for (let input of inputs){
+        for (let input of inputs) {
             data += `"${input.name}" : "${input.value}", `
         }
 
@@ -30,7 +30,7 @@ for (let button of btnUpdate) {
 
 const forms = document.getElementsByClassName('form-member-image')
 
-for (let form of forms){
+for (let form of forms) {
 
     form.addEventListener('change', (e) => {
 
@@ -38,11 +38,11 @@ for (let form of forms){
 
         let body = new FormData()
 
-        if (['png', 'webp', 'jpg'].includes(e.target.value.split('.').pop())){
+        if (['png', 'webp', 'jpg'].includes(e.target.value.split('.').pop())) {
             body.append('image', e.target.files[0])
             postImgData(body, id).then(window.location.reload())
         }
-        
+
     })
 }
 
