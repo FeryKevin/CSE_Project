@@ -17,7 +17,7 @@ class CSEFixtures extends Fixture
         $cse->setPresentationHome($faker->text())
             ->setPresentationAbout($faker->text())
             ->setRules($faker->text())
-            ->setEmail($faker->email())
+            ->setEmail("cse@lyceestvincent.net")
             ->setActions($faker->text());
         $manager->persist($cse);
 
