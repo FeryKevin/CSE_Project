@@ -16,36 +16,43 @@
 
                 <div class='partners-container'>
 
-                    {% for partners in partners %}
+                    {% if partners|length > 0 %}
+                        
+                        {% for partners in partners %}
 
-                        <div class='partner-card'>
+                            <div class='partner-card'>
 
-                            <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+                                <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
 
-                            <div class='partner-right'>
+                                <div class='partner-right'>
 
-                                <div class='partner-info'>
+                                    <div class='partner-info'>
 
-                                    <div class='partnerName'>
-                                        {{ partners.name }}
-                                    </div>
+                                        <div class='partnerName'>
+                                            {{ partners.name }}
+                                        </div>
 
-                                    <div class='partnerDescription'>
-                                    {{ partners.description }}
-                                    </div>
+                                        <div class='partnerDescription'>
+                                        {{ partners.description }}
+                                        </div>
 
-                                    <div class='partnerLink'>
-                                    <a href='{{ partners.websiteLink }}' target='blank'>{{ partners.websiteLink }}</a>
+                                        <div class='partnerLink'>
+                                        <a href='{{ partners.websiteLink }}' target='blank'>{{ partners.websiteLink }}</a>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
+                                
                             </div>
-                            
-                        </div>
 
-                    {% endfor %}
+                        {% endfor %}
+
+                    {% else %}
+
+                        Pas de partenaire
                     
+                    {% endif %}
                 </div>
 
             </div>

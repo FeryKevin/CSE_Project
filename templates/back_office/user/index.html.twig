@@ -12,6 +12,7 @@
                     <a class='admin-create' href="{{ path('user_new') }}">Nouvel utilisateur</a>
                 </div>
                 <div class='admin-user'>
+                    {% if users|length > 0 %}
                     <div class='table-responsive'>
                         <table class="table admin-table table table-striped table-bordered">
                             <thead class='thead-dark'>
@@ -41,6 +42,9 @@
                             </tbody>
                         </table>
                     </div>
+                    {% else %}
+                        Pas d'utilisateur
+                    {% endif %}
                 </div>
             </div>
         </div>

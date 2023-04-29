@@ -1,34 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Offres{% endblock %}  
+{% block title %}Offres {% endblock %}  
 
 {% block body %}
     <div class='menuPublic'>
         {{ include('include/menu.html.twig') }}
     </div>
 
-    <h3 class='hMessage'>Offres :</h3> 
     <div id="offers-index">
+        <h3 class='hMessage'>Offres
+            {% if type == "permanent" %}permanentes
+            {% else %}limitées
+            {% endif %}:</h3> 
+        <div class="filter-buttons">
+            {% if type == "permanent" %}
+                <a class='offer-button' href={{ path('limited_offers') }}>Offres limitées</a>
+            {% else %}
+                <a class='offer-button' href={{ path('permanent_offers') }}>Offres permanentes</a>
+            {% endif %}
+        </div>
         <div class='partners-container offers-container'>
-            {% for offer in pagination.data %}
-                <div class='offer-card'>
-                    <label for='image-{{ offer.id }}'><img src={{ offer.images[0].path }} /></label>
-                    <div class='offer-right'>
-                        <div class='offer-info'>
-                            <h4>{{ offer.name }}</h4>
-                            <div class="offer-description">
-                                <p>{{ offer.description }}</p>
-                            </div>
-                            <div class="offer-more">
-                                <a class='offer-about-button' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+            {% if pagination.data is defined %}
+                {% for offer in pagination.data %}
+                    <div class='offer-card'>
+                        <label for='image-{{ offer.id }}'><img src={{ offer.images[0].path }} /></label>
+                        <div class='offer-right'>
+                            <div class='offer-info'>
+                                <div class="offer-info-header">
+                                    <h4>{{ offer.name }}</h4>
+                                    <p class="offer-published-at">{{ offer.publishedAt|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }}</p>
+                                </div>
+                                <div class="offer-description">
+                                    <p>{{ offer.description }}</p>
+                                </div>
+                                <div class="offer-more">
+                                    <a class='offer-about-button' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div><br>
-            {% endfor %}
+                    </div><br>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="pagination-offers">
-            {{ include('components/_paginationIndex.html.twig') }}
+            {{ include('components/_paginationOffers.html.twig') }}
         </div>
     </div>
 {% endblock %}
