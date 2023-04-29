@@ -23,7 +23,7 @@
                     {% else %}- Offre du
                         {{ offer.limitedDisplayBeginning|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }}
                         au {{ offer.limitedDisplayEnding|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }}</p>
-                    {% endif %}:</h3> 
+                    {% endif %}</h3> 
                         
                     
                     <div class='offer-body'>
@@ -31,8 +31,8 @@
                         <p>{{ offer.description }}<p>
 
                         <div class='offer-imgs'>
-                            {% for offer in offer.images %}
-                                <img src={{ offer.path }}/>
+                            {% for image in offer.images %}
+                                <img src="{{ image.path }}"/>
                             {% endfor %}
                         </div>
                         
