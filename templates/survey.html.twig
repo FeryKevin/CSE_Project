@@ -18,8 +18,8 @@
         </div>
         <div class='survey-footer'>{{ form_widget(form.save, { 'label': 'Valider' }) }}</div>
         {{ form_end(form) }}
-    {% else %}
-        <h3>Il n'y a pas de sondage actuellement disponible</h3>
+    {% else %}<br>
+        <h5>Sondage actuellement indisponible</h5>
         </div>
         <div class='survey-footer'></div>
     {% endif %}
