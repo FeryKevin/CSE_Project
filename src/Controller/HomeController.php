@@ -73,10 +73,17 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/newsletterInscription', name: 'newsletter_inscription', methods: ['POST'])]
-    public function newsletterInscription(Request $request, EntityManagerInterface $em, ValidatorInterface $validator)
+    public function newsletterInscription(Request $request, EntityManagerInterface $em, ValidatorInterface $validator, NewsletterRepository $newsletterRepository)
     {
         if (!$this->isCsrfTokenValid('newsletter', $request->request->get('token')))
             return $this->redirect('/');
+
+
+        if (count($newsletterRepository->findBy(['email' => $request->request->get('email')])) > 0) {
+            $this->addFlash('fail', 'Vous etes déjà inscrit(e) à la newsletter');
+            return $this->redirect($request->headers->get('referer'));
+        }
+
         $newsletter = new Newsletter();
         $newsletter->setEmail($request->request->get('email'))
             ->setIsRegistered(true)

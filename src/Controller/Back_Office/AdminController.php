@@ -11,15 +11,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 #[Route('/admin/users')]
 class AdminController extends AbstractController
 {
     private UserPasswordHasherInterface $encoder;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    private Security $security;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher, Security $security)
     {
         $this->encoder = $passwordHasher;
+        $this->security = $security;
     }
 
     #[Route('/', name: 'admin_users', methods: ['GET'])]
@@ -76,6 +80,11 @@ class AdminController extends AbstractController
     #[Route('/user/{id}', name: 'user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
+        $currentUser = $this->security->getUser();
+        if ($currentUser->getId() === $user->getId()) {
+            return $this->redirectToRoute('admin_users', [], Response::HTTP_SEE_OTHER);
+        }
+
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);
         }

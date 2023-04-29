@@ -30,8 +30,7 @@ class Mailer
             ->html("<h2>Une offre à été mise à jour</h2>
                 <h1>{$offer->getName()}: </h1>
                 <p>{$offer->getDescription()}</p>                
-                <a href='http://localhost:8000/'> -> En profiter <- </a>")
-            ->addPart((new DataPart(new File('../' . $offer->getImages()[0]->getPath(), 'offer-image', 'image/png')))->asInline());
+                <a href='http://localhost:8000/offre/{$offer->getId()}'> -> En profiter <- </a>");
 
         $this->mailer->send($email);
     }
@@ -45,8 +44,7 @@ class Mailer
             ->html("<h2>Une nouvelle offre à été ajoutée</h2>
             <h1>{$offer->getName()}</h1>
             <p>{$offer->getDescription()}</p>
-            <a href=http://localhost:8000/> -> En profiter <- </a>")
-            ->addPart((new DataPart(new File('../' . $offer->getImages()[0]->getPath(), 'offer-image', 'image/png')))->asInline());
+            <a href=http://localhost:8000/offre/{$offer->getId()}> -> En profiter <- </a>");
 
         $this->mailer->send($email);
     }
