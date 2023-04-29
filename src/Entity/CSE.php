@@ -51,7 +51,7 @@ class CSE
         return $this->presentationAbout;
     }
 
-    public function setPresentationAbout(string $presentationAbout): self
+    public function setPresentationAbout(?string $presentationAbout): self
     {
         $this->presentationAbout = $presentationAbout;
 
@@ -63,7 +63,7 @@ class CSE
         return $this->rules;
     }
 
-    public function setRules(string $rules): self
+    public function setRules(?string $rules): self
     {
         $this->rules = $rules;
 
@@ -75,7 +75,7 @@ class CSE
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -87,7 +87,7 @@ class CSE
         return $this->actions;
     }
 
-    public function setActions(string $actions): self
+    public function setActions(?string $actions): self
     {
         $this->actions = $actions;
 

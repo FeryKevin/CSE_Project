@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\CSE;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -41,9 +42,14 @@ class CSEFormType extends AbstractType
             ])
             ->add('email', options: [
                 'label' => "Email du CSE :",
-                'constraints' => new Assert\NotBlank([
-                    'message' => 'Ce champs ne peut pas être vide',
-                ]),
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Renseignez votre email',
+                    ]),
+                    new Assert\Email([
+                        'message' => 'Renseignez un email correct',
+                    ]),
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => "offer-button"],
