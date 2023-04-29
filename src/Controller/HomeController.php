@@ -80,7 +80,7 @@ class HomeController extends AbstractController
 
 
         if (count($newsletterRepository->findBy(['email' => $request->request->get('email')])) > 0) {
-            $this->addFlash('fail', 'Vous etes déjà inscrit(e) à la newsletter');
+            $this->addFlash('fail', 'Vous êtes déjà inscrit(e) à la newsletter');
             return $this->redirect($request->headers->get('referer'));
         }
 
