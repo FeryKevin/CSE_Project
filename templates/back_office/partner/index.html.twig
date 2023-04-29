@@ -12,34 +12,42 @@
     
     <div class='partners-container'>
 
-        {% for partners in partners %}
+        {% if partners|length > 0 %}
 
-            <div class='partner-card'>
+            {% for partners in partners %}
 
-                <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
+                <div class='partner-card'>
 
-                <form class='form-partner-image' enctype="multipart/form-data">
-                    <input type='file' name='image-input' id='image-input-{{ partners.id }}' class='inputs-partners' data={{ partners.id }} />
-                </form>
+                    <label for='image-input-{{ partners.id }}'> <img src={{ partners.image.path }} /> </label>
 
-                <div class='partner-right'>
+                    <form class='form-partner-image' enctype="multipart/form-data">
+                        <input type='file' name='image-input' id='image-input-{{ partners.id }}' class='inputs-partners' data={{ partners.id }} />
+                    </form>
 
-                    <div class='partner-info'>
-                        <input type='text' name='name' class='partner-{{ partners.id }}' value="{{ partners.name }}" />
-                        <input type='text' name='description' class='partner-{{ partners.id }}' value="{{ partners.description }}" /> 
-                        <input type='text' name='websiteLink' class='partner-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
+                    <div class='partner-right'>
+
+                        <div class='partner-info'>
+                            <input type='text' name='name' class='partner-{{ partners.id }}' value="{{ partners.name }}" />
+                            <input type='text' name='description' class='partner-{{ partners.id }}' value="{{ partners.description }}" /> 
+                            <input type='text' name='websiteLink' class='partner-{{ partners.id }}' value="{{ partners.websiteLink }}" /> 
+                        </div>
+
+                        <div class='partner-actions'>
+                            <a class='partner-update' data={{ partners.id }}>Modifier</a>
+                            <a class='partner-delete' data={{ partners.id }}>Supprimer</a>
+                        </div>
+
                     </div>
-
-                    <div class='partner-actions'>
-                        <a class='partner-update' data={{ partners.id }}>Modifier</a>
-                        <a class='partner-delete' data={{ partners.id }}>Supprimer</a>
-                    </div>
-
                 </div>
-            </div>
 
-        {% endfor %}
-        
+            {% endfor %}
+
+        {% else %}
+
+            Pas de partenaire
+            
+        {% endif %}
+
     </div>
 
     <script src='/scripts/partner.js'></script>
