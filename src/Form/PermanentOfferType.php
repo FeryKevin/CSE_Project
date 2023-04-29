@@ -38,12 +38,14 @@ class PermanentOfferType extends AbstractType
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début de validité',
                 ]),
+                'data' => new \Datetime,
                 'label' => "Date de début de validité",
             ])
             ->add('permanentValidityEnding', DateTimeType::class, [
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin de validité',
                 ]),
+                'data' => new \Datetime,
                 'label' => "Date de fin de validité",
             ])
             ->add('permanentMinimumPlaces', IntegerType::class, [
