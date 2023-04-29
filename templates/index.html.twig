@@ -21,6 +21,7 @@
                 <h3 class='hOffre'>Dernières offres ponctuelles</h3>
 
                 <div class="offer">
+                {% if pagination|length > 0 %}
                     {% for offer in pagination.data %}
                         <div class="offer-container">
                             <div class='offer-top'>
@@ -31,6 +32,9 @@
                             <a  class='offer-about' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
                         </div>
                     {% endfor %}
+                {% else %}
+                    Pas de résultat
+                {% endif %}
                 </div>
                 {% include 'components/_pagination.html.twig' %}
             </div>

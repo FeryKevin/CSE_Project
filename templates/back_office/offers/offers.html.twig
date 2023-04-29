@@ -27,15 +27,11 @@
                         <td>{{ offer.publishedAt|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }}</td>
                         <td><button class='admin-delete'><a href="{{ path('offer', { id: offer.id }) }}">Voir les détails</a></button></td>
                     </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="5">Aucun résultat</td>
-                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            Pas de résultats
+            Pas de résultat
         {% endif %}
     </section>
     <div class="offer-buttons">
