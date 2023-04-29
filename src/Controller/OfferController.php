@@ -20,7 +20,8 @@ class OfferController extends AbstractController
 {
     // Partie admin
     #[Route(path: "/admin/offer/create_permanent", name: "create_permanent_offer")]
-    public function createPermanentOffer(EntityManagerInterface $em, Request $request): Response
+    public function createPermanentOffer(EntityManagerInterface $em,
+        Request $request): Response
     {
         $offer = new Offer();
 
@@ -55,7 +56,8 @@ class OfferController extends AbstractController
     }
 
     #[Route(path: "/admin/offer/create_limited", name: "create_limited_offer")]
-    public function createLimitedOffer(EntityManagerInterface $em, Request $request): Response
+    public function createLimitedOffer(EntityManagerInterface $em,
+        Request $request): Response
     {
         $offer = new Offer();
         
@@ -100,7 +102,9 @@ class OfferController extends AbstractController
     }
 
     #[Route(path: "/admin/offer/{id}", name: "offer", methods: ['GET', 'POST'])]
-    public function offer(OfferRepository $offerRepository, int $id, Request $request): Response
+    public function offer(OfferRepository $offerRepository,
+        int $id,
+        Request $request): Response
     {
         $id = $request->get(key: 'id');
 
@@ -128,7 +132,11 @@ class OfferController extends AbstractController
     }
 
     #[Route(path: "/admin/offer/{id}/update", name: "update_offer", methods: ['GET', 'POST'])]
-    public function update(OfferRepository $offerRepository, int $id, EntityManagerInterface $em, Request $request, Newsletter $newsletter): Response
+    public function update(OfferRepository $offerRepository,
+        int $id,
+        EntityManagerInterface $em,
+        Request $request,
+        Newsletter $newsletter): Response
     {
         $id = $request->get(key: 'id');
 
@@ -172,14 +180,17 @@ class OfferController extends AbstractController
     }
     
     #[Route(path: "/admin/offers/delete_image", name: "delete_offer_image", methods: ['POST', 'OPTIONS', 'DELETE'])]
-    public function deleteImage(FileRepository $fileRepository, Request $request, EntityManagerInterface $manager): Response
+    public function deleteImage(FileRepository $fileRepository,
+        Request $request,
+        EntityManagerInterface $manager): Response
     {
         $post = json_decode($request->getContent(), true);
 
         $file = $fileRepository->find($post['id']);
         $fileName = $file->getStoredName();
         $fileExtension = $file->getExtension();
-        $filePath = $this->getParameter('kernel.project_dir') . '/public/img/offer/' . $fileName . '.' . $fileExtension;
+        $filePath = $this->getParameter('kernel.project_dir')
+        . '/public/img/offer/' . $fileName . '.' . $fileExtension;
         unlink($filePath);
 
         $manager->remove($file);
@@ -189,7 +200,9 @@ class OfferController extends AbstractController
     }
     
     #[Route(path: "/admin/offer/{id}/delete", name: "delete_offer", methods: ['GET', 'DELETE'])]
-    public function deleteOffer(OfferRepository $offerRepository, int $id, EntityManagerInterface $manager): Response
+    public function deleteOffer(OfferRepository $offerRepository,
+        int $id,
+        EntityManagerInterface $manager): Response
     {
         if ($offer = $offerRepository->find($id)) {
             $manager->remove($offer);
@@ -202,7 +215,8 @@ class OfferController extends AbstractController
 
     // Partie publique
     #[Route(path: ('/offre/{id}'), name: 'offer_details')]
-    public function details(Offer $offer, CSERepository $cseRepository)
+    public function details(Offer $offer,
+        CSERepository $cseRepository): Response
     {
         $cse = $cseRepository->findAll()[0];
 
@@ -213,16 +227,44 @@ class OfferController extends AbstractController
     }
 
     // Partie publique
-    #[Route(path: '/offres', name: 'offers'), Route(path: '/offres/page/{page}', name: 'pagined_offers')]
-    public function home(CSERepository $cseRepository, OfferRepository $offerRepository, int $page = 1): Response
+    #[Route(path: '/offres', name: 'offers')]
+    public function offersIndex(): Response
     {
-        $pagination = $offerRepository->findWithPaginator($page, $limit = 8);
+        return $this->redirectToRoute('limited_offers');
+    }
+
+    #[Route(path: '/offres/permanentes', name: 'permanent_offers'),
+        Route(path: '/offres/permanentes/page/{page}', name: 'pagined_permanent_offers')]
+    public function permanentOffers(CSERepository $cseRepository,
+        OfferRepository $offerRepository,
+        int $page = 1): Response
+    {
+        $pagination = $offerRepository->findWithPaginator($page, $limit = 8, $type = 'permanent');
 
         $cse = $cseRepository->findAll()[0];
 
         return $this->render('offers/index.html.twig', [
                 'pagination' => $pagination,
                 'email' => $cse->getEmail(),
+                'type' => 'permanent',
+            ]
+        );
+    }
+
+    #[Route(path: '/offres/limitees', name: 'limited_offers'),
+        Route(path: '/offres/limitees/page/{page}', name: 'pagined_limited_offers')]
+    public function limitedOffers(CSERepository $cseRepository,
+        OfferRepository $offerRepository,
+        int $page = 1): Response
+    {
+        $pagination = $offerRepository->findWithPaginator($page, $limit = 8, $type = 'limited');
+
+        $cse = $cseRepository->findAll()[0];
+
+        return $this->render('offers/index.html.twig', [
+                'pagination' => $pagination,
+                'email' => $cse->getEmail(),
+                'type' => 'limited',
             ]
         );
     }

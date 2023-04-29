@@ -58,11 +58,21 @@ class OfferRepository extends ServiceEntityRepository
             ->select('f')
             ->from('App\Entity\Offer', 'f')
             ->setMaxResults($limit)
-            ->setFirstResult(($page - 1) * $limit);
+            ->setFirstResult(($page - 1) * $limit)
+            ->addOrderBy('f.limitedDisplayNumber', 'ASC')
+            ->addOrderBy('f.publishedAt', 'DESC');
         if ($type === "limited") {
             $query
                 ->where('f.permanentValidityBeginning IS null')
-                ->orderBy('f.limitedDisplayNumber', 'DESC');
+                ->andWhere($query->expr()->neq('f.limitedDisplayNumber', 0));
+        } elseif ($type === "permanent") {
+            $query
+                ->where('f.limitedDisplayNumber IS null');
+        } elseif ($type === "lastLimited") {
+            $query
+                ->where('f.permanentValidityBeginning IS null')
+                ->andWhere($query->expr()->neq('f.limitedDisplayNumber', 0))
+                ->orderBy('f.publishedAt', 'DESC');
         }
 
         $paginator = new Paginator($query);

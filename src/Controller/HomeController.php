@@ -32,7 +32,7 @@ class HomeController extends AbstractController
     #[Route(path: '/', name: 'home'), Route(path: '/page/{page}', name: 'paginedHome')]
     public function home(CSERepository $cseRepository, int $page = 1): Response
     {
-        $pagination = $this->offerRepository->findWithPaginator($page, $limit = 3, $type = "limited");
+        $pagination = $this->offerRepository->findWithPaginator($page, $limit = 3, $type = "lastLimited");
 
         $cse = $cseRepository->findAll()[0];
 

@@ -14,13 +14,17 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
+                        <th>Type</th>
+                        <th>Date de publication</th>
                         <th>Détails</th>
                     </tr>
                 </thead>
                 <tbody>
-                {% for offer in offers %}
+                {% for offer in offers|sort((a, b) => b.publishedAt <=> a.publishedAt) %}
                     <tr>
                         <td>{{ offer.name }}</td>
+                        <td>{% if offer.type == "permanent" %} Permanente{% else %}Limitée{% endif %}</td>
+                        <td>{{ offer.publishedAt|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }}</td>
                         <td><button class='admin-delete'><a href="{{ path('offer', { id: offer.id }) }}">Voir les détails</a></button></td>
                     </tr>
                 {% else %}

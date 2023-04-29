@@ -1,9 +1,16 @@
-{% if pagination.pages > 1 %}
+{% if type is defined %}
+    {% set pagePath = 'pagined_' ~ type ~ '_offers' %}
+{% else %}
+    {% set pagePath = 'pagined_offers' %}
+{% endif %}
+
+{% if pagination.pages is defined %}
+    {% if pagination.pages > 1 %}
     <nav>
         <ul id="pagination">
             {% if pagination.currentPage > 1 %}
                 <li class='pagination-link page-number'>
-                    <a href={{ path('pagined_offers', {"page" : pagination.currentPage - 1}) }} class='page-number'>&lt;</a>
+                    <a href={{ path(pagePath, {"page" : pagination.currentPage - 1}) }} class='page-number'>&lt;</a>
                 </li>
             {% else %}
                 <li class='pagination-link page-number disable'>
@@ -18,16 +25,16 @@
                         <a >1</a>
                     </li>
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : 2}) }}>2</a>
+                        <a href={{ path(pagePath, {"page" : 2}) }}>2</a>
                     <li class='pagination-link'>
                         <a>...</a>
                     </li>  
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : pagination.pages-1}) }}>{{ pagination.pages-1 }}</a>
+                        <a href={{ path(pagePath, {"page" : pagination.pages-1}) }}>{{ pagination.pages-1 }}</a>
                     </li>
                 {% else %}
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : 1}) }}>1</a>
+                        <a href={{ path(pagePath, {"page" : 1}) }}>1</a>
                     </li>
                 {% endif %}
 
@@ -37,7 +44,7 @@
                     </li>
                 {% elseif pagination.currentPage == pagination.pages-1 %}
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : 2}) }}>2</a>
+                        <a href={{ path(pagePath, {"page" : 2}) }}>2</a>
                     </li>
                     <li class='pagination-link'>
                         <a>...</a>
@@ -66,26 +73,26 @@
                         <a>...</a>
                     </li>
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : pagination.pages-1 }) }}>{{ pagination.pages-1 }}</a>
+                        <a href={{ path(pagePath, {"page" : pagination.pages-1 }) }}>{{ pagination.pages-1 }}</a>
                     </li>
                 {% endif %}
 
                 {% if pagination.currentPage == pagination.pages %}
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : 2}) }}>2</a>
+                        <a href={{ path(pagePath, {"page" : 2}) }}>2</a>
                     </li>
                     <li class='pagination-link'>
                         <a>...</a>
                     </li>
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : pagination.pages -1 }) }}>{{ pagination.pages -1 }} </a>
+                        <a href={{ path(pagePath, {"page" : pagination.pages -1 }) }}>{{ pagination.pages -1 }} </a>
                     </li>  
                     <li class='pagination-link current'>
                         <a>{{ pagination.currentPage }}</a>
                     </li>
                 {% else %}
                     <li class='pagination-link'>
-                        <a href={{ path('pagined_offers', {"page" : pagination.pages}) }}>{{ pagination.pages }}</a>
+                        <a href={{ path(pagePath, {"page" : pagination.pages}) }}>{{ pagination.pages }}</a>
                     </li>
                 {% endif %}
 
@@ -98,7 +105,7 @@
                         </li>
                     {% else %}
                         <li class='pagination-link'>
-                            <a href={{ path('pagined_offers', {"page" : page}) }}>{{ page }}</a>
+                            <a href={{ path(pagePath, {"page" : page}) }}>{{ page }}</a>
                         </li>
                     {% endif %}
 
@@ -107,7 +114,7 @@
 
             {% if pagination.currentPage < pagination.pages %}
                 <li class='pagination-link page-number'>
-                    <a href={{ path('pagined_offers', {"page" : pagination.currentPage + 1}) }} class='page-number'>&gt;</a>
+                    <a href={{ path(pagePath, {"page" : pagination.currentPage + 1}) }} class='page-number'>&gt;</a>
                 </li>
             {% else %}
                 <li class='pagination-link page-number disable'>
@@ -116,4 +123,7 @@
             {% endif %}
         </ul>
     </nav>
+    {% endif %}
+{% else %}
+    Aucune offre n'est disponible actuellement
 {% endif %}
