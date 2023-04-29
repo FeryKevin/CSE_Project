@@ -58,4 +58,4 @@ aaa
 <br>
 
 ## Docker
-L'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher s'ouvre sur le port 1664.
+L'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher qui s'ouvre sur le port 1664.
