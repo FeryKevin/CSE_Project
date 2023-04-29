@@ -43,8 +43,11 @@ class SurveyController extends AbstractController
     public function handleSurveyForm(Request $request, EntityManagerInterface $em)
     {
         $survey = $this->surveyRepository->find($request->get('survey'));
-        if (!array_key_exists('answers', $request->get('survey_form')))
+        if (!array_key_exists('answers', $request->get('survey_form'))) {
+            $this->addFlash('SurveyFail', 'Veuillez selectionnner une réponse');
+
             return $this->redirect($request->headers->get('referer'));
+        }
 
         $answer = $survey->getAnswers()[$request->get('survey_form')['answers']];
         $answer->setAnswerNumber($answer->getAnswerNumber() + 1);
