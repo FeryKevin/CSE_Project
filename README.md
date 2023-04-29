@@ -1,9 +1,11 @@
 # Projet CSE
 
-Site du comité social et économique du lycée Saint-Vincent, il permet de consulter les informations sur les offres et les partenariats du CSE à ses salariés.
+Site du comité social et économique du lycée Saint-Vincent. Il permet de consulter les informations sur les offres et les partenariats du CSE.
+
+<br>
 
 ## Contexte
-Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des connaissances et permet de capitaliser les deux années d'apprentissages au sein du BTS.
+Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des connaissances et il permet de capitaliser les deux années d'apprentissages au sein du BTS.
 
 <br>
 
@@ -18,6 +20,7 @@ Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des conn
  - PHP 8.1 +
  - Système de gestion de base de données
  - Composer
+ - Avoir les extensions "extension=zip" et "extension=intl" dans le fichier PHP ini
 
 <br>
 
@@ -40,7 +43,7 @@ symfony serve
 ```
 <br>
 
-## Connexion
+## Connexion (superadmin)
 
 Login :
 ```bash
@@ -54,4 +57,4 @@ aaa
 <br>
 
 ## Optionnel
-Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher
+Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher.
