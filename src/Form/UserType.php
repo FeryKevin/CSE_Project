@@ -27,7 +27,7 @@ class UserType extends AbstractType
             'row_attr' => ['class' => 'user-form'],
             'constraints' => [
                 new Assert\Email([
-                    'message' => 'L\'email "{{ value }}" n\'est pas valide.',
+                    'message' => 'L\'email {{ value }} n\'est pas valide.',
                 ]),
                 new Assert\NotBlank()
             ],
