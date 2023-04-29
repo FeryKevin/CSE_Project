@@ -25,7 +25,7 @@
                         <div class="offer-container">
                             <div class='offer-top'>
                                 <div class='offer-icon'>Offre ponctuelle</div>
-                                <h6 class='offer-time'>Publié le {{ offer.publishedAt|format_datetime(pattern='hh MMMM y', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }} </h6>
+                                <h6 class='offer-time'>Publiée le {{ offer.publishedAt|format_datetime(pattern='dd/MM/yyyy à HH:mm', locale='fr') }} - Du {{ offer.permanentValidityBeginning|date("d/m/Y") }} du {{ offer.permanentValidityEnding|date("d/m/Y") }} </h6>
                             </div>
                             <p class='offer-description'>{{ offer.description }}</p>
                             <a  class='offer-about' href={{ path('offer_details', {'id' : offer.id}) }}>En savoir plus &gt;</a>
