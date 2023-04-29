@@ -21,7 +21,7 @@ Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des conn
  - Système de gestion de base de données
  - Composer
  - Avoir les extensions "extension=zip" et "extension=intl" dans le fichier PHP ini
-
+image.png
 <br>
 
 ## Installation
@@ -57,4 +57,4 @@ aaa
 <br>
 
 ## Optionnel
-Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher.
+Possibilité de lancer le projet avec docker, l'environnement se compose d'une partie base de données ainsi qu'une partie mailcatcher s'ouvre sur le port 1664.

@@ -58,6 +58,7 @@ class OfferRepository extends ServiceEntityRepository
             ->select('f')
             ->from('App\Entity\Offer', 'f')
             ->setMaxResults($limit)
+            ->orderBy("date")
             ->setFirstResult(($page - 1) * $limit);
         if ($type === "limited") {
             $query
