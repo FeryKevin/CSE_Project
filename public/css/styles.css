@@ -682,6 +682,11 @@ input#question {
     flex-direction: row;
 }
 
+.offers-container
+{
+    justify-content: center !important;
+}
+
 .offer-card
 {
     display: flex;
@@ -775,11 +780,6 @@ input#question {
 }
 
 @media screen and (max-width: 1400px) {
-    .offers-container
-    {
-        justify-content: center !important;
-    }
-    
     .offer-info
     {
         height: 100%;
