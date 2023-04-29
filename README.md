@@ -43,7 +43,7 @@ symfony serve
 ```
 <br>
 
-## Connexion
+## Connexion (superadmin)
 
 Login :
 ```bash
