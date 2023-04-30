@@ -941,6 +941,11 @@ input#question {
     margin-top: 5%;
 }
 
+.aboutUs-public *
+{
+    text-align: center;
+}
+
 .hAbout {
     padding-bottom: 8px;
 }
