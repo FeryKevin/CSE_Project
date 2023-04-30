@@ -47,8 +47,6 @@ class OfferController extends AbstractController
             $em->persist($offer);
             $em->flush();
 
-            $mailer->sendNewOffer($offer);
-
             return $this->redirectToRoute('admin_offers');
         }
 

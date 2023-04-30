@@ -49,9 +49,15 @@ class PermanentOfferType extends AbstractType
                 'label' => "Date de fin de validité",
             ])
             ->add('permanentMinimumPlaces', IntegerType::class, [
-                'constraints' => new Assert\NotBlank([
-                    'message' => 'Veuillez entrer un nombre de places minimal',
-                ]),
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Veuillez entrer un numéro d\'affichage',
+                    ]),
+                    new Assert\GreaterThanOrEqual([
+                        'value' => 0,
+                        'message' => 'Veuillez entrer un nombre positif',
+                    ]),
+                ],
                 'label' => "Nombre de places minimal",
             ])
             ->add('images', CollectionType::class, [
