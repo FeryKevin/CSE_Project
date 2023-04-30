@@ -38,14 +38,12 @@ class LimitedOfferType extends AbstractType
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de début d\'affichage',
                 ]),
-                'data' => new \Datetime,
                 'label' => "Date de début d'affichage",
             ])
             ->add('limitedDisplayEnding', DateTimeType::class, [
                 'constraints' => new Assert\NotBlank([
                     'message' => 'Veuillez entrer une date de fin d\'affichage',
                 ]),
-                'data' => new \Datetime,
                 'label' => "Date de fin d'affichage",
             ])
             ->add('limitedDisplayNumber', IntegerType::class, [
