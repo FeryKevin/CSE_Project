@@ -113,7 +113,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request, EntityManagerInterface $em, CSERepository $cseRepository)
+    public function contact(Request $request, EntityManagerInterface $em, CSERepository $cseRepository, NewsletterRepository $newsletterRepository)
     {
         $cse = $cseRepository->findAll()[0];
 
@@ -123,6 +123,11 @@ class HomeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $msg = $form->getData();
             if ($form->get('newsletter')->getData()) {
+                if (count($newsletterRepository->findBy(['email' => $msg->getEmail()])) > 0) {
+                    $this->addFlash('contactFail', 'Vous êtes déjà inscrit(e) à la newsletter');
+                    return $this->redirect($request->headers->get('referer'));
+                }
+
                 $client = new Newsletter();
                 $client->setEmail($msg->getEmail())
                     ->setIsRegistered(1)
