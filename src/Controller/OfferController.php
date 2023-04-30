@@ -21,7 +21,8 @@ class OfferController extends AbstractController
     // Partie admin
     #[Route(path: "/admin/offer/create_permanent", name: "create_permanent_offer")]
     public function createPermanentOffer(EntityManagerInterface $em,
-        Request $request): Response
+        Request $request,
+        Newsletter $mailer): Response
     {
         $offer = new Offer();
 
@@ -46,6 +47,8 @@ class OfferController extends AbstractController
             $em->persist($offer);
             $em->flush();
 
+            $mailer->sendNewOffer($offer);
+
             return $this->redirectToRoute('admin_offers');
         }
 
@@ -56,7 +59,9 @@ class OfferController extends AbstractController
     }
 
     #[Route(path: "/admin/offer/create_limited", name: "create_limited_offer")]
-    public function createLimitedOffer(EntityManagerInterface $em, Request $request, Newsletter $mailer): Response
+    public function createLimitedOffer(EntityManagerInterface $em,
+        Request $request,
+        Newsletter $mailer): Response
     {
         $offer = new Offer();
 
@@ -163,6 +168,12 @@ class OfferController extends AbstractController
                         $path = $img->getFile()->getRealPath();
                         move_uploaded_file($path, '.' . $img->getPath());
                     }
+
+                    $now = new DateTime('now');
+                    $now_string = $now->format('Y-m-d H:i:s');
+                    $now = date_create_from_format('Y-m-d H:i:s', $now_string);
+
+                    $offer->setUpdatedAt($now);
 
                     $em->persist($offer);
                     $em->flush();
