@@ -42,12 +42,16 @@
                     
                     <h3 class='hAbout2'>Nos membres</h3>
                     <div class='aboutUs-photos'>
-                        {% for member in members %}
-                            <div class='about-presentation'>
-                                <img src={{ member.image.path }} />
-                                <p>{{ member.name }} {{ member.firstname }}</p>
-                            </div>
-                        {% endfor %}
+                        {% if members|length > 0 %}
+                            {% for member in members %}
+                                <div class='about-presentation'>
+                                    <img src={{ member.image.path }} />
+                                    <p>{{ member.name }} {{ member.firstname }}</p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Pas de membre</p>
+                        {% endif %}
                     </div>
                 </div>
 
