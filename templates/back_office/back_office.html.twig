@@ -32,14 +32,14 @@
 
             <a href={{ path('admin_contacts') }}>
                 <div class='admin-choice'>
-                    <h3>Message</h3>
+                    <h3>Messages</h3>
                     <img src='/img/message.png' />
                 </div>
             </a>
 
             <a href={{ path('admin_surveys') }}>
                 <div class='admin-choice'>
-                    <h3>Sondage</h3>
+                    <h3>Sondages</h3>
                     <img src='/img/survey.png' />
                 </div>
             </a>
@@ -47,7 +47,7 @@
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <a href={{ path('admin_users') }}>
                     <div class='admin-choice'>
-                        <h3>Compte</h3>
+                        <h3>Comptes</h3>
                         <img src='/img/admin.png' />
                     </div>
                 </a>
