@@ -20,8 +20,9 @@ Dans le cadre du BTS SIO du lycée Saint-Vincent ce projet est le bilan des conn
  - PHP 8.1 +
  - Système de gestion de base de données
  - Composer
- - Avoir les extensions "extension=zip" et "extension=intl" dans le fichier PHP ini
  - Docker
+ - Avoir les extensions "extension=zip" et "extension=intl" dans le fichier PHP ini
+ - CKEditor avec la commande : php bin/console ckeditor:install
 
 <br>
 
