@@ -69,7 +69,6 @@ class OfferRepository extends ServiceEntityRepository
                 ->andWhere($query->expr()->gte('f.limitedDisplayEnding', ':now'))
                 ->andWhere($query->expr()->neq('f.limitedDisplayNumber', 0))
                 ->setParameter('now', new \DateTimeImmutable(), Types::DATETIME_IMMUTABLE);
-
         } elseif ($type === "permanent") {
             $query
                 ->where('f.limitedDisplayNumber IS null');
